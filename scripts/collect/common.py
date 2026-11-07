@@ -35,6 +35,31 @@ def fetch(url, max_age_days=1, delay=0.5):
     return text
 
 
+def fetch_pdf_pages(url, max_age_days=30, delay=0.5):
+    """Text of each page of a PDF (needs pypdf), cached on disk. Returns [] if pypdf is missing or the PDF is a 404.
+
+    Page text comes out in reading order per column block, so callers should match on phrases, not layout.
+    """
+    try:
+        import pypdf
+    except ImportError:
+        print("   pypdf not installed; skipping", url)
+        return []
+    pdf_dir = CACHE / "pdf"
+    pdf_dir.mkdir(parents=True, exist_ok=True)
+    path = pdf_dir / (hashlib.sha1(url.encode()).hexdigest() + ".pdf")
+    if not (path.exists() and time.time() - path.stat().st_mtime < max_age_days * 86400):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=90) as r:
+                path.write_bytes(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return []
+            raise
+        time.sleep(delay)
+    return [(p.extract_text() or "") for p in pypdf.PdfReader(str(path)).pages]
+
+
 def iso_week(d):
     y, w, _ = d.isocalendar()
     return f"{y}-W{w:02d}"

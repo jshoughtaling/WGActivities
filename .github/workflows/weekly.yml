@@ -24,7 +24,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python dependencies
-        run: pip install pyyaml
+        run: pip install -r requirements.txt
 
       # Each collector is independent: one failing source must not stop the build.
       # GitHub: incremental after the first (local) backfill; GITHUB_TOKEN has a low hourly limit.

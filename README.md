@@ -21,7 +21,7 @@ prompts/           prompt for the local Claude-in-Chrome Teams count run
 python3 scripts/collect/github.py      # first run is ~1,500 API requests; uses `gh auth token` or GITHUB_TOKEN
 python3 scripts/collect/forums.py
 python3 scripts/collect/calls.py
-python3 scripts/collect/conference.py
+python3 scripts/collect/conference.py   # needs: pip install -r requirements.txt (pypdf reads the agenda PDFs)
 python3 scripts/build_activity.py
 python3 scripts/build_collab.py
 Rscript build-site.R                   # needs R, the rmarkdown package and pandoc

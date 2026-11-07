@@ -11,6 +11,10 @@ global_symposia:
 
 # Regional and national events. One page per event on ohdsi.org; what a page lists varies, so `parse` says which
 # parsers to run (see scripts/collect/conference.py):
+#   euposters poster/abstract tables of the OHDSI Europe site (ohdsi-europe.org), read from the page's JSON data file
+#   listed    `sessions:` typed in for what the PDF parser misses (wrapped or two-column layouts). Must come after agenda_pdfs.
+#   agenda_pdfs  agenda PDFs listed under `agenda_pdfs:` (needs pypdf): weekend workshops and workgroup meetings,
+#             or `kind: mainday` for numbered showcase talks. `pages:` picks 1-based pages of a booklet.
 #   list      "Title (authors)" entries linking to showcase-N pages (2020 pages)
 #   rows      table rows "N | Title | Authors" (showcase abstract tables)
 #   links     poster, slide and lightning-talk links whose link text is a title (2022-2025 APAC homepages)
@@ -21,19 +25,41 @@ global_symposia:
 regional_events:
   - {region: Europe, year: 2020, date: 2020-06-01, name: "Europe Symposium 2020 (virtual showcase)", url: "https://www.ohdsi.org/2020-european-symposium-virtual-collaborator-showcase/", parse: [list]}
   - {region: APAC,   year: 2020, date: 2020-12-05, name: "APAC Symposium 2020", url: "https://www.ohdsi.org/2020-asia-pacific-symposium-collaborator-showcase/", parse: [list]}
-  - {region: Europe, year: 2022, date: 2022-06-24, name: "Europe Symposium 2022", url: "https://www.ohdsi.org/2022-european-symposium/", parse: []}
+  - {region: Europe, year: 2022, date: 2022-06-24, name: "Europe Symposium 2022", url: "https://www.ohdsi-europe.org/index.php/events-past-events-symposium-2022", parse: [euposters, agenda_pdfs], agenda_pdfs: [{kind: weekend, url: "https://www.ohdsi-europe.org/images/symposium-2022/AGENDA-EUROPE-final-v2.pdf", pages: [4, 5]}]}
   - {region: APAC,   year: 2022, date: 2022-11-12, name: "APAC Symposium 2022", url: "https://www.ohdsi.org/2022apacsymposium/", parse: [links]}
-  - {region: Europe, year: 2023, date: 2023-07-01, name: "Europe Symposium 2023", url: "https://www.ohdsi.org/europe2023-showcase/", parse: [rows]}
+  - {region: Europe, year: 2023, date: 2023-07-01, name: "Europe Symposium 2023", url: "https://www.ohdsi-europe.org/index.php/events-past-events-symposium-2023", rows_url: "https://www.ohdsi.org/europe2023-showcase/", parse: [euposters, rows, agenda_pdfs], agenda_pdfs: [{kind: weekend, url: "https://www.ohdsi-europe.org/images/symposium-2023/Materials/booklet.pdf", pages: [21, 22, 23]}]}
   - {region: APAC,   year: 2023, date: 2023-07-13, name: "APAC Symposium 2023", url: "https://www.ohdsi.org/2023apacsymposium/", parse: [links]}
-  - {region: Europe, year: 2024, date: 2024-06-01, name: "Europe Symposium 2024", url: "https://www.ohdsi.org/past-events/", parse: [], note: "Rotterdam, main day June 3; no page on ohdsi.org, so the link is the past-events list"}
+  - {region: Europe, year: 2024, date: 2024-06-01, name: "Europe Symposium 2024", url: "https://www.ohdsi-europe.org/index.php/events-past-events-symposium-2024", note: "main day June 3, weekend workshops before it", parse: [euposters, agenda_pdfs], agenda_pdfs: [{kind: weekend, url: "https://www.ohdsi-europe.org/images/symposium-2024/Materials/booklet.pdf", pages: [24, 25, 26, 27]}]}
   - {region: APAC,   year: 2024, date: 2024-12-04, name: "APAC Symposium 2024", url: "https://www.ohdsi.org/apac2024/", parse: [links]}
   - {region: India,  year: 2024, date: 2024-10-05, name: "India Symposium 2024", url: "https://www.ohdsi.org/india2024/", parse: []}
-  - {region: Europe, year: 2025, date: 2025-07-05, name: "Europe Symposium 2025", url: "https://www.uhasselt.be/en/instituten-en/biomed-en/immunology/biomedical-data-sciences/events-biomedical-data-sciences/2025-ohdsi-europe-symposium", parse: [], note: "Hasselt; no page on ohdsi.org, so the link is the host university's event page"}
+  - {region: Europe, year: 2025, date: 2025-07-05, name: "Europe Symposium 2025", url: "https://www.ohdsi-europe.org/index.php/events-past-events-symposium-2025", parse: [euposters]}
   - {region: APAC,   year: 2025, date: 2025-12-08, name: "APAC Symposium 2025", url: "https://www.ohdsi.org/apac2025/", parse: [links]}
   - {region: Africa, year: 2025, date: 2025-11-10, name: "Africa Symposium 2025", url: "https://www.ohdsi.org/africa2025/", parse: [rows, sessions], wg: africa}
-  - {region: Europe, year: 2026, date: 2026-04-18, name: "Europe Symposium 2026", url: "https://www.ohdsi.org/europe-symposium-2026/", parse: []}
-  - {region: LATAM,  year: 2026, date: 2026-07-30, name: "Latin America Symposium 2026 (Salvador, Brazil)", url: "https://www.ohdsi.org/?p=37238", parse: [], note: "first LATAM symposium; announced in the weekly digests, no program page yet"}
+  - region: Europe
+    year: 2026
+    date: 2026-04-18
+    name: "Europe Symposium 2026"
+    url: "https://www.ohdsi-europe.org/index.php/events-past-events-symposium-2026"
+    parse: [euposters, agenda_pdfs, listed]
+    agenda_pdfs:
+      - {kind: weekend, url: "https://www.ohdsi-europe.org/images/symposium-2026/Agenda.OHDSI.Europe.2026_weekend.pdf"}
+      - {kind: mainday, url: "https://www.ohdsi-europe.org/images/symposium-2026/Final_agenda_symposium.2026.pdf"}
+    # The weekend agenda's two-column layout defeats the parser for these.
+    sessions:
+      - {type: tutorial, title: "Phenotyping in OHDSI: pipelines, steps & tools", wg: [phenotype]}
+      - {type: tutorial, title: "Data Quality Assessment Framework & Tools", wg: [data-quality]}
+      - {type: tutorial, title: "Reviewing results in OHDSI Shiny apps"}
+      - {type: tutorial, title: "ETL development and updating", wg: [etl]}
+      - {type: tutorial, title: "Using OHDSI/DARWIN packages to design your own studies"}
+      - {type: wg_session, title: "Thematic deep dive: Oncology", wg: [oncology]}
+      - {type: wg_session, title: "Question-Answers pairs in OMOP (thematic deep dive)", wg: [cdm-survey]}
+      - {type: wg_session, title: "Thematic deep dive: MindMeetsMachines Vocab Edition (human vs AI concept mapping)", wg: [cdm-vocabulary, gaia-genai]}
+      - {type: regional_session, title: "Office hours: ETL / Mapping", wg: [etl]}
+      - {type: regional_session, title: "Office hours: OHDSI Standardized Vocabularies", wg: [cdm-vocabulary]}
+      - {type: regional_session, title: "Office hours: OHDSI studies"}
+  - {region: LATAM,  year: 2026, date: 2026-07-30, name: "Latin America Symposium 2026 (Salvador, Brazil)", url: "http://www.ohdsilatam.org/", parse: [], note: "first LATAM symposium; chapter site has no program yet"}
   - {region: UK,     year: 2026, date: 2026-09-18, name: "OHDSI UK 2026 (Nottingham)", url: "https://www.hdruk.ac.uk/events/ohdsi-uk-2026/", parse: [], note: "hosted by HDR UK, not ohdsi.org; no abstract list published"}
+  - {region: Africa, year: 2026, date: 2026-09-27, name: "Africa Symposium 2026 (Ethiopia)", url: "https://ohdsi.africa/", parse: [], wg: africa, note: "dates from ohdsi-europe.org's events page; no program published"}
   - {region: APAC,   year: 2026, date: 2026-11-13, name: "APAC Symposium 2026", url: "https://www.ohdsi.org/apac2026/", parse: [agenda]}
 
 # `workgroups`: the symposium's WG activity day (one entry per WG session). `tutorials`: the tutorial day.

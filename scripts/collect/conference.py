@@ -8,12 +8,13 @@ match are emitted once with wg="unassigned" so the totals stay honest. Author na
 WG matching only and are not stored.
 """
 
+import json
 import re
 from datetime import date
 
 import yaml
 
-from common import ROOT, fetch, match_wgs, strip_tags, week_of, write_events
+from common import ROOT, fetch, fetch_pdf_pages, match_wgs, strip_tags, week_of, write_events
 
 ROW = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S)
 CELL = re.compile(r"<td[^>]*>(.*?)</td>", re.S)
@@ -157,34 +158,179 @@ def parse_sessions(html, page):
             yield {"title": mm.group(2).strip(), "url": page, "tutorial": mm.group(1).lower().startswith("tutorial")}
 
 
+EU_BASE = "https://www.ohdsi-europe.org"
+
+
+def parse_euposters(ev):
+    """Poster and abstract rows from ohdsi-europe.org. The page fills its table from
+    /custom/data/symposium-<year>-posters.json: `rows` ([n, title, authors]) or `rows_html` (<tr> strings)."""
+    raw = fetch(f"{EU_BASE}/custom/data/symposium-{ev['year']}-posters.json", max_age_days=30 if ev["year"] < date.today().year else 1)
+    if raw is None:
+        return
+    data = json.loads(raw)
+    for r in data.get("rows", []):
+        yield {"title": r[1].strip(), "url": ev["url"] + "#acc-posters", "text": f"{r[1]} {r[2]}"}
+    for html in data.get("rows_html", []):
+        cells = CELL.findall(html)
+        if len(cells) < 3 or not re.match(r"^\d+$", strip_tags(cells[0])):      # section header rows have one cell
+            continue
+        href = re.search(r'href="([^"]+)"', cells[1]) or re.search(r'(https?://[^&"]+)', cells[3] if len(cells) > 3 else "")
+        url = href.group(1).replace("&amp;", "&") if href else ev["url"] + "#acc-posters"
+        if not url.startswith("http"):
+            url = f"{EU_BASE}/{url.lstrip('/')}"
+        yield {"title": strip_tags(cells[1]), "url": url, "text": f"{strip_tags(cells[1])} {strip_tags(cells[2])}"}
+
+
+# ---- agenda PDFs -------------------------------------------------------------------------------------------
+# Agenda layouts differ by year, so these read the common shapes instead of one table format:
+#   weekend agendas   "Title / presenters / Description:" blocks, and "- Name WG (lead)" lines for workgroup meetings
+#   main-day agendas  numbered showcase talks, title wrapped over lines, the last line of each item being the presenter
+TIME_LEAD = re.compile(r"^\s*\d{1,2}[:.]\d\d\s*(?:[–-]\s*\d{1,2}[:.]\d\d\s*)?")
+SKIP_TITLE = re.compile(r"lunch|coffee|registration|break|target audience|drinks|social activity|networking|^description", re.I)
+WG_LINE = re.compile(r"^\s*[-•]\s*(.+?\b(?:WG|work ?group)\b)", re.I)
+QUOTED_WORKSHOP = re.compile(r"Workshop\s+[“\"](.+?)[”\"]")
+
+
+def session_type(title):
+    if re.search(r"work ?group|\bWG\b|deep dive", title, re.I) or [w for w in session_wgs(title) if w != "regional"]:
+        return "wg_session"
+    if re.search(r"national node", title, re.I):
+        return "regional_session"
+    return "tutorial" if re.search(r"workshop|tutorial|introduction|hands-on|hackathon|training", title, re.I) else "regional_session"
+
+
+PRESENTER = re.compile(r"^(?=[A-Z])(?:.*[,(]|[A-Z][\w'’.-]+ [A-Z][\w'’.-]+$|[A-Z][\w'’.-]+ [A-Z]\w+ [A-Z][\w'’.-]+$)")
+TIME_ONLY = re.compile(r"^[\d:.\s–-]+$")
+
+
+def parse_weekend_agenda(pages):
+    """Sessions from workshop and workgroup-meeting agenda pages.
+
+    A session block reads "title (maybe wrapped) / presenters / Description". Walking up from "Description", the
+    block starts after a blank line, a time-only line, a line ending a sentence (the previous column's text) or a
+    line that starts with a time. Wrapped title lines are the non-presenter lines before the first presenter line.
+    """
+    seen = set()
+
+    def emit(title):
+        title = re.sub(r"\s+", " ", re.sub(r"\s*\(?\btutorial\)?\s*$", "", title, flags=re.I)).strip(" -–:")
+        if (title and title.lower() not in seen and len(title) > 3 and not SKIP_TITLE.search(title)
+                and title[0].isupper() and len(title) < 110
+                and not re.match(r"^(saturday|sunday|agenda)\b|track\b|^in this timeslot|^workshop\s+[“\"]", title, re.I)):
+            seen.add(title.lower())
+            return {"title": title}
+
+    for text in pages:
+        lines = [l.rstrip() for l in text.splitlines()]
+        for i, line in enumerate(lines):
+            m = WG_LINE.match(line) or QUOTED_WORKSHOP.search(line)
+            if m:
+                e = emit("Workshop: " + m.group(1) if QUOTED_WORKSHOP.search(line) else m.group(1))
+                if e:
+                    yield e
+                continue
+            if not line.strip().lower().startswith("description"):
+                continue
+            j = i - 1
+            while j >= 0 and not lines[j].strip() and i - j < 3:      # "title / blank / Description"
+                j -= 1
+            block = []
+            while j >= 0 and len(block) < 8:
+                l = lines[j].strip()
+                if not l or TIME_ONLY.match(l) or (block and l.endswith((".", "?", "!"))):
+                    break
+                block.insert(0, l)
+                if TIME_LEAD.match(l):
+                    break
+                j -= 1
+            block = [b for b in (TIME_LEAD.sub("", l).strip() for l in block) if b]
+            if not block:
+                continue
+            title, k = block[0], 1
+            while k < len(block) and not PRESENTER.search(re.sub(r"^tutorial\s+", "", block[k])):
+                title += " " + block[k]                                  # a wrapped title line
+                k += 1
+            e = emit(title)
+            if e:
+                yield e
+
+
+def parse_mainday_agenda(pages):
+    """Numbered showcase talks "1. Title (wrapped)" followed by a presenter line."""
+    lines = [l for text in pages for l in text.splitlines()]
+    start = [i for i, l in enumerate(lines) if re.match(r"^\s*\d\s*\.\s*\S", l)]
+    for n, i in enumerate(start):
+        end = start[n + 1] if n + 1 < len(start) else len(lines)
+        item = []
+        for l in lines[i:end]:
+            if re.match(r"^\s*(Theatre|\d{1,2}:\d\d)", l) or re.search(r"Collaborator Showcase|Moderated by", l):
+                break
+            item.append(l.strip())
+        if len(item) >= 2:
+            title = re.sub(r"\s+", " ", re.sub(r"^\d\s*\.\s*", "", " ".join(item[:-1]))).strip()
+            if len(title) > 10:
+                yield {"title": title}
+
+
+def parse_agenda_pdfs(ev):
+    for pdf in ev.get("agenda_pdfs", []):
+        pages = fetch_pdf_pages(pdf["url"])
+        if pdf.get("pages"):
+            pages = [pages[i - 1] for i in pdf["pages"] if 0 < i <= len(pages)]
+        parser = parse_mainday_agenda if pdf.get("kind") == "mainday" else parse_weekend_agenda
+        for e in parser(pages):
+            yield {"title": e["title"], "url": pdf["url"], "type": "showcase_entry" if pdf.get("kind") == "mainday" else session_type(e["title"])}
+
+
 def collect_regional(cfg):
     events = []
     for ev in cfg.get("regional_events", []):
         age = 30 if ev["year"] < date.today().year else 1
-        html = fetch(ev["url"], max_age_days=age) if "ohdsi.org" in ev["url"] else None
+        html = fetch(ev["url"], max_age_days=age) if re.search(r"ohdsi(-europe)?\.org", ev["url"]) else None
         home = ev.get("wg") or "regional"
         base = {"date": ev["date"].isoformat(), "week": week_of(ev["date"]), "source": "conference",
                 "event": ev["name"], "region": ev["region"], "weight": 1}
         found = []
         for kind in ev.get("parse", []):
+            if kind == "euposters":
+                found += [dict(e, type="showcase_entry") for e in parse_euposters(ev)]
+                continue
+            if kind == "agenda_pdfs":
+                found += list(parse_agenda_pdfs(ev))
+                continue
+            if kind == "listed":
+                # typed in where the PDF text cannot be read reliably; wins over a parsed title that starts the same way
+                norm = lambda t: re.sub(r"\W+", "", t.lower().replace("thematic deep dive", ""))
+                mine = [norm(x["title"]) for x in ev.get("sessions", [])]
+                found = [f for f in found if f["type"] == "showcase_entry" or not any(
+                    len(norm(f["title"])) >= 6 and (m.startswith(norm(f["title"])) or norm(f["title"]).startswith(m)) for m in mine)]
+                found += [dict(title=x["title"], url=ev["url"], type=x["type"], wgs=x.get("wg")) for x in ev.get("sessions", [])]
+                continue
             if html is None:
                 break
             if kind == "list":
                 found += [dict(title=e["title"], url=e["url"], type="showcase_entry", text=e["title"] + " " + e["authors"])
                           for e in parse_list(html)]
             elif kind == "rows":
-                found += [dict(e, type="showcase_entry") for e in parse_rows(html, ev["url"])]
+                rows_html = fetch(ev["rows_url"], max_age_days=age) if ev.get("rows_url") else html
+                found += [dict(e, type="showcase_entry") for e in parse_rows(rows_html, ev.get("rows_url") or ev["url"])]
             elif kind == "links":
                 found += [dict(e, type="showcase_entry") for e in parse_links(html, ev["url"])]
             elif kind == "agenda":
                 found += [dict(e, type="regional_session") for e in parse_agenda(html, ev["url"])]
             elif kind == "sessions":
                 found += [dict(e, type="tutorial" if e["tutorial"] else "regional_session") for e in parse_sessions(html, ev["url"])]
+        seen, unique = set(), []
+        for e in found:                      # the same title can come from two sources for one event
+            if e["title"].lower() not in seen:
+                seen.add(e["title"].lower())
+                unique.append(e)
+        found = unique
         print(ev["name"], len(found), "entries")
         if not found:                       # no item list: keep the event itself visible, linked to its page
             found = [dict(title=ev["name"], url=ev["url"], type="regional_event")]
         for e in found:
-            for wg in match_wgs(e.get("text") or e["title"]) or [home]:
+            for wg in e.get("wgs") or match_wgs(e.get("text") or e["title"]) or [home]:
                 events.append({**base, "wg": wg, "type": e["type"], "title": e["title"], "url": e["url"]})
     return events
 
