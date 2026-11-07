@@ -99,6 +99,96 @@ def parse_tutorials(html):
             yield t
 
 
+# ---- regional events ---------------------------------------------------------------------------------------
+
+GENERIC_LINK = re.compile(r"^(slides?|recording|video|videos|poster|posters|agenda|booklet|photos?|full session|homepage|"
+                          r"home|click|link|download|register|read more|abstract|pdf|here)\b", re.I)
+
+
+def page_content(html):
+    """The page body, without the site header and footer."""
+    i = html.find('data-elementor-type="wp-page"')
+    j = html.find('data-elementor-type="footer"', i)
+    return html[i:j] if i >= 0 and j > i else html
+
+
+def parse_rows(html, page):
+    """Table rows "N | Title | Authors [| link]". The title's own link is used when it has one."""
+    for row in ROW.findall(html):
+        cells = CELL.findall(row)
+        if len(cells) < 3 or not re.match(r"^\d+\.?$", strip_tags(cells[0])):
+            continue
+        title = re.sub(r"^\d+\.\s*", "", strip_tags(cells[1]))
+        href = re.search(r'href="(https?://[^"]+)"', row)
+        if len(title) > 15:
+            yield {"title": title, "url": href.group(1) if href else page}
+
+
+def parse_links(html, page):
+    """Links to posters, slides and talks whose link text is the title. Generic text ("Slides") is skipped."""
+    seen = set()
+    for m in re.finditer(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', page_content(html), re.S):
+        url, title = m.group(1).replace("&#038;", "&").replace("&amp;", "&"), strip_tags(m.group(2))
+        if not re.search(r"wp-content/uploads|sharepoint|onedrive|drive\.google|1drv", url):
+            continue
+        if len(title) < 12 or GENERIC_LINK.match(title) or re.search(r"\.(png|jpe?g)$", url, re.I) or title.lower() in seen:
+            continue
+        seen.add(title.lower())
+        yield {"title": title, "url": url}
+
+
+SKIP_AGENDA = re.compile(r"reception|registration|lunch|break|opening|closing|welcome|keynote|dinner|networking|photo", re.I)
+
+
+def parse_agenda(html, page):
+    """Agenda rows "time | program | speaker". Section rows and breaks are skipped."""
+    for row in ROW.findall(html):
+        cells = [strip_tags(c) for c in CELL.findall(row)]
+        if len(cells) >= 2 and re.match(r"^\d{1,2}:\d\d", cells[0]) and len(cells[1]) > 18 and not SKIP_AGENDA.search(cells[1]):
+            yield {"title": cells[1], "url": page}
+
+
+def parse_sessions(html, page):
+    """h4 headings such as "Session 2: Title" and "Tutorial session 1: Title"."""
+    for m in re.finditer(r"<h4[^>]*>(.*?)</h4>", page_content(html), re.S):
+        t = strip_tags(m.group(1))
+        mm = re.match(r"^(Tutorial session|Session)\s*\d+\s*:\s*(.{8,})$", t, re.I)
+        if mm and not re.search(r"opening|closing|remarks", mm.group(2), re.I):
+            yield {"title": mm.group(2).strip(), "url": page, "tutorial": mm.group(1).lower().startswith("tutorial")}
+
+
+def collect_regional(cfg):
+    events = []
+    for ev in cfg.get("regional_events", []):
+        age = 30 if ev["year"] < date.today().year else 1
+        html = fetch(ev["url"], max_age_days=age) if "ohdsi.org" in ev["url"] else None
+        home = ev.get("wg") or "regional"
+        base = {"date": ev["date"].isoformat(), "week": week_of(ev["date"]), "source": "conference",
+                "event": ev["name"], "region": ev["region"], "weight": 1}
+        found = []
+        for kind in ev.get("parse", []):
+            if html is None:
+                break
+            if kind == "list":
+                found += [dict(title=e["title"], url=e["url"], type="showcase_entry", text=e["title"] + " " + e["authors"])
+                          for e in parse_list(html)]
+            elif kind == "rows":
+                found += [dict(e, type="showcase_entry") for e in parse_rows(html, ev["url"])]
+            elif kind == "links":
+                found += [dict(e, type="showcase_entry") for e in parse_links(html, ev["url"])]
+            elif kind == "agenda":
+                found += [dict(e, type="regional_session") for e in parse_agenda(html, ev["url"])]
+            elif kind == "sessions":
+                found += [dict(e, type="tutorial" if e["tutorial"] else "regional_session") for e in parse_sessions(html, ev["url"])]
+        print(ev["name"], len(found), "entries")
+        if not found:                       # no item list: keep the event itself visible, linked to its page
+            found = [dict(title=ev["name"], url=ev["url"], type="regional_event")]
+        for e in found:
+            for wg in match_wgs(e.get("text") or e["title"]) or [home]:
+                events.append({**base, "wg": wg, "type": e["type"], "title": e["title"], "url": e["url"]})
+    return events
+
+
 def collect():
     cfg = yaml.safe_load((ROOT / "config" / "conferences.yml").read_text())
     events = []
@@ -141,7 +231,7 @@ def collect():
             for t in titles:
                 for wg in match_wgs(t) or ["community"]:   # general tutorials belong to no single WG
                     events.append({**base, "wg": wg, "type": "tutorial", "title": t, "url": sym["tutorials"], "section": None})
-    return events
+    return events + collect_regional(cfg)
 
 
 if __name__ == "__main__":

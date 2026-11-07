@@ -23,7 +23,7 @@ aliases:
   nlp: '\bNatural Language Processing\b|\bNLP (WG|work ?group)'
   oncology: '\bOncology\b'
   plp: '\bPatient.Level Prediction\b|\bPLP\b'
-  perinatal-reproductive: '\bPHReG\b|\bPerinatal\b|\bReproductive Health\b'
+  perinatal-reproductive: '\bPHReG\b|\bPerinatal\b|\bReproductive Health\b|\bPregnan|\bPostpartum|\bMaternal\b'
   phenotype: '\bPhenotyp|\bPhebruary\b|\bAphril\b'
   psychiatry: '\bPsychiatr'
   rare-diseases: '\bRare Diseases?\b'

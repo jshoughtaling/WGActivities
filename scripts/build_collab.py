@@ -36,7 +36,7 @@ OUT = ROOT / "rmd" / "data" / "collab.json"
 BUCKETS = {"community", "regional", "unassigned"}
 # Types whose titles say something about the work. Comments and commits are left out of the text signals.
 TEXT_TYPES = {"pr_opened", "pr_merged", "issue_opened", "release", "topic_created", "showcase_entry",
-              "tutorial", "wg_session", "spotlight", "community_call"}
+              "tutorial", "wg_session", "regional_session", "spotlight", "community_call"}
 ROUNDUP = re.compile(r"work(ing)? ?group updates?|wg updates?", re.I)
 RECENT_WEEKS = 26
 MAX_EVIDENCE = 6
@@ -142,15 +142,18 @@ def main():
     rx = {k: re.compile(v["regex"], re.I) for k, v in tcfg.items()}
     th = defaultdict(lambda: defaultdict(dict))               # theme -> wg -> unit -> evidence
     for e in events:
-        if e["type"] not in TEXT_TYPES or not real(e["wg"]) or ROUNDUP.search(e["title"]):
+        if e["type"] not in TEXT_TYPES or ROUNDUP.search(e["title"]):
             continue
+        if e["type"] == "wg_session" and len(match_wgs(e["title"])) < 2:
+            continue                                    # a WG's own session title only echoes its name
         unit = ("github", e["repo"]) if e["source"] == "github" else (e.get("url") or e["title"])
         for k, r in rx.items():
             if r.search(e["title"]):
-                slot = th[k][e["wg"]].setdefault(unit, {"s": e["source"], "t": e["type"], "title": e["title"],
-                                                        "url": e.get("url"), "date": e["date"], "wg": e["wg"]})
-                if e["date"] > slot["date"]:
-                    slot.update(title=e["title"], url=e.get("url"), date=e["date"], t=e["type"])
+                for wg in {w for w in (e["wg"], *tcfg[k].get("owners", [])) if real(w)}:
+                    slot = th[k][wg].setdefault(unit, {"s": e["source"], "t": e["type"], "title": e["title"],
+                                                       "url": e.get("url"), "date": e["date"], "wg": wg})
+                    if e["date"] > slot["date"]:
+                        slot.update(title=e["title"], url=e.get("url"), date=e["date"], t=e["type"])
     linked = {p for p, v in co.items() if len(v) >= 1}
     theme_rows, pair_themes = [], defaultdict(list)
     for k, by_wg in th.items():
@@ -161,14 +164,24 @@ def main():
         for w in wgs:
             ev += sorted(by_wg[w].values(), key=lambda i: i["date"], reverse=True)[:2]
         recent = {w: sum(1 for i in v.values() if i["date"] >= recent_since) for w, v in by_wg.items()}
-        recent_wgs = sorted(w for w, n in recent.items() if n >= 2)
+        # A forum, call or conference item is worth two GitHub repos; a group needs a weight of 2 to count as active.
+        weight = {w: sum(1 if i["s"] == "github" else 2 for i in v.values() if i["date"] >= recent_since)
+                  for w, v in by_wg.items()}
+        recent_wgs = sorted(w for w, n in weight.items() if n >= 2)
         unlinked = sorted(([a, b] for a, b in combinations(recent_wgs, 2) if (a, b) not in linked),
                           key=lambda p: -min(recent[p[0]], recent[p[1]]))[:10]
+        seen, evidence = set(), []
+        for i in sorted(ev, key=lambda i: i["date"], reverse=True):
+            if i["title"] not in seen:
+                seen.add(i["title"])
+                evidence.append(i)
+        evidence = evidence[:MAX_EVIDENCE]
         theme_rows.append({
             "id": k, "name": tcfg[k]["name"], "wgs": wgs, "recent_wgs": recent_wgs,
             "items": {w: len(v) for w, v in sorted(by_wg.items())},
             "recent": sum(recent.values()), "unlinked": unlinked,
-            "evidence": sorted(ev, key=lambda i: i["date"], reverse=True)[:MAX_EVIDENCE],
+            "touching": sorted(w for w, n in recent.items() if n and w not in recent_wgs),
+            "evidence": evidence,
         })
         for a, b in combinations(wgs, 2):
             pair_themes[(a, b)].append((tcfg[k]["name"], min(len(by_wg[a]), len(by_wg[b]))))

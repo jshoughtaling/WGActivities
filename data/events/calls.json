@@ -518,6 +518,23 @@
  {
   "date": "2022-08-23",
   "week": "2022-W34",
+  "wg": "gis",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Registry, Latin America, Health Equity, Geographic Information System)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "MdWIUQP7rRE",
+   "SAENZ-29pQw",
+   "bObGusECbyY",
+   "d8jIAm9cssM"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-08-23",
+  "week": "2022-W34",
   "wg": "health-equity",
   "source": "calls",
   "type": "community_call",
@@ -2510,7 +2527,7 @@
  {
   "date": "2025-05-13",
   "week": "2025-W20",
-  "wg": "community",
+  "wg": "perinatal-reproductive",
   "source": "calls",
   "type": "community_call",
   "title": "Maternal Health Fellowship Research Presentations (Sherwin, Howard, Murray, Stevenson)",

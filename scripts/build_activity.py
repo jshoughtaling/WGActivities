@@ -23,7 +23,7 @@ MAX_ITEMS = 20        # linked items kept per WG-week cell
 MAX_LOW = 5           # of which at most this many may be low-information (comments, replies, commits)
 LOW_INFO = {"comment", "reply", "commit"}
 # When a cell has more than MAX_ITEMS, keep the most substantive first.
-TYPE_PRIORITY = ["release", "pr_merged", "wg_session", "spotlight", "tutorial", "showcase_entry", "pr_opened", "topic_created",
+TYPE_PRIORITY = ["release", "pr_merged", "wg_session", "regional_session", "spotlight", "tutorial", "showcase_entry", "regional_event", "pr_opened", "topic_created",
                  "issue_opened", "community_call", "reply", "comment", "commit"]
 RECENT = 8            # weeks used for status/trend flags
 

@@ -6,14 +6,14 @@
     github: { label: "GitHub", color: "var(--s-github)", unit: "commits, PRs, issues, comments, releases" },
     forums: { label: "Forums", color: "var(--s-forums)", unit: "forum topics and replies" },
     calls: { label: "Community calls", color: "var(--s-calls)", unit: "weekly community calls" },
-    conference: { label: "Conference", color: "var(--s-conference)", unit: "symposium showcase entries" },
+    conference: { label: "Conference", color: "var(--s-conference)", unit: "symposium showcase entries, sessions and tutorials (global and regional)" },
     teams: { label: "Teams", color: "var(--s-teams)", unit: "channel posts and replies (counts only)" },
   };
   WGA.TYPE_LABELS = {
     release: "Release", pr_merged: "PR merged", pr_opened: "PR opened", issue_opened: "Issue opened",
     comment: "Comment", commit: "Commit", topic_created: "New topic", reply: "Reply",
     community_call: "Community call", spotlight: "WG spotlight", showcase_entry: "Showcase entry",
-    wg_session: "WG session", tutorial: "Tutorial",
+    wg_session: "WG session", tutorial: "Tutorial", regional_session: "Regional session", regional_event: "Regional event",
   };
   WGA.STATUS = {
     new: { glyph: "▲", label: "new", hint: "first activity in the last 8 weeks" },

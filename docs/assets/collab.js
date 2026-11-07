@@ -48,6 +48,11 @@
           h("div", { class: "sub", text: x.recent_wgs.length + " groups active recently · " + WGA.fmt(x.recent) + " recent items" }),
           chips(d, x.recent_wgs),
         ]);
+        var touch = x.touching.filter(function (s) { return d.names[s]; });
+        if (touch.length) {
+          card.appendChild(h("div", { class: "sub", text: "Also touching it (a few GitHub items):" }));
+          card.appendChild(chips(d, touch));
+        }
         var un = x.unlinked.filter(function (p) { return !wg || p.indexOf(wg) >= 0; });
         if (un.length) {
           card.appendChild(h("div", { class: "sub wga-gap", text: "Not yet linked:" }));

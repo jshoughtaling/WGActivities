@@ -1,5 +1,6 @@
 # Curated cross-cutting topics for scripts/build_collab.py. A theme becomes a collaboration candidate when
 # item titles from two or more WGs match it. Add or tighten patterns as the WGs review the output.
+# `owners` (optional) are WGs credited for every matching item, so a topic one WG owns shows who else is touching it.
 # Regexes are case-insensitive and run on item titles only.
 themes:
   genai:
@@ -47,9 +48,18 @@ themes:
   network:
     name: Network studies and federated analytics
     regex: 'network stud|federat|distributed|\bArachne|\bEHDEN|\bLEGEND|multi-?site|\bDARWIN|evidence network|\bOHDSI Evidence'
-  equity:
-    name: Health equity and special populations
-    regex: 'health equity|\bequity\b|disparit|\bpediatric|\bchildren|perinatal|pregnan|maternal|\brare disease|vaccine|vaccin'
+  pregnancy:
+    name: Pregnancy and perinatal health
+    owners: [perinatal-reproductive]      # credited for every matching item, wherever it is filed
+    regex: 'pregnan|perinatal|maternal|postpartum|neonat|obstetric|\bPHReG|reproductive health|birth (outcome|weight|delivery)'
+  rare-disease:
+    name: Rare diseases
+    owners: [rare-diseases]
+    regex: 'rare disease|\bMondo\b|orphan|\bOrphanet'
+  vaccines:
+    name: Vaccines and safety surveillance
+    owners: [vaccine-vocabulary]
+    regex: 'vaccin|\bCVX\b|pharmacovigilance|adverse event'
   education:
     name: Education and onboarding
     regex: 'tutorial|\bEHDEN Academy|\bcourse\b|\btraining\b|workshop|onboarding|book of ohdsi|\bhackathon|\bConnectathon|\bcurriculum'
