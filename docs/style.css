@@ -1,0 +1,112 @@
+/* Chart tokens. The host site (cosmo) is light-only, so the charts are too. */
+:root, .wga {
+  --surface: #fcfcfb;
+  --page: #f9f9f7;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --zero: #f0efec;
+  --ring: rgba(11, 11, 11, 0.10);
+  --s-github: #2a78d6;
+  --s-forums: #eb6834;
+  --s-calls: #1baf7a;
+  --s-conference: #eda100;
+  --s-teams: #e87ba4;
+}
+.wga { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.4; color: var(--ink); }
+.wga * { box-sizing: border-box; }
+.wga a { color: inherit; }
+
+/* Filter row: one row above everything it scopes */
+.wga-filters { display: flex; flex-wrap: wrap; gap: 0.75em 1.5em; align-items: center; margin: 0 0 1em; }
+.wga-group { display: flex; align-items: center; gap: 0.5em; }
+.wga-group > label, .wga-group > .wga-label { font-size: 0.8em; color: var(--ink-2); margin: 0; font-weight: normal; }
+.wga-seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.wga-seg button { border: 0; background: transparent; padding: 0.3em 0.7em; font: inherit; font-size: 0.85em; color: var(--ink-2); cursor: pointer; border-left: 1px solid var(--grid); }
+.wga-seg button:first-child { border-left: 0; }
+.wga-seg button:hover { background: var(--zero); }
+.wga-seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.wga-seg button:focus-visible, .wga select:focus-visible, .wga input:focus-visible { outline: 2px solid var(--s-github); outline-offset: 1px; }
+.wga select { font: inherit; font-size: 0.85em; padding: 0.3em 0.5em; border: 1px solid var(--axis); border-radius: 6px; background: var(--surface); color: var(--ink); }
+.wga-check { font-size: 0.85em; color: var(--ink-2); display: inline-flex; gap: 0.35em; align-items: center; font-weight: normal; margin: 0; }
+
+/* Stat tiles */
+.wga-tiles { display: flex; flex-wrap: wrap; gap: 0.75em; margin: 0 0 1.25em; }
+.wga-tile { flex: 1 1 11em; border: 1px solid var(--grid); border-radius: 8px; padding: 0.6em 0.9em; background: var(--surface); }
+.wga-tile .l { font-size: 0.78em; color: var(--ink-2); }
+.wga-tile .v { font-size: 1.6em; font-weight: 600; line-height: 1.2; }
+.wga-tile .v.long { font-size: 1.05em; line-height: 1.5; padding: 0.2em 0; }
+.wga-tile .n { font-size: 0.78em; color: var(--ink-muted); }
+
+/* Heatmap */
+.wga-card { border: 1px solid var(--grid); border-radius: 8px; background: var(--surface); padding: 1em; margin: 0 0 1em; }
+.hm-scroll { overflow-x: auto; }
+.hm { --label-w: 190px; --meta-w: 92px; min-width: 760px; }   /* px: rows have different font sizes */
+.hm-row { display: grid; grid-template-columns: var(--label-w) repeat(var(--cols), minmax(7px, 1fr)) var(--meta-w); column-gap: 2px; align-items: center; margin-bottom: 2px; }
+.hm-head { margin-bottom: 4px; font-size: 0.72em; color: var(--ink-muted); height: 1.2em; }
+.hm-head .m { white-space: nowrap; overflow: visible; }
+.hm-name { font-size: 0.85em; padding-right: 0.75em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hm-name a { text-decoration: none; }
+.hm-name a:hover { text-decoration: underline; }
+.hm-name .x { color: var(--ink-muted); font-size: 0.72em; }
+.hm-meta { font-size: 0.78em; color: var(--ink-2); padding-left: 0.75em; white-space: nowrap; }
+.hm-meta .d { color: var(--ink-muted); }
+.hm-cell { height: 20px; border-radius: 3px; background: var(--zero); cursor: pointer; }
+.hm-cell:hover { outline: 2px solid var(--ink); outline-offset: -1px; }
+.hm-cell:focus-visible { outline: 2px solid var(--s-github); outline-offset: 1px; }
+.hm-cell.sel { outline: 2px solid var(--ink); outline-offset: 1px; }
+.hm-cell.na { background-color: transparent; background-image: repeating-linear-gradient(45deg, transparent 0 3px, var(--axis) 3px 4px); cursor: default; }
+.hm-cell.cur { box-shadow: inset 0 -3px 0 var(--ink-muted); }
+.hm-empty { font-size: 0.8em; color: var(--ink-muted); margin: 0.75em 0 0; }
+
+.wga-legend { display: flex; flex-wrap: wrap; gap: 0.5em 1.5em; align-items: center; font-size: 0.78em; color: var(--ink-2); margin-top: 0.9em; }
+.wga-legend .item { display: inline-flex; align-items: center; gap: 0.4em; }
+.wga-legend .sw { width: 14px; height: 14px; border-radius: 3px; background: var(--zero); display: inline-block; }
+.wga-legend .sw.na { background-color: transparent; background-image: repeating-linear-gradient(45deg, transparent 0 3px, var(--axis) 3px 4px); }
+.wga-legend .ramp { width: 9em; height: 10px; border-radius: 3px; display: inline-block; }
+
+/* Tooltip */
+#wga-tip { position: fixed; z-index: 10000; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--axis); border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.12); padding: 0.5em 0.7em; font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 20em; display: none; }
+#wga-tip .t { font-weight: 600; }
+#wga-tip .s { color: var(--ink-2); font-size: 0.75em; margin-bottom: 0.3em; }
+#wga-tip .r { display: flex; align-items: center; gap: 0.45em; margin-top: 0.15em; }
+#wga-tip .r .k { width: 12px; height: 3px; border-radius: 2px; flex: none; }
+#wga-tip .r .v { font-weight: 600; min-width: 2em; }
+#wga-tip .r .n { color: var(--ink-2); }
+#wga-tip .h { color: var(--ink-muted); font-size: 0.72em; margin-top: 0.35em; }
+
+/* Detail panel and lists */
+.wga-card h4 { margin: 0 0 0.5em; font-size: 1em; font-weight: 600; }
+.wga .sub { color: var(--ink-2); font-size: 0.82em; margin-bottom: 0.3em; }
+.wga-detail .sub { margin-bottom: 0.6em; }
+.wga-list { list-style: none; padding: 0; margin: 0; font-size: 0.85em; }
+.wga-list li { display: flex; gap: 0.5em; padding: 0.2em 0; border-top: 1px solid var(--grid); }
+.wga-list li:first-child { border-top: 0; }
+.wga-list .k { width: 10px; height: 10px; border-radius: 2px; flex: none; margin-top: 0.4em; }
+.wga-list .ty { color: var(--ink-muted); font-size: 0.75em; min-width: 6.5em; flex: none; padding-top: 0.1em; }
+.wga-list a { text-decoration: underline; text-decoration-color: var(--axis); }
+.wga-note { color: var(--ink-2); font-size: 0.82em; }
+
+/* Table view */
+.wga-table { width: 100%; font-size: 0.82em; border-collapse: collapse; }
+.wga-table th, .wga-table td { padding: 0.3em 0.5em; border-top: 1px solid var(--grid); text-align: right; }
+.wga-table th:first-child, .wga-table td:first-child { text-align: left; }
+.wga-table thead th { border-top: 0; color: var(--ink-2); font-weight: 600; }
+.wga-table td { font-variant-numeric: tabular-nums; }
+
+/* WG page */
+.sm-block { margin: 0 0 0.9em; }
+.sm-block .sm-h { display: flex; align-items: center; gap: 0.5em; font-size: 0.85em; margin-bottom: 0.1em; }
+.sm-block .sm-h .k { width: 12px; height: 3px; border-radius: 2px; }
+.sm-block .sm-h .tot { color: var(--ink-muted); font-size: 0.78em; }
+.sm-svg { width: 100%; height: auto; display: block; }
+.sm-svg text { fill: var(--ink-muted); font-size: 10px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+.sm-svg .hit:hover { fill: rgba(11, 11, 11, 0.05); }
+
+@media (max-width: 700px) { .hm { --label-w: 120px; --meta-w: 70px; } .wga-group { flex-wrap: wrap; } .wga-seg { flex-wrap: wrap; max-width: 100%; } .wga-tile .v { font-size: 1.3em; } }
+@media (prefers-reduced-motion: reduce) { .wga * { transition: none !important; } }
+
+/* Keep the first-level headings of the Rmd pages in the GIS style */
+.rmdimportant { padding: 1em 1em 1em 1em; margin-bottom: 10px; background: #f5f5f5; }

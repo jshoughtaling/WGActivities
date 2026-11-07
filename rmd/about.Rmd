@@ -1,0 +1,41 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
+output:
+   html_document:
+        toc: TRUE
+        toc_depth: 2
+        toc_float:
+          collapsed: false
+---
+
+# **About the data**
+
+This page is a first look at how active each OHDSI working group (WG) has been. It is compiled automatically from public sources, plus a small amount of hand-collected MS Teams counts, and it is refreshed by hand for now (the date on the heatmap page shows the last refresh). It measures visible activity, not the quality or importance of a group's work: a WG that meets weekly and works in Teams will look quiet here.
+
+## **What each source counts**
+
+| Source | What is counted | Notes |
+|---|---|---|
+| GitHub | Commits, pull requests opened and merged, issues opened, issue and PR comments, and releases in repositories assigned to the group. Bot activity is left out. | Repository assignments are a draft made from repository names and descriptions. |
+| Forums | New topics and replies on [forums.ohdsi.org](https://forums.ohdsi.org). | The forum has no working group categories, so each topic is matched to a group by keywords in its title, then its tags, then its category. About a third of topics are community-wide announcements, and about a fifth match no group. |
+| Community calls | Weekly community calls whose title names the group (for example, "Workgroup Spotlight"). | About two thirds of calls are community-wide and count for no single group. |
+| Conference | Global Symposium working group sessions (2024 to 2026) and tutorials (2024 to 2026), plus Collaborator Showcase entries (2020 to 2026). All are counted in the week the symposium starts. | Sessions are matched by their heading, so they are reliable. Tutorials and showcase entries are matched by title (and authors for showcase entries), so many matches are by topic: a poster about oncology counts for Oncology even if the group was not involved. Tutorials that fit no single group count as community-wide. |
+| Teams | Channel posts and replies, and meeting counts, collected by hand for some groups. | Counts only. Messages and transcripts are never published. Hatched cells were not collected. |
+
+## **How to read the heatmap**
+
+- **Cell color** is relative: each source's weekly counts are ranked against that source's own range, so a busy GitHub repository does not hide a quiet forum. With "All sources", a cell is darker when more sources are active in the same week.
+- **No activity** (empty cell) and **not collected** (hatched cell) are different. A source can only be quiet in a week it was collected.
+- **The last column** is the current week and is still in progress.
+- **Status** compares the last 8 weeks with the weeks before them: *new* (first activity in the last 8 weeks), *active*, *quiet* (activity earlier, none recently) or *dormant* (none in the range).
+
+## **Known limits**
+
+- Group-to-repository and group-to-forum matching are drafts and have not been reviewed by the working groups. A few repositories dominate some groups' GitHub counts.
+- Counts are items, not people. One burst of commits counts as many items.
+- Groups that meet and work mainly in MS Teams, email or private repositories are under-counted.
+- A few groups are listed that are not on the [ohdsi.org working group page](https://www.ohdsi.org/workgroups/) (marked with *).
+
+## **Source code and corrections**
+
+Collectors, matching rules and this site are in [jshoughtaling/WGActivities](https://github.com/jshoughtaling/WGActivities). Mapping rules live in `config/working_groups.yml` and `config/forum_mapping.yml`; if a repository or topic is assigned to the wrong group, open an issue or a pull request there.

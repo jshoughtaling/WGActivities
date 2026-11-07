@@ -1,0 +1,311 @@
+# Working group -> GitHub repo mapping (DRAFT, generated 2026-11-07 from the 397 public repos in github.com/OHDSI).
+#
+# Method: repo name, description, topics and last-push date, matched against the WG list on
+# https://www.ohdsi.org/workgroups/. Nothing here comes from the WGs themselves, so every
+# mapping needs WG-lead review. GitHub org team membership was not readable (403).
+#
+# Conventions
+#   repos:       each repo has ONE primary WG. Explicit listing beats `topic_rules`.
+#   also:        repos that a second WG plausibly shares. Not counted in the primary rollup.
+#   confidence:  high   = repo is the WG's own repo or named for it
+#                medium = purpose clearly fits the WG
+#                low    = a guess from the description; check before relying on it
+#   topic_rules: GitHub topics that assign any not-explicitly-listed repo to this WG.
+#   forum_categories / teams_channel: TODO, filled in a later step.
+#   non-WG buckets (`infrastructure`, `chapters`, `studies_and_apps`, `etl`) are tracked
+#   separately and shown only if we decide to include them.
+
+working_groups:
+
+  - slug: atlas-webapi
+    name: ATLAS/WebAPI
+    on_ohdsi_org: true
+    repos:
+      high: [Atlas, WebAPI, Atlas3, WebAPI3, AtlasWebAPISandbox, AtlasWebAPIRoadmap, atlas-wiki, webapi-wiki, webapi-shiny, webapi-solr, WebApiWGSymposum2026, circe-be, circe-schema, Circepy]
+      medium: [StandardizedAnalysisAPI, StandardizedAnalysisUtils, ROhdsiWebApi, OhdsiServiceWrapper, Authenticator, UiToolbox, Specifications, CohortCharacterization, CdmAtlasCutover, Heracles, Circe, Pythia]
+    also: [webapi-component-geospatial, atlas-component-geospatial, Broadsea-WebTools, Broadsea-Atlasdb]
+
+  - slug: clinical-trials
+    name: Clinical Trials
+    on_ohdsi_org: true
+    repos:
+      high: [ClinicalTrialsWGETL, ClinicalTrialsWG-TB, ETL-SDTM]
+      low: [Criteria2Query]
+
+  - slug: cdm-survey
+    name: CDM Survey
+    on_ohdsi_org: true
+    repos:
+      high: [CdmSurveySubWg]
+
+  - slug: cdm-vocabulary
+    name: CDM Vocabulary
+    on_ohdsi_org: true
+    repos:
+      high: [Vocabulary-v5.0, Vocabulary-v4.5, Athena, AthenaUI, Usagi, Hecate, OMOP-Standardized-Vocabularies, Vocab-download, Tantalus]
+      medium: [CustomVocabularyBrowser, Hermes, Broadsea-Usagi, Ariadne, SHINeSwissMappings, Koios, EdiToOmop]
+      low: [OmopConcepts]
+
+  - slug: cdm
+    name: Common Data Model
+    on_ohdsi_org: true
+    repos:
+      high: [CommonDataModel, CdmDdlBase, CdmMetadata, CDMTableBrowser, Genomic-CDM]
+      medium: [OMOP-Queries, QueryLibrary, OMOPV4_PCORNetV1_ETL, CommonEvidenceModel, CemConnector]
+
+  - slug: dentistry
+    name: Dentistry
+    on_ohdsi_org: true
+    repos: {}            # no repo found
+
+  - slug: early-stage-researchers
+    name: Early-Stage Researchers
+    on_ohdsi_org: true
+    repos: {}
+
+  - slug: education
+    name: Education
+    on_ohdsi_org: true
+    repos:
+      high: [Tutorial-CDM, Tutorial-DQ, Tutorial-ETL, Tutorial-PLE, Tutorial-PLP, Tutorial-Hades, TutorialDemo2024App, SosTutorial]
+      medium: [TheBookOfOhdsi, BookOfOhdsi-2ndEdition, TheBookOfOhdsiInFrench, TheBookOfOhdsiInJapanese, OhdsiPredictionTutorial, OHDSI-in-a-Box, f2f-dissemination]
+      low: [OHDSI-EU-2026-Workshop]
+
+  - slug: animal-health
+    name: Electronic Animal Health Records
+    on_ohdsi_org: true
+    repos: {}
+
+  - slug: evidence-network
+    name: Evidence Network
+    on_ohdsi_org: true
+    repos:
+      high: [EvidenceNetwork, Ares, AresIndexer]
+      low: [OhdsiShinyAppExplorer]
+    also: [Arachne, ArachneUI, ArachneCentralAPI, ArachneNodeAPI, ArachneExecutionEngine, ArachneCommons, ArachneUIComponents]
+
+  - slug: eye-care-vision
+    name: Eye Care and Vision Research
+    on_ohdsi_org: true
+    repos:
+      high: [EyeCareVisionWG]
+
+  - slug: gaia-genai
+    name: Generative AI & Analytics in Healthcare (GAIA)   # NB: name clashes with the GIS WG's "Gaia" toolchain
+    on_ohdsi_org: true
+    repos:
+      high: [Apollo, ApolloR, StudyAgent, SlashOhdsiStrategusAssistant, SlashOhdsiAcpClient, ohdsi-question-structurer, LlmPromptBuilders, EmbeddingsLibrary]
+      medium: [Hestia, Nostos, Alathea, Bouzyges, CommunityDashboard, py_codelist_comparator, searchpubmed, pyscientificpdfparser, pyRegularExpression, py_name_entity_recognition, py_document_chunker]
+      low: [Ithaca, Picard, Sibyl, Polites, trex, trex-runtime]
+    also: [Pythia, Phenelope, Pegasus, PegasusShiny, Ariadne]
+
+  - slug: gis
+    name: GIS (Geographic Information System)
+    on_ohdsi_org: true
+    repos:
+      high: [GIS, gaiaCatalog, gaiaDB, gaiaDocker, gaiaCore, Aegis, webapi-component-geospatial, atlas-component-geospatial]
+      medium: [FeatureExtractionForExtensions, CaprForExtensions]   # CDM-extension variants of HADES packages
+
+  - slug: hades
+    name: HADES
+    on_ohdsi_org: true
+    topic_rules: [hades]     # every repo with topic "hades" not listed under another WG
+    repos:
+      high: [Hades, HadesFiles, HADESParts, HadesDeveloperGuide, drat, OhdsiRTools, ParallelLogger, Andromeda, DatabaseConnector, DatabaseConnectorJars, DatabaseConnectorAuth, SqlRender, OhdsiSharing, Hydra, Strategus, Characterization, CohortGenerator, CohortIncidence, CohortDiagnostics, FeatureExtraction, Capr, CirceR, Eunomia, EunomiaDatasets, Ulysses, ProtocolGenerator, actions, ShinyDeploy, ShinyProxyDeploy, DiagnosticsExplorerApp, RcppXsimd, RcppCudaJitify, RcppBoostSimd, RcppBoostCompute, RcppVexCL, BoostCompiledLibraries, ff, bit]
+      medium: [ClinicalCharacteristics, SkeletonCohortDiagnosticsStudy, SkeletonCohortCharacterization, SkeletonComparativeEffectStudy, CohortPathways, TxPathways, CostUtilization]
+      low: [DbDiagnostics, DbProfileModule, DbDiagnosticsModule, ComparatorSelectionExplorerModule, CharacterizationModule, CohortIncidenceModule, SelfControlledCaseSeriesModule, PatientLevelPredictionModule, EvidenceSynthesisModule, CohortMethodModule, CohortGeneratorModule, CohortDiagnosticsModule, PatientLevelPredictionValidationModule, ModelTransferModule, DeepPatientLevelPredictionModule, DeepPatientLevelPredictionValidationModule]   # archived Strategus modules
+
+  - slug: health-equity
+    name: Health Equity
+    on_ohdsi_org: true
+    repos:
+      high: [HealthEquityWG]
+
+  - slug: health-systems
+    name: Health Systems
+    on_ohdsi_org: true
+    repos:
+      high: [HealthSystems]
+
+  - slug: industry
+    name: Industry
+    on_ohdsi_org: true
+    repos: {}
+
+  - slug: medical-devices
+    name: Medical Devices
+    on_ohdsi_org: true
+    repos:
+      high: [MedicalDeviceWG]
+
+  - slug: medical-imaging
+    name: Medical Imaging
+    on_ohdsi_org: true
+    repos:
+      high: [ImageWG, Radiology-CDM]
+
+  - slug: methods-research
+    name: Methods Research
+    on_ohdsi_org: true
+    repos:
+      high: [Cyclops, CohortMethod, SelfControlledCaseSeries, SelfControlledCohort, CaseControl, CaseCrossover, EmpiricalCalibration, EvidenceSynthesis, MethodEvaluation, MethodsLibrary, Legend, LocalControl, RiskStratifiedEstimation, IcTemporalPatternDiscovery, TpdChronograph, BrokenAdaptiveRidge, bayes-bridge, BayesBridgeR, BigKnn, IterativeHardThresholding, Castor, NetworkMetaAnalysis, CloneCensorWeight, ConcurrentComparator, DiscoverySystemSimulator, Reward, RewardExecutionPackage]
+      medium: [Argos, ComparatorSelectionExplorer, ComparatorSelectionExplorerApp, PropensityScoreEvaluation, Centaur, Cert, Clear, CyclopsInBeast, Broadsea-MethodsLibrary, GloVeHd, OSIM-v5, Covid-19]
+    also: [SelfControlledCaseSeriesModule, CohortMethodModule]
+
+  - slug: nlp
+    name: Natural Language Processing (NLP)
+    on_ohdsi_org: true
+    repos:
+      high: [NLPTools]
+      low: [MedlineXmlToDatabase]
+    also: [Criteria2Query, py_name_entity_recognition, py_document_chunker]
+
+  - slug: oncology
+    name: Oncology
+    on_ohdsi_org: true
+    repos:
+      high: [OncologyWG]
+
+  - slug: plp
+    name: Patient-Level Prediction (PLP)
+    on_ohdsi_org: true
+    repos:
+      high: [PatientLevelPrediction, DeepPatientLevelPrediction, EnsemblePatientLevelPrediction, SkeletonPredictionStudy, SkeletonPredictionValidationStudy, PredictionComparison, DelphiDepot]
+      medium: [WhatllHappenToMe, context]
+
+  - slug: perinatal-reproductive
+    name: Perinatal and Reproductive Health
+    on_ohdsi_org: true
+    repos:
+      high: [PHReGWG]
+
+  - slug: phenotype
+    name: Phenotype Development and Evaluation
+    on_ohdsi_org: true
+    repos:
+      high: [PhenotypeLibrary, PhenotypeLibraryApplication, PhenotypeLibrarian, PhenotypeEvaluations, PhenotypePhebruary2024, PhenotypePhebruary2025, PhePheb2024, PheValuator, Phenelope, Keeper, KeeperExampleApp, ConceptSetConstructionEvaluation, ConceptSetDiagnostics, ConceptSetLibrary, Pegasus, PegasusShiny, CohortExplorer, CohortAlgebra]
+      medium: [Electra, Kala, CohortRecipes, Aphrodite, PhenotypeR, DrugExposureExplorer]
+    also: [Pythia]
+
+  - slug: psychiatry
+    name: Psychiatry
+    on_ohdsi_org: true
+    repos:
+      high: [PsychiatryWG]
+
+  - slug: rare-diseases
+    name: Rare Diseases
+    on_ohdsi_org: true
+    repos:
+      low: [ETL--LupusRegistries, ETL--PulmonaryHypertensionRegistries, CureIdRegistry]
+
+  - slug: rehabilitation
+    name: Rehabilitation
+    on_ohdsi_org: true
+    repos: {}
+
+  - slug: respiratory
+    name: Respiratory Research
+    on_ohdsi_org: true
+    repos: {}
+
+  - slug: reveal
+    name: REVEAL (Results Enhancements & Visualization for Evidence, Analysis & Learning)
+    on_ohdsi_org: true
+    repos:
+      high: [OhdsiShinyModules, OhdsiShinyAppBuilder, ShinyAppBuilder, ResultModelManager, HadesResultsModel, OhdsiReportGenerator, ReportGenerator]
+      medium: [OhdsiAnalysisViewerDemo, OhdsiRPlots, Visualizations, Dataprint]
+      low: [Theia]
+
+  - slug: surgery-perioperative
+    name: Surgery & Perioperative Medicine
+    on_ohdsi_org: true
+    repos: {}
+
+  - slug: themis
+    name: Themis
+    on_ohdsi_org: true
+    repos:
+      high: [Themis]
+
+  - slug: tidy-r-omop
+    name: Tidy R Programming with OMOP
+    on_ohdsi_org: true
+    repos:
+      high: [Tidy-R-with-OMOP-WG, Tidy-R-programming-with-OMOP]
+      medium: [CohortConstructor, CohortSymmetry, OmopSketch, OmopConstructor, OmopViewer, OmopCheckout, OmopMultistate, OmopIndices, OmopOnPostgres, OmopOnDuckDB, OmopOnSqlServer, OmopOnSpark, omock, MeasurementDiagnostics, CohortPrevalence]
+      low: [pyCDMConnector, InspectOMOP, DrugAdherence]
+
+  - slug: transplant
+    name: Transplant
+    on_ohdsi_org: true
+    repos: {}
+
+  - slug: vaccine-vocabulary
+    name: Vaccine Vocabulary
+    on_ohdsi_org: true
+    repos:
+      high: [VaccineVocabulary]
+
+  - slug: waveform
+    name: Waveform
+    on_ohdsi_org: true
+    repos:
+      high: [WaveformWG]
+      medium: [DeviceGeneratedDataWG]
+
+  - slug: women-of-ohdsi
+    name: Women of OHDSI
+    on_ohdsi_org: true
+    repos:
+      high: [WomenOfOhdsi]
+
+  # ---- Groups that have repos but are NOT on the ohdsi.org workgroups page: confirm whether to track ----
+
+  - slug: africa
+    name: Africa WG
+    on_ohdsi_org: false
+    repos:
+      high: [AfricaWG]
+
+  - slug: health-economics
+    name: Health Economics & Value Assessment   # appears in the 2026 Global Symposium WG sessions
+    on_ohdsi_org: false
+    repos: {}
+
+  - slug: openehr-omop
+    name: openEHR & OMOP Workgroup   # proposed 2025-09 on the forum, started 2025-11
+    on_ohdsi_org: false
+    repos: {}
+
+  - slug: open-source-community
+    name: Open Source Community / TAB
+    on_ohdsi_org: false
+    repos:
+      high: [OpenSourceCommunity, TAB]
+
+  - slug: data-quality
+    name: Data Quality
+    on_ohdsi_org: false
+    repos:
+      high: [DataQualityDashboard, DataQualityCollaboration, MiimansaDQD]
+      medium: [Achilles, AchillesWeb, Broadsea-Dqd, Broadsea-Achilles, Panoptes]
+
+  - slug: etl
+    name: ETL / data onboarding (Themis-adjacent)
+    on_ohdsi_org: false
+    repos:
+      high: [WhiteRabbit, Perseus, ETL-Synthea, dbt-synthea, sqlmesh-synthea, PatientGenerator, FhirToCdm, ETL-CDMBuilder, ETL-LambdaBuilder, JCdmBuilder, ETL-CMS, ETL---IMS-Data, ETL-HealthVerityBuilder, MIMIC]
+      medium: [DatabaseOnSpark, Broadsea-Spark-SQL]
+
+# ---- Not working groups: tracked as separate buckets ----
+
+non_wg:
+  legacy:             # no push since ~2019, no clear WG; ignore unless history is wanted
+    repos: [KnowledgeBase, KnowledgeBaseWeb, Hercules, Achilles-Node, OHDSI-Apps-Style-Guide, Homer, Iris, Calypso, PublicOracle, Penelope, FuzzyForest, Era-Constructor, Chronos, Pace, San, Statius, MultiDatabaseCharacterization, shinyModuleViewer]
+  chapters:
+    repos: [AustraliaChapter, ohdsi-uk, TechStack-Germany, ETL-German-Claims, ETL-German-FHIR-Core, ETL---Korean-NSC, ETL---Korean-NEDIS]
+  infrastructure:
+    repos: [Broadsea, Broadsea-Hades, Broadsea-Shiny, Broadsea-Dbt, Broadsea-Solr, Broadsea-Cdminspection, Broadsea-WebTools, Broadsea-Atlasdb, OHDSIonAWS, Data2Evidence, StudyStudio, Olympus, Helios, BlueOcean, Architecture, Community, VisualIdentity, sandbox, WorkPackages, .github, Arachne, ArachneUI, ArachneCentralAPI, ArachneNodeAPI, ArachneExecutionEngine, ArachneCommons, ArachneUIComponents]
+  studies_and_apps:   # study packages and Shiny result apps; group by study if we want them
+    repos: [OhdsiStudies, StudyProtocols, StudyProtocolSandbox, OhdsiStudy2, ProstateCancerVteIncidenceApp, SemaglutideNvamdApp, SemaglutideNaionEstApp, SemaglutideNaionCharApp, RweCuimcApp, ExploreronDemand, UveitisSafetyEstimationApp, uvetis_safety, SOS_AA_DiagnosticsExplorer, Glp1DiliApp, ExampleStrategusStudyApp, OhdsiExampleStudyApp, HowOftenApp, HowOftenDbDiagnostics, ARTEMIS, TxPath, txPath-lite]

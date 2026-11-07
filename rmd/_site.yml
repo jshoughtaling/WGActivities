@@ -1,0 +1,24 @@
+name: "OHDSI Working Group Activities"
+output_dir: "../docs"
+output:
+  html_document:
+    theme: cosmo
+    css: style.css
+    includes:
+      in_header: "favicon.html"
+exclude: ["extras"]
+navbar:
+  title: '<div><img src="ohdsi16x16.png"></img> OHDSI WG Activities </div>'
+  right:
+    - icon: fa-github
+      href: https://github.com/jshoughtaling/WGActivities
+  left:
+    - text: "Heatmap"
+      icon: fa-th
+      href: index.html
+    - text: "Working Group"
+      icon: fa-users
+      href: wg.html
+    - text: "About the data"
+      icon: fa-info-circle
+      href: about.html

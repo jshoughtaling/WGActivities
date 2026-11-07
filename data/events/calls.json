@@ -1,0 +1,3537 @@
+[
+ {
+  "date": "2022-01-11",
+  "week": "2022-W02",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "What Can We Accomplish Together in 2022 (Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "bGax7MzHa-U"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-01-18",
+  "week": "2022-W03",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKR Setting In Gathertown",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [],
+  "slide_count": 0,
+  "weight": 1
+ },
+ {
+  "date": "2022-01-25",
+  "week": "2022-W04",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Extracting OHDSI Concepts from Clinical Narratives for COVID (Hongfang Liu, Christopher Chute)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "eNrBDeQBbWU"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-02-01",
+  "week": "2022-W05",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Introduction to Phenotype Phebruary (Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "5l_63-FfNms"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-02-08",
+  "week": "2022-W06",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates + Phenotype Phebruary Report #1 (Melanie Philofsky, Adam Black, Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "Ag_2WR-vZNA",
+   "Ic4DRjO4ce8",
+   "giH7lmZgluQ"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-02-15",
+  "week": "2022-W07",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates + Phenotype Phebruary Report #2 (Clair Blacketer, Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "AFCQqYKZR90",
+   "KLcOAC96v1Y",
+   "_s4yPxFu2oU"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-02-22",
+  "week": "2022-W08",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates + Phenotype Phebruary Report #3 (Anthony Sena, Paul Nagy, Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "DLrvBA93pf4",
+   "HtkL2Smez0w",
+   "OXYKpF6Nve4"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-03-01",
+  "week": "2022-W09",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Characterization / Estimation / Prediction Discussions and Phenotype Phebruary Report #4",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "as4QlWB8KU8",
+   "cIAVsOXmblo",
+   "nFAgRPGS4L8",
+   "pm0qpD1Sg8k"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-03-08",
+  "week": "2022-W10",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "CDM Workshop, Part 1 (Clair Blacketer, Frank DeFalco, Kristin Kostka, Maxim Moinat)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "DVL43h3XkDE",
+   "y7CXONEMLoI"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-03-15",
+  "week": "2022-W11",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "CDM Workshop, Part 2 (Clair Blacketer, Melanie Philofsky, Anthony Malinaro, Frank DeFalco)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "7M8SHL12ykc"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-03-22",
+  "week": "2022-W12",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Vocabulary Journey (Michael Kallfelz, Patrick Ryan, Christian Reich)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "kn6MCYs0neM"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2022-03-29",
+  "week": "2022-W13",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Reproducibility (Anna Ostropolets, Martijn Schuemie, Asieh Golozar)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "IX7KrZLLUTw",
+   "dhlRZ6M6X20",
+   "sB365t9IcWs"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-04-05",
+  "week": "2022-W14",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Name That Result (Patrick Ryan + 8 OHDSI Contestants)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "rmM_Xbj5wR0"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2022-04-12",
+  "week": "2022-W15",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Coordinating Center / Sponsorship Opportunities (George Hripcsak)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "0SKNtot5Plc"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-04-19",
+  "week": "2022-W16",
+  "wg": "eye-care-vision",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Eye Care & Vision Research, FHIR & OMOP, Oncology, Steering Group)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "F2khY46QylE",
+   "QVY2EwcIKaQ",
+   "w6UeItRwWa8",
+   "z07JiTP17yo"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2022-04-19",
+  "week": "2022-W16",
+  "wg": "oncology",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Eye Care & Vision Research, FHIR & OMOP, Oncology, Steering Group)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "F2khY46QylE",
+   "QVY2EwcIKaQ",
+   "w6UeItRwWa8",
+   "z07JiTP17yo"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2022-04-26",
+  "week": "2022-W17",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "State of the Open-Source Community (Paul Nagy, Adam Black, Martijn Schuemie and Lee Evans)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "PdOz0oiYSCc"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2022-05-03",
+  "week": "2022-W18",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "The DARWIN EU Initiative (Peter Rijnbeek)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "oa9TrQhzdMA"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-05-10",
+  "week": "2022-W19",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Mother's Day-Themed Conversations (Clinical Research, Data Standards and Community Building)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "0G8LFnhKSck",
+   "jGCri62VHlw",
+   "mUPb5WowyGI"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2022-05-17",
+  "week": "2022-W20",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Debates (Asieh Golozar vs. Azza Shoiabi and Martijn Schuemie vs. Dani Prieto-Alhambra)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "Ded-u0hAGVQ",
+   "GJVpskKlKpo"
+  ],
+  "slide_count": 0,
+  "weight": 1
+ },
+ {
+  "date": "2022-05-24",
+  "week": "2022-W21",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Open Studies (Chen Yanover, Seng Chan You, Jessie Tong, Nicole Pratt, Ivan Lam, Chungsoo Kim)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "1QSW6TtniEs",
+   "A2zmIIl8oO8",
+   "WaA-gcYxOsU",
+   "gPC0q7z8Olg",
+   "zTOxkJyGwoo"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2022-05-31",
+  "week": "2022-W22",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Around The Workgroups (Workgroup Leads/Representatives)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "JLSIDfkP-vI"
+  ],
+  "slide_count": 0,
+  "weight": 1
+ },
+ {
+  "date": "2022-06-07",
+  "week": "2022-W23",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome to OHDSI (Patrick Ryan, Craig Sachson)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "Bam5xkG42_Q"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-06-14",
+  "week": "2022-W24",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Publications in 2022 (Jenna Reps, Yuan Lu, Henrik John, Anna Ostropolets, Aki Nishimura)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "8Zoon9hGTm0",
+   "JcbynSNHO0Q",
+   "f4XsgkIMPJI",
+   "hCQoqi6FqWM",
+   "qFTm3ivX0qM"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2022-06-21",
+  "week": "2022-W25",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "10-Minute Tutorials (Joel Swerdel, Tiffany Callahan, Jenna Reps and Martin Lavallee)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "E9DT2cUJkyk",
+   "WXo1Ti8QAkU",
+   "WpvEwBGv3S4",
+   "__QOZdYKeQY"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-06-28",
+  "week": "2022-W26",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "European Symposium Recap (Nigel Hughes)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "a6bFNGK5yOY"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-07-12",
+  "week": "2022-W28",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "New Adopter/Community Member Introductions",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "toH08pe_ODo"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2022-07-19",
+  "week": "2022-W29",
+  "wg": "early-stage-researchers",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Early-Stage Researchers, NLP, Phenotype Evaluation & Development, HADES)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "7Kh8Xey96HU",
+   "Eg4UFNmk_QY",
+   "LkLev0oJ2GY",
+   "mFtTqVw1THg"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2022-07-19",
+  "week": "2022-W29",
+  "wg": "hades",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Early-Stage Researchers, NLP, Phenotype Evaluation & Development, HADES)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "7Kh8Xey96HU",
+   "Eg4UFNmk_QY",
+   "LkLev0oJ2GY",
+   "mFtTqVw1THg"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2022-07-19",
+  "week": "2022-W29",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Early-Stage Researchers, NLP, Phenotype Evaluation & Development, HADES)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "7Kh8Xey96HU",
+   "Eg4UFNmk_QY",
+   "LkLev0oJ2GY",
+   "mFtTqVw1THg"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2022-07-26",
+  "week": "2022-W30",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "CDM Update Process (Clair Blacketer, Paul Nagy, Davera Gabriel)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "87AvkE-x514"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2022-08-02",
+  "week": "2022-W31",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Building Org. Support + New Study (Paul Nagy, Keran Moll, Greg Klebanov, Ajit Londhe, Behzad Naderalvojoud)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "bGUPje0LAiA",
+   "h7Hq76NLhUo"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-08-09",
+  "week": "2022-W32",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Asia-Pacific Regional Updates (Jason Hsu, Mengling Feng, Nicole Pratt, Tatsuo Hiramatsu, Seng Chan You, Lei Liu)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "oAltmvuzHkQ"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-08-16",
+  "week": "2022-W33",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI \"Speed Dating\"",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "W-4APXWqFw8"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2022-08-23",
+  "week": "2022-W34",
+  "wg": "health-equity",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Registry, Latin America, Health Equity, Geographic Information System)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "MdWIUQP7rRE",
+   "SAENZ-29pQw",
+   "bObGusECbyY",
+   "d8jIAm9cssM"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-08-30",
+  "week": "2022-W35",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "EHDEN Portal and EHDEN Academy (Julia Kurps and Nigel Hughes)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "TGFvNBoRWZw",
+   "hSxJTIX-nfU"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-09-06",
+  "week": "2022-W36",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Study Publications (Nicholas Giangreco, Cynthia Yang, Anthony Molinaro, Azza Shoaibi, Aniek Markus)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "45TU2zB0dG0",
+   "O5f4VImQBCs",
+   "Y7uDc0xu9SQ",
+   "uIcUVL-fhc0"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2022-09-13",
+  "week": "2022-W37",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Clinical Registry Efforts in OHDSI (Paul Nagy, Matthew Robinson, Zachary Wang, Lee Evans)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "HhQ9x3bsv4o"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-09-20",
+  "week": "2022-W38",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "2022 Symposium Preview (Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-09-27",
+  "week": "2022-W39",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "2022 HTA Challenge (Dalia Dawoud, Jamie Elvidge, Marie Osterberg, Lena Wallgren)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "jf1wNxtOI1Q"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2022-10-04",
+  "week": "2022-W40",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Debates (Adam Black, James Gilbert, Erica Voss, Ed Burn)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "2RNKiydvEa0",
+   "qRAaAx6B9ns"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-10-11",
+  "week": "2022-W41",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "#OHDSI2022 Mad Minutes (Members of the 2022 Collaborator Showcase)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "v3xuIttaAEI"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-10-18",
+  "week": "2022-W42",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome to OHDSI (Patrick Ryan, Craig Sachson)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "iABBk1uO0gQ"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-10-25",
+  "week": "2022-W43",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Future Directions of OHDSI (George Hripscak, Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "0Nhwf81TRak"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-11-01",
+  "week": "2022-W44",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet the Titans (Philofsky, Bu, Fridgeirsson, Gilbert, Li, Londhe, Nagy, Sachson)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-11-08",
+  "week": "2022-W45",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborator Showcase Presentations (ChulHyoung Park, Linying Zhang, Jacob Zelko)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "Ea9gfrRodWY",
+   "HMaQNB-aCsE",
+   "emu4mN0k_Vw"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2022-11-15",
+  "week": "2022-W46",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Network Studies + ARES Demo (Alison Callahan, Louisa Smith, Stephanie Leonard, Matt Spotnitz, Frank DeFalco)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "bM76vlqJUAw",
+   "uS6V3PPoep4",
+   "v7MKAamCqQk"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-11-22",
+  "week": "2022-W47",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "10-Minute Tutorials (Justin Bohn, Anna Ostropolets, Anthony Sena, Selvin Soby, Lee Evans)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "B3tUzWk5R9A",
+   "NtGnGxwitIQ",
+   "U_ppqe7wUhg",
+   "a9ZJURNRbUg",
+   "f1p7Xi14-Iw"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-11-29",
+  "week": "2022-W48",
+  "wg": "medical-devices",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Medical Devices, Clinical Trials, Patient-Level Prediction, Psychiatry)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "7cN3Wgq5Jvo",
+   "FgBOI_sMIiE",
+   "pWW72a9A5YE",
+   "rKFazzGgpuY"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-11-29",
+  "week": "2022-W48",
+  "wg": "plp",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Medical Devices, Clinical Trials, Patient-Level Prediction, Psychiatry)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "7cN3Wgq5Jvo",
+   "FgBOI_sMIiE",
+   "pWW72a9A5YE",
+   "rKFazzGgpuY"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-11-29",
+  "week": "2022-W48",
+  "wg": "psychiatry",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Medical Devices, Clinical Trials, Patient-Level Prediction, Psychiatry)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "7cN3Wgq5Jvo",
+   "FgBOI_sMIiE",
+   "pWW72a9A5YE",
+   "rKFazzGgpuY"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2022-12-06",
+  "week": "2022-W49",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent OHDSI Publications (Sara Khalid, Xintong Li, Václav Papež, Linying Zhang, Joel Swerdel)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "G_95UB9yrnk",
+   "_Bo1zlVmsiQ",
+   "gk4EXcYlAaY",
+   "ra4KKyGFPJ4",
+   "waZekW2Rj04"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2022-12-13",
+  "week": "2022-W50",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "2022 In Review (Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "An_q9fNKz0g"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2022-12-20",
+  "week": "2022-W51",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Holiday-Themed Final Call of 2022",
+  "url": "https://www.ohdsi.org/community-calls-2022/",
+  "video_ids": [
+   "9mAYxORb4qw"
+  ],
+  "slide_count": 0,
+  "weight": 1
+ },
+ {
+  "date": "2023-01-10",
+  "week": "2023-W02",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Where Can OHDSI Go in 2023?",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "VbmRWjeVIAA"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-01-17",
+  "week": "2023-W03",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Speed Dating",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2023-01-24",
+  "week": "2023-W04",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborations for Strategic Priorities (Anna Ostropolets, Clair Blacketer, Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "6vGFaXcGkno",
+   "Ta1sl_kvZKU",
+   "s6GiJ85rmyQ"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2023-01-31",
+  "week": "2023-W05",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Introduction to Phenotype Phebruary (Patrick Ryan, Azza Shoaibi)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "ON5iqZRYxlI"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-02-07",
+  "week": "2023-W06",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs + Phenotype Phebruary Week 1 (multiple speakers)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "QN79LkLC5A8",
+   "rkJICPp4HWQ"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2023-02-14",
+  "week": "2023-W07",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs + Phenotype Phebruary Week 2 (multiple speakers)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "JGq8DHIPjjU",
+   "bd0htzO1hx4"
+  ],
+  "slide_count": 9,
+  "weight": 1
+ },
+ {
+  "date": "2023-02-21",
+  "week": "2023-W08",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs + Phenotype Phebruary Week 3 (multiple speakers)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "DjMJKCL9pnM",
+   "m9Veb9nYfoo"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2023-02-28",
+  "week": "2023-W09",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs + Phenotype Phebruary Week 4 (multiple speakers)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "sXk6eI_Ivy8",
+   "yauJ51cOiKw"
+  ],
+  "slide_count": 10,
+  "weight": 1
+ },
+ {
+  "date": "2023-03-07",
+  "week": "2023-W10",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Save Our Sisyphus Challenge Research Presentations (Janetzki, Yiu, Alshammary, Cai)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "OCVYdmhACmI",
+   "QRD7z_tVQME",
+   "aOtNxBIA4_o",
+   "lhXdliE_YfI"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2023-03-14",
+  "week": "2023-W11",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Debates! (Lehmann, Ostropolets, Beachler, Weaver)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "AEcMV02P834",
+   "cGyvuQr3NW8"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-03-21",
+  "week": "2023-W12",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent OHDSI Publications (Luo, Kim, Xie, Peng, Yu)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "EVGnXKyQIBo",
+   "MYclrJwSsPo",
+   "fz7SLXNY-6Q",
+   "nksBdTB4Udw",
+   "w9lQu-A_7A0"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2023-03-28",
+  "week": "2023-W13",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 1: Initiating A Network Study + SOS Overview (Suchard, McLeggon)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "Aj4x6g7n3Mc",
+   "aajESPZEbDM"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-04-04",
+  "week": "2023-W14",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 2: Data Diagnostics (Clair Blacketer, Mui Van Zandt, Sarah Seager)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "pmn0yUSXYgc"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-04-11",
+  "week": "2023-W15",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 3: Phenotype Development (Anna Ostropolets, Asieh Golozar)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "0cD-GJmaAes",
+   "SHOwIMDcVSA"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2023-04-18",
+  "week": "2023-W16",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 4: Phenotype Evaluation (James Gilbert, Azza Shoaibi)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "6rsA7swJVjo"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2023-04-25",
+  "week": "2023-W17",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 5: Analysis Design (Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "6uW8RfG5h3c"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-05-02",
+  "week": "2023-W18",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 6: Network Execution (Jenna Reps, Jack Brewster)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "8VTxYnEexnU"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-05-09",
+  "week": "2023-W19",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 7: Study Diagnostics (Fan Bu, George Hripcsak)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "Xym37IT9SVA"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-05-16",
+  "week": "2023-W20",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 8: Evidence Synthesis (Yong Chen, Martijn Schuemie)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "Bc_Ty_E5mbY"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2023-05-23",
+  "week": "2023-W21",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "SOS Challenge Week 9: Interpreting the Results (Cindy Cai)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "uu54ki69vxw"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2023-05-30",
+  "week": "2023-W22",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborator Showcase Brainstorm (Small Group Breakouts)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "JDrOsaHyqqw"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-06-06",
+  "week": "2023-W23",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Standardized Vocabularies: Landscape, Roadmap & Community Contributions (Ostropolets, Davydov, Reich)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "ZPlEWWFi1jk"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-06-13",
+  "week": "2023-W24",
+  "wg": "atlas-webapi",
+  "source": "calls",
+  "type": "community_call",
+  "title": "ATLAS: User Input for Community Development (Anthony Sena, Christopher Knoll, Breakouts)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "JvDHGVhMiMs"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-06-20",
+  "week": "2023-W25",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "HowOften: A Large-Scale Incidence Generation Initiative (Hripcsak, Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "f-fyTelpDYk"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-06-27",
+  "week": "2023-W26",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent Publications (Voss, Rekkas, Williams, Keloth, Leese)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "0iWsPI0MAjg",
+   "JtjGK7kCxrc",
+   "bI4SOq8kzDI",
+   "pKjV3U1qGFg",
+   "whx1LElt0DY"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2023-07-11",
+  "week": "2023-W28",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "European Symposium Review (Los, Moinat, Duarte Salles, Barboza)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "DMdFRinFv1o"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-07-18",
+  "week": "2023-W29",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Vulcan: An HL7 FHIR Accelerator Transforming Clinical/Translational Research (van Campen, Gabriel, Glover)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "B5r1_hxwK9k"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2023-07-25",
+  "week": "2023-W30",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Around the Asia-Pacific (APAC) Region (Hsu, Liu, Pratt, Hiramatsu, Feng, Kim)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "y_W7-aTFKTE"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2023-08-01",
+  "week": "2023-W31",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OMOP on CQL on FHIR: The Intersection of Interoperability Standards & Digital Quality (Hamlin, Houghtaling, Evans)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "MMz6KWSR6bo"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-08-08",
+  "week": "2023-W32",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Newcomer Introductions",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2023-08-15",
+  "week": "2023-W33",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Next Steps for HowOften (Ryan, Hripcsak, Rao)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "VQMsB_t0c2E"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-08-22",
+  "week": "2023-W34",
+  "wg": "health-systems",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI and Clinical Registries: Sanity for Health Systems (Nagy, Willett, Weaver, Evans)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "DPatSxFkIpI"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-08-29",
+  "week": "2023-W35",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Update on OHDSI Standardized Vocabularies (Davydov, Ostropolets, Reich, Zhuk)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "TuFIpZYJl0U"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-09-05",
+  "week": "2023-W36",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "DARWIN EU® Progress and Roadmap (Rijnbeek, Burn, Verdamme)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "vezwydt3Tw0"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2023-09-12",
+  "week": "2023-W37",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI 2023 Global Symposium Preview",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "Fy_paoD0JII"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2023-09-19",
+  "week": "2023-W38",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Journal Club: 11th Revision of the ENCePP Guide on Methodological Standards in Pharmacoepidemiology",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "WSGclkxEsXc"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-09-26",
+  "week": "2023-W39",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent OHDSI Publications (Kiwuwa-Muyingo, Hardin, Callahan, Mayer, Wu)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "2QEGXJfJifo",
+   "6nlBVImHyFA",
+   "_vkGE9hYD-Y",
+   "enMohUot9ms",
+   "moMSWrUEkQw"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2023-10-03",
+  "week": "2023-W40",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Xu, Posada, Ryan, Adam, Dougall, Smith, Parciak, Goetz, Blacketer, Gabriel, Hamidi, Koski)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "ihQa1bZYZPA"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-10-10",
+  "week": "2023-W41",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup Updates (Nagy, He, Ostropolets, Schuemie, Linn, Philofsky, Sung, Zollo-Venecek, Rao, Minty, Dymshyts)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "QZY-slWdsMs"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-10-17",
+  "week": "2023-W42",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Final Symposium Logistics and Mad Minutes",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "CNwAcYbkVeU"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-10-24",
+  "week": "2023-W43",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome to OHDSI, part 1 (Hripcsak, Ryan, Sachson, newcomer introductions)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "T_rO3hFFN4A"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2023-10-31",
+  "week": "2023-W44",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome to OHDSI, part 2 (community Q&A)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "hV0KtKnnrsw"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-11-07",
+  "week": "2023-W45",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet The Titans (Song, Gogenur, Shoaibi, Rao, Tong, Sadowski, Sung, Pratt)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "6pNw8NIaY60"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2023-11-14",
+  "week": "2023-W46",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborator Showcase Best Community Contribution Honorees (Ho, Hong, Pang)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "-I8X-IoGypo",
+   "9hpcjcxoVac",
+   "qde7OlnWzLM"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2023-11-21",
+  "week": "2023-W47",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborator Showcase Software Demos (Gasman, Aasman, Lawrence-Archer, Soares)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "27i2G_qpJc8",
+   "DV37LL-sOsk",
+   "OSwCNnvAPsg",
+   "u0QpBiihylU"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-11-28",
+  "week": "2023-W48",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Coordinating Center (Hripcsak)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "EIoK3yQHtzI"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2023-12-05",
+  "week": "2023-W49",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent OHDSI Publications (Dhingra, Aminorroaya, Kim, Raventós, Voss, Ostropolets)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "ETTLcjmL_G4",
+   "IRxNCceNBq0",
+   "vc3DbAvx5mw",
+   "vuOHBfxX2Sk",
+   "wKXp95UHMhQ"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2023-12-12",
+  "week": "2023-W50",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Happy 10th Birthday, OHDSI - Decade & Year in Review (Hripcsak, Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "pzZ0YoljcV0",
+   "uM5aIRbQces"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2023-12-19",
+  "week": "2023-W51",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Holiday-Themed Goodbye to 2023!",
+  "url": "https://www.ohdsi.org/community-calls-2023/",
+  "video_ids": [
+   "j9Pfrdc2g-s"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-01-09",
+  "week": "2024-W02",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome Back! What Can OHDSI Accomplish in 2024? (Patrick Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "kL55ZJB0w2I"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2024-01-16",
+  "week": "2024-W03",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Connections for Collaborations (Breakouts)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "99GpgdMUUQg"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2024-01-23",
+  "week": "2024-W04",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Lessons Learned from the UK Studyathon (Prieto-Alhambra, Donegan, Jodicke, Lane)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "ESZAK4EoI9M"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-01-30",
+  "week": "2024-W05",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Introduction to Phenotype Phebruary (Shoaibi, Weaver, Ostropolets)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "AvrV9RI_7uw"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-02-06",
+  "week": "2024-W06",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs/Phenotype Phebruary Update #1",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "44shLX1D-jo",
+   "QZT3M0adEfA"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-02-13",
+  "week": "2024-W07",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs/Phenotype Phebruary Update #2",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "fisqupXrRiY",
+   "hGWm884Vkgc"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-02-20",
+  "week": "2024-W08",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs/Phenotype Phebruary Update #3",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "7iDLQUL7KYY",
+   "fhDEoUGczH4"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-02-27",
+  "week": "2024-W09",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs/Phenotype Phebruary Update #4",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "69xeRHev_s8",
+   "VnOt6SMBwXY"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-03-05",
+  "week": "2024-W10",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Standardized Vocabulary Winter Release",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "1lO5S-gAgHs",
+   "9GUY62nKOBI"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-03-12",
+  "week": "2024-W11",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "March Madness & April Olympians",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "_hcCl7lHE0k",
+   "ufx3bgwNQ1Y"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-03-26",
+  "week": "2024-W13",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent OHDSI Publications",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "0Q4FhNgYUiE",
+   "EUz6iuKbz3c",
+   "ScQwjNKsqOI",
+   "Ye3epVgyaKI",
+   "y-hDWs9tRBw"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-04-02",
+  "week": "2024-W14",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "April Olympians #1/Perseus ETL Tool",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "D70KYxuL5p0"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2024-04-09",
+  "week": "2024-W15",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Vocabulary Techniques for ETL/April Olympians (Dymshyts, Skugarevskaya, Ostropolets, Davydov)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "vOK3qZv5Iw8"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2024-04-16",
+  "week": "2024-W16",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Tools to Evaluate ETL (DeFalco, Sadowski)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "-Wovqpm7Cdc",
+   "T4bgbbLf-MQ"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2024-04-23",
+  "week": "2024-W17",
+  "wg": "themis",
+  "source": "calls",
+  "type": "community_call",
+  "title": "CDM and Themis Process Overview (Blacketer, Philofsky)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "0G1L4Jg8M9w"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2024-04-30",
+  "week": "2024-W18",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "April Olympians Wrap-Up (Blacketer)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "ElAIzLSs1So"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-05-07",
+  "week": "2024-W19",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "DevCon 2024 Review (Nagy, Chandrabalan, Carlson, Evans, DeFalco, Sadowski)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "Ki5fZjCboS0"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-05-14",
+  "week": "2024-W20",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "10-Minute Tutorials (Català Sabaté, López Güell, van Kessel, Smith)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "2y6n43WLj4w",
+   "6NKchzTXtCI",
+   "N1-xDvky8sA",
+   "dLssMjPcuss"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2024-05-21",
+  "week": "2024-W21",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Open Network Studies (Adam, Zhang, Kim, Morales)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "4joB1lPaO1o",
+   "HazVvxlwlD0",
+   "Ujrfyrd-yCI",
+   "s9WV5umN2es"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-05-28",
+  "week": "2024-W22",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborator Showcase Insights & Brainstorm (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "VetNbTqb_dk"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2024-06-11",
+  "week": "2024-W24",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Europe Symposium Review + OHDSI Evidence Network Update (Moinat, Peeters, Barbosa, Blacketer)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "YdpLc6oQyx8",
+   "gudHWsaMArg"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2024-06-18",
+  "week": "2024-W25",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Application of Large Language Models in the Evidence Generation Process (Fang, Almeida, Schuemie)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "7xZA_FF0hJc",
+   "MIGWWcVpvM8",
+   "Rrhkj8qwOmM"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2024-06-25",
+  "week": "2024-W26",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent OHDSI Publications (Trinh, Burkard, Fridgeirsson, Cai)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "3YG2jMg42os",
+   "9CZ6YVY0s_c",
+   "FFwtH-GTZ4A",
+   "s6umAWB_qFA"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2024-07-02",
+  "week": "2024-W27",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet New Members of the OHDSI Community",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "4f1F-nCHqzw"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2024-07-09",
+  "week": "2024-W28",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Building the OHDSI Evidence Network, Session 1 - Introduction, Value to the Community (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "ATZzGQrEtvc"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2024-07-16",
+  "week": "2024-W29",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "HowOften Initiative - Early Findings, Current Projects, Next Steps (Chen, Shoaibi, Ruan, Hripcsak)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "HUvF5fdxyU8"
+  ],
+  "slide_count": 11,
+  "weight": 1
+ },
+ {
+  "date": "2024-07-23",
+  "week": "2024-W30",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Building the OHDSI Evidence Network, Session II - Technical Details (Blacketer, Nagy, Martin)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "oigd6gp2pyA"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-07-30",
+  "week": "2024-W31",
+  "wg": "plp",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Patient-Level Prediction (Reps, Yanover, John, Saelmans, Friðgeirsson, Williams)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "D8BW6hc3Rws"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-08-06",
+  "week": "2024-W32",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Building the OHDSI Evidence Network, Session III - OHDSI Vocabularies (Ryan, Ostropolets)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "w7bGbjQ4lGA"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-08-06",
+  "week": "2024-W32",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Building the OHDSI Evidence Network, Session III - OHDSI Vocabularies (Ryan, Ostropolets)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "w7bGbjQ4lGA"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-08-13",
+  "week": "2024-W33",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "A Look Inside The OHDSI 2024 Global Symposium (Voss, Blacketer, Ostropolets, Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "Vcxrvo4CI6Q",
+   "cygi8TFZMRQ"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2024-08-20",
+  "week": "2024-W34",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Building The OHDSI Evidence Network Sprint, Final Session (Blacketer, Patnoe)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "YGd8_YWEuGg"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-09-03",
+  "week": "2024-W36",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Standardized Vocabularies Refresh (Davydov, Khitrun, Ostropolets, Skugarevskaya)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "sK3NUV57ZfA"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-09-10",
+  "week": "2024-W37",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Asia-Pacific Regional Updates (Hsu, You, Asao, Pratt, Liu, Feng)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "kKM7YKnpX_c"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2024-09-17",
+  "week": "2024-W38",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Book of OHDSI, 5 Years Later (Authors from The Book of OHDSI)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "I6Ux0L380Fk"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2024-09-24",
+  "week": "2024-W39",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent Publications (Mateus, Patterson, Ostchega, Golozar)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "EbAsFJ_aNqs",
+   "JpS0jIhu_Kk",
+   "_gDe7eYM8jU",
+   "iJKu6ReCuDs"
+  ],
+  "slide_count": 11,
+  "weight": 1
+ },
+ {
+  "date": "2024-10-01",
+  "week": "2024-W40",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "DARWINEU® Update & Progress (Rijnbeek, Moinat, Prieto-Alhambra, Verhamme)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "oyG5fybihCg"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2024-10-08",
+  "week": "2024-W41",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Advances in Methodological Research + 2024-25 Vocabulary Roadmap (Che, Hripcsak, Chattopadhyay, Davydov)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "1eNMOLHnoUU",
+   "8EPsZYT-c8c",
+   "_l64S65JpRA",
+   "w0JJF-Wnd7A"
+  ],
+  "slide_count": 11,
+  "weight": 1
+ },
+ {
+  "date": "2024-10-15",
+  "week": "2024-W42",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Global Symposium Mad Minutes and Final Logistics",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "EoCvUBxx0t4"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2024-10-29",
+  "week": "2024-W44",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome to OHDSI (Hripcsak, Sachson)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "c3fMJCzlaiM"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2024-11-05",
+  "week": "2024-W45",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet the 2024 Titans! (Janetzki, Cai, Zhuk, Zhang, Adulyannukosol, Blacketer, Camprubi, Katzman, Lavallee)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "LO4VuS3Wbcc"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2024-11-12",
+  "week": "2024-W46",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Next Steps in Evidence Dissemination (Ryan, Schuemie, Pratt)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "dZj9Tm_j-90"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2024-11-19",
+  "week": "2024-W47",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Evidence Network in Action: The Semaglutide Study (Cai, Zhang, Nagy, Sena, Westlund, Martin)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "SfdmIIhn9-o"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2024-11-26",
+  "week": "2024-W48",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI 2024 Collaborator Showcase Honorees (Hallaj, Tekumalla, Alvarez, Patnoe, Blacketer)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "LvS4zof5BNU",
+   "X5RRoH7iSKs",
+   "_Qwcjt0S5g0",
+   "sLkENwnFGe8",
+   "vv2y48bLOJo"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2024-12-03",
+  "week": "2024-W49",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Recent OMOP/OHDSI Publications (Fruchart, Prats-Uribe, Eisman, Tong)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "OtobPuloa9k",
+   "Sx5npBRWgkE",
+   "Z33o-BRTIK4",
+   "bo8JdwKuJmA"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2024-12-10",
+  "week": "2024-W50",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "How did OHDSI do in 2024 (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2024-12-17",
+  "week": "2024-W51",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Holiday-Themed Goodbye to 2024",
+  "url": "https://www.ohdsi.org/community-calls-2024/",
+  "video_ids": [
+   "yyKFnFmRCk4"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2025-01-07",
+  "week": "2025-W02",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "What Can OHDSI Do Together in 2025? (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "jnUd8tMUQqU"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-01-14",
+  "week": "2025-W03",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborations for Future Connections",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-01-21",
+  "week": "2025-W04",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Clinical Guideline Review/Bridge Training Program Introduction (Kim, Ostropolets, Haynes, Twagirumukiza)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "PkhdQe6y2uI",
+   "b72fMgOvAYA"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-01-28",
+  "week": "2025-W05",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Clinical Guideline Review, Sssion II (Han, Golozar, Mecoli, Zhuk, Skugarevskaya, Khitru, Korsik, Cai, Yanover/Rouach, Khilchevski, Hribar)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "Jr3ki5ngH0M"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2025-02-04",
+  "week": "2025-W06",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Phebruary + Workgroup OKRs, Week 1",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "FRgg0tw2G24",
+   "h-_xut4wENI"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-02-11",
+  "week": "2025-W07",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Phebruary + Workgroup OKRs, Week 2",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "-mZMlhDGD_0",
+   "78BAtfdqS84",
+   "pYVd2v3cyCY",
+   "xvLcDrrwZ-Q"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-02-18",
+  "week": "2025-W08",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Phebruary + Workgroup OKRs, Week 3",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "LUmBhqibVOU",
+   "TroiEOubu0o"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-02-25",
+  "week": "2025-W09",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Phebruary + Workgroup OKRs, Week 4",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "3KmJpVABjbo",
+   "dT-4sonQzCY"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-03-04",
+  "week": "2025-W10",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Vocabulary Winter 2025 Refresh + Phenotype Phebruary Review (Ostropolets, Shoaibi, Zhuk, Korsik)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "pwhN5ggM-Xc",
+   "v0LUq64noxc"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-03-04",
+  "week": "2025-W10",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Vocabulary Winter 2025 Refresh + Phenotype Phebruary Review (Ostropolets, Shoaibi, Zhuk, Korsik)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "pwhN5ggM-Xc",
+   "v0LUq64noxc"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-03-11",
+  "week": "2025-W11",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Book of OHDSI 2.0 Discussion (Reich)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "Dw5TzpkPgYo"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-03-18",
+  "week": "2025-W12",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Evidence Network & Data Diagnostics Tool (Blacketer)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "Rv1arONKd9o"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-03-25",
+  "week": "2025-W13",
+  "wg": "oncology",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Ensuring Data Fitness for Oncology Research (Golozar)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "rmmiykCH-H4"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-04-01",
+  "week": "2025-W14",
+  "wg": "community",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "OHDSI/OMOP Research Spotlight (Cai, Yanover, Conover, Tong, Jing, Yi)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "3GULrBsi4GE",
+   "6uz7bY89Y68",
+   "F8nwRyZHS2g",
+   "NaILAf-4ucw",
+   "i5FuiZEWp50"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2025-04-08",
+  "week": "2025-W15",
+  "wg": "hades",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Get Study-Ready with Strategus and HADES (Sena)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "zYzaVYW2eU0"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-04-15",
+  "week": "2025-W16",
+  "wg": "hades",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Introduction to the HADES TreatmentPatterns Package (van Kessel)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "VraAakLqR8M"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-04-22",
+  "week": "2025-W17",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Current Practices in Estimation, Prediction (Hripcsak, Suchard, Williams, Fridgeirsson)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "4aXeBpJH9uY",
+   "FsZ0d1RA9Hc"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-04-29",
+  "week": "2025-W18",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "DevCon 2025 - Our Open-Source Ecosystem (Nagy, Houghtaling, Sadowski, Fridgeirsson)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "oEW7DmKRB40"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-05-06",
+  "week": "2025-W19",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Unlock Causal Insights with Evidence Synthesis (Schuemie, Chen)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "3VZ0l8P7qMc"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-05-13",
+  "week": "2025-W20",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Maternal Health Fellowship Research Presentations (Sherwin, Howard, Murray, Stevenson)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "-Vc6XileRi8",
+   "ckpRMIzwBgE",
+   "gp4LQ3hjfM8",
+   "qiuRHZkIG48"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2025-05-20",
+  "week": "2025-W21",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Guideline Study Updates (Golozar, Skugarevskaya, Yanover, Mecoli, Zhuk, Kim, Han, Ostropolets, Cai, Srinivasan)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "Hp-ChkCeeSw"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2025-05-27",
+  "week": "2025-W22",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Research Breakouts for OHDSI2025 Showcase",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "xUt83I7rRtQ"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2025-06-03",
+  "week": "2025-W23",
+  "wg": "atlas-webapi",
+  "source": "calls",
+  "type": "community_call",
+  "title": "The Journey of ATLAS (Knoll, Hoffmann)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "GQU62faF6hg",
+   "OLo7Bgho_jY"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2025-06-10",
+  "week": "2025-W24",
+  "wg": "atlas-webapi",
+  "source": "calls",
+  "type": "community_call",
+  "title": "ATLAS Deepdive: Data Sources and Vocabularies, Survey #2 (Knoll, Manoylenko)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "Mfi5N6NHdRA"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2025-06-10",
+  "week": "2025-W24",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "ATLAS Deepdive: Data Sources and Vocabularies, Survey #2 (Knoll, Manoylenko)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "Mfi5N6NHdRA"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2025-06-17",
+  "week": "2025-W25",
+  "wg": "atlas-webapi",
+  "source": "calls",
+  "type": "community_call",
+  "title": "ATLAS Deepdive: Cohorts and Concept Sets (Knoll, Boyce)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "6ehw-ubQYHc"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2025-06-24",
+  "week": "2025-W26",
+  "wg": "atlas-webapi",
+  "source": "calls",
+  "type": "community_call",
+  "title": "ATLAS Deepdive: Characterization, Incidence, and Treatment Pathways (Knoll)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "TIZC-lhgnFw"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2025-07-01",
+  "week": "2025-W27",
+  "wg": "atlas-webapi",
+  "source": "calls",
+  "type": "community_call",
+  "title": "ATLAS Deepdive: Administrative and Technical Functions (Knoll, Iaroshovets)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "eMhO0VZaQAI"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2025-07-15",
+  "week": "2025-W29",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Europe Symposium Review (Peeters, Los, Kalra, Rijnbeek)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "IcJ4E2pYAAM"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2025-07-22",
+  "week": "2025-W30",
+  "wg": "community",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "OHDSI/OMOP Research Spotlight (González, Bohn, Boo, Kim)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "2vT04nXCu6U",
+   "Bk79hGLpKuQ",
+   "QAfZ_vXtwbY",
+   "euhk0KVEWZg"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2025-07-29",
+  "week": "2025-W31",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Asia-Pacific Regional Updates (Goh, Asao, Jakkuva, Adulyanukosol, You, Thanh-Phuc, Hsu, Lu)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "0-jy9aCd2E0",
+   "0r00zzx41Sw"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-08-12",
+  "week": "2025-W33",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet the OHDSI Newcomers",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2025-08-19",
+  "week": "2025-W34",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Tribute to a Titan: Jamie Weaver",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-08-26",
+  "week": "2025-W35",
+  "wg": "gaia-genai",
+  "source": "calls",
+  "type": "community_call",
+  "title": "LLM Innovations in OHDSI (Kennedy, Endrich, Swerdel, István, Shi, Perry, Iurchenko, Kim, Lee, Kim)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "GCdxpdzRoUs",
+   "HcxKbuGkZFg"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2025-09-02",
+  "week": "2025-W36",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Standardized Vocabulary Summer Refresh Update (Khitrun, Ostropolets, Korsik, Philofsky, Davydov)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "0xhBIz58tXY",
+   "4ZaefntHAFk"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2025-09-09",
+  "week": "2025-W37",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Global Symposium Preview (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2025-09-16",
+  "week": "2025-W38",
+  "wg": "community",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "OHDSI/OMOP Research Spotlight (Tong, Guell, Park, Newbury, Martin)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2025-09-23",
+  "week": "2025-W39",
+  "wg": "education",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Education in OHDSI: Lessons Learned (Prieto-Alhambra, Hripcsak, Nagy)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2025-09-30",
+  "week": "2025-W40",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI 2025 Mad Minutes and Final Logistics (Various Presenters)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2025-10-14",
+  "week": "2025-W42",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome to OHDSI, How Do You Get Started (Ryan, Sachson)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "x9K9kNZkutU"
+  ],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2025-10-21",
+  "week": "2025-W43",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Tribute to Andrew Williams/The Power of Collaboration",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 1,
+  "weight": 1
+ },
+ {
+  "date": "2025-10-28",
+  "week": "2025-W44",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet the Titans (Kiragga, Talapova, Swerdel, Houghtaling, Markus, van Kessel, Vermeulen, Klebanov)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "qCl6236XTlM"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-11-04",
+  "week": "2025-W45",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI 2025 Best Community Contribution Honorees (Houghtaling, Li, Chen, Blacketer)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-11-11",
+  "week": "2025-W46",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI 2025 Software Demos (Ahmed, Nika, Atkins, Sadowski, Barrett)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-11-18",
+  "week": "2025-W47",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "DARWIN EU® Initiative Update (Rijnbeek, Verhamme, Moinat)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2025-11-25",
+  "week": "2025-W48",
+  "wg": "early-stage-researchers",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Early-Stage Researcher Spotlight (Reyes Nieva, Martin, Chattopadhyay, Lee, Jeon, Hromiak, Zelko, Zhang)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2025-12-02",
+  "week": "2025-W49",
+  "wg": "community",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "OHDSI/OMOP Research Spotlight (Meszaros, Moncusi, Bellas, Razzaghi)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "7V1Ss00A0e8",
+   "SgenIiFa0oA",
+   "aHmja3HAuT0",
+   "mjb_mPHwfQ4"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2025-12-09",
+  "week": "2025-W50",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "How Did OHDSI Do In 2025? (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "ei1Vpx-inLk"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2025-12-16",
+  "week": "2025-W51",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Holiday Farewell to 2025",
+  "url": "https://www.ohdsi.org/community-calls-2025/",
+  "video_ids": [
+   "GCNcpZkZXv4"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2026-01-13",
+  "week": "2026-W03",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Where Can OHDSI Go Together in 2026? (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "8lcJgOaO1k8",
+   "a9vuvF9WQ34"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2026-01-20",
+  "week": "2026-W04",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Building Connections for Future Collaborations",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-01-27",
+  "week": "2026-W05",
+  "wg": "education",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Community Brainstorms on Innovation and Education (Ryan, Nagy)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-02-10",
+  "week": "2026-W07",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI Technical Collaboration Update",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-02-17",
+  "week": "2026-W08",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs and Mini-Journal Club (Blacketer, Ashby, Sena, Nagy, Paulenkovich, Van Zandt, Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "6ImY75tiAUg",
+   "s51Nn8O7g0M"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2026-02-24",
+  "week": "2026-W09",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Workgroup OKRs (Ostropolets, Harding, Gabriel, Wang, Minnty, Xu, Oliveira, Golozar, Adam, Martin)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2026-03-03",
+  "week": "2026-W10",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Winter 2026 Standardized Vocabularies Refresh (Ostropolets, Khitrun, Dymshyts)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "hGuxKkppwRM"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2026-03-10",
+  "week": "2026-W11",
+  "wg": "education",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Present and Future of Education in OHDSI (Nagy)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-03-17",
+  "week": "2026-W12",
+  "wg": "cdm",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlight: CDM and HADES (Blacketer, Sena)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2026-03-17",
+  "week": "2026-W12",
+  "wg": "hades",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlight: CDM and HADES (Blacketer, Sena)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2026-03-24",
+  "week": "2026-W13",
+  "wg": "community",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "OHDSI/OMOP Research Spotlight (Cuyás, Cai, Spotnitz)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2026-03-31",
+  "week": "2026-W14",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Aphril Kickoff (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "TPhEZmfdjIo"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2026-04-07",
+  "week": "2026-W15",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Aphril Week 1: Phenotype Development - Live Build of Cohorts (Rao)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2026-04-14",
+  "week": "2026-W16",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Aphril Week 2: Phenotype Evaluation Using KEEPER (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-04-28",
+  "week": "2026-W18",
+  "wg": "phenotype",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Phenotype Aphril Week 4: Evaluating AMI Phenotypes (Shoaibi)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-05-05",
+  "week": "2026-W19",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Europe Symposium Review & Reflections (Los, Vermeulen)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-05-12",
+  "week": "2026-W20",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Collaborator Showcase Brainstorm",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-05-19",
+  "week": "2026-W21",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "MEDS (Medical Event Data Standard) & Potential Collaborations with OHDSI (McDermott)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "9xuVlXD2u3o"
+  ],
+  "slide_count": 2,
+  "weight": 1
+ },
+ {
+  "date": "2026-05-26",
+  "week": "2026-W22",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlight - Vocabulary and Evidence Network (Ostropolets, Khitrun, Houghtaling, Blacketer)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "YZxDYNhWjKs",
+   "sHWdAelEyJM"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2026-05-26",
+  "week": "2026-W22",
+  "wg": "evidence-network",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlight - Vocabulary and Evidence Network (Ostropolets, Khitrun, Houghtaling, Blacketer)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "YZxDYNhWjKs",
+   "sHWdAelEyJM"
+  ],
+  "slide_count": 3,
+  "weight": 1
+ },
+ {
+  "date": "2026-06-02",
+  "week": "2026-W23",
+  "wg": "gaia-genai",
+  "source": "calls",
+  "type": "community_call",
+  "title": "LLM Research in the OHDSI Community, Session 1 (Schuemie, Ostropolets, Dymshyts, Carlson)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "Oz_eGf-0924",
+   "aopMXp4PorA",
+   "dj1m5Y22rAc",
+   "lrQpwMcY3rQ"
+  ],
+  "slide_count": 4,
+  "weight": 1
+ },
+ {
+  "date": "2026-06-09",
+  "week": "2026-W24",
+  "wg": "gaia-genai",
+  "source": "calls",
+  "type": "community_call",
+  "title": "LLM Research in the OHDSI Community, Session 2 (Moeller-Grell, Swerdel, Houghtaling, Johnson)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "3OmnHaBu1Ao",
+   "TW2dpFdYHP8",
+   "e0IoiEKfwow",
+   "nsjIC6GxlrM"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2026-06-16",
+  "week": "2026-W25",
+  "wg": "gaia-genai",
+  "source": "calls",
+  "type": "community_call",
+  "title": "LLM Research in the OHDSI Community, Session 3 (Shenzhang, Boyce, Wolford, Chandrabalan)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "4iufhp_cZ3I",
+   "QXZyV69w1iM",
+   "YTnZr4CIQGg",
+   "rMxnmEGWoO4"
+  ],
+  "slide_count": 9,
+  "weight": 1
+ },
+ {
+  "date": "2026-06-30",
+  "week": "2026-W27",
+  "wg": "community",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "OHDSI/OMOP Research Spotlight (Kim, Yankam, Vereijken, Bailey)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "XA0bUeTkw5g",
+   "aas6e9IMKhs",
+   "grSRbXC3hoU",
+   "i6w-UpqGrQ8"
+  ],
+  "slide_count": 10,
+  "weight": 1
+ },
+ {
+  "date": "2026-07-07",
+  "week": "2026-W28",
+  "wg": "atlas-webapi",
+  "source": "calls",
+  "type": "community_call",
+  "title": "ATLAS 3.0 Preview (Hoffmann)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "Ht2LYGrYtak"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-07-14",
+  "week": "2026-W29",
+  "wg": "nlp",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlight - Natural Language Processing (Xu, Keloth)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "xkdqXTsvhH4"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2026-07-21",
+  "week": "2026-W30",
+  "wg": "health-systems",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlight - Surgery & Perioperative Medicine and Health Systems Interest Group (Minty, Philofsky)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "2u2cskniE1A",
+   "OHY093g_AlY"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-07-21",
+  "week": "2026-W30",
+  "wg": "surgery-perioperative",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlight - Surgery & Perioperative Medicine and Health Systems Interest Group (Minty, Philofsky)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "2u2cskniE1A",
+   "OHY093g_AlY"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-07-28",
+  "week": "2026-W31",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet the Newcomers",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "Q-m4TjrSI2Y",
+   "fSA3xPxYD6w"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-08-04",
+  "week": "2026-W32",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "A Shared Understanding of Clinical Definitions ... and Sandwiches (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "LjJ_wysq4no"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-08-11",
+  "week": "2026-W33",
+  "wg": "oncology",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Oncology Research Spotlight: Advancing Cancer Care in OHDSI (Golozar)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "71JQdqo8m8Y"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-08-18",
+  "week": "2026-W34",
+  "wg": "eye-care-vision",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlights: Eye Care & Vision Research, Rehabilitation (Cai, Hribar, Ashby, Janssen, Salles)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "Qq6HoWY9Ccc",
+   "StjfwT2xpEc"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2026-08-18",
+  "week": "2026-W34",
+  "wg": "rehabilitation",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Workgroup Spotlights: Eye Care & Vision Research, Rehabilitation (Cai, Hribar, Ashby, Janssen, Salles)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "Qq6HoWY9Ccc",
+   "StjfwT2xpEc"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2026-08-25",
+  "week": "2026-W35",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Asia-Pacific (APAC) Regional Updates (Asao, Feng, Hsu, Kim, Pratt, Phuc)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "jqF0_DLtUaE"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-09-01",
+  "week": "2026-W36",
+  "wg": "cdm-vocabulary",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Standardized Vocabulary 2026 Summer Refresh (Ostropolets, Reich, Khitrun, Korsik)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "Gf1Q_jXUhVQ"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-09-08",
+  "week": "2026-W37",
+  "wg": "cdm",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Medical Imaging Spotlight + OMOP CDM v5.5 Updates & Who Should Switch (Nagy, Jeon, Park, Blacketer, Philofsky, Moinat)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "lyFCSgI5C50",
+   "y653g6j4IB4"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2026-09-08",
+  "week": "2026-W37",
+  "wg": "medical-imaging",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "Medical Imaging Spotlight + OMOP CDM v5.5 Updates & Who Should Switch (Nagy, Jeon, Park, Blacketer, Philofsky, Moinat)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "lyFCSgI5C50",
+   "y653g6j4IB4"
+  ],
+  "slide_count": 8,
+  "weight": 1
+ },
+ {
+  "date": "2026-09-15",
+  "week": "2026-W38",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Global Symposium Preview",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "QtvPG5cU8OI"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2026-09-22",
+  "week": "2026-W39",
+  "wg": "gaia-genai",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Will AI Help or Hurt OHDSI in its Mission to Generate RWE? (Ryan)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "JW1or5OXZoM"
+  ],
+  "slide_count": 9,
+  "weight": 1
+ },
+ {
+  "date": "2026-09-29",
+  "week": "2026-W40",
+  "wg": "community",
+  "source": "calls",
+  "type": "spotlight",
+  "title": "OHDSI/OMOP Research Spotlight (López Sánchez, Bu, Anand, Kern)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "1Q1KWPg-fMw",
+   "7qqwa2e-tQU",
+   "Nvlm9A-YuSo",
+   "ZWpV4K5l_rg"
+  ],
+  "slide_count": 10,
+  "weight": 1
+ },
+ {
+  "date": "2026-10-06",
+  "week": "2026-W41",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Falcon Symposium & Studyathon Review (Golozar)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "g-bAsxDeDnM"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-10-13",
+  "week": "2026-W42",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI 2026 Final Preview",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "OCnJa6UKFnU"
+  ],
+  "slide_count": 7,
+  "weight": 1
+ },
+ {
+  "date": "2026-10-27",
+  "week": "2026-W44",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Welcome to OHDSI: What We Do, How Can You Make an Impact (Ryan, Sachson)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "YgMGLN303u0"
+  ],
+  "slide_count": 5,
+  "weight": 1
+ },
+ {
+  "date": "2026-11-03",
+  "week": "2026-W45",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Meet the 2026 Titans (Hsu, Los, Kanter, Khitrun, Zhang, Boyce, Hribar)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "60U8uNr57Tg"
+  ],
+  "slide_count": 9,
+  "weight": 1
+ }
+]

@@ -1,0 +1,84 @@
+buckets:
+  community: "Community-wide announcements: Weekly OHDSI Digest, Global Symposium logistics, Titan awards, job posts, intros. Not WG activity; keep as a separate row or drop."
+  regional: "Regional/language chapters and symposia (APAC, Europe, Korea, Japan, China, LATAM, ...). Not WGs."
+
+title_rules:
+  # --- WG meeting/announcement threads that are explicitly named, before the generic community rule ---
+  - {to: cdm-vocabulary, match: 'Vocabulary WG'}
+  - {to: themis, match: '\bThemis WG'}
+  - {to: atlas-webapi, match: '\bAtlas ?/? ?(WebAPI)? ?(WG|Community call|\d+ Meeting|Meeting)|Atlas ?3'}
+  - {to: oncology, match: 'Oncology WG'}
+  - {to: perinatal-reproductive, match: '\bPHReG'}
+  - {to: health-systems, match: 'Health Systems Monthly'}
+  - {to: openehr-omop, match: 'openEHR'}
+  # --- non-WG buckets so announcement threads do not leak into WGs ---
+  - {to: community, match: '^(\[?Weekly OHDSI Digest|.*\b(Titan|hotel|guestroom|Hyatt|sponsor|exhibit|Scientific Review|Collaborator Showcase|Global Symposium|Community Call|MS Teams|Teams/Email|job (opportunity|posting)|hiring)\b)'}
+  # --- WG-named threads ---
+  - {to: gis, match: '\b(GIS|geospatial|geographic|Gaia)\b|CDM on GIS|LSOA'}
+  - {to: waveform, match: '\bwaveform'}
+  - {to: oncology, match: '\b(oncology|cancer|tumou?r|ICD-?O|NAACCR)\b'}
+  - {to: perinatal-reproductive, match: '\b(PHReG|perinatal|pregnan|maternal|birth delivery)'}
+  - {to: health-systems, match: '\bHealth Systems?\b'}
+  - {to: themis, match: '\bThemis\b'}
+  - {to: clinical-trials, match: 'clinical trial|ClinicalTrials?|\bSDTM\b|\bCDISC\b'}
+  - {to: medical-imaging, match: '\b(medical imaging|DICOM|radiolog|#imaging)'}
+  - {to: medical-devices, match: 'medical device'}
+  - {to: eye-care-vision, match: '\b(ophthalm|eye care|vision research)'}
+  - {to: psychiatry, match: '\bpsychiatr'}
+  - {to: rehabilitation, match: '\brehabilitation'}
+  - {to: women-of-ohdsi, match: 'Women of OHDSI|\bWoO\b'}
+  - {to: vaccine-vocabulary, match: '\bvaccin|\b(CVX|Tdap|DTaP)\b'}
+  - {to: cdm-survey, match: '\bsurvey (data|best practices|mapping)|\[Surveys\]'}
+  - {to: dentistry, match: '\b(dental|dentistry|CDT)\b'}
+  - {to: education, match: '\b(tutorial|Book of OHDSI|learning pathway)'}
+  - {to: evidence-network, match: '\bEvidence Network\b|\bAres\b'}
+  - {to: reveal, match: '\bREVEAL\b'}
+  - {to: nlp, match: '\b(NLP|NOTE_NLP|natural language processing)\b'}
+  - {to: tidy-r-omop, match: 'Tidy R'}
+  - {to: rare-diseases, match: 'rare disease'}
+  - {to: transplant, match: '\btransplant'}
+  # --- tools ---
+  - {to: atlas-webapi, match: '\b(Atlas|WebAPI|Circe|Broadsea)\b'}
+  - {to: data-quality, match: '\b(DQD|data quality|Achilles|cdmInspection)\b'}
+  - {to: hades, match: '\b(HADES|Strategus|CohortGenerator|CohortDiagnostics|DatabaseConnector|SqlRender|FeatureExtraction)\b'}
+  - {to: plp, match: 'PatientLevelPrediction|patient.level prediction'}
+  - {to: methods-research, match: '\b(CohortMethod|propensity|SCCS|self.controlled|empirical calibration|Cyclops)\b'}
+  - {to: phenotype, match: '\b(phenotyp|Phebruary|PheValuator|concept set|Keeper)\b'}
+  - {to: gaia-genai, match: '\b(LLM|AI[- ]assisted|AI agent|agentic|Study ?Agent|THESEUS|foundation model|generative AI|MCP)\b'}
+  - {to: cdm-vocabulary, match: '\b(Athena|Usagi|vocabular|concept_ancestor|concept_relationship|RxNorm|SNOMED|LOINC|ATC|ICD-?10|MedDRA|HCPCS|NDC|mapping)\b'}
+  - {to: etl, match: '\b(ETL|WhiteRabbit|White Rabbit|Rabbit in a Hat|Synthea|FHIR)\b'}
+  - {to: cdm, match: '\b(CDM|OMOP)\b.*\b(table|domain|field|DDL|v5\.\d)|visit_(occurrence|detail)|observation_period'}
+  # --- regional (matched by category below, plus these language/region hints) ---
+  - {to: regional, match: 'APAC (Symposium|Community Call|Scientific Forum)|OHDSI (Canada|Boston|India|Korea|Japan|China)|Chapter|Node\b'}
+
+tag_rules:        # only a single, specific tag counts; priority = order below
+  themis: themis
+  phenotyping: phenotype
+  phenotype-phebruary: phenotype
+  patientprediction: plp
+  estimationmethods: methods-research
+  hades: hades
+  webapi: atlas-webapi
+  atlas: atlas-webapi
+  imaging: medical-imaging
+  gaia: gis              # check: the one tagged topic may be about GIS or GenAI
+  ai: gaia-genai
+  vocabularies: cdm-vocabulary
+  vocab: cdm-vocabulary
+  metadata: cdm
+  cdm: cdm
+  # ignored: workinggroup, cohort, networkstudy, networkresearch, security, documentation, json, provider, book, random, ...
+
+category_rules:   # category id -> WG/bucket (weak: only reached when no title or tag rule hit)
+  14: cdm-vocabulary      # Vocabulary Users
+  9: cdm                  # CDM Builders
+  17: methods-research    # Method Evaluation Task Force
+  16: regional            # OHDSI in Korea
+  18: regional            # OHDSI in China
+  19: regional            # OHDSI in Europe
+  23: regional            # OHDSI in Japan
+  24: regional            # OHDSI en Espanol
+  25: regional            # OHDSI in Taiwan
+  26: regional            # OHDSI em Portugues
+  27: regional            # OHDSI LATAM
+  # 5 General, 6 Implementers, 7 Developers, 8 Researchers, 1 Uncategorized: too broad -> unassigned

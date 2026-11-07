@@ -1,0 +1,888 @@
+{
+ "run_date": "2026-11-07",
+ "window": "2025-11-07 to 2026-11-07 (ISO weeks 2025-W45..2026-W45)",
+ "method": "Teams web, read-only. Per channel: scrolled the Posts list back until threads older than the window, opened threads with collapsed replies, counted dated posts/replies and distinct displayed author names (numbers only), counted 'Meeting ended' events and recap cards. No message or transcript text was stored.",
+ "scope": "Every team whose name contains 'Workgroup' (44 teams, 'Workgroup Leadership' included). Visible (non-hidden) channels only. Hidden/archived channels (old symposium submission, hackathon, past-study channels) were skipped; in earlier test passes the ones visited had no in-window activity.",
+ "not_collected": [
+  "files_shared: null everywhere (Shared tab not collected, per instructions)",
+  "transcript_words and transcript_speakers_max: null where a transcript exists (not measured), 0 where no recap/transcript was seen",
+  "no meeting summaries or keywords (data/private/teams_meetings.json is empty)"
+ ],
+ "caveats": [
+  "active_authors is a lower bound: the page does not repeat the author name on consecutive replies by one person, so weeks with replies but no visible names count as 1.",
+  "Reply counts may undercount slightly where Teams omits timestamps on consecutive messages.",
+  "meetings counts every 'Meeting ended' event, including very short stray starts; meeting_minutes is the sum of those durations, rounded.",
+  "Dates in Teams without a year are taken as 2026.",
+  "Channels with threads_seen=0 are marked partial: no threads rendered, so empty vs. not loaded is unknown. Listed in channels_no_threads.",
+  "Collector stops loading older threads once the oldest loaded thread is before the window; threads are ordered by last activity.",
+  "GIS 'Development' channel has 340 threads in Sep-Nov 2026 (appears automated); counted as posts.",
+  "Waveform and Education/Book of OHDSI rows come from the earlier hand-checked pass; a later automated rerun of Waveform loaded only 3 of 14 threads (page loading issue), so it was discarded. Education/Section II is from the automated pass.",
+  "Unusually long single-week meeting minutes (e.g. 692, 495, 490) are sums of events as shown; not verified.",
+  "Partial weeks everywhere: 2025-W45 (only Nov 7-9) and 2026-W45 (in progress)."
+ ],
+ "channels_no_threads": [
+  "Eye Care & Vision Research / How Often Ophthalmology network study",
+  "Eye Care & Vision Research / Retina Subgroup",
+  "Health Equity / HERA",
+  "Healthcare Systems Interest Group / FAQs and information",
+  "Healthcare Systems Interest Group / Oncology-EHR collaboration",
+  "NLP Natural Language Processing / ETL Tools for NLP",
+  "Network Data Quality / Documentation Hands-On 2022",
+  "OHDSI APAC Steering Committee / General",
+  "Open-Source Community / Perseus Users Group",
+  "Perinatal and Reproductive Health / Phenotype - Birthweight, apgar",
+  "Perinatal and Reproductive Health / Phenotype - Hypertensive disorders",
+  "Perinatal and Reproductive Health / Phenotype - Postpartum depression",
+  "Perinatal and Reproductive Health / Phenotype - Severe maternal morbidity",
+  "Phenotype Development and Evaluation / VA Cipher and OHDSI Phenotype Library integration"
+ ],
+ "channels": [
+  {
+   "wg": "education",
+   "team": "Workgroup - Education Working Group",
+   "channel": "Book of OHDSI",
+   "range_covered": "2025-11-07 to 2026-11-07 (rows 2025-W45..2026-W45)",
+   "notes": [
+    "Posts list scrolled to top; oldest thread Aug 2025; only 3 threads had activity in window.",
+    "Meeting events read from the system 'Meeting started/ended' replies in a long-running meeting-chat thread; year-less dates assumed 2026.",
+    "Meetings of under 5 minutes (W16, W28) look like test/accidental starts; counted as meetings anyway.",
+    "Durations rounded to whole minutes."
+   ],
+   "transcripts": "Not collected: the channel's Meeting tab does not render in Teams web ('try the desktop version'), so no Recap/Transcript was reachable. transcript_* are 0 and meetings_with_transcript is 0, meaning 'unavailable', not 'none exist'.",
+   "files_caveat": "Shared tab only partly reviewed: top level, Book Writing Operations (1 file modified in window) and part of Meeting Notes & Presentations. Recordings and zArchive folders not opened. Folder 'Book Writing Operations' modified 30 Mar 2026 not counted as a file. SharePoint view is in an iframe so dates were read from screenshots.",
+   "partial_weeks": [
+    "2025-W45 (only Nov 7-9 in window)",
+    "2026-W45 (week in progress)"
+   ]
+  },
+  {
+   "wg": "waveform",
+   "team": "Workgroup - Waveform",
+   "channel": "General",
+   "range_covered": "2025-11-07 to 2026-11-07 (rows 2025-W45..2026-W45); channel history starts 2025-11-18",
+   "notes": [
+    "Only channel in the team (General). Posts list scrolled to top; 14 thread roots, one thread with ~30 replies opened and read.",
+    "Meetings = count of 'Meeting ended' events in the channel meeting-chat thread, including very short stray ones (under 2 min) so it matches the Education pilot; durations rounded to whole minutes. Scheduled bi-weekly meetings: 18 with recap cards.",
+    "No bi-weekly meeting events seen for Feb, 1 May or 23 Oct onward; the 28 Oct reply says a meeting was cancelled. Not verified whether other dates were skipped or not loaded.",
+    "Reply count may undercount by a few (thread header says 30, 27 dated items found; a few messages had no visible timestamp). active_authors is a lower bound: consecutive replies by the same person do not repeat the author name in the page.",
+    "2026-W24 duration uses the 'ended' event (42 min); the recap card showed 37 min."
+   ],
+   "transcripts": "All 18 bi-weekly meetings have a recap with a transcript (meetings_with_transcript=1 in those weeks). transcript_words and transcript_speakers_max are null (not measured): the transcript sits in a cross-origin iframe, the visible pane is ~6 lines, so counting or summarising would take many screenshots per meeting. Opened Oct 16 recap only to confirm it loads; nothing downloaded or saved.",
+   "files_caveat": "files_shared is null for all Waveform rows: Shared tab not reviewed.",
+   "partial_weeks": [
+    "2025-W45 (only Nov 7-9 in window)",
+    "2026-W45 (week in progress)"
+   ]
+  },
+  {
+   "wg": "atlas-webapi",
+   "team": "Atlas/WebAPI",
+   "channel": "General",
+   "oldest_thread": "2022-01-19",
+   "threads_seen": 23,
+   "threads_opened": 6,
+   "weeks_with_activity": 24
+  },
+  {
+   "wg": "atlas-webapi",
+   "team": "Atlas/WebAPI",
+   "channel": "WebAPI Document-a-thon 2022",
+   "oldest_thread": "2022-09-26",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "clinical-trials",
+   "team": "Clinical trials",
+   "channel": "General",
+   "oldest_thread": "2025-08-15",
+   "threads_seen": 17,
+   "threads_opened": 3,
+   "weeks_with_activity": 20
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "General",
+   "oldest_thread": "2022-01-10",
+   "threads_seen": 20,
+   "threads_opened": 2,
+   "weeks_with_activity": 30
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "2021 Hackathon - Code Base",
+   "oldest_thread": "2021-08-17",
+   "threads_seen": 13,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "2021 Hackathon - Documentation",
+   "oldest_thread": "2021-08-17",
+   "threads_seen": 19,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "2021 Hackathon - General",
+   "oldest_thread": "2021-08-10",
+   "threads_seen": 15,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "CDM Proposals",
+   "oldest_thread": "2022-11-27",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "Conventions",
+   "oldest_thread": "2021-02-16",
+   "threads_seen": 4,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "OMOP CDM ERD Challenge",
+   "oldest_thread": "2022-11-18",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "THEMIS Subgroup",
+   "oldest_thread": "2023-05-10",
+   "threads_seen": 21,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "cdm",
+   "team": "Common Data Model",
+   "channel": "Vocabulary WG",
+   "oldest_thread": "2023-01-08",
+   "threads_seen": 17,
+   "threads_opened": 3,
+   "weeks_with_activity": 11
+  },
+  {
+   "wg": "dentistry",
+   "team": "Dentistry",
+   "channel": "General",
+   "oldest_thread": "2022-10-24",
+   "threads_seen": 15,
+   "threads_opened": 2,
+   "weeks_with_activity": 15
+  },
+  {
+   "wg": "dentistry",
+   "team": "Dentistry",
+   "channel": "2023 OHDSI Global Symposium Submissions",
+   "oldest_thread": "2023-05-03",
+   "threads_seen": 8,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "ehden-sme",
+   "team": "EHDEN SME",
+   "channel": "General",
+   "oldest_thread": "2025-04-15",
+   "threads_seen": 5,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "ehden-sme",
+   "team": "EHDEN SME",
+   "channel": "EHDEN SME Coordination",
+   "oldest_thread": "2025-04-15",
+   "threads_seen": 1,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "early-stage-researchers",
+   "team": "Early-Stage Researchers",
+   "channel": "General",
+   "oldest_thread": "2021-05-02",
+   "threads_seen": 19,
+   "threads_opened": 1,
+   "weeks_with_activity": 11
+  },
+  {
+   "wg": "animal-health",
+   "team": "Electronic Animal Health Records",
+   "channel": "General",
+   "oldest_thread": "2023-12-28",
+   "threads_seen": 14,
+   "threads_opened": 1,
+   "weeks_with_activity": 12
+  },
+  {
+   "wg": "evidence-translation",
+   "team": "Evidence Translation",
+   "channel": "General",
+   "oldest_thread": "2025-08-15",
+   "threads_seen": 1,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "eye-care-vision",
+   "team": "Eye Care & Vision Research",
+   "channel": "General",
+   "oldest_thread": "2023-03-20",
+   "threads_seen": 17,
+   "threads_opened": 1,
+   "weeks_with_activity": 9
+  },
+  {
+   "wg": "eye-care-vision",
+   "team": "Eye Care & Vision Research",
+   "channel": "How Often Ophthalmology network study",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "eye-care-vision",
+   "team": "Eye Care & Vision Research",
+   "channel": "Retina Subgroup",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "gis",
+   "team": "GIS Geographic Information System",
+   "channel": "General",
+   "oldest_thread": "2024-08-25",
+   "threads_seen": 12,
+   "threads_opened": 2,
+   "weeks_with_activity": 45
+  },
+  {
+   "wg": "gis",
+   "team": "GIS Geographic Information System",
+   "channel": "Development",
+   "oldest_thread": "2026-09-23",
+   "threads_seen": 340,
+   "threads_opened": 0,
+   "weeks_with_activity": 7
+  },
+  {
+   "wg": "gaia-genai",
+   "team": "Generative AI and Analytics in Healthcare Workgroup",
+   "channel": "General",
+   "oldest_thread": "2025-06-16",
+   "threads_seen": 19,
+   "threads_opened": 2,
+   "weeks_with_activity": 10
+  },
+  {
+   "wg": "gaia-genai",
+   "team": "Generative AI and Analytics in Healthcare Workgroup",
+   "channel": "Automated Vocabulary Mapping",
+   "oldest_thread": "2026-01-20",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 3
+  },
+  {
+   "wg": "gaia-genai",
+   "team": "Generative AI and Analytics in Healthcare Workgroup",
+   "channel": "Phenotype Algorithm Development",
+   "oldest_thread": "2026-01-22",
+   "threads_seen": 1,
+   "threads_opened": 0,
+   "weeks_with_activity": 2
+  },
+  {
+   "wg": "gaia-genai",
+   "team": "Generative AI and Analytics in Healthcare Workgroup",
+   "channel": "Study Design Assistant",
+   "oldest_thread": "2026-01-21",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 2
+  },
+  {
+   "wg": "hades",
+   "team": "HADES Health Analytics Data-to-Evidence Suite",
+   "channel": "General",
+   "oldest_thread": "2025-07-21",
+   "threads_seen": 14,
+   "threads_opened": 2,
+   "weeks_with_activity": 7
+  },
+  {
+   "wg": "hades",
+   "team": "HADES Health Analytics Data-to-Evidence Suite",
+   "channel": "Strategus Subteam - CLOSED",
+   "oldest_thread": "2024-01-01",
+   "threads_seen": 6,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "heva",
+   "team": "Health Economics & Value Assessment (HEVA)",
+   "channel": "General",
+   "oldest_thread": "2025-06-02",
+   "threads_seen": 13,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "health-equity",
+   "team": "Health Equity",
+   "channel": "General",
+   "oldest_thread": "2023-01-30",
+   "threads_seen": 20,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "health-equity",
+   "team": "Health Equity",
+   "channel": "AIM-AHEAD",
+   "oldest_thread": "2021-07-18",
+   "threads_seen": 27,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "health-equity",
+   "team": "Health Equity",
+   "channel": "HERA",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "health-equity",
+   "team": "Health Equity",
+   "channel": "RC-TEC",
+   "oldest_thread": "2021-08-24",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "health-equity",
+   "team": "Health Equity",
+   "channel": "SDRN",
+   "oldest_thread": "2022-04-07",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "health-systems",
+   "team": "Healthcare Systems Interest Group",
+   "channel": "General",
+   "oldest_thread": "2024-10-27",
+   "threads_seen": 21,
+   "threads_opened": 3,
+   "weeks_with_activity": 17
+  },
+  {
+   "wg": "health-systems",
+   "team": "Healthcare Systems Interest Group",
+   "channel": "FAQs and information",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "health-systems",
+   "team": "Healthcare Systems Interest Group",
+   "channel": "Oncology-EHR collaboration",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "industry",
+   "team": "Industry Working Group",
+   "channel": "General",
+   "oldest_thread": "2023-11-14",
+   "threads_seen": 16,
+   "threads_opened": 1,
+   "weeks_with_activity": 6
+  },
+  {
+   "wg": "industry",
+   "team": "Industry Working Group",
+   "channel": "OMOP Marketplace - IWG Subgroup",
+   "oldest_thread": "2024-03-12",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "medical-imaging",
+   "team": "Medical Imaging",
+   "channel": "General",
+   "oldest_thread": "2021-10-07",
+   "threads_seen": 14,
+   "threads_opened": 3,
+   "weeks_with_activity": 27
+  },
+  {
+   "wg": "medical-imaging",
+   "team": "Medical Imaging",
+   "channel": "Dicom-Vocab",
+   "oldest_thread": "2024-02-07",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 1
+  },
+  {
+   "wg": "methods-research",
+   "team": "Methods Research",
+   "channel": "General",
+   "oldest_thread": "2020-08-25",
+   "threads_seen": 1,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "methods-research",
+   "team": "Methods Research",
+   "channel": "PLP Workgroup",
+   "oldest_thread": "2021-01-20",
+   "threads_seen": 19,
+   "threads_opened": 0,
+   "weeks_with_activity": 1
+  },
+  {
+   "wg": "nlp",
+   "team": "NLP Natural Language Processing",
+   "channel": "General",
+   "oldest_thread": "2021-01-13",
+   "threads_seen": 20,
+   "threads_opened": 1,
+   "weeks_with_activity": 22
+  },
+  {
+   "wg": "nlp",
+   "team": "NLP Natural Language Processing",
+   "channel": "ETL Tools for NLP",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "data-quality",
+   "team": "Network Data Quality",
+   "channel": "General",
+   "oldest_thread": "2026-06-11",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 5
+  },
+  {
+   "wg": "data-quality",
+   "team": "Network Data Quality",
+   "channel": "Documentation Hands-On 2022",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "apac-steering-committee",
+   "team": "OHDSI APAC Steering Committee",
+   "channel": "General",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "evidence-network",
+   "team": "OHDSI Evidence Network Partners",
+   "channel": "General",
+   "oldest_thread": "2024-01-16",
+   "threads_seen": 21,
+   "threads_opened": 3,
+   "weeks_with_activity": 16
+  },
+  {
+   "wg": "steering-committee",
+   "team": "OHDSI Steering Committee",
+   "channel": "General",
+   "oldest_thread": "2025-01-07",
+   "threads_seen": 39,
+   "threads_opened": 2,
+   "weeks_with_activity": 30
+  },
+  {
+   "wg": "steering-committee",
+   "team": "OHDSI Steering Committee",
+   "channel": "Funding strategy",
+   "oldest_thread": "2021-05-06",
+   "threads_seen": 4,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "transplant",
+   "team": "OHDSI Transplant",
+   "channel": "General",
+   "oldest_thread": "2025-01-08",
+   "threads_seen": 1,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "omop-fhir",
+   "team": "OMOP + FHIR",
+   "channel": "General",
+   "oldest_thread": "2021-12-12",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 1
+  },
+  {
+   "wg": "omop-fhir",
+   "team": "OMOP + FHIR",
+   "channel": "Welcome (2021-2022 Archive)",
+   "oldest_thread": "2021-10-11",
+   "threads_seen": 1,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "oncology",
+   "team": "Oncology",
+   "channel": "General",
+   "oldest_thread": "2024-10-28",
+   "threads_seen": 19,
+   "threads_opened": 0,
+   "weeks_with_activity": 1
+  },
+  {
+   "wg": "oncology",
+   "team": "Oncology",
+   "channel": "Oncology -Omics Subgroup",
+   "oldest_thread": "2025-01-03",
+   "threads_seen": 10,
+   "threads_opened": 3,
+   "weeks_with_activity": 13
+  },
+  {
+   "wg": "oncology",
+   "team": "Oncology",
+   "channel": "Oncology CDM Vocabulary and Development Subgroup",
+   "oldest_thread": "2025-06-04",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "oncology",
+   "team": "Oncology",
+   "channel": "Oncology Outreach Subgroup",
+   "oldest_thread": "2022-03-20",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "open-source-community",
+   "team": "Open-Source Community",
+   "channel": "General",
+   "oldest_thread": "2022-02-06",
+   "threads_seen": 32,
+   "threads_opened": 1,
+   "weeks_with_activity": 9
+  },
+  {
+   "wg": "open-source-community",
+   "team": "Open-Source Community",
+   "channel": "Perseus Users Group",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "openehr-omop",
+   "team": "OpenEHR & OMOP",
+   "channel": "General",
+   "oldest_thread": "2025-11-16",
+   "threads_seen": 14,
+   "threads_opened": 1,
+   "weeks_with_activity": 15
+  },
+  {
+   "wg": "perinatal-reproductive",
+   "team": "Perinatal and Reproductive Health",
+   "channel": "General",
+   "oldest_thread": "2024-01-01",
+   "threads_seen": 18,
+   "threads_opened": 2,
+   "weeks_with_activity": 14
+  },
+  {
+   "wg": "perinatal-reproductive",
+   "team": "Perinatal and Reproductive Health",
+   "channel": "Phenotype - Birthweight, apgar",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "perinatal-reproductive",
+   "team": "Perinatal and Reproductive Health",
+   "channel": "Phenotype - Hypertensive disorders",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "perinatal-reproductive",
+   "team": "Perinatal and Reproductive Health",
+   "channel": "Phenotype - Postpartum depression",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "perinatal-reproductive",
+   "team": "Perinatal and Reproductive Health",
+   "channel": "Phenotype - Severe maternal morbidity",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "phenotype",
+   "team": "Phenotype Development and Evaluation",
+   "channel": "General",
+   "oldest_thread": "2023-01-12",
+   "threads_seen": 15,
+   "threads_opened": 1,
+   "weeks_with_activity": 23
+  },
+  {
+   "wg": "phenotype",
+   "team": "Phenotype Development and Evaluation",
+   "channel": "Covid Phenotype",
+   "oldest_thread": "2021-10-09",
+   "threads_seen": 6,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "phenotype",
+   "team": "Phenotype Development and Evaluation",
+   "channel": "Long Covid",
+   "oldest_thread": "2021-10-06",
+   "threads_seen": 15,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "phenotype",
+   "team": "Phenotype Development and Evaluation",
+   "channel": "Mission, Area of focus and priorities",
+   "oldest_thread": "2021-02-06",
+   "threads_seen": 3,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "phenotype",
+   "team": "Phenotype Development and Evaluation",
+   "channel": "Office Hours",
+   "oldest_thread": "2022-02-03",
+   "threads_seen": 5,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "phenotype",
+   "team": "Phenotype Development and Evaluation",
+   "channel": "OHDSI Phenotype Library",
+   "oldest_thread": "2023-10-22",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "phenotype",
+   "team": "Phenotype Development and Evaluation",
+   "channel": "VA Cipher and OHDSI Phenotype Library integration",
+   "oldest_thread": null,
+   "threads_seen": 0,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "psychiatry",
+   "team": "Psychiatry",
+   "channel": "General",
+   "oldest_thread": "2021-12-20",
+   "threads_seen": 10,
+   "threads_opened": 1,
+   "weeks_with_activity": 18
+  },
+  {
+   "wg": "psychiatry",
+   "team": "Psychiatry",
+   "channel": "Psychiatry NLP Study",
+   "oldest_thread": "2023-05-25",
+   "threads_seen": 6,
+   "threads_opened": 1,
+   "weeks_with_activity": 9
+  },
+  {
+   "wg": "reveal",
+   "team": "REVEAL (Results Enhancements & Visualization for Evidence, Analysis & Learning)",
+   "channel": "General",
+   "oldest_thread": "2026-07-21",
+   "threads_seen": 3,
+   "threads_opened": 2,
+   "weeks_with_activity": 8
+  },
+  {
+   "wg": "rare-diseases",
+   "team": "Rare Diseases",
+   "channel": "General",
+   "oldest_thread": "2025-02-27",
+   "threads_seen": 11,
+   "threads_opened": 1,
+   "weeks_with_activity": 14
+  },
+  {
+   "wg": "registry",
+   "team": "Registry",
+   "channel": "General",
+   "oldest_thread": "2024-01-15",
+   "threads_seen": 20,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "rehabilitation",
+   "team": "Rehabilitation",
+   "channel": "General",
+   "oldest_thread": "2024-02-21",
+   "threads_seen": 8,
+   "threads_opened": 0,
+   "weeks_with_activity": 3
+  },
+  {
+   "wg": "respiratory",
+   "team": "Respiratory Research",
+   "channel": "General",
+   "oldest_thread": "2025-08-15",
+   "threads_seen": 5,
+   "threads_opened": 0,
+   "weeks_with_activity": 5
+  },
+  {
+   "wg": "surgery-perioperative",
+   "team": "Surgery and Perioperative Medicine Workgroup",
+   "channel": "General",
+   "oldest_thread": "2023-02-06",
+   "threads_seen": 18,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "surgery-perioperative",
+   "team": "Surgery and Perioperative Medicine Workgroup",
+   "channel": "HowOften-Surgery",
+   "oldest_thread": "2025-02-10",
+   "threads_seen": 1,
+   "threads_opened": 0,
+   "weeks_with_activity": 0
+  },
+  {
+   "wg": "themis",
+   "team": "Themis",
+   "channel": "General",
+   "oldest_thread": "2025-03-04",
+   "threads_seen": 11,
+   "threads_opened": 0,
+   "weeks_with_activity": 5
+  },
+  {
+   "wg": "tidy-r-omop",
+   "team": "Tidy R Programming with OMOP",
+   "channel": "General",
+   "oldest_thread": "2025-09-15",
+   "threads_seen": 2,
+   "threads_opened": 0,
+   "weeks_with_activity": 1
+  },
+  {
+   "wg": "vaccine-vocabulary",
+   "team": "Vaccine Vocabulary",
+   "channel": "General",
+   "oldest_thread": "2023-01-08",
+   "threads_seen": 12,
+   "threads_opened": 2,
+   "weeks_with_activity": 22
+  },
+  {
+   "wg": "women-of-ohdsi",
+   "team": "Women of OHDSI",
+   "channel": "General",
+   "oldest_thread": "2024-11-13",
+   "threads_seen": 18,
+   "threads_opened": 1,
+   "weeks_with_activity": 10
+  },
+  {
+   "wg": "workgroup-leadership",
+   "team": "Workgroup Leadership",
+   "channel": "General",
+   "oldest_thread": "2022-07-16",
+   "threads_seen": 17,
+   "threads_opened": 1,
+   "weeks_with_activity": 4
+  },
+  {
+   "wg": "education",
+   "team": "Education Working Group",
+   "channel": "Section II - Uniform Data Representation",
+   "oldest_thread": "2025-04-08",
+   "threads_seen": 22,
+   "threads_opened": 0,
+   "weeks_with_activity": 1
+  }
+ ]
+}

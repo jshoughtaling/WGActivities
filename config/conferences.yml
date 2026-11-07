@@ -1,0 +1,20 @@
+# Events whose materials we collect. `kind` picks the parser in scripts/collect/conference.py.
+# Dates are the first day of the event (the whole event is counted in that ISO week).
+global_symposia:
+  - {year: 2020, date: 2020-10-18, showcase: https://www.ohdsi.org/2020-global-symposium-collaborator-showcase/}
+  - {year: 2021, date: 2021-09-12, showcase: https://www.ohdsi.org/2021-collaborator-showcase/}
+  - {year: 2022, date: 2022-10-14, showcase: https://www.ohdsi.org/2022-collaborator-showcase/}
+  - {year: 2023, date: 2023-10-20, showcase: https://www.ohdsi.org/2023-collaborator-showcase/}
+  - {year: 2024, date: 2024-10-22, showcase: https://www.ohdsi.org/2024-collaborator-showcase/, workgroups: https://www.ohdsi.org/ohdsi2024-workgroups/, tutorials: https://www.ohdsi.org/ohdsi2024-tutorials/}
+  - {year: 2025, date: 2025-10-07, showcase: https://www.ohdsi.org/2025-global-collaborator-showcase/, workgroups: https://www.ohdsi.org/ohdsi2025-workgroups/, tutorials: https://www.ohdsi.org/ohdsi2025-tutorials/}
+  - {year: 2026, date: 2026-10-20, showcase: https://www.ohdsi.org/ohdsi2026-showcase/, workgroups: https://www.ohdsi.org/2026-ohdsi-symposium-workgroups/, tutorials: https://www.ohdsi.org/ohdsi2026-tutorials/}
+
+# `workgroups`: the symposium's WG activity day (one entry per WG session). `tutorials`: the tutorial day.
+# Both pages exist for 2024-2026 only. Earlier years have a single 2022 tutorial page and no WG session
+# pages; their sessions are only in agenda PDFs and forum posts (see PLAN.md).
+#
+# Not collected yet (different sites/structures); add parsers if the first version proves useful:
+#   Europe symposium     https://www.ohdsi-europe.org/index.php/symposium/...
+#   APAC symposium       https://www.ohdsi.org/apac2025/  (Dec 2025), apac2026 (Nov 13-15, 2026)
+#   Africa, India, DevCon, tutorials, Phenotype Phebruary
+#   Global symposium agenda pages: plenaries/tutorials have slides but no WG tags (only ESR in 2026)

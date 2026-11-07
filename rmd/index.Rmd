@@ -1,0 +1,31 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
+output:
+   html_document:
+        toc: FALSE
+---
+
+# **Working group activity**
+
+Where OHDSI working groups have been active, week by week. Each row is a working group and each column is a week; darker cells mean more activity. Activity comes from GitHub, the OHDSI forums, the weekly community calls, Global Symposium showcases and, for some groups, MS Teams. The date below shows when the data was last refreshed.
+
+<p id="wga-updated" class="wga-note"></p>
+
+<div class="wga" id="wga-heatmap">Loading activity data…</div>
+
+<noscript>This page needs JavaScript to draw the heatmap. The numbers are in <a href="data/activity.json">activity.json</a>.</noscript>
+
+<br>
+
+See [About the data](about.html) for what each source counts, how groups are matched to repositories and forum topics, and what the heatmap can and cannot tell you.
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/heatmap.js"></script>
+<script>
+WGA.load().then(function (d) {
+  var t = new Date(d.generated);
+  document.getElementById("wga-updated").textContent =
+    "Updated " + t.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) +
+    ". Data from " + d.week_starts[0] + " to now (the latest week is still in progress).";
+});
+</script>

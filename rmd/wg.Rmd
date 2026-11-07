@@ -1,0 +1,11 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
+output:
+   html_document:
+        toc: FALSE
+---
+
+<div class="wga" id="wga-wg">Loading…</div>
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/wg.js"></script>
