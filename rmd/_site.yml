@@ -19,6 +19,9 @@ navbar:
     - text: "Working Group"
       icon: fa-users
       href: wg.html
+    - text: "Collaboration"
+      icon: fa-handshake-o
+      href: collab.html
     - text: "About the data"
       icon: fa-info-circle
       href: about.html

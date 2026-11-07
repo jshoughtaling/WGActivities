@@ -9,6 +9,7 @@ community calls, Global Symposium materials and (counts only) MS Teams. See `PLA
 config/            working_groups.yml (WG -> repos), forum_mapping.yml, wg_aliases.yml, conferences.yml
 scripts/collect/   one collector per source -> data/events/<source>.json
 scripts/build_activity.py   merges events (+ data/teams_counts.json) -> rmd/data/activity.json
+scripts/build_collab.py     finds cross-WG collaboration candidates -> rmd/data/collab.json (topics in config/collab_themes.yml)
 rmd/               RMarkdown site (index = heatmap, wg = one group, about) and assets/*.js
 docs/              rendered site (GitHub Pages serves this folder from main)
 prompts/           prompt for the local Claude-in-Chrome Teams count run
@@ -22,6 +23,7 @@ python3 scripts/collect/forums.py
 python3 scripts/collect/calls.py
 python3 scripts/collect/conference.py
 python3 scripts/build_activity.py
+python3 scripts/build_collab.py
 Rscript build-site.R                   # needs R, the rmarkdown package and pandoc
 ```
 

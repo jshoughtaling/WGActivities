@@ -1,0 +1,58 @@
+# Curated cross-cutting topics for scripts/build_collab.py. A theme becomes a collaboration candidate when
+# item titles from two or more WGs match it. Add or tighten patterns as the WGs review the output.
+# Regexes are case-insensitive and run on item titles only.
+themes:
+  genai:
+    name: Generative AI and LLMs
+    regex: '\bLLMs?\b|\bGen(erative)? ?AI\b|\bAI[- ](assist|powered|driven|agent|based|enabled)|\bagentic|\bAI agents?|\bMCP\b|large language|language model|\bGPT|\bChatGPT|\bClaude\b|\bcopilot'
+  fhir:
+    name: FHIR and interoperability
+    regex: '\bFHIR\b|\bopenEHR\b|\bHL7\b|\bIPS\b|interoperab'
+  vocab-mapping:
+    name: Vocabulary and concept mapping
+    regex: 'concept ?(set|map)|vocabulary map|\bUsagi\b|\bAthena\b|source[- ]to[- ]concept|\bICD-?(9|10|O)|\bSNOMED|\bLOINC|\bRxNorm'
+  phenotyping:
+    name: Phenotypes and cohort definitions
+    regex: 'phenotyp|cohort (definition|diagnostic|generat|build)|\bcohorts?\b.*\b(library|definition)|\bCohortDiagnostics|\bPhenotypeR|\bcomputable'
+  atlas:
+    name: ATLAS and WebAPI tooling
+    regex: '\bATLAS\b|\bWebAPI\b|\bBroadsea|\bAtlas3'
+  strategus:
+    name: Strategus, HADES and study packages
+    regex: 'Strategus|\bHADES\b|study package|analysis specification|\bCohortMethod|\bPatientLevelPrediction|\bSelfControlledCaseSeries'
+  prediction:
+    name: Patient-level prediction
+    regex: 'patient[- ]level prediction|\bPLP\b|prediction model|\bprognos'
+  dq:
+    name: Data quality and characterization
+    regex: 'data quality|\bDQD\b|DataQualityDashboard|\bAchilles|\bCohortDiagnostics|characteri[sz]ation|\bDQ\b'
+  tidyr:
+    name: R and Python tooling for OMOP
+    regex: '\bOmop[A-Z]\w+|\bomopgenerics|\bibis\b|\bduckdb\b|\bDuckDB|\bSQLite|\btidyverse|\bPyPI'
+  etl:
+    name: ETL and data onboarding
+    regex: '\bETL\b|\bWhiteRabbit|\bRabbit-in-a-Hat|\bPerseus|source data|data onboarding|data conversion'
+  imaging:
+    name: Imaging and waveform data
+    regex: '\bDICOM|imaging|radiolog|\bPACS\b|waveform|\bECG\b|\bEEG\b'
+  geospatial:
+    name: Geospatial and environment
+    regex: '\bGIS\b|geospatial|geograph|spatial|exposome|environmental|\bSDOH\b|social determinant|neighbou?rhood|air quality|\bPM2\.?5'
+  oncology:
+    name: Oncology and omics
+    regex: 'oncolog|cancer|tumou?r|genomic|\bomics\b'
+  nlp:
+    name: Unstructured data and NLP
+    regex: '\bNLP\b|natural language|\bnote_nlp|clinical notes?|unstructured|\bNER\b|text mining'
+  network:
+    name: Network studies and federated analytics
+    regex: 'network stud|federat|distributed|\bArachne|\bEHDEN|\bLEGEND|multi-?site|\bDARWIN|evidence network|\bOHDSI Evidence'
+  equity:
+    name: Health equity and special populations
+    regex: 'health equity|\bequity\b|disparit|\bpediatric|\bchildren|perinatal|pregnan|maternal|\brare disease|vaccine|vaccin'
+  education:
+    name: Education and onboarding
+    regex: 'tutorial|\bEHDEN Academy|\bcourse\b|\btraining\b|workshop|onboarding|book of ohdsi|\bhackathon|\bConnectathon|\bcurriculum'
+  standards:
+    name: Conventions and CDM standards
+    regex: '\bCDM v?\d|\bTHEMIS|convention'

@@ -343,6 +343,13 @@ div.tocify {
   </a>
 </li>
 <li>
+  <a href="collab.html">
+    <span class="fa fa-handshake-o"></span>
+     
+    Collaboration
+  </a>
+</li>
+<li>
   <a href="about.html">
     <span class="fa fa-info-circle"></span>
      
@@ -459,6 +466,28 @@ before them: <em>new</em> (first activity in the last 8 weeks),
 <em>active</em>, <em>quiet</em> (activity earlier, none recently) or
 <em>dormant</em> (none in the range).</li>
 </ul>
+</div>
+<div id="cross-group-collaboration" class="section level2">
+<h2><strong>Cross-group collaboration</strong></h2>
+<p>The <a href="collab.html">Collaboration</a> page flags places where
+groups may want to talk. It uses three signals, all from item titles and
+links (never Teams content):</p>
+<ul>
+<li><strong>Named together:</strong> a forum topic, pull request, issue,
+call, showcase entry, tutorial or session whose title names a second
+group as well as the one it is filed under. “Workgroup Updates” roundup
+calls are skipped.</li>
+<li><strong>Shared repository:</strong> a repository that is one group’s
+own and is also listed as shared with another group.</li>
+<li><strong>Shared topic:</strong> a topic (generative AI, FHIR,
+phenotypes and so on, listed in <code>config/collab_themes.yml</code>)
+that titles from two or more groups match. “Not yet linked” pairs are
+groups active on a topic with no item naming both.</li>
+</ul>
+<p>Matching is by keyword, so some leads are false alarms (a word like
+“vocabulary” in an ATLAS pull request), and groups that collaborate
+without writing it in a title are missed. The topic list is a first
+draft for the groups to correct.</p>
 </div>
 <div id="known-limits" class="section level2">
 <h2><strong>Known limits</strong></h2>

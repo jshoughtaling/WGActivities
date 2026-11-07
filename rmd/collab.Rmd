@@ -1,0 +1,23 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
+output:
+   html_document:
+        toc: FALSE
+---
+
+# **Cross-group collaboration**
+
+Places where two or more working groups seem to be working on the same thing, and may benefit from talking to each other. These are leads for a conversation, not conclusions. Each one links to the items that triggered it, so you can judge for yourself.
+
+<p id="wga-updated" class="wga-note"></p>
+
+<div class="wga" id="wga-collab">Loading collaboration data…</div>
+
+<noscript>This page needs JavaScript. The numbers are in <a href="data/collab.json">collab.json</a>.</noscript>
+
+<br>
+
+See [About the data](about.html#cross-group-collaboration) for how these are found and what they miss.
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/collab.js"></script>

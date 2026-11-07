@@ -110,3 +110,13 @@
 
 /* Keep the first-level headings of the Rmd pages in the GIS style */
 .rmdimportant { padding: 1em 1em 1em 1em; margin-bottom: 10px; background: #f5f5f5; }
+
+/* Collaboration page */
+.wga-chips { display: flex; flex-wrap: wrap; gap: 0.4em; margin: 0.4em 0; }
+.wga-chip { border: 1px solid var(--grid); border-radius: 999px; padding: 0.1em 0.7em; font-size: 0.85em; color: var(--ink); text-decoration: none; }
+.wga-chip:hover { border-color: var(--axis); }
+.wga-plain { margin: 0 0 0.5em; padding-left: 1.2em; font-size: 0.88em; color: var(--ink); }
+.wga-gap { margin-top: 0.5em; }
+.wga-card details { margin-top: 0.4em; font-size: 0.9em; }
+.wga-card summary { cursor: pointer; color: var(--ink-2); margin-bottom: 0.3em; }
+.wga h3 { margin: 1.2em 0 0.3em; font-size: 1.2em; }

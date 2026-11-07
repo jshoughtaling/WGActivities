@@ -29,6 +29,16 @@ This page is a first look at how active each OHDSI working group (WG) has been. 
 - **The last column** is the current week and is still in progress.
 - **Status** compares the last 8 weeks with the weeks before them: *new* (first activity in the last 8 weeks), *active*, *quiet* (activity earlier, none recently) or *dormant* (none in the range).
 
+## **Cross-group collaboration**
+
+The [Collaboration](collab.html) page flags places where groups may want to talk. It uses three signals, all from item titles and links (never Teams content):
+
+- **Named together:** a forum topic, pull request, issue, call, showcase entry, tutorial or session whose title names a second group as well as the one it is filed under. "Workgroup Updates" roundup calls are skipped.
+- **Shared repository:** a repository that is one group's own and is also listed as shared with another group.
+- **Shared topic:** a topic (generative AI, FHIR, phenotypes and so on, listed in `config/collab_themes.yml`) that titles from two or more groups match. "Not yet linked" pairs are groups active on a topic with no item naming both.
+
+Matching is by keyword, so some leads are false alarms (a word like "vocabulary" in an ATLAS pull request), and groups that collaborate without writing it in a title are missed. The topic list is a first draft for the groups to correct.
+
 ## **Known limits**
 
 - Group-to-repository and group-to-forum matching are drafts and have not been reviewed by the working groups. A few repositories dominate some groups' GitHub counts.

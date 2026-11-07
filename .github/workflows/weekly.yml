@@ -47,7 +47,9 @@ jobs:
         run: python3 scripts/collect/conference.py
 
       - name: Build activity.json
-        run: python3 scripts/build_activity.py
+        run: |
+          python3 scripts/build_activity.py
+          python3 scripts/build_collab.py
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -69,7 +71,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add docs/ rmd/data/activity.json data/events data/github_state.json
+          git add docs/ rmd/data/activity.json rmd/data/collab.json data/events data/github_state.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
