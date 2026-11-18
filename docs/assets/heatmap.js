@@ -40,7 +40,8 @@
       inten = s ? s.intensity.slice(from) : zeros(cols.n);
       na = notCollected(w, src, from);
     }
-    var subs = (projByWg[w.slug] || []).filter(function (p) { return WGA.sum(p.counts.slice(from)) > 0; });
+    // Projects are counted from GitHub only, so they break a group down only when GitHub is part of what the row shows.
+    var subs = src === "all" || src === "github" ? (projByWg[w.slug] || []).filter(function (p) { return WGA.sum(p.counts.slice(from)) > 0; }) : [];
     return summarize({
       key: "g:" + w.slug, name: w.name, href: WGA.wgHref(w.slug), star: w.on_ohdsi_org === false,
       counts: counts, inten: inten, na: na, wg: w, nsub: subs.length, subs: subs,
@@ -55,7 +56,7 @@
   function projRow(p, from, sub) {
     return summarize({
       key: "p:" + p.id, name: p.name, href: WGA.projHref(p.id), sub: sub,
-      tag: sub ? (p.repos.length > 1 ? p.repos.length + " repos" : "") : WGA.shortName(p.lead_wg) + (p.repos.length > 1 ? " · " + p.repos.length + " repos" : ""),
+      tag: sub ? "GitHub" + (p.repos.length > 1 ? " · " + p.repos.length + " repos" : "") : WGA.shortName(p.lead_wg) + (p.repos.length > 1 ? " · " + p.repos.length + " repos" : ""),
       counts: p.counts.slice(from), inten: p.intensity.slice(from), na: null,
       items: function (wk) { return p.items[wk] || []; },
       sources: function (wi) { return [[WGA.SOURCES.github.color, p.counts[wi], "GitHub (" + p.repos.length + " repo" + (p.repos.length > 1 ? "s" : "") + ")"]]; },

@@ -479,8 +479,9 @@ feed, or subscribe to the calendar (.ics).</td>
 <tr class="odd">
 <td>GitHub</td>
 <td>Commits, pull requests opened and merged, issues opened, issue and
-PR comments, and releases in repositories assigned to the group. Bot
-activity is left out.</td>
+PR comments, and releases in repositories assigned to the group, plus
+items in other groups’ repositories whose title matches a cross-tagging
+rule (below). Bot activity is left out.</td>
 <td>Repository assignments are a draft made from repository names and
 descriptions.</td>
 </tr>
@@ -558,6 +559,14 @@ Pages that compare across groups (digests, outputs, topics, similar
 work) merge those copies, so a poster that names three groups is one
 item there. A pull request that is opened and later merged stays two
 items.</li>
+<li><strong>Cross-tagging.</strong> A GitHub item normally belongs to
+the group that owns its repository. <code>config/item_rules.yml</code>
+adds an item to a second group when its title says it is about that
+group’s work: today, titles with geo, geospatial, geographic, GIS,
+PostGIS or LSOA also count for GIS, so a geospatial pull request in the
+Achilles or Ares repository shows up in GIS’s activity as well as in the
+repository owner’s. It is one item wherever groups are compared, and it
+counts on Connections as joint work between the two groups.</li>
 <li><strong>Projects</strong> group repositories into the things people
 know by name (Gaia, Strategus, ATLAS / WebAPI). Multi-repo projects are
 listed in <code>config/projects.yml</code>, a first draft for
@@ -625,10 +634,11 @@ lengths are not published, so calendar apps show one hour.</p>
 where groups may want to talk. Pairs of groups use three signals, all
 from item titles and links (never Teams content):</p>
 <ul>
-<li><strong>Named together:</strong> a forum topic, pull request, issue,
-call, showcase entry, tutorial or session whose title names a second
-group as well as the one it is filed under. “Workgroup Updates” roundup
-calls are skipped.</li>
+<li><strong>Named together:</strong> a cross-tagged item (a GIS pull
+request in another group’s repository), or a forum topic, pull request,
+issue, call, showcase entry, tutorial or session whose title names a
+second group as well as the one it is filed under. “Workgroup Updates”
+roundup calls are skipped.</li>
 <li><strong>Shared repository:</strong> a repository that is one group’s
 own and is also listed as shared with another group.</li>
 <li><strong>Shared topic:</strong> a topic (generative AI, FHIR,
