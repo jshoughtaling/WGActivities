@@ -81,8 +81,12 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install R packages
-        run: Rscript -e 'install.packages(c("rmarkdown"), repos="https://cloud.r-project.org")'
+      # install.packages() only warns when a package fails to build, so the old step "succeeded" and the build then
+      # stopped at "Package 'rmarkdown' is required". This action installs binaries (and system libraries), caches
+      # them, and fails here if anything is missing.
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: any::rmarkdown
 
       - name: Build site
         run: Rscript build-site.R
