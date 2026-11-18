@@ -115,6 +115,7 @@ def build(today, n_weeks):
     items = defaultdict(lambda: defaultdict(list))                           # wg -> week -> [item]
     yearly = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))    # wg -> source -> year -> n
     coverage = {}                                                            # source -> [first, last] event date
+    gh_types = defaultdict(lambda: defaultdict(float))                       # wg -> GitHub item type -> n (in window)
 
     for e in events:
         wg, src = e["wg"], e["source"]
@@ -127,6 +128,8 @@ def build(today, n_weeks):
         if e["week"] not in week_set:
             continue
         counts[wg][src][e["week"]] += e.get("weight", 1)
+        if src == "github":
+            gh_types[wg][e.get("type") or "other"] += e.get("weight", 1)
         if src == "teams":
             meetings[wg][e["week"]] += e.get("meetings", 0)
         elif e.get("url"):
@@ -176,6 +179,8 @@ def build(today, n_weeks):
             "items": {w: items[slug][w] for w in weeks if items[slug].get(w)},
             "yearly": {s: {y: int(n) for y, n in sorted(v.items())} for s, v in yearly[slug].items()},
         }
+        if gh_types.get(slug):
+            out["github_types"] = {t: int(n) for t, n in sorted(gh_types[slug].items())}   # window totals, e.g. to weight commits
         if meetings.get(slug):
             out["teams_meetings"] = [meetings[slug].get(w, 0) for w in weeks]
         if slug in teams_covered:

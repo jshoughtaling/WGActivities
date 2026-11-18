@@ -1,0 +1,5 @@
+# Where this copy of the site lives. Change these two lines in a fork; the Python scripts read them.
+# Two places can't read this file and must be edited by hand to match: the GitHub link in rmd/_site.yml (navbar)
+# and the "Source code and corrections" link at the end of rmd/about.Rmd.
+repo: jshoughtaling/WGActivities
+site_url: https://jshoughtaling.github.io/WGActivities/

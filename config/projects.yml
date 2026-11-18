@@ -1,0 +1,246 @@
+# Projects: software that spans several repos, between a working group and its repos.
+#
+# DRAFT (2026-11-17), proposed from repo names and the WG -> repo map; needs review by each project's maintainers.
+# Only multi-repo projects are listed. Every other repo in working_groups.yml becomes a one-repo project of its own
+# (id = repo name, lowercase), owned by the repo's primary WG.
+#
+# Fields
+#   name              display name
+#   lead_wg           WG slug that owns it (config/working_groups.yml); a non-WG bucket is allowed (infrastructure)
+#   contributing_wgs  other WGs that work on it (optional)
+#   kind              platform | package | app | spec | deployment | library | study | docs
+#   repos             OHDSI repo names. A repo belongs to one project.
+#   extends           projects or repos it adapts or forks to add support for something (optional)
+#   depends_on        projects it needs at run time (optional, free text allowed)
+#   description       one line
+#   reviewed          YYYY-MM-DD and who, once a maintainer has confirmed the grouping (optional)
+
+projects:
+  gaia:
+    name: Gaia
+    lead_wg: gis
+    kind: platform
+    repos: [gaiaDB, gaiaCatalog, gaiaCore, gaiaDocker]
+    depends_on: [PostGIS, Docker]
+    description: Place-based data for OMOP — PostGIS database, dataset catalog, client connectors and a Docker deployment.
+  gis-site:
+    name: GIS site and OMOP extension spec
+    lead_wg: gis
+    kind: spec
+    repos: [GIS]
+    description: Working-group website, tutorial, OMOP GIS extension specification and the place-data inventory.
+  gis-extension-forks:
+    name: GIS extension forks of HADES
+    lead_wg: gis
+    contributing_wgs: [hades]
+    kind: package
+    repos: [FeatureExtractionForExtensions, CaprForExtensions]
+    extends: [feature-extraction, hades-cohorts]
+    description: Copies of HADES packages that read the GIS extension tables.
+  atlas-geospatial:
+    name: ATLAS geospatial components
+    lead_wg: gis
+    contributing_wgs: [atlas-webapi]
+    kind: app
+    repos: [atlas-component-geospatial, webapi-component-geospatial, Aegis]
+    extends: [atlas]
+    description: Geospatial add-ons for ATLAS and WebAPI.
+
+  atlas:
+    name: ATLAS / WebAPI
+    lead_wg: atlas-webapi
+    kind: app
+    repos: [Atlas, WebAPI, Atlas3, WebAPI3, AtlasWebAPISandbox, AtlasWebAPIRoadmap, atlas-wiki, webapi-wiki, webapi-shiny, webapi-solr, WebApiWGSymposum2026, ROhdsiWebApi]
+    description: The OHDSI web application for cohort definition and analysis, and its REST API (v2 and v3).
+  circe:
+    name: Circe cohort expressions
+    lead_wg: atlas-webapi
+    contributing_wgs: [hades, phenotype]
+    kind: library
+    repos: [circe-be, circe-schema, Circepy, Circe, CirceR]
+    description: Cohort-definition expression model and SQL generator (Java, Python, R wrapper).
+
+  strategus:
+    name: Strategus
+    lead_wg: hades
+    kind: package
+    repos: [Strategus, CharacterizationModule, CohortIncidenceModule, SelfControlledCaseSeriesModule, PatientLevelPredictionModule, EvidenceSynthesisModule, CohortMethodModule, CohortGeneratorModule, CohortDiagnosticsModule, PatientLevelPredictionValidationModule, ModelTransferModule, DeepPatientLevelPredictionModule, DeepPatientLevelPredictionValidationModule, DbDiagnosticsModule, DbProfileModule, ComparatorSelectionExplorerModule]
+    description: Runs network studies as a set of HADES modules (module repos are archived).
+  hades-db:
+    name: HADES database layer
+    lead_wg: hades
+    kind: library
+    repos: [DatabaseConnector, DatabaseConnectorJars, DatabaseConnectorAuth, SqlRender, Andromeda]
+    description: Connect to and translate SQL for every supported database platform.
+  hades-cohorts:
+    name: HADES cohort tools
+    lead_wg: hades
+    kind: package
+    repos: [CohortGenerator, CohortDiagnostics, CohortIncidence, Characterization, Capr, ClinicalCharacteristics]
+    description: Generate, diagnose and characterize cohorts.
+  feature-extraction:
+    name: FeatureExtraction
+    lead_wg: hades
+    kind: package
+    repos: [FeatureExtraction]
+    description: Covariate construction for HADES analyses.
+  eunomia:
+    name: Eunomia
+    lead_wg: hades
+    kind: package
+    repos: [Eunomia, EunomiaDatasets]
+    description: Small synthetic CDM databases for teaching and testing.
+  hades-infra:
+    name: HADES infrastructure
+    lead_wg: hades
+    kind: library
+    repos: [Hades, HadesFiles, HADESParts, HadesDeveloperGuide, drat, OhdsiRTools, ParallelLogger, OhdsiSharing, Hydra, actions, RcppXsimd, RcppCudaJitify, RcppBoostSimd, RcppBoostCompute, RcppVexCL, BoostCompiledLibraries, ff, bit]
+    description: Shared utilities, build tooling and the HADES package index.
+  hades-study-templates:
+    name: HADES study templates
+    lead_wg: hades
+    kind: study
+    repos: [Ulysses, ProtocolGenerator, SkeletonCohortDiagnosticsStudy, SkeletonCohortCharacterization, SkeletonComparativeEffectStudy]
+    description: Study skeletons and protocol generation.
+
+  cohort-method:
+    name: Population-level estimation
+    lead_wg: methods-research
+    kind: package
+    repos: [CohortMethod, SelfControlledCaseSeries, SelfControlledCohort, CaseControl, CaseCrossover, EmpiricalCalibration, EvidenceSynthesis, MethodEvaluation, Cyclops, BrokenAdaptiveRidge, bayes-bridge, BayesBridgeR, IterativeHardThresholding]
+    description: Estimation methods and the regression engine behind them.
+  plp:
+    name: Patient-Level Prediction
+    lead_wg: plp
+    kind: package
+    repos: [PatientLevelPrediction, DeepPatientLevelPrediction, EnsemblePatientLevelPrediction, SkeletonPredictionStudy, SkeletonPredictionValidationStudy, PredictionComparison]
+    description: Build and validate patient-level prediction models.
+
+  vocabulary:
+    name: Standardized Vocabularies
+    lead_wg: cdm-vocabulary
+    kind: spec
+    repos: [Vocabulary-v5.0, Vocabulary-v4.5, OMOP-Standardized-Vocabularies, Vocab-download]
+    description: Build and release of the OMOP Standardized Vocabularies.
+  athena:
+    name: Athena
+    lead_wg: cdm-vocabulary
+    kind: app
+    repos: [Athena, AthenaUI]
+    description: Vocabulary search and download service.
+  cdm:
+    name: OMOP Common Data Model
+    lead_wg: cdm
+    kind: spec
+    repos: [CommonDataModel, CdmDdlBase, CdmMetadata, CDMTableBrowser]
+    description: The CDM specification and DDL.
+
+  study-agent:
+    name: OHDSI Study Agent
+    lead_wg: gaia-genai
+    contributing_wgs: [hades, phenotype, atlas-webapi]
+    kind: app
+    repos: [StudyAgent, SlashOhdsiStrategusAssistant, SlashOhdsiAcpClient, ohdsi-question-structurer]
+    description: AI assistant services for designing and running OHDSI studies.
+  trex:
+    name: trex
+    lead_wg: gaia-genai
+    kind: platform
+    repos: [trex, trex-runtime]
+    description: Query/compute runtime used by GAIA tools.
+
+  phenotype-library:
+    name: Phenotype Library
+    lead_wg: phenotype
+    kind: library
+    repos: [PhenotypeLibrary, PhenotypeLibraryApplication, PhenotypeLibrarian, PhenotypeEvaluations]
+    description: Curated, evaluated cohort definitions.
+  keeper:
+    name: Keeper
+    lead_wg: phenotype
+    kind: package
+    repos: [Keeper, KeeperExampleApp]
+    description: Case review for phenotype validation.
+  pegasus:
+    name: Pegasus
+    lead_wg: phenotype
+    kind: app
+    repos: [Pegasus, PegasusShiny]
+    description: Phenotype evaluation tooling.
+
+  ohdsi-shiny:
+    name: OHDSI Shiny results viewers
+    lead_wg: reveal
+    kind: app
+    repos: [OhdsiShinyModules, OhdsiShinyAppBuilder, ShinyAppBuilder, ResultModelManager, HadesResultsModel]
+    description: Shared results model and Shiny modules for HADES outputs.
+  report-generator:
+    name: OHDSI Report Generator
+    lead_wg: reveal
+    kind: package
+    repos: [OhdsiReportGenerator, ReportGenerator]
+    description: Study reports from the HADES results model.
+
+  omop-on:
+    name: OmopOn* database connectors
+    lead_wg: tidy-r-omop
+    kind: library
+    repos: [OmopOnPostgres, OmopOnDuckDB, OmopOnSqlServer, OmopOnSpark]
+    description: Platform back-ends for the Tidy R OMOP packages.
+  tidy-r-book:
+    name: Tidy R with OMOP book and WG
+    lead_wg: tidy-r-omop
+    kind: docs
+    repos: [Tidy-R-with-OMOP-WG, Tidy-R-programming-with-OMOP]
+    description: Working-group home and the Tidy R programming with OMOP book.
+
+  dqd:
+    name: Data Quality Dashboard
+    lead_wg: data-quality
+    kind: package
+    repos: [DataQualityDashboard, DataQualityCollaboration, MiimansaDQD, Broadsea-Dqd]
+    description: CDM data-quality checks and dashboard.
+  achilles:
+    name: Achilles
+    lead_wg: data-quality
+    kind: package
+    repos: [Achilles, AchillesWeb, Broadsea-Achilles]
+    description: Database characterization.
+
+  book-of-ohdsi:
+    name: The Book of OHDSI
+    lead_wg: education
+    kind: docs
+    repos: [TheBookOfOhdsi, BookOfOhdsi-2ndEdition, TheBookOfOhdsiInFrench, TheBookOfOhdsiInJapanese]
+    description: The community handbook and its translations.
+  tutorials:
+    name: OHDSI tutorials
+    lead_wg: education
+    kind: docs
+    repos: [Tutorial-CDM, Tutorial-DQ, Tutorial-ETL, Tutorial-PLE, Tutorial-PLP, Tutorial-Hades, TutorialDemo2024App, SosTutorial, OhdsiPredictionTutorial, OHDSI-in-a-Box, OHDSI-EU-2026-Workshop]
+    description: Symposium and workshop tutorial materials.
+
+  cdm-builder:
+    name: CDM Builder
+    lead_wg: etl
+    kind: app
+    repos: [ETL-CDMBuilder, ETL-LambdaBuilder, JCdmBuilder]
+    description: Bulk ETL builders for large claims and EHR sources.
+  synthea-etl:
+    name: Synthea ETL
+    lead_wg: etl
+    kind: package
+    repos: [ETL-Synthea, dbt-synthea, sqlmesh-synthea]
+    description: Synthea to OMOP conversions.
+  broadsea:
+    name: Broadsea
+    lead_wg: infrastructure
+    kind: deployment
+    repos: [Broadsea, Broadsea-Hades, Broadsea-Shiny, Broadsea-Dbt, Broadsea-Solr, Broadsea-Cdminspection, Broadsea-WebTools, Broadsea-Atlasdb, Broadsea-Usagi, Broadsea-MethodsLibrary, Broadsea-Spark-SQL]
+    description: Docker deployment of the OHDSI tool stack.
+  arachne:
+    name: ARACHNE
+    lead_wg: infrastructure
+    kind: platform
+    repos: [Arachne, ArachneUI, ArachneCentralAPI, ArachneNodeAPI, ArachneExecutionEngine, ArachneCommons, ArachneUIComponents]
+    description: Network study execution platform.
