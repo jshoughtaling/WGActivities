@@ -1,0 +1,14 @@
+---
+title: "Groups"
+output:
+   html_document:
+        toc: FALSE
+---
+
+<div class="wga">
+<div class="wga-page-h"><div><h1>Working groups</h1><p class="sub wga-note">Every OHDSI working group, with its activity over the last 26 weeks, its projects and the topics it works on.</p></div></div>
+<div id="wga-groups">Loading…</div>
+</div>
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/groups.js"></script>
