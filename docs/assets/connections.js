@@ -24,7 +24,7 @@
   function build() {
     root.textContent = "";
     root.appendChild(h("div", { class: "wga-page-h" }, [h("div", {}, [h("h1", { text: "Connections" }),
-      h("p", { class: "sub wga-note", text: col.pairs.length + " pairs of groups with evidence of shared work over the last " + col.window_weeks + " weeks, and " + sim.clusters.length + " subjects that come up in several groups' work." })])]));
+      h("p", { class: "sub wga-note", text: col.pairs.length + " pairs of groups with evidence of shared work over the last two years, and " + sim.clusters.length + " subjects that come up in several groups' work." })])]));
     var filt = h("select", { id: "c-wg" }, [h("option", { value: "", text: "All groups" })].concat(Object.keys(col.names).sort(function (a, b) { return WGA.name(a).localeCompare(WGA.name(b)); })
       .map(function (k) { return h("option", { value: k, text: WGA.shortName(k) }); })));
     filt.value = state.wg;
@@ -40,7 +40,7 @@
     el.pair = h("section", { class: "wga-card side", "aria-live": "polite" });
     cols.appendChild(el.net); cols.appendChild(el.pair);
     root.appendChild(cols);
-    el.pairs = h("details", { class: "wga-card" });
+    el.pairs = h("section", { class: "wga-card" });
     el.sim = h("section", { class: "wga-card", id: "similar" });
     root.appendChild(el.sim);
     root.appendChild(el.pairs);
@@ -153,14 +153,14 @@
     if (!p) {
       el.pair.appendChild(h("h3", { text: state.wg ? WGA.shortName(state.wg) : "Strongest pairs" }));
       var list = col.pairs.filter(function (q) { return !state.wg || q.a === state.wg || q.b === state.wg; }).slice(0, 8);
+      el.pair.appendChild(h("p", { class: "wga-note", text: "Select a line or a pair for the evidence behind it." }));
+      var ul = h("ul", { class: "wga-plain", style: "padding-left:0;list-style:none" });
       list.forEach(function (q) {
-        var b = h("button", { type: "button", class: "wga-lcard", style: "width:100%;text-align:left;margin-bottom:0.4em;cursor:pointer;font:inherit" }, [
-          h("div", { class: "t" }, [h("span", { text: WGA.shortName(q.a) + " × " + WGA.shortName(q.b) }), h("span", { class: "m", text: "score " + q.score })]),
-          h("div", { class: "m", text: q.signals.join(" · ") }),
-        ]);
+        var b = h("button", { type: "button", class: "wga-linkbtn", text: WGA.shortName(q.a) + " × " + WGA.shortName(q.b) });
         b.addEventListener("click", function () { state.pair = q; drawNet(); drawPair(); });
-        el.pair.appendChild(b);
+        ul.appendChild(h("li", { style: "padding:0.3em 0;border-top:1px solid var(--grid)" }, [b, h("div", { class: "wga-note", text: "score " + q.score + " · " + q.signals.join(" · ") })]));
       });
+      el.pair.appendChild(ul);
       if (!list.length) el.pair.appendChild(h("p", { class: "wga-empty", text: "No connections found for this group yet." }));
       return;
     }
@@ -171,7 +171,7 @@
     } else {
       el.pair.appendChild(h("div", { class: "wga-chips" }, [WGA.badge("score " + p.score, "blue")].concat(p.signals.map(function (x) { return WGA.badge(x); }))));
       var meta = [];
-      if (p.co_items) meta.push(p.co_items + " item" + (p.co_items > 1 ? "s" : "") + " naming both, " + p.co_recent + " in the last " + col.recent_weeks + " weeks");
+      if (p.co_items) meta.push(p.co_items + " item" + (p.co_items > 1 ? "s" : "") + " naming both, " + p.co_recent + " in the last " + WGA.months(col.recent_weeks));
       if (p.repos.length) meta.push("Shared repos: " + p.repos.slice(0, 3).map(function (r) { return r.repo; }).join(", "));
       if (p.themes.length) meta.push("Both active on " + p.themes.slice(0, 3).join(", "));
       el.pair.appendChild(h("ul", { class: "wga-plain" }, meta.map(function (m) { return h("li", { text: m }); })));
@@ -187,56 +187,61 @@
   }
 
   /* ---------------- pairs list ---------------- */
+  function pairsShown() {
+    var all = col.pairs.filter(function (q) { return !state.wg || q.a === state.wg || q.b === state.wg; });
+    return state.allPairs ? all : all.slice(0, 15);
+  }
   function drawPairs() {
     el.pairs.textContent = "";
-    el.pairs.appendChild(h("summary", { text: "All " + col.pairs.length + " pairs, as a table" }));
+    el.pairs.appendChild(h("h3", { text: "All pairs (" + col.pairs.length + ")" }));
     el.pairs.appendChild(h("p", { class: "wga-note", text: "Ranked by evidence. Items from the forum, calls and the symposium count most; a busy GitHub repo counts once. Signals: named together (one item names both groups), shared repo, shared topic." }));
-    var t = h("table", { class: "wga-table left" });
-    t.appendChild(h("thead", {}, [h("tr", {}, ["Pair", "Score", "Signals", "Latest item naming both"].map(function (x) { return h("th", { scope: "col", text: x }); }))]));
-    var tb = h("tbody");
-    col.pairs.filter(function (q) { return !state.wg || q.a === state.wg || q.b === state.wg; }).forEach(function (q) {
-      var b = h("button", { type: "button", class: "wga-btn", style: "padding:0.1em 0.5em", text: WGA.shortName(q.a) + " × " + WGA.shortName(q.b) });
-      b.addEventListener("click", function () { state.pair = q; drawNet(); drawPair(); el.net.scrollIntoView({ behavior: "smooth" }); });
-      var ev = q.evidence[0];
-      tb.appendChild(h("tr", {}, [h("td", {}, [b]), h("td", { text: String(q.score) }), h("td", { style: "font-size:0.9em", text: q.signals.join(" · ") }),
-        h("td", { style: "font-size:0.9em" }, [ev ? h("a", { href: WGA.safeUrl(ev.url), target: "_blank", rel: "noopener", text: ev.title }) : "–"])]));
-    });
-    t.appendChild(tb);
-    el.pairs.appendChild(h("div", { class: "hm-scroll" }, [t]));
+    el.pairs.appendChild(WGA.rows([["Pair", "minmax(190px, 1.4fr)"], ["Evidence", "minmax(130px, 0.9fr)"], ["Latest item naming both", "minmax(220px, 2fr)"]],
+      pairsShown().map(function (q) {
+        var b = h("button", { type: "button", class: "wga-linkbtn nm", text: WGA.shortName(q.a) + " × " + WGA.shortName(q.b) });
+        b.addEventListener("click", function () { state.pair = q; drawNet(); drawPair(); el.net.scrollIntoView({ behavior: "smooth" }); });
+        var ev = q.evidence[0];
+        return [[b, WGA.sm([h("a", { href: WGA.wgHref(q.a), text: WGA.shortName(q.a) }), " · ", h("a", { href: WGA.wgHref(q.b), text: WGA.shortName(q.b) })], "mu")],
+          [h("div", { class: "num" }, [h("b", { text: String(q.score) }), h("span", { class: "mu", text: " score" })]), WGA.sm(q.signals.join(" · "), "mu")],
+          [ev ? WGA.sm([h("a", { href: WGA.safeUrl(ev.url), target: "_blank", rel: "noopener", text: ev.title })]) : WGA.sm(q.themes.length ? "Both active on " + q.themes.slice(0, 3).join(", ") : "–", "mu")]];
+      }), "No pairs for this group."));
+    var allP = col.pairs.filter(function (q) { return !state.wg || q.a === state.wg || q.b === state.wg; });
+    if (!state.allPairs && allP.length > 15) {
+      var more = h("button", { type: "button", class: "wga-btn", text: "Show all " + allP.length + " pairs", style: "margin-top:0.6em" });
+      more.addEventListener("click", function () { state.allPairs = true; drawPairs(); });
+      el.pairs.appendChild(more);
+    }
   }
 
   /* ---------------- similar work ---------------- */
   function drawSim() {
     el.sim.textContent = "";
     el.sim.appendChild(h("div", { class: "wga-row-h" }, [h("h3", { text: "Similar work in different groups", style: "margin:0" }),
-      h("span", { class: "wga-note", text: "Different items, different groups, same subject · last " + Math.round(sim.window_days / 7) + " weeks" })]));
+      h("span", { class: "wga-note", text: "Different items, different groups, same subject · last 12 months" })]));
     var tf = h("input", { type: "search", class: "wga-input", id: "c-term", placeholder: "Filter subjects", value: state.term });
-    var grid = h("div", { class: "wga-grid", style: "grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); margin-top:0.6em" });
+    var grid = h("div", { style: "margin-top:0.6em" });
     el.sim.appendChild(h("div", { class: "wga-filters", style: "margin:0.6em 0 0" }, [h("label", { for: "c-term", class: "visually-hidden", text: "Filter subjects" }), tf]));
     el.sim.appendChild(grid);
     function fill() {
       grid.textContent = "";
       var q = state.term.toLowerCase();
       var all = sim.clusters.filter(function (c) { return (!state.wg || c.wgs.indexOf(state.wg) >= 0) && (!q || c.term.indexOf(q) >= 0); });
-      var cs = state.allSim || q ? all : all.slice(0, 12);
-      cs.forEach(function (c) {
-        var tie = c.new_ties.length ? WGA.badge(c.new_ties.length + " pair" + (c.new_ties.length > 1 ? "s" : "") + " not yet connected", "warm") : WGA.badge("groups already connected");
-        var lst = h("ul", { class: "wga-mini" });
-        c.items.slice(0, 6).forEach(function (i) {
-          lst.appendChild(h("li", {}, [h("span", { class: "g", text: WGA.shortName(i.g) }),
-            WGA.safeUrl(i.url) ? h("a", { href: i.url, target: "_blank", rel: "noopener", text: i.title }) : h("span", { text: i.title })]));
-        });
-        grid.appendChild(h("div", { class: "wga-lcard" + (c.term === state.term ? " sel" : ""), style: c.term === state.term ? "border-color:var(--warm)" : "" }, [
-          h("div", { class: "t" }, [h("span", { text: c.term }), tie]),
-          h("div", { class: "m", text: c.wgs.map(WGA.shortName).join(" · ") + " · " + c.n + " items" + (c.topic ? " · within topic " + c.topic : "") }),
-          lst,
-        ]));
-      });
-      if (!cs.length) grid.appendChild(h("p", { class: "wga-empty", text: "No similar-work clusters match." }));
+      var cs = state.allSim || q ? all : all.slice(0, 15);
+      grid.appendChild(WGA.rows([["Subject", "minmax(140px, 1fr)"], ["Groups", "minmax(160px, 1.3fr)"], ["Items", "minmax(260px, 2.6fr)"]],
+        cs.map(function (c) {
+          return [
+            [h("div", { class: "nm", text: c.term, style: c.term === state.term ? "color:var(--warm-ink)" : "" }),
+              WGA.sm(c.n + " items" + (c.new_ties.length ? " · " + c.new_ties.length + " pair" + (c.new_ties.length > 1 ? "s" : "") + " not yet connected" : " · groups already connected"), c.new_ties.length ? "warm-ink" : "mu")],
+            [h("ul", {}, c.wgs.map(function (g) { return h("li", {}, [h("a", { href: WGA.wgHref(g), text: WGA.shortName(g) })]); }))],
+            [h("ul", {}, c.items.slice(0, 4).map(function (i) {
+              return h("li", {}, [h("span", { class: "mu", text: WGA.shortName(i.g) + ": " }),
+                WGA.safeUrl(i.url) ? h("a", { href: i.url, target: "_blank", rel: "noopener", text: i.title }) : i.title]);
+            }))],
+          ];
+        }), "No similar-work clusters match."));
       if (all.length > cs.length) {
-        var more = h("button", { type: "button", class: "wga-btn", text: "Show all " + all.length });
+        var more = h("button", { type: "button", class: "wga-btn", text: "Show all " + all.length, style: "margin-top:0.6em" });
         more.addEventListener("click", function () { state.allSim = true; fill(); });
-        grid.appendChild(h("div", {}, [more]));
+        grid.appendChild(more);
       }
     }
     tf.addEventListener("input", function () { state.term = tf.value; fill(); });

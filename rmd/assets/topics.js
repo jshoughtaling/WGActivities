@@ -16,7 +16,7 @@
     root.textContent = "";
     var seg = h("div", { class: "wga-seg", role: "group", "aria-label": "View" });
     var body = h("div");
-    [["time", "Over time"], ["symposium", "At the Global Symposium"]].forEach(function (o) {
+    [["time", "Last 6 months"], ["symposium", "At the Global Symposium"]].forEach(function (o) {
       var b = h("button", { type: "button", text: o[1], "aria-pressed": String(state.view === o[0]) });
       b.addEventListener("click", function () { state.view = o[0]; Array.prototype.forEach.call(seg.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); }); draw(); });
       seg.appendChild(b);
@@ -37,7 +37,7 @@
   function radar(d) {
     var from = d.weeks.length - 26;
     var t = h("table", { class: "wga-table left" });
-    t.appendChild(h("thead", {}, [h("tr", {}, ["Topic", "Groups, 26 wk", "Items, 52 wk", "Weekly, last 26 weeks", "Most active groups"].map(function (x) { return h("th", { scope: "col", text: x }); }))]));
+    t.appendChild(h("thead", {}, [h("tr", {}, ["Topic", "Groups, last 6 months", "Items, last 12 months", "Week by week, last 6 months", "Most active groups"].map(function (x) { return h("th", { scope: "col", text: x }); }))]));
     var tb = h("tbody");
     d.topics.forEach(function (x) {
       tb.appendChild(h("tr", {}, [
@@ -88,14 +88,12 @@
   }
 
   function terms(sim) {
-    var free = sim.clusters.filter(function (c) { return !c.topic; }).slice(0, 8);
-    var grid = h("div", { class: "wga-grid" });
-    free.forEach(function (c) {
-      grid.appendChild(h("a", { class: "wga-lcard", href: "connections.html?term=" + encodeURIComponent(c.term) + "#similar" }, [
-        h("div", { class: "t", text: c.term }), h("div", { class: "m", text: c.wgs.map(WGA.shortName).join(" · ") }),
-        h("div", { class: "d", text: c.n + " items in the last year" }),
-      ]));
-    });
+    var free = sim.clusters.filter(function (c) { return !c.topic; }).slice(0, 10);
+    var grid = WGA.rows([["Term", "minmax(140px, 1fr)"], ["Groups", "minmax(200px, 2.4fr)"], ["Items, last 12 months", "minmax(110px, 0.8fr)"]],
+      free.map(function (c) {
+        return [[h("div", { class: "nm" }, [h("a", { href: "connections.html?term=" + encodeURIComponent(c.term) + "#similar", text: c.term })])],
+          [WGA.sm(c.wgs.map(WGA.shortName).join(" · "))], [h("div", { class: "num", text: String(c.n) })]];
+      }));
     return h("section", { class: "wga-card warm" }, [h("h3", { text: "Shared terms this year, not yet a curated topic" }), grid,
       h("p", { class: "wga-note warm-ink", text: "Found automatically from item titles. To make one a topic, add it to config/collab_themes.yml." })]);
   }
@@ -108,15 +106,15 @@
     root.appendChild(h("div", { class: "wga-crumb" }, [h("a", { href: "topics.html", text: "Topics" }), " / " + x.name]));
     root.appendChild(h("section", { class: "wga-card" }, [
       h("div", { class: "wga-row-h" }, [h("h2", { text: x.name, style: "margin:0;font-size:1.7em;font-weight:600" }), WGA.statusBadge(x.status, x.recent, x.prior)]),
-      h("p", { class: "wga-note", text: WGA.fmt(x.total52) + " items in 52 weeks · " + x.wgs_recent.length + " groups in the last 26 weeks" }),
+      h("p", { class: "wga-note", text: WGA.fmt(x.total52) + " items in the last 12 months · " + x.wgs_recent.length + " groups in the last 6 months" }),
       WGA.strip(x.intensity),
     ]));
     var cols = h("div", { class: "wga-cols" });
     var main = h("div", { class: "main" }), side = h("div", { class: "side" });
     cols.appendChild(main); cols.appendChild(side); root.appendChild(cols);
-    main.appendChild(h("section", { class: "wga-card" }, [h("h3", { text: "Recent items" }), x.evidence.length ? WGA.feed(x.evidence) : h("p", { class: "wga-empty", text: "None in the last 26 weeks." })]));
+    main.appendChild(h("section", { class: "wga-card" }, [h("h3", { text: "Recent items" }), x.evidence.length ? WGA.feed(x.evidence) : h("p", { class: "wga-empty", text: "None in the last 6 months." })]));
     var t = h("table", { class: "wga-table" });
-    t.appendChild(h("thead", {}, [h("tr", {}, ["Group", "Last 26 wk", "52 wk"].map(function (z) { return h("th", { scope: "col", text: z }); }))]));
+    t.appendChild(h("thead", {}, [h("tr", {}, ["Group", "Last 6 months", "Last 12 months"].map(function (z) { return h("th", { scope: "col", text: z }); }))]));
     var rec = {}; x.wgs_recent.forEach(function (g) { rec[g[0]] = g[1]; });
     var tb = h("tbody");
     x.wgs.slice(0, 15).forEach(function (g) { tb.appendChild(h("tr", {}, [h("td", {}, [h("a", { href: WGA.wgHref(g[0]), text: WGA.shortName(g[0]) })]), h("td", { text: String(rec[g[0]] || 0) }), h("td", { text: String(g[1]) })])); });

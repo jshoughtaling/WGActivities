@@ -1,5 +1,5 @@
 ---
-title: "Working group"
+title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
 output:
    html_document:
         toc: FALSE

@@ -59,7 +59,7 @@
   WGA.sum = function (a) { return a.reduce(function (x, y) { return x + y; }, 0); };
 
   /* Sequential blue ramp, light -> dark, steps 100..700 of the reference palette. */
-  var RAMP = ["#dce7f6", "#afc9ec", "#8db2e3", "#6c99d7", "#4a7fc9", "#2a5ca8", "#173f80"];
+  var RAMP = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"];
   function hex(c) { return [1, 3, 5].map(function (i) { return parseInt(c.slice(i, i + 2), 16); }); }
   WGA.RAMP = RAMP;
   WGA.rampColor = function (p) {
@@ -200,4 +200,18 @@
     var t = new Date(iso);
     el.textContent = "Updated " + t.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + (extra ? ". " + extra : ".");
   };
+  /* Row list: one tall row per item. cols: [[header, width]], rows: [[cell nodes or strings]] */
+  WGA.rows = function (cols, rows, empty) {
+    var box = WGA.h("div", { class: "wga-rows", role: "table", style: "--cols:" + cols.map(function (c) { return c[1]; }).join(" ") });
+    box.appendChild(WGA.h("div", { class: "rh", role: "row" }, cols.map(function (c) { return WGA.h("div", { role: "columnheader", text: c[0] }); })));
+    rows.forEach(function (r) {
+      box.appendChild(WGA.h("div", { class: "r", role: "row" }, r.map(function (c) {
+        return WGA.h("div", { role: "cell" }, Array.isArray(c) ? c : [c]);
+      })));
+    });
+    if (!rows.length) box.appendChild(WGA.h("div", { class: "empty", text: empty || "Nothing matches." }));
+    return box;
+  };
+  WGA.sm = function (kids, cls) { return WGA.h("div", { class: "sm" + (cls ? " " + cls : "") }, Array.isArray(kids) ? kids : [kids]); };
+  WGA.months = function (weeks) { return Math.round(weeks / 4.33) + " months"; };
 })();
