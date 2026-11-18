@@ -344,6 +344,13 @@ div.tocify {
   </a>
 </li>
 <li>
+  <a href="okrs.html">
+    <span class="fa fa-bullseye"></span>
+     
+    OKRs
+  </a>
+</li>
+<li>
   <a href="projects.html">
     <span class="fa fa-cubes"></span>
      
@@ -437,21 +444,29 @@ groups (each expands into its projects), projects or topics.</td>
 recent activity, who it works with, and opportunities.</td>
 </tr>
 <tr class="odd">
+<td><a href="okrs.html">OKRs</a></td>
+<td>The 2026 objectives and key results each working group presented on
+the Feb 17 and Feb 24 community calls, with links to the recording and
+slides. Written down by hand from the slides and recordings
+(<code>config/okrs.yml</code>), not reviewed by the groups; groups that
+did not present are listed so leads can send theirs.</td>
+</tr>
+<tr class="even">
 <td><a href="projects.html">Projects</a></td>
 <td>Software and specifications between a group and its repositories:
 repos, releases, activity, and which projects adapt which.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="topics.html">Topics</a></td>
 <td>Subjects that cut across groups, over time and at each Global
 Symposium, plus shared terms not yet curated.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="connections.html">Connections</a></td>
 <td>A network of groups with evidence of shared work, the evidence
 behind each pair, and similar work in different groups.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="activity.html">Activity</a></td>
 <td>A week’s digest, a calendar of upcoming meetings, or outputs over
 the last year. Download as CSV, copy as a forum post, follow the RSS
@@ -646,6 +661,13 @@ phenotypes and so on, listed in <code>config/collab_themes.yml</code>)
 that titles from two or more groups match. “Not yet linked” pairs are
 groups active on a topic with no item naming both.</li>
 </ul>
+<p><strong>Planned collaborations</strong> come from the OKRs
+(<code>with:</code> in <code>config/okrs.yml</code>): when one group’s
+2026 OKRs say it plans to work with another, the pair is listed under
+Connections, and drawn as a dotted blue line when you tick “Show
+collaborations planned in the 2026 OKRs”. They are hand-read, never part
+of a score, and a pair that already has evidence just gets a “planned in
+OKRs” tag.</p>
 <p><strong>Similar work</strong> looks for the same subject in different
 groups’ items over the last year: named things (FHIR, DuckDB, BigQuery,
 CDM v5.5) and two-word phrases (“episode table”, “incidence rate”) that
