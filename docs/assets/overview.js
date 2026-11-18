@@ -75,12 +75,17 @@
     var up = ws.slice().sort(function (a, b) { return (b.recent - b.prior) - (a.recent - a.prior); }).slice(0, 3);
     var down = ws.slice().sort(function (a, b) { return (a.recent - a.prior) - (b.recent - b.prior); }).slice(0, 2);
     mv.appendChild(h("p", { class: "wga-note", style: "margin:0 0 0.4em", text: "Items in the last 8 weeks compared with the 8 weeks before (groups with 20+ items)." }));
-    var mg = h("div", { class: "wga-movers" }, [h("span", { class: "hd", text: "" }), h("span", { class: "hd", text: "Last 8 wks" }), h("span", { class: "hd", text: "8 before" })]);
+    // Layout is inline so the box still lines up if an older style.css is cached.
+    var mg = h("div", { class: "wga-movers", style: "display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:0.25em 0.9em;align-items:baseline;font-size:0.9em" });
+    var num = "text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;";
+    mg.appendChild(h("span"));
+    mg.appendChild(h("span", { style: num + "font-size:0.78em;font-weight:600;color:var(--ink-muted)", text: "Last 8 wks" }));
+    mg.appendChild(h("span", { style: num + "font-size:0.78em;font-weight:600;color:var(--ink-muted)", text: "8 before" }));
     up.concat(down).forEach(function (w) {
       var d = w.recent - w.prior;
-      mg.appendChild(h("a", { href: WGA.wgHref(w.slug), text: WGA.shortName(w.slug), title: WGA.name(w.slug) }));
-      mg.appendChild(h("span", { class: "v " + (d >= 0 ? "up" : "down"), text: (d >= 0 ? "▲ " : "▼ ") + WGA.fmt(w.recent) }));
-      mg.appendChild(h("span", { class: "p", text: WGA.fmt(w.prior) }));
+      mg.appendChild(h("a", { href: WGA.wgHref(w.slug), text: WGA.shortName(w.slug), title: WGA.name(w.slug), style: "line-height:1.3" }));
+      mg.appendChild(h("span", { style: num + "font-weight:600;color:" + (d >= 0 ? "var(--accent)" : "var(--warm-ink)"), text: (d >= 0 ? "▲ " : "▼ ") + WGA.fmt(w.recent) }));
+      mg.appendChild(h("span", { style: num + "color:var(--ink-muted)", text: WGA.fmt(w.prior) }));
     });
     mv.appendChild(mg);
     var quiet = act.wgs.filter(function (w) { return w.status === "quiet"; }).map(function (w) { return w.name; });

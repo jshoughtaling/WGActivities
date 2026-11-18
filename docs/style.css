@@ -306,3 +306,9 @@ body .main-container { max-width: 1500px; width: 94%; }
 .wga-movers .v.down { color: var(--warm-ink); }
 .wga-movers .p { color: var(--ink-muted); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .wga-wlist .n { color: var(--ink-muted); font-variant-numeric: tabular-nums; text-align: right; }
+
+/* Links to other pages on this site are underlined wherever they appear in content.
+   Whole-card links, chips and calendar chips keep their own look; external links stay plain blue. */
+.wga a[href]:not([href^="http"]):not([href^="mailto"]):not(.wga-lcard):not(.wga-chip):not(.cal-chip) {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px;
+}
