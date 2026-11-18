@@ -18,7 +18,7 @@ This site has two aims: **transparency** (what each OHDSI working group (WG) is 
 |---|---|
 | [Overview](index.html) | The last complete week at a glance, and a heatmap whose rows can be groups (each expands into its projects), projects or topics. |
 | [Groups](groups.html) | Every working group, then a page per group: projects, outputs and recent activity, who it works with, and opportunities. |
-| [OKRs](okrs.html) | The 2026 objectives and key results each working group presented on the Feb 17 and Feb 24 community calls, with links to the recording and slides. Written down by hand from the slides and recordings (`config/okrs.yml`), not reviewed by the groups; groups that did not present are listed so leads can send theirs. |
+| [OKRs](okrs.html) | The objectives and key results each working group presented, by year (2025 and 2026 so far): on the February community calls and in the decks on ohdsi.org/workgroups, with links to the recording and slides. Written down by hand from the slides and recordings (`config/okrs.yml`, `config/okrs_2025.yml`), not reviewed by the groups; groups with none found are listed so leads can send theirs. |
 | [Projects](projects.html) | Software and specifications between a group and its repositories: repos, releases, activity, and which projects adapt which. |
 | [Topics](topics.html) | Subjects that cut across groups, over time and at each Global Symposium, plus shared terms not yet curated. |
 | [Connections](connections.html) | A network of groups with evidence of shared work, the evidence behind each pair, and similar work in different groups. |

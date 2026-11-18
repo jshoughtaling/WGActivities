@@ -23,6 +23,7 @@
 meta:
   year: 2026
   sessions:
+    w26: {label: "ohdsi.org slides", date: 2026-03, video: null, slides: "https://www.ohdsi.org/workgroups/"}   # per-group deck from the ohdsi.org/workgroups page; each entry gives its own slides and date
     s1: {date: 2026-02-17, video: "https://www.youtube.com/watch?v=6ImY75tiAUg", slides: "https://www.ohdsi.org/wp-content/uploads/2026/02/Feb17-OKRs.pdf"}
     s2: {date: 2026-02-24, video: "https://www.youtube.com/watch?v=rmVudsoe7g4", slides: "https://www.ohdsi.org/wp-content/uploads/2026/02/Feb24-OKRs.pdf"}
 
@@ -427,3 +428,136 @@ okrs:
         krs:
           - Identify representatives to liaise with regional chapters.
           - Expand membership to include active members from at least three regional chapters.
+
+  # ---- groups whose 2026 OKRs are on the ohdsi.org/workgroups page ("OKR Slides") but not in the two February calls
+  - slug: gis
+    name: GIS
+    session: w26
+    slides: "https://www.ohdsi.org/wp-content/uploads/2026/03/GIS-2026.pdf"
+    date: 2026-03
+    with: [hades]
+    objectives:
+      - objective: Release a stable "working beta" of the Gaia toolchain
+        krs:
+          - "Key result: a deployable version with no workflow-breaking bugs and a stable PostgREST API layer. Priority is core functionality (ingestion, pipeline execution); connectors are secondary."
+          - "Target: early May 2026, to allow summer testing ahead of the October Global Symposium."
+      - objective: Ensure location_history and external_exposure tables meet the forthcoming OHDSI extension requirements
+        krs:
+          - "Deliverables: extension tables plus documentation and tooling that meet the formal requirements (DQD checks as SQL/R, transformation examples including a documented workflow to external_exposure, analytical tools built on the extension tables)."
+          - "Target: June 2026."
+      - objective: Demonstrate a reproducible workflow using GIS data within the OHDSI stack
+        krs:
+          - "Workflow established with CaprForExtensions and FeatureExtractionForExtensions. Depends on synthetic data (environmental and socioeconomic factors linked to respiratory disease) posted to the GIS repo."
+          - "Target: present at OHDSI Europe, expand to a showcase at OHDSI Global."
+      - objective: Validate the whole workflow with real-world data across multiple sites
+        krs:
+          - "A completed pilot is the proof of value for a strong GIS manuscript. Candidate sources: CHoRUS (Bridge2AI), MUSC/VA Rural Program (strong candidate), CODATA real-world sensor data (Dhaka/Douala)."
+          - "Target: October 2026."
+
+  - slug: waveform
+    name: Waveform
+    session: w26
+    slides: "https://www.ohdsi.org/wp-content/uploads/2026/03/Waveform-2026.pdf"
+    date: 2026-03
+    objectives:
+      - objective: External evaluation of the extension tables and further refinement
+        krs:
+          - "Key result: a tested and agreed specification for the extension tables, ideally with examples. Multiple partners with different objectives test the proposed tables and look for issues and missing pieces."
+          - "Target: end of March 2026, to allow summer testing ahead of the October Global Symposium."
+      - objective: Follow the newly established conventions for formalizing OMOP extensions
+        krs:
+          - "Deliverables: extension tables plus documentation and tooling that meet the formal requirements (DQD checks as SQL/R, transformation examples with a documented workflow, analytical tools, synthetic data)."
+          - "Target: June 2026."
+      - objective: Demonstrate waveform extension table integration
+        krs:
+          - "Workflow established with CaprForExtensions and FeatureExtractionForExtensions (dependency: synthetic data posted to the Waveform repo)."
+          - "Target: present at OHDSI Europe, expand to a showcase at OHDSI Global."
+      - objective: Initial multi-site demonstration of waveform data alongside OMOP in a study
+        krs:
+          - "A completed pilot is the proof of value for a strong Waveform WG manuscript. Candidate sources: CHoRUS (Bridge2AI) and INDICATE (federated intensive care data)."
+          - "Target: October 2026."
+
+  - slug: phenotype
+    name: Phenotype Development and Evaluation
+    session: w26
+    slides: "https://www.ohdsi.org/wp-content/uploads/2026/08/Phenotype-2026.pdf"
+    date: 2026-08
+    with: [gaia-genai]
+    objectives:
+      - objective: Advance the science of AI-assisted systematic phenotyping (shared with the AI working group)
+        krs:
+          - "KR1.1: run Phenotype Phebruary to help benchmark an iterative, empirically grounded, AI-assisted workflow across diverse RWD network sources, by Q1 2026."
+          - "KR1.2: finalize and submit the \"Minds Meet Machines\" manuscript to a high-impact informatics journal, by Q1 2026."
+          - "KR1.3: develop a gold standard of phenotype algorithms for a specific data source, to evaluate independent phenotype development or evaluation pipelines, by Q3 2026."
+          - "KR1.4: develop, test and validate a robust AI-assisted pipeline for developing clinical phenotypes, by September 2026."
+          - "KR1.5: populate the Phenotype Library with at least 100 new AI-assisted phenotypes and demo the learning at the Global Symposium."
+      - objective: OHDSI Library integration
+        krs:
+          - "KR2.1: publish a peer-reviewed communication establishing inter-library metadata standards (lead: VA CIPHER), by Q2 2026."
+          - "KR2.2: refactor the Phenotype Library submission architecture to require the new metadata ontologies, by Q4 2026."
+
+  - slug: animal-health
+    name: Electronic Animal Health Records
+    session: w26
+    slides: "https://www.ohdsi.org/wp-content/uploads/2026/03/EAHR-2026.pdf"
+    date: 2026-03
+    with: [themis, medical-imaging, waveform]
+    notes:
+      - "The slides call these 2026 OKRs \"proposed\"."
+    objectives:
+      - objective: Propose solutions to support use of animal health data for research in veterinary and human medicine
+        krs:
+          - Analyze OHDSI components (CDM, Vocabulary) as they relate to animal health data.
+          - Document conventions and modifications needed to ETL animal data (methods, guidelines, experiences).
+          - Show documentation and SOPs on the WG GitHub repository, and submit conventions to the Themis repository.
+          - Contribute veterinary-specific guidance to OHDSI "getting started" materials.
+      - objective: Complete a pilot data harmonization project to show consensus and feasibility of the proposed veterinary solutions
+        krs:
+          - Develop a multi-domain research question that needs multi-institution data harmonization.
+          - Retrieve and report data from each veterinary site using uniform processes.
+          - Begin a manuscript on the findings.
+      - objective: Evaluate the imaging and waveform CDM extensions in a veterinary context
+        krs:
+          - Implement popular CDM extensions at veterinary sites.
+          - Document recommended conventions, structural changes and custom terminology updates.
+
+  - slug: cdm-survey
+    name: CDM Survey Sub-Working Group
+    session: w26
+    slides: "https://www.ohdsi.org/wp-content/uploads/2026/03/Survey-2026.pdf"
+    date: 2026-03
+    meets: Every other Tuesday, 10 am ET
+    objectives:
+      - objective: Establish best practices and standards for survey data modeling in the OMOP CDM
+        krs:
+          - "KR1.1: publish a classification framework for Standardized Assessment Instruments, separating Psychometrically Validated Instruments (PVIs) from Standardized Data Collection Instruments (SDCIs)."
+          - "KR1.2: decision-tree guidance for mapping as Facts, Q/A Pairs or Triplets (instrument components, nesting, repeated measures), with a subsection on PVIs."
+          - "KR1.3: metadata conventions for provenance (self- vs informant-reported), administration type and mode, and evaluation interval."
+      - objective: Accelerate standardization of high-impact survey vocabulary content
+        krs:
+          - "KR2.1: complete standard vocabulary for at least 3 high-impact content areas (social and behavioral data, validated instruments such as MoCA terms, priority PROMs), organized by content area."
+          - "KR2.2: a formal workflow, with governance criteria and submission templates, for promoting mapped custom concepts into the official OMOP vocabulary."
+          - "KR2.3: submit at least 2 formal content requests to LOINC and/or SNOMED CT."
+      - objective: Build and share reusable community resources and implementation tools
+        krs:
+          - "KR3.1: publish an instrument mapping best-practices guide (negation, copyright and proprietary instruments, common patterns)."
+          - "KR3.2: a dedicated OHDSI GitHub repository for ETL scripts, mapping tables and methods, with content from at least 5 organizations."
+          - "KR3.3: evaluate existing survey mapping tools (Epiharmony, LLM-assisted approaches), publish findings and prototype or improve at least 1 tool."
+
+  - slug: respiratory
+    name: Respiratory
+    session: w26
+    slides: "https://www.ohdsi.org/wp-content/uploads/2026/08/OHDSI-workgroup_respiratory-WG.pdf"
+    date: 2026-08
+    leads: [Katia Verhamme, Jennifer Quint, Lies Lahousse]    # title slide names the first two, the closing slide the first and third
+    meets: First Friday of the month, 4 pm CET (first meeting Sept 4, 2026)
+    notes:
+      - "The slides list key results and outputs, not formal objectives."
+    objectives:
+      - objective: Outputs of the respiratory working group (no formal objectives on the slides)
+        krs:
+          - Concept sets and cohorts for respiratory conditions.
+          - "Analytical code to optimize respiratory drugs: concept sets for ICS, LABA, LAMA and an algorithm to identify low, intermediate and high ICS doses."
+          - Optimize use of spirometry data in the community, with an algorithm to identify obstructive and restrictive phenotypes.
+          - Collaboration on new research topics, and with other communities such as the ERS.
+

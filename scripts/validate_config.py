@@ -11,7 +11,7 @@ Checks
   projects.yml        lead/contributing groups exist, kind is known, repos are listed once, extends resolve,
                       `reviewed` looks like "YYYY-MM-DD" or "YYYY-MM-DD by <who>", repos are collected
   wg_aliases.yml, forum_mapping.yml, collab_themes.yml   slugs exist, regexes compile
-  okrs.yml            slugs and `with` groups exist, session is defined in meta, objectives have text
+  okrs*.yml           year is set, slugs and `with` groups exist, session is defined in meta, objectives have text, no group twice
   item_rules.yml      target and skip groups exist, regex compiles, named repos are collected
   data/meetings.json  every mapped group exists; names that map to no group are listed
 
@@ -170,14 +170,21 @@ def check(root=ROOT):
             if repo not in collected:
                 warnings.append(("rule-repo", f"{where}: repo {repo} is not collected, so the rule never applies to it"))
 
-    # ---- OKRs
-    okr = _yaml(root, "okrs.yml")
-    if okr:
+    # ---- OKRs (okrs.yml, okrs_<year>.yml)
+    for okr_file in sorted((Path(root) / "config").glob("okrs*.yml")):
+        okr = yaml.safe_load(okr_file.read_text()) or {}
+        fn = okr_file.name
         sess = (okr.get("meta") or {}).get("sessions") or {}
+        if not (okr.get("meta") or {}).get("year"):
+            errors.append(("okr-year", f"{fn}: meta.year is missing"))
+        seen_names = set()
         for i, e in enumerate(okr.get("okrs") or []):
-            where = f"okrs.yml: {e.get('name') or i + 1}"
+            where = f"{fn}: {e.get('name') or i + 1}"
             if not e.get("name"):
                 errors.append(("okr-field", f"{where}: missing name"))
+            elif (e["name"], e.get("slug")) in seen_names:
+                errors.append(("okr-duplicate", f"{where}: appears twice in this year"))
+            seen_names.add((e.get("name"), e.get("slug")))
             if e.get("slug") and e["slug"] not in slugs:
                 errors.append(("okr-slug", f"{where}: slug {e['slug']} is not a working group"))
             if e.get("session") not in sess:

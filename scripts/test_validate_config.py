@@ -54,12 +54,15 @@ def main():
     e, w = run(extra={"item_rules.yml": {"rules": [{"to": "zz", "match": "(", "skip_wgs": ["yy"], "repos": ["a1", "ghost"]}, {"to": "b"}]}})
     assert e == {"rule-slug", "bad-regex", "rule-match"} and w == {"rule-repo"}, (e, w)
     assert run(extra={"item_rules.yml": {"rules": [{"to": "b", "match": "geo", "repos": ["a1"]}]}}) == (set(), set())
-    good = {"meta": {"sessions": {"s1": {}}}, "okrs": [{"slug": "a", "name": "A", "session": "s1", "with": ["b"], "objectives": [{"objective": "x", "krs": []}]},
+    good = {"meta": {"year": 2026, "sessions": {"s1": {}}}, "okrs": [{"slug": "a", "name": "A", "session": "s1", "with": ["b"], "objectives": [{"objective": "x", "krs": []}]},
                                                   {"slug": None, "name": "Chapter", "session": "s1", "objectives": [{"objective": "y"}]}]}
     assert run(extra={"okrs.yml": good}) == (set(), set())
     badokr = {"meta": {"sessions": {"s1": {}}}, "okrs": [{"slug": "zz", "name": "Z", "session": "s9", "with": ["yy"], "objectives": []}]}
     e, _ = run(extra={"okrs.yml": badokr})
-    assert e == {"okr-slug", "okr-session", "okr-with", "okr-objective"}, e
+    assert e == {"okr-slug", "okr-session", "okr-with", "okr-objective", "okr-year"}, e
+    dup = {"meta": {"year": 2025, "sessions": {"s1": {}}}, "okrs": [{"slug": "a", "name": "A", "session": "s1", "objectives": [{"objective": "x"}]}] * 2}
+    e, _ = run(extra={"okrs_2025.yml": dup})
+    assert e == {"okr-duplicate"}, e
     print("ok: validate_config")
 
 

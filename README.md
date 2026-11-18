@@ -10,7 +10,7 @@ See `PLAN.md` for the design.
 
 ```
 config/            working_groups.yml (WG -> repos), item_rules.yml (title rules that also credit an item to another WG),
-                   projects.yml (repos -> projects), project_primer.md (insider rules for grouping), okrs.yml (2026 OKRs from the community calls), forum_mapping.yml, wg_aliases.yml,
+                   projects.yml (repos -> projects), project_primer.md (insider rules for grouping), okrs.yml and okrs_<year>.yml (OKRs from the community calls and group decks), forum_mapping.yml, wg_aliases.yml,
                    conferences.yml, collab_themes.yml (curated topics)
 scripts/collect/   one collector per source -> data/events/<source>.json
 scripts/build_activity.py   merges events (+ data/teams_counts.json) -> rmd/data/activity.json
@@ -18,7 +18,7 @@ scripts/build_collab.py     finds cross-WG collaboration candidates -> rmd/data/
 scripts/build_views.py      projects, topics, similar work, weekly digest, calendar
                             -> rmd/data/{projects,topics,similar,digest,calendar}.json, digest.xml (RSS), calendar.ics;
                             shared item model in scripts/lib_items.py
-scripts/build_okrs.py       config/okrs.yml -> rmd/data/okrs.json (the OKRs page and each group's OKR card)
+scripts/build_okrs.py       config/okrs*.yml -> rmd/data/okrs.json (the OKRs page and each group's OKR cards)
 scripts/item_rules.py       applies config/item_rules.yml when events are loaded (run it to list what each rule tags)
 scripts/validate_config.py  checks the hand-edited config (slugs, regexes, project repos, extends, reviewed dates, meeting names)
 scripts/build_health.py     data freshness, collector outcomes and config notices -> rmd/data/health.json (About > Data health)

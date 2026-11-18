@@ -64,19 +64,19 @@
     if (ys.length) WGA.tile(tiles, "Symposium items", conf[ys[0]] + " in " + ys[0], ys.slice(1, 3).map(function (y) { return conf[y] + " in " + y; }).join(" · "));
     root.appendChild(tiles);
 
-    // 2026 OKRs, when this group presented them (data/okrs.json is optional).
+    // OKRs for every year this group presented them (data/okrs.json is optional); the latest year is open.
     var okrBox = h("div");
     root.appendChild(okrBox);
     WGA.load("data/okrs.json").then(function (o) {
-      var g = o.groups.filter(function (x) { return x.slug === slug; })[0];
-      if (!g) return;
-      var kids = [h("p", { class: "wga-note", style: "margin:0 0 0.6em" }, ["Presented on the " + WGA.fmtDate(g.date) + " community call (", h("a", { href: g.video, target: "_blank", rel: "noopener", text: "recording" }), ", ", h("a", { href: g.slides, target: "_blank", rel: "noopener", text: "slides" }), "). Not reviewed by the group."])];
-      g.objectives.forEach(function (ob, i) {
-        kids.push(h("div", { class: "okr-obj" }, [h("div", { class: "okr-o" }, [h("span", { class: "okr-n", text: "O" + (i + 1) }), h("span", { text: ob.objective })]),
-          ob.krs.length ? h("ul", { class: "okr-krs" }, ob.krs.map(function (k) { return h("li", { text: k }); })) : null]));
+      var gs = o.groups.filter(function (x) { return x.slug === slug; });
+      gs.forEach(function (g, i) {
+        var link = g.video ? [h("a", { href: g.video, target: "_blank", rel: "noopener", text: "recording" }), ", "] : [];
+        var kids = [h("p", { class: "wga-note", style: "margin:0 0 0.6em" }, ["Presented " + g.when + (g.video ? " on the community call" : " in its slide deck") + " (", ].concat(link, [h("a", { href: g.slides, target: "_blank", rel: "noopener", text: "slides" }), "). Not reviewed by the group."]))]
+          .concat(WGA.okrBody(g));
+        kids.push(h("p", { class: "wga-note" }, [h("a", { href: "okrs.html?year=" + g.year + "&g=" + encodeURIComponent(g.id), text: "All groups' " + g.year + " OKRs" })]));
+        if (i === 0) okrBox.appendChild(card(g.year + " OKRs", kids));
+        else okrBox.appendChild(h("details", { class: "wga-card" }, [h("summary", { text: g.year + " OKRs" })].concat(kids)));
       });
-      kids.push(h("p", { class: "wga-note" }, [h("a", { href: "okrs.html?g=" + encodeURIComponent(g.id), text: "All groups' OKRs" })]));
-      okrBox.appendChild(card(o.year + " OKRs", kids));
     }).catch(function () { /* no OKR data: skip the card */ });
 
     // Effort chart with this group picked; clicking another wedge opens that group's page.
