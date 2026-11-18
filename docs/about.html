@@ -11,10 +11,10 @@
 
 
 
-<title> OHDSI Working Group Activities</title>
+<title>About the data</title>
 
-<script src="site_libs/header-attrs-2.32/header-attrs.js"></script>
-<script src="site_libs/jquery-3.7.1/jquery-3.7.1.min.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -35,9 +35,13 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="OHDSI working groups: weekly digest" href="data/digest.xml">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -324,42 +328,35 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html"><div><img src="ohdsi16x16.png"></img> OHDSI WG Activities </div></a>
+      <a class="navbar-brand" href="index.html"><div><img src="ohdsi16x16.png"></img> OHDSI <span class="wga-brand">WG Activity</span></div></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
-    <span class="fa fa-th"></span>
-     
-    Heatmap
-  </a>
+  <a href="index.html">Overview</a>
 </li>
 <li>
-  <a href="wg.html">
-    <span class="fa fa-users"></span>
-     
-    Working Group
-  </a>
+  <a href="groups.html">Groups</a>
 </li>
 <li>
-  <a href="collab.html">
-    <span class="fa fa-handshake-o"></span>
-     
-    Collaboration
-  </a>
+  <a href="projects.html">Projects</a>
 </li>
 <li>
-  <a href="about.html">
-    <span class="fa fa-info-circle"></span>
-     
-    About the data
-  </a>
+  <a href="topics.html">Topics</a>
+</li>
+<li>
+  <a href="connections.html">Connections</a>
+</li>
+<li>
+  <a href="activity.html">Activity</a>
+</li>
+<li>
+  <a href="about.html">About</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jshoughtaling/WGActivities">
+  <a href="https://github.com/rtmill/WGActivities">
     <span class="fa fa-github"></span>
      
   </a>
@@ -373,21 +370,70 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><img src="ohdsi40x40.png"></img> OHDSI
-Working Group Activities</h1>
+<h1 class="title toc-ignore">About the data</h1>
 
 </div>
 
 
 <div id="about-the-data" class="section level1">
 <h1><strong>About the data</strong></h1>
-<p>This page is a first look at how active each OHDSI working group (WG)
-has been. It is compiled automatically from public sources, plus a small
-amount of hand-collected MS Teams counts, and it is refreshed by hand
-for now (the date on the heatmap page shows the last refresh). It
-measures visible activity, not the quality or importance of a group’s
+<p>This site has two aims: <strong>transparency</strong> (what each
+OHDSI working group (WG) is doing, and where to find it) and
+<strong>collaboration</strong> (where groups are working on the same
+thing and might want to talk). It is compiled automatically from public
+sources, plus a small amount of hand-collected MS Teams counts, and it
+is refreshed by hand for now (the Overview page shows the last refresh).
+It measures visible activity, not the quality or importance of a group’s
 work: a WG that meets weekly and works in Teams will look quiet
 here.</p>
+<div id="what-is-on-each-page" class="section level2">
+<h2><strong>What is on each page</strong></h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Page</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="index.html">Overview</a></td>
+<td>The last complete week at a glance, and a heatmap whose rows can be
+groups (each expands into its projects), projects or topics.</td>
+</tr>
+<tr class="even">
+<td><a href="groups.html">Groups</a></td>
+<td>Every working group, then a page per group: projects, outputs and
+recent activity, who it works with, and opportunities.</td>
+</tr>
+<tr class="odd">
+<td><a href="projects.html">Projects</a></td>
+<td>Software and specifications between a group and its repositories:
+repos, releases, activity, and which projects adapt which.</td>
+</tr>
+<tr class="even">
+<td><a href="topics.html">Topics</a></td>
+<td>Subjects that cut across groups, over time and at each Global
+Symposium, plus shared terms not yet curated.</td>
+</tr>
+<tr class="odd">
+<td><a href="connections.html">Connections</a></td>
+<td>A network of groups with evidence of shared work, the evidence
+behind each pair, and similar work in different groups.</td>
+</tr>
+<tr class="even">
+<td><a href="activity.html">Activity</a></td>
+<td>A week’s digest, a calendar of upcoming meetings, or outputs over
+the last year. Download as CSV, copy as a forum post, follow the RSS
+feed, or subscribe to the calendar (.ics).</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="what-each-source-counts" class="section level2">
 <h2><strong>What each source counts</strong></h2>
 <table>
@@ -477,11 +523,52 @@ before them: <em>new</em> (first activity in the last 8 weeks),
 <em>dormant</em> (none in the range).</li>
 </ul>
 </div>
-<div id="cross-group-collaboration" class="section level2">
-<h2><strong>Cross-group collaboration</strong></h2>
-<p>The <a href="collab.html">Collaboration</a> page flags places where
-groups may want to talk. It uses three signals, all from item titles and
-links (never Teams content):</p>
+<div id="items-projects-topics-and-outputs" class="section level2">
+<h2><strong>Items, projects, topics and outputs</strong></h2>
+<ul>
+<li><strong>One item, counted once.</strong> Collectors file an item
+under every group it names, which is right for each group’s own counts.
+Pages that compare across groups (digests, outputs, topics, similar
+work) merge those copies, so a poster that names three groups is one
+item there. A pull request that is opened and later merged stays two
+items.</li>
+<li><strong>Projects</strong> group repositories into the things people
+know by name (Gaia, Strategus, ATLAS / WebAPI). Multi-repo projects are
+listed in <code>config/projects.yml</code>, a first draft for
+maintainers to correct; every other repository is a project of its own,
+under the group it is assigned to. A project can record that it
+<em>extends</em> another (for example, copies of HADES packages that
+read the GIS extension tables): that is shown as an opportunity, because
+support upstream would help both. Projects are counted from GitHub
+only.</li>
+<li><strong>Topics</strong> are the curated keyword lists in
+<code>config/collab_themes.yml</code>. An item counts for a topic when
+its title matches; commits and comments are left out, and items tagged
+to more than four groups do not count toward any one group.</li>
+<li><strong>Outputs</strong> are releases (nightly builds and snapshots
+left out), symposium posters and talks, working-group sessions and
+tutorials.</li>
+<li><strong>Compatibility</strong> (which databases, CDM versions and
+CDM extensions a project supports) is not collected yet.</li>
+</ul>
+</div>
+<div id="calendar" class="section level2">
+<h2><strong>Calendar</strong></h2>
+<p>Working-group meetings come from ohdsi.org’s <a
+href="https://www.ohdsi.org/upcoming-working-group-calls/">Upcoming
+Working Group Calls</a> page, which lists about four weeks ahead and
+each group’s usual schedule; it is read at each refresh. Community calls
+are on Tuesdays at 11am ET: past ones show their title and recording,
+later ones are listed as expected until announced. Symposium dates come
+from the conference list. Join links are not copied: “Join details”
+opens the ohdsi.org page, which always has the current link. Meeting
+lengths are not published, so calendar apps show one hour.</p>
+</div>
+<div id="connections-and-similar-work" class="section level2">
+<h2><strong>Connections and similar work</strong></h2>
+<p>The <a href="connections.html">Connections</a> page flags places
+where groups may want to talk. Pairs of groups use three signals, all
+from item titles and links (never Teams content):</p>
 <ul>
 <li><strong>Named together:</strong> a forum topic, pull request, issue,
 call, showcase entry, tutorial or session whose title names a second
@@ -494,6 +581,13 @@ phenotypes and so on, listed in <code>config/collab_themes.yml</code>)
 that titles from two or more groups match. “Not yet linked” pairs are
 groups active on a topic with no item naming both.</li>
 </ul>
+<p><strong>Similar work</strong> looks for the same subject in different
+groups’ items over the last year: named things (FHIR, DuckDB, BigQuery,
+CDM v5.5) and two-word phrases (“episode table”, “incidence rate”) that
+appear in issue, pull request, forum, call and symposium titles. A
+subject is listed when at least two groups each have an item of their
+own about it, and pairs that no item names together are marked “not yet
+connected”; those are drawn as dashed orange lines in the network.</p>
 <p>Matching is by keyword, so some leads are false alarms (a word like
 “vocabulary” in an ATLAS pull request), and groups that collaborate
 without writing it in a title are missed. The topic list is a first
@@ -517,10 +611,15 @@ page</a> (marked with *).</li>
 <div id="source-code-and-corrections" class="section level2">
 <h2><strong>Source code and corrections</strong></h2>
 <p>Collectors, matching rules and this site are in <a
-href="https://github.com/jshoughtaling/WGActivities">jshoughtaling/WGActivities</a>.
-Mapping rules live in <code>config/working_groups.yml</code> and
-<code>config/forum_mapping.yml</code>; if a repository or topic is
-assigned to the wrong group, open an issue or a pull request there.</p>
+href="https://github.com/rtmill/WGActivities">rtmill/WGActivities</a>, a
+fork of <a
+href="https://github.com/jshoughtaling/WGActivities">jshoughtaling/WGActivities</a>
+that adds projects, topics, connections, the weekly digest and the
+calendar. Mapping rules live in <code>config/working_groups.yml</code>,
+<code>config/forum_mapping.yml</code>, <code>config/projects.yml</code>
+and <code>config/collab_themes.yml</code>; if a repository, project or
+topic is assigned to the wrong group, open an issue or a pull request
+there.</p>
 </div>
 </div>
 

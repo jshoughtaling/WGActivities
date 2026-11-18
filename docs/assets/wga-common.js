@@ -1,4 +1,4 @@
-/* Shared helpers for the heatmap and working group pages. Reads data/activity.json. */
+/* Shared helpers for every page. Data files live in data/ (activity, projects, topics, similar, digest, collab). */
 (function () {
   var WGA = (window.WGA = {});
 
@@ -59,7 +59,7 @@
   WGA.sum = function (a) { return a.reduce(function (x, y) { return x + y; }, 0); };
 
   /* Sequential blue ramp, light -> dark, steps 100..700 of the reference palette. */
-  var RAMP = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"];
+  var RAMP = ["#dce7f6", "#afc9ec", "#8db2e3", "#6c99d7", "#4a7fc9", "#2a5ca8", "#173f80"];
   function hex(c) { return [1, 3, 5].map(function (i) { return parseInt(c.slice(i, i + 2), 16); }); }
   WGA.RAMP = RAMP;
   WGA.rampColor = function (p) {
@@ -107,5 +107,97 @@
       ]));
     });
     return ul;
+  };
+  /* ---------------- v2 helpers ---------------- */
+  WGA.loadMany = function (paths) { return Promise.all(paths.map(function (p) { return WGA.load(p); })); };
+  WGA.param = function (k) { return new URLSearchParams(location.search).get(k); };
+  WGA.BUCKET_NAMES = { community: "Community-wide", regional: "Regional chapters", unassigned: "Unassigned",
+    etl: "ETL and data onboarding", infrastructure: "Infrastructure" };
+  WGA.names = {};
+  WGA.setNames = function (n) { Object.keys(n || {}).forEach(function (k) { WGA.names[k] = n[k]; }); };
+  WGA.name = function (slug) { return WGA.names[slug] || WGA.BUCKET_NAMES[slug] || slug; };
+  WGA.shortName = function (slug) { var n = WGA.name(slug); return n.replace(/\s*\(.*\)\s*$/, ""); };
+  WGA.wgHref = function (slug) { return "wg.html?wg=" + encodeURIComponent(slug); };
+  WGA.projHref = function (id) { return "projects.html?p=" + encodeURIComponent(id); };
+  WGA.topicHref = function (id) { return "topics.html?t=" + encodeURIComponent(id); };
+  WGA.isBucket = function (slug) { return !!WGA.BUCKET_NAMES[slug]; };
+  WGA.KINDS = { platform: "platform", package: "package", app: "app", library: "library", spec: "spec",
+    deployment: "deployment", study: "study template", docs: "docs", repo: "repo" };
+  WGA.OUTPUT_TYPES = { release: 1, showcase_entry: 1, tutorial: 1, wg_session: 1, regional_session: 1 };
+  WGA.fmtDate = function (iso) { return iso ? WGA.month(iso) + " " + parseInt(iso.slice(8, 10), 10) : ""; };
+  WGA.fmtDateY = function (iso) { return iso ? WGA.fmtDate(iso) + ", " + iso.slice(0, 4) : ""; };
+  WGA.safeUrl = function (u) { return /^https?:\/\//.test(u || "") ? u : null; };
+
+  WGA.badge = function (text, cls) { return WGA.h("span", { class: "wga-badge" + (cls ? " " + cls : ""), text: text }); };
+  WGA.statusBadge = function (status, recent, prior) {
+    var st = WGA.STATUS[status] || { label: status };
+    var rising = recent > 1.5 * prior && recent >= 10;
+    return WGA.badge(st.label.charAt(0).toUpperCase() + st.label.slice(1) + (rising && status === "active" ? " · rising" : ""),
+      status === "active" || status === "new" ? "blue" : "");
+  };
+  WGA.tile = function (box, l, v, n, cls) {
+    var t = WGA.h("div", { class: "wga-tile" + (cls ? " " + cls : "") }, [WGA.h("div", { class: "l", text: l }),
+      WGA.h("div", { class: "v" + (String(v).length > 16 ? " long" : ""), text: String(v) })]);
+    if (n) t.appendChild(typeof n === "string" ? WGA.h("div", { class: "n", text: n }) : WGA.h("div", { class: "n" }, [n]));
+    box.appendChild(t);
+    return t;
+  };
+  /* A one-row heatmap from 0..1 intensities (or raw counts, normalised to the row's max). */
+  WGA.strip = function (vals, opts) {
+    opts = opts || {};
+    var max = opts.raw ? Math.max.apply(null, vals.concat([1])) : 1;
+    var s = WGA.h("div", { class: "wga-strip", style: "--n:" + vals.length, "aria-hidden": "true" });
+    vals.forEach(function (v) {
+      var c = WGA.h("span");
+      var x = v / max;
+      if (x > 0) c.style.background = WGA.rampColor(0.08 + 0.92 * x);
+      s.appendChild(c);
+    });
+    return s;
+  };
+  WGA.chipLinks = function (slugs, cls) {
+    var box = WGA.h("span", { class: "wga-chips" });
+    slugs.forEach(function (s) {
+      box.appendChild(WGA.isBucket(s) ? WGA.h("span", { class: "wga-chip", text: WGA.name(s) })
+        : WGA.h("a", { class: "wga-chip" + (cls ? " " + cls : ""), href: WGA.wgHref(s), text: WGA.shortName(s) }));
+    });
+    return box;
+  };
+  /* Feed list. items: [{d, s, t, title, url, wgs, p}] */
+  WGA.feed = function (items, opts) {
+    opts = opts || {};
+    var ul = WGA.h("ul", { class: "wga-feed" });
+    var yr = items.reduce(function (m, it) { return it.d && it.d.slice(0, 4) > m ? it.d.slice(0, 4) : m; }, "");
+    items.forEach(function (it) {
+      var src = WGA.SOURCES[it.s] || { label: it.s };
+      var who = opts.who === false ? "" : opts.who === "repo" ? (it.r || (it.s === "conference" ? "Symposium" : WGA.SOURCES[it.s] ? WGA.SOURCES[it.s].label : "")) : (opts.who === "project" && it.p ? (opts.projName ? opts.projName(it.p) : it.p)
+        : (it.wgs || []).map(WGA.shortName).join(", "));
+      ul.appendChild(WGA.h("li", {}, [
+        WGA.h("span", { class: "dt", text: it.d && it.d.slice(0, 4) !== yr ? WGA.fmtDate(it.d) + " '" + it.d.slice(2, 4) : WGA.fmtDate(it.d) }),
+        WGA.h("span", { class: "ty" + (WGA.OUTPUT_TYPES[it.t] ? " out" : ""), text: (WGA.TYPE_LABELS[it.t] || it.t) + (it.s === "conference" || opts.who === "repo" ? "" : " · " + src.label) }),
+        WGA.h("span", { class: "who", text: who, title: who }),
+        WGA.safeUrl(it.url) ? WGA.h("a", { href: it.url, target: "_blank", rel: "noopener", text: it.title }) : WGA.h("span", { text: it.title }),
+      ]));
+    });
+    return ul;
+  };
+  WGA.download = function (filename, text, type) {
+    var a = WGA.h("a", { href: URL.createObjectURL(new Blob([text], { type: type || "text/plain" })), download: filename });
+    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  };
+  WGA.csv = function (rows) {
+    return rows.map(function (r) {
+      return r.map(function (v) { v = v == null ? "" : String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(",");
+    }).join("\n") + "\n";
+  };
+  WGA.copy = function (text, btn) {
+    var done = function () { if (btn) { var o = btn.textContent; btn.textContent = "Copied"; setTimeout(function () { btn.textContent = o; }, 1500); } };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () { WGA.download("digest.md", text, "text/markdown"); });
+    else WGA.download("digest.md", text, "text/markdown");
+  };
+  WGA.updated = function (el, iso, extra) {
+    if (!el) return;
+    var t = new Date(iso);
+    el.textContent = "Updated " + t.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) + (extra ? ". " + extra : ".");
   };
 })();

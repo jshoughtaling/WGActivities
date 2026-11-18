@@ -11,7 +11,7 @@ navbar:
   title: '<div><img src="ohdsi16x16.png"></img> OHDSI <span class="wga-brand">WG Activity</span></div>'
   right:
     - icon: fa-github
-      href: https://github.com/jshoughtaling/WGActivities
+      href: https://github.com/rtmill/WGActivities
   left:
     - text: "Overview"
       href: index.html
