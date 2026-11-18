@@ -69,8 +69,7 @@
             [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(WGA.KINDS[p.kind] || p.kind, "mu")],
             [h("div", { class: "sm", style: "margin-top:0.15em" }, [WGA.isBucket(p.lead_wg) ? h("span", { text: WGA.name(p.lead_wg) }) : h("a", { href: WGA.wgHref(p.lead_wg), text: WGA.shortName(p.lead_wg) })]),
               p.contributing_wgs.length ? WGA.sm("with " + p.contributing_wgs.map(WGA.shortName).join(", "), "mu") : null],
-            [h("ul", {}, p.repos.slice(0, 4).map(function (r) { return h("li", {}, [h("a", { href: r.url, target: "_blank", rel: "noopener", text: r.name })]); })
-              .concat(p.repos.length > 4 ? [h("li", { class: "mu", text: "+" + (p.repos.length - 4) + " more" })] : []))],
+            [h("ul", {}, p.repos.map(function (r) { return h("li", {}, [h("a", { href: r.url, target: "_blank", rel: "noopener", text: r.name })]); }))],
             [p.counts ? WGA.strip(p.intensity.slice(from)) : WGA.sm("No GitHub activity in the last year" + (p.last ? " (last " + WGA.fmtDateY(p.last) + ")" : ""), "mu")],
             [h("div", { class: "num" }, [h("b", { text: WGA.fmt(p.recent) }), h("span", { class: "mu", text: " items" })]),
               p.releases.length ? WGA.sm(p.releases.length + " release" + (p.releases.length > 1 ? "s" : "") + " in 12 months", "mu") : null],

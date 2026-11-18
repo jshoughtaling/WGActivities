@@ -49,7 +49,7 @@
       list.appendChild(WGA.rows([["Working group", "minmax(160px, 1.5fr)"], ["Next meeting", "minmax(110px, 0.9fr)"], ["Last 6 months", "minmax(130px, 1.3fr)"], ["Last 8 weeks", "minmax(85px, 0.7fr)"], ["Projects", "minmax(140px, 1.4fr)"], ["Topics", "minmax(140px, 1.4fr)"]],
         ws.map(function (w) {
           var ps = (projs[w.slug] || []).slice().sort(function (a, b) { return b.recent - a.recent || a.name.localeCompare(b.name); });
-          var ts = (tops[w.slug] || []).slice(0, 3);
+          var ts = tops[w.slug] || [];
           var d = w.recent - w.prior, nx = next[w.slug];
           var st = WGA.STATUS[w.status] || { label: w.status };
           return [
@@ -61,8 +61,7 @@
             [WGA.strip(w.intensity.slice(from))],
             [h("div", { class: "num" }, [h("b", { text: WGA.fmt(w.recent) }), h("span", { class: "mu", text: " items" })]),
               WGA.sm((d >= 0 ? "+" : "−") + WGA.fmt(Math.abs(d)) + " vs the 8 before", "mu")],
-            ps.length ? h("ul", {}, ps.slice(0, 3).map(function (p) { return h("li", {}, [h("a", { href: WGA.projHref(p.id), text: p.name })]); })
-              .concat(ps.length > 3 ? [h("li", { class: "mu", text: "+" + (ps.length - 3) + " more" })] : [])) : WGA.sm("–", "mu"),
+            ps.length ? h("ul", {}, ps.map(function (p) { return h("li", {}, [h("a", { href: WGA.projHref(p.id), text: p.name })]); })) : WGA.sm("–", "mu"),
             ts.length ? h("ul", {}, ts.map(function (t) { return h("li", {}, [h("a", { href: WGA.topicHref(t.id), text: t.name })]); })) : WGA.sm("–", "mu"),
           ];
         }), "No groups match."));
