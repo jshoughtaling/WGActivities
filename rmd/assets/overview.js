@@ -14,6 +14,8 @@
   function drawComing(cal) {
     var up = WGA.cal.upcoming(cal, { skipExpected: true }).slice(0, 6);
     var card = h("section", { class: "wga-card tight", "aria-labelledby": "ov-cal" }, [h("h3", { id: "ov-cal", text: "Coming up" })]);
+    var stale = WGA.cal.staleNote(cal);
+    if (stale) card.appendChild(stale);
     if (up.length) {
       var ul = h("ul", { class: "cal-list" });
       var lastDay = null;
@@ -54,6 +56,11 @@
     top.appendChild(tiles);
     var note = document.getElementById("wga-updated");
     WGA.updated(note, dig.generated, "Counts are items from public sources; each item is counted once even when it names several groups");
+    fetch("data/health.json").then(function (r) { return r.ok ? r.json() : null; }).then(function (hl) {
+      if (!hl || !note || hl.overall === "ok") return;
+      note.appendChild(document.createTextNode(" "));
+      note.appendChild(h("a", { href: "about.html#data-health", class: "warm-ink", text: "Some data may be out of date (" + hl.problems.length + " issue" + (hl.problems.length === 1 ? "" : "s") + "): see data health." }));
+    }).catch(function () {});
   }
 
   function drawSide(sim, act) {

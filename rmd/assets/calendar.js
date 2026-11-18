@@ -15,6 +15,19 @@
   function addDays(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
   function monday(d) { return addDays(d, -((d.getDay() + 6) % 7)); }
   CAL.today = function () { return iso(new Date()); };
+  CAL.STALE_DAYS = 10;      // keep in step with MEETINGS_STALE_DAYS in scripts/build_health.py
+  /* A notice when ohdsi.org's page has not been edited for a while, or lists nothing ahead; null when the list looks current. */
+  CAL.staleNote = function (cal) {
+    if (!cal) return null;
+    var t = CAL.today(), age = cal.source_updated ? Math.round((parse(t) - parse(cal.source_updated)) / 86400000) : null;
+    var none = !CAL.upcoming(cal, { skipExpected: true }).some(function (e) { return e.kind === "meeting"; });
+    if (age !== null && age <= CAL.STALE_DAYS && !none) return null;
+    return h("div", { class: "wga-card warm tight", role: "note", style: "margin:0 0 0.8em" }, [h("p", { class: "wga-note warm-ink", style: "margin:0" }, [
+      h("strong", { text: "These meetings may be out of date. " }),
+      none ? "No working-group meetings are listed from today on. " : "",
+      age === null ? "ohdsi.org's page shows no update date. " : age > CAL.STALE_DAYS ? "ohdsi.org's page was last updated " + age + " days ago (" + WGA.fmtDateY(cal.source_updated) + "). " : "",
+      "Check the ohdsi.org page before relying on a date. ", h("a", { href: "about.html#data-health", text: "Data health" }), "."])]);
+  };
 
   CAL.upcoming = function (cal, opts) {
     opts = opts || {};
@@ -57,6 +70,8 @@
       var t = parse(CAL.today()), lo = parse(cal.window[0]), hi = parse(cal.window[1]);
       state.anchor = t < lo || t > hi ? parse(cal.source_updated || cal.window[0]) : t;
     }
+    var stale = CAL.staleNote(cal);
+    if (stale) box.appendChild(stale);
     var evs = cal.events.filter(match || function () { return true; });
     var head = h("div", { class: "wga-page-h" });
     var title = h("h1");

@@ -111,3 +111,18 @@ repo and forum mappings with the WGs, and decide whether to extend to 24 months.
 - Shown as the Calendar view of Activity (week / month), "Coming up" on Overview, and the next meeting on group pages.
 - Join links are not stored or republished; every meeting links to the ohdsi.org page. Direct links per group, AI
   recaps of meetings and agendas are open questions for the OHDSI admins (with the Teams counts question above).
+
+## Trust and upkeep (2026-11-18)
+
+- **Config validation** (`scripts/validate_config.py`, run by `.github/workflows/checks.yml` on every PR and at the start of the
+  weekly refresh): errors for broken references; notices for things that work but are probably unintended. Known notices on
+  first run: Broadsea and Arachne repos are under `non_wg` / `also:` so they are never collected (their projects always show
+  no activity); the CirceR repo sits with HADES while its project is led by ATLAS/WebAPI; "Data2Evidence WG" and
+  "Registry WG" on the meetings page map to no group.
+- **Data health** (`scripts/build_health.py` -> `rmd/data/health.json`, About page, link on Overview, notice on the calendar):
+  per-source newest item and collector outcome (the workflow records outcomes because collectors run with
+  continue-on-error), meetings-page age, config notices, and how many project groupings are confirmed.
+- **Project confirmation**: `reviewed: YYYY-MM-DD by <who>` in `config/projects.yml` marks a grouping confirmed; everything
+  else shows as "Draft grouping" with a link that opens a pre-filled issue. Nothing is marked confirmed automatically.
+- Not done: opening an issue automatically when health is not ok; per-group calendar and RSS feeds.
+

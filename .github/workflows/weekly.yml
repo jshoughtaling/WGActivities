@@ -26,35 +26,54 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      # Broken config (a slug that matches no group, a regex that does not compile) fails here, before any collecting.
+      # Notices (e.g. a project whose repos are not collected) are printed as warnings and do not stop the refresh.
+      - name: Check config
+        run: python3 scripts/validate_config.py
+
       # Each collector is independent: one failing source must not stop the build.
       # GitHub: incremental after the first (local) backfill; GITHUB_TOKEN has a low hourly limit.
       - name: Collect GitHub activity
+        id: github
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.WG_READ_TOKEN || secrets.GITHUB_TOKEN }}
         run: python3 scripts/collect/github.py
 
       - name: Collect forum activity
+        id: forums
         continue-on-error: true
         run: python3 scripts/collect/forums.py
 
       - name: Collect community calls
+        id: calls
         continue-on-error: true
         run: python3 scripts/collect/calls.py
 
       - name: Collect conference materials
+        id: conference
         continue-on-error: true
         run: python3 scripts/collect/conference.py
 
       - name: Collect upcoming working-group meetings
+        id: meetings
         continue-on-error: true
         run: python3 scripts/collect/meetings.py
+
+      # continue-on-error hides a failed collector; record the outcomes so the site's Data health section shows them.
+      - name: Record collector outcomes
+        if: always()
+        run: >
+          python3 scripts/record_status.py
+          github=${{ steps.github.outcome }} forums=${{ steps.forums.outcome }} calls=${{ steps.calls.outcome }}
+          conference=${{ steps.conference.outcome }} meetings=${{ steps.meetings.outcome }}
 
       - name: Build activity.json
         run: |
           python3 scripts/build_activity.py
           python3 scripts/build_collab.py
           python3 scripts/build_views.py
+          python3 scripts/build_health.py
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -76,7 +95,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add docs/ rmd/data/ data/events data/github_state.json data/meetings.json
+          git add docs/ rmd/data/ data/events data/github_state.json data/meetings.json data/collector_status.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0

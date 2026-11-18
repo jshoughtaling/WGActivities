@@ -43,10 +43,22 @@ This site has two aims: **transparency** (what each OHDSI working group (WG) is 
 ## **Items, projects, topics and outputs**
 
 - **One item, counted once.** Collectors file an item under every group it names, which is right for each group's own counts. Pages that compare across groups (digests, outputs, topics, similar work) merge those copies, so a poster that names three groups is one item there. A pull request that is opened and later merged stays two items.
-- **Projects** group repositories into the things people know by name (Gaia, Strategus, ATLAS / WebAPI). Multi-repo projects are listed in `config/projects.yml`, a first draft for maintainers to correct; every other repository is a project of its own, under the group it is assigned to. A project can record that it *extends* another (for example, copies of HADES packages that read the GIS extension tables): that is shown as an opportunity, because support upstream would help both. Projects are counted from GitHub only.
+- **Projects** group repositories into the things people know by name (Gaia, Strategus, ATLAS / WebAPI). Multi-repo projects are listed in `config/projects.yml`, a first draft for maintainers to correct (see [Projects and confirmation](#projects-and-confirmation)); every other repository is a project of its own, under the group it is assigned to. A project can record that it *extends* another (for example, copies of HADES packages that read the GIS extension tables): that is shown as an opportunity, because support upstream would help both. Projects are counted from GitHub only.
 - **Topics** are the curated keyword lists in `config/collab_themes.yml`. An item counts for a topic when its title matches; commits and comments are left out, and items tagged to more than four groups do not count toward any one group.
 - **Outputs** are releases (nightly builds and snapshots left out), symposium posters and talks, working-group sessions and tutorials.
 - **Compatibility** (which databases, CDM versions and CDM extensions a project supports) is not collected yet.
+
+## **Projects and confirmation**
+
+The multi-repo groupings are proposed from repository names and the group-to-repository map, not by the projects' maintainers. Each one is marked **Draft grouping** until a maintainer confirms it, and **Confirmed** (with the date) afterwards. The [Projects](projects.html) page counts how many are confirmed and can filter to the drafts.
+
+To confirm or correct a grouping, use the link on the project's page (it opens a pre-filled issue), or edit `config/projects.yml` and add a line such as `reviewed: 2026-11-20 by Ann Lee` to that project. A project is not marked confirmed by anything else: the site only reads that line.
+
+## **Data health**
+
+<div id="wga-health" class="wga">Loading…</div>
+
+Each refresh checks every source: whether its newest item is recent enough, and whether its collector ran (collectors are allowed to fail without stopping the refresh, so this is where a failure shows). The ohdsi.org meetings page is edited by hand; the calendar shows a notice when it has not been updated for more than 10 days. The Overview page links here when anything is out of date. The same checks run on every pull request (`scripts/validate_config.py` and the tests in `scripts/`).
 
 ## **Calendar**
 
@@ -74,3 +86,6 @@ Matching is by keyword, so some leads are false alarms (a word like "vocabulary"
 ## **Source code and corrections**
 
 Collectors, matching rules and this site are in [jshoughtaling/WGActivities](https://github.com/jshoughtaling/WGActivities). Mapping rules live in `config/working_groups.yml`, `config/forum_mapping.yml`, `config/projects.yml` and `config/collab_themes.yml`; if a repository, project or topic is assigned to the wrong group, open an issue or a pull request there.
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/health.js"></script>

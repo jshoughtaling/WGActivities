@@ -1,0 +1,43 @@
+name: Checks
+
+# Runs on every pull request and push to main (not on the refresh's own commit, which is marked [skip ci]).
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install -r requirements.txt
+
+      # Errors fail the check; notices show up as warning annotations on the run.
+      - name: Config
+        run: python3 scripts/validate_config.py
+
+      - name: Tests
+        run: |
+          python3 scripts/collect/test_meetings.py
+          python3 scripts/test_validate_config.py
+          python3 scripts/test_build_health.py
+
+      # Builds every data file from the committed events, so a change that breaks a builder fails here, not in the weekly run.
+      - name: Build data
+        run: |
+          python3 scripts/build_activity.py
+          python3 scripts/build_collab.py
+          python3 scripts/build_views.py
+          python3 scripts/build_health.py
+
+      - name: Site scripts parse
+        run: for f in rmd/assets/*.js; do node --check "$f"; done

@@ -12,12 +12,28 @@
     if (id) page(r[0], byId[id], byId, r[1]); else catalog(r[0]);
   }).catch(function (e) { WGA.fail(root, e); });
 
+  /* Multi-repo projects are a draft grouping until a maintainer confirms them (config/projects.yml: reviewed). */
+  function reviewBadge(p) {
+    if (!p.grouped) return null;
+    return p.reviewed ? WGA.badge("Confirmed " + p.reviewed, "blue") : WGA.badge("Draft grouping", "warm");
+  }
+  function reviewLinks(p, repo) {
+    var base = "https://github.com/" + repo;
+    var body = "Project: " + p.name + " (" + p.id + ")\nRepositories: " + p.repos.map(function (r) { return r.name; }).join(", ") +
+      "\n\nIs this grouping right (repositories, lead group, contributing groups, kind)? What should change?";
+    return [h("a", { href: base + "/issues/new?title=" + encodeURIComponent("Project grouping: " + p.name) + "&body=" + encodeURIComponent(body), target: "_blank", rel: "noopener", text: p.reviewed ? "Suggest a correction" : "Confirm or correct this grouping" }),
+      " · ", h("a", { href: base + "/edit/main/config/projects.yml", target: "_blank", rel: "noopener", text: "Edit projects.yml" })];
+  }
+
   /* ---------------- catalog ---------------- */
   function catalog(d) {
-    var state = { q: WGA.param("q") || "", kind: "", wg: WGA.param("wg") || "", scope: WGA.param("scope") || "all", sort: WGA.param("sort") || "recent" };
+    var state = { q: WGA.param("q") || "", kind: "", wg: WGA.param("wg") || "", scope: WGA.param("scope") || "all", sort: WGA.param("sort") || "recent", review: WGA.param("review") || "" };
     root.textContent = "";
+    var multi = d.projects.filter(function (p) { return p.grouped; }), done = multi.filter(function (p) { return p.reviewed; }).length;
     root.appendChild(h("div", { class: "wga-page-h" }, [h("div", {}, [h("h1", { text: "Projects" }),
-      h("p", { class: "sub wga-note", text: "Software and specifications, between a working group and its repositories. Multi-repo projects are a draft grouping (config/projects.yml) for maintainers to confirm." })])]));
+      h("p", { class: "sub wga-note" }, ["Software and specifications, between a working group and its repositories. Multi-repo projects are a grouping proposed from repository names and listed in config/projects.yml; ",
+        h("strong", { text: done + " of " + multi.length }), " confirmed by maintainers so far. ",
+        h("a", { href: "about.html#projects-and-confirmation", text: "How to confirm one" }), "."])])]));
     var q = h("input", { type: "search", class: "wga-input", id: "p-q", placeholder: "Filter by name or repo", value: state.q });
     var kinds = {}; d.projects.forEach(function (p) { kinds[p.kind] = 1; });
     var kind = h("select", { id: "p-kind" }, [h("option", { value: "", text: "All kinds" })].concat(Object.keys(kinds).sort().map(function (k) { return h("option", { value: k, text: WGA.KINDS[k] || k }); })));
@@ -30,6 +46,8 @@
       b.addEventListener("click", function () { state.scope = o[0]; Array.prototype.forEach.call(scope.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); }); list(); });
       scope.appendChild(b);
     });
+    var review = h("select", { id: "p-review" }, [["", "Any grouping status"], ["draft", "Draft groupings"], ["confirmed", "Confirmed groupings"]].map(function (o) { return h("option", { value: o[0], text: o[1] }); }));
+    review.value = state.review;
     var sort = h("select", { id: "p-sort" }, [["recent", "Most active, last 8 weeks"], ["total", "Most active, last 12 months"], ["name", "Name"]].map(function (o) { return h("option", { value: o[0], text: o[1] }); }));
     sort.value = state.sort;
     root.appendChild(h("div", { class: "wga-filters" }, [
@@ -37,12 +55,13 @@
       h("div", { class: "wga-group" }, [h("span", { class: "wga-label", text: "Show" }), scope]),
       h("div", { class: "wga-group" }, [h("label", { for: "p-kind", class: "visually-hidden", text: "Kind" }), kind]),
       h("div", { class: "wga-group" }, [h("label", { for: "p-wg", class: "visually-hidden", text: "Lead group" }), wg]),
+      h("div", { class: "wga-group" }, [h("label", { for: "p-review", class: "visually-hidden", text: "Grouping status" }), review]),
       h("div", { class: "wga-group" }, [h("label", { for: "p-sort", text: "Sort" }), sort]),
     ]));
     var count = h("p", { class: "wga-note" });
     var grid = h("div");
     root.appendChild(count); root.appendChild(grid);
-    [[q, "input", "q"], [kind, "change", "kind"], [wg, "change", "wg"], [sort, "change", "sort"]].forEach(function (x) {
+    [[q, "input", "q"], [kind, "change", "kind"], [wg, "change", "wg"], [sort, "change", "sort"], [review, "change", "review"]].forEach(function (x) {
       x[0].addEventListener(x[1], function () { state[x[2]] = x[0].value; list(); });
     });
     var from = d.weeks.length - 26;
@@ -52,6 +71,8 @@
       var ps = d.projects.filter(function (p) {
         if (state.scope === "grouped" && !p.grouped) return false;
         if (state.scope === "active" && !p.grouped && !p.recent) return false;
+        if (state.review === "draft" && !(p.grouped && !p.reviewed)) return false;
+        if (state.review === "confirmed" && !p.reviewed) return false;
         if (state.kind && p.kind !== state.kind) return false;
         if (state.wg && p.lead_wg !== state.wg && p.contributing_wgs.indexOf(state.wg) < 0) return false;
         if (ql && p.name.toLowerCase().indexOf(ql) < 0 && !p.repos.some(function (r) { return r.name.toLowerCase().indexOf(ql) >= 0; })) return false;
@@ -66,7 +87,7 @@
           var ext = p.extends.map(function (x) { var q = d.projects.filter(function (z) { return z.id === x; })[0]; return q ? q.name : x; });
           var extBy = p.extended_by.map(function (x) { var q = d.projects.filter(function (z) { return z.id === x; })[0]; return q ? q.name : x; });
           return [
-            [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(WGA.KINDS[p.kind] || p.kind, "mu")],
+            [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(WGA.KINDS[p.kind] || p.kind, "mu"), reviewBadge(p)],
             [h("div", { class: "sm", style: "margin-top:0.15em" }, [WGA.isBucket(p.lead_wg) ? h("span", { text: WGA.name(p.lead_wg) }) : h("a", { href: WGA.wgHref(p.lead_wg), text: WGA.shortName(p.lead_wg) })]),
               p.contributing_wgs.length ? WGA.sm("with " + p.contributing_wgs.map(WGA.shortName).join(", "), "mu") : null],
             [WGA.wlist(p.repos.slice().sort(function (a, b) { return b.items - a.items || a.name.localeCompare(b.name); })
@@ -92,14 +113,15 @@
     var head = h("section", { class: "wga-card" }, [
       h("div", { class: "wga-row-h" }, [
         h("h2", { text: p.name, style: "margin:0;font-size:1.7em;font-weight:600" }),
-        h("span", {}, [WGA.badge(WGA.KINDS[p.kind] || p.kind, "blue"), " ", WGA.statusBadge(p.status, p.recent, p.prior)]),
+        h("span", {}, [WGA.badge(WGA.KINDS[p.kind] || p.kind, "blue"), " ", WGA.statusBadge(p.status, p.recent, p.prior), p.grouped ? " " : null, reviewBadge(p)]),
       ]),
       p.description ? h("p", { style: "margin:0.5em 0;color:var(--ink-2)", text: p.description }) : null,
       h("div", { class: "wga-note", style: "display:flex;flex-wrap:wrap;gap:0.4em 1.4em" }, [
         h("span", {}, ["Lead group: ", WGA.isBucket(p.lead_wg) ? WGA.name(p.lead_wg) : h("a", { href: WGA.wgHref(p.lead_wg), text: WGA.shortName(p.lead_wg) })]),
         h("span", {}, ["Contributing: ", p.contributing_wgs.length ? WGA.chipLinks(p.contributing_wgs) : "none recorded"]),
         p.depends_on.length ? h("span", { text: "Depends on: " + p.depends_on.join(", ") }) : null,
-        h("span", { text: p.grouped ? "Grouping: config/projects.yml (" + (p.reviewed ? "reviewed " + p.reviewed : "not yet reviewed") + ")" : "A single repository" }),
+        p.grouped ? h("span", {}, ["Grouping: " + (p.reviewed ? "confirmed " + p.reviewed : "a draft, not yet confirmed by a maintainer") + ". "].concat(reviewLinks(p, d.repo || "jshoughtaling/WGActivities")))
+          : h("span", { text: "A single repository" }),
       ]),
     ]);
     root.appendChild(head);

@@ -17,6 +17,9 @@ scripts/build_collab.py     finds cross-WG collaboration candidates -> rmd/data/
 scripts/build_views.py      projects, topics, similar work, weekly digest, calendar
                             -> rmd/data/{projects,topics,similar,digest,calendar}.json, digest.xml (RSS), calendar.ics;
                             shared item model in scripts/lib_items.py
+scripts/validate_config.py  checks the hand-edited config (slugs, regexes, project repos, extends, reviewed dates, meeting names)
+scripts/build_health.py     data freshness, collector outcomes and config notices -> rmd/data/health.json (About > Data health)
+scripts/record_status.py    the workflow records each collector's outcome in data/collector_status.json
 rmd/               RMarkdown site (index, groups, wg, projects, topics, connections, activity, about) and assets/*.js
 docs/              rendered site (GitHub Pages serves this folder from main)
 prompts/           prompt for the local Claude-in-Chrome Teams count run
@@ -33,6 +36,7 @@ python3 scripts/collect/meetings.py     # upcoming WG meetings from ohdsi.org ->
 python3 scripts/build_activity.py
 python3 scripts/build_collab.py
 python3 scripts/build_views.py         # needs collab.json first (to mark pairs already connected)
+python3 scripts/build_health.py        # after the builders; also runs the config check
 Rscript build-site.R                   # needs R, the rmarkdown package and pandoc
 ```
 
@@ -49,6 +53,17 @@ Then preview it:
 python3 -m http.server -d docs         # open http://localhost:8000 (the page fetches data/activity.json)
 ```
 
-`.github/workflows/weekly.yml` does the same when you run it by hand (Actions tab > Run workflow; it has no schedule or push trigger) and commits `docs/`, `data/events/` and
-`rmd/data/`. In the repository settings, set Pages to deploy from the `main` branch, `/docs` folder. In a fork, also enable Actions (Actions tab) and allow workflows to write (Settings → Actions → General → Workflow permissions), and change `config/site.yml` plus the two links it lists.
+Check your changes before opening a pull request (the same commands run in `.github/workflows/checks.yml` on every pull request and push to `main`):
+
+```
+python3 scripts/validate_config.py     # errors fail; notices are printed (--strict fails on those too)
+python3 scripts/collect/test_meetings.py && python3 scripts/test_validate_config.py && python3 scripts/test_build_health.py
+```
+
+Python 3.12 (the version CI uses) is needed for the builders.
+
+To confirm a multi-repo project grouping, add `reviewed: YYYY-MM-DD by <name>` to it in `config/projects.yml`. Until then the Projects page marks it as a draft.
+
+`.github/workflows/weekly.yml` does the same when you run it by hand (Actions tab > Run workflow; it has no schedule or push trigger) and commits `docs/`, `data/events/`,
+`data/collector_status.json` and `rmd/data/`. It checks the config first, records which collectors failed, and writes the data-health summary to the run's job summary. In the repository settings, set Pages to deploy from the `main` branch, `/docs` folder. In a fork, also enable Actions (Actions tab) and allow workflows to write (Settings → Actions → General → Workflow permissions), and change `config/site.yml` plus the two links it lists.
 Teams data is not collected in CI: run `prompts/collect_teams.md` locally and commit `data/teams_counts.json`.

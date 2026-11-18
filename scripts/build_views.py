@@ -42,6 +42,7 @@ MAX_CELL_ITEMS = 8         # drill-down items kept per row-week
 SITE = ROOT / "config" / "site.yml"
 SITE_URL = (yaml.safe_load(SITE.read_text()) or {}).get("site_url") if SITE.exists() else None
 SITE_URL = SITE_URL or "https://jshoughtaling.github.io/WGActivities/"   # used in the RSS feed only
+REPO = ((yaml.safe_load(SITE.read_text()) or {}).get("repo") if SITE.exists() else None) or "jshoughtaling/WGActivities"   # review links
 
 
 def pct_fn(values):
@@ -502,7 +503,7 @@ def main():
     dig = build_digest(items, weeks, names)
     OUT.mkdir(parents=True, exist_ok=True)
     files = {
-        "projects.json": dict(head, projects=proj, names=names),
+        "projects.json": dict(head, projects=proj, names=names, repo=REPO),
         "topics.json": dict(head, topics=tops, symposia=build_symposia(all_items), names=names),
         "similar.json": {"generated": head["generated"], "window_days": 365, "clusters": sim, "names": names},
         "digest.json": dict(head, names=names, **dig),
