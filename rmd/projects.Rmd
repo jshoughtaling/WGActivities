@@ -1,0 +1,13 @@
+---
+title: "Projects"
+output:
+   html_document:
+        toc: FALSE
+---
+
+<div class="wga" id="wga-projects">Loading…</div>
+
+<noscript>This page needs JavaScript. The numbers are in <a href="data/projects.json">projects.json</a>.</noscript>
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/projects.js"></script>
