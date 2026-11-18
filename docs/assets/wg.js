@@ -64,6 +64,12 @@
     if (ys.length) WGA.tile(tiles, "Symposium items", conf[ys[0]] + " in " + ys[0], ys.slice(1, 3).map(function (y) { return conf[y] + " in " + y; }).join(" · "));
     root.appendChild(tiles);
 
+    // Effort chart with this group picked; clicking another wedge opens that group's page.
+    if (!WGA.isBucket(slug) && WGA.effort) {
+      var ef = WGA.effort(d, { picked: slug, clickTo: "page" });
+      root.appendChild(card("Where its effort goes, compared with other groups", [h("p", { class: "wga-note", style: "margin:0 0 0.8em", text: "One wedge per group, last 12 months. Each source is scored against the other groups on that source; this group is highlighted. Click another wedge to open that group." }), ef.el]));
+    }
+
     // Projects
     var from = d.weeks.length - 26;
     var ps = x.proj.projects.filter(function (p) { return p.lead_wg === slug || p.contributing_wgs.indexOf(slug) >= 0; })

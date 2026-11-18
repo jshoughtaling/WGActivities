@@ -312,3 +312,23 @@ body .main-container { max-width: 1500px; width: 94%; }
 .wga a[href]:not([href^="http"]):not([href^="mailto"]):not(.wga-lcard):not(.wga-chip):not(.cal-chip) {
   text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px;
 }
+
+/* Effort chart (assets/effort.js): one wedge per group, sources stacked and scored against other groups */
+.wga-effort .ef-body { display: flex; flex-wrap: wrap; gap: 1.5em; align-items: flex-start; }
+.wga-effort .ef-chart { flex: 0 1 660px; min-width: 0; }
+.wga-effort .ef-chart svg { display: block; width: 100%; height: auto; font-family: inherit; }
+.wga-effort .ef-side { flex: 1 1 280px; min-width: 250px; display: flex; flex-direction: column; gap: 0.9em; }
+.wga-effort .ef-legend { display: flex; flex-direction: column; gap: 0.35em; font-size: 0.88em; }
+.wga-effort .ef-legend > div { display: flex; align-items: center; gap: 0.5em; }
+.wga-effort .ef-legend .nm { flex: 1; }
+.wga-effort .k { width: 11px; height: 11px; border-radius: 2px; flex: none; display: inline-block; }
+.wga-effort .mu { color: var(--ink-muted); }
+.wga-effort .ef-panel { border: 1px solid var(--grid); border-radius: 8px; background: var(--page); padding: 0.8em 1em; min-height: 11em; display: flex; flex-direction: column; gap: 0.4em; }
+.wga-effort .ef-name { font-size: 1.1em; font-weight: 700; }
+.wga-effort .ef-tbl { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto 6.5em; gap: 0.3em 0.6em; align-items: center; font-size: 0.88em; }
+.wga-effort .ef-tbl .hd { font-size: 0.82em; color: var(--ink-muted); }
+.wga-effort .ef-tbl .r { text-align: right; font-variant-numeric: tabular-nums; }
+.wga-effort .ef-tbl .b { font-weight: 600; }
+.wga-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6em; font-size: 0.92em; background: #eef4fc; border: 1px solid #c7dbf3; border-radius: 6px; padding: 0.5em 0.8em; margin: 0.4em 0; }
+.wga-card-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5em; }
+.wga-card-h h3 { margin: 0; }
