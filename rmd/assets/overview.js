@@ -40,7 +40,7 @@
     top.appendChild(h("div", { class: "wga-page-h" }, [
       h("div", {}, [h("h1", { text: "This week across OHDSI working groups" })]),
       h("div", { class: "wga-note" }, ["Week of " + WGA.fmtDate(w.start) + " – " + WGA.fmtDateY(endIso) + " · ",
-        h("a", { href: "activity.html?week=" + w.week, text: "Full digest →" })]),
+        h("a", { href: "activity.html?view=week&week=" + w.week, text: "Full digest →" })]),
     ]));
     var tiles = h("div", { class: "wga-tiles" });
     var bt = w.by_type;
@@ -59,13 +59,14 @@
   function drawSide(sim, act) {
     side.textContent = "";
     var card = h("section", { class: "wga-card tight", "aria-labelledby": "ov-sim" }, [h("h3", { id: "ov-sim", text: "Similar work, different groups" })]);
-    sim.clusters.filter(function (c) { return !c.topic; }).slice(0, 5).forEach(function (c) {
-      card.appendChild(h("a", { class: "wga-lcard", href: "connections.html?term=" + encodeURIComponent(c.term) + "#similar", style: "margin-bottom:0.5em;background:var(--page)" }, [
-        h("div", { class: "t", text: c.term }),
-        h("div", { class: "m", text: c.wgs.map(WGA.shortName).join(" · ") }),
-        h("div", { class: "m", text: c.n + " items · " + (c.new_ties.length ? c.new_ties.length + " pairs not yet connected" : "groups already connected") }),
+    var ul = h("ul", { class: "wga-plain", style: "padding-left:0;list-style:none;margin:0" });
+    sim.clusters.filter(function (c) { return !c.topic; }).slice(0, 6).forEach(function (c) {
+      ul.appendChild(h("li", { style: "padding:0.4em 0;border-top:1px solid var(--grid)" }, [
+        h("a", { href: "connections.html?term=" + encodeURIComponent(c.term) + "#similar", text: c.term, style: "font-weight:600" }),
+        h("div", { class: "wga-note", text: c.wgs.map(WGA.shortName).join(" · ") }),
       ]));
     });
+    card.appendChild(ul);
     card.appendChild(h("a", { href: "connections.html#similar", text: "All overlaps →", style: "font-size:0.85em" }));
     side.appendChild(card);
 
