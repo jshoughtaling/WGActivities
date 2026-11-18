@@ -11,6 +11,7 @@ Checks
   projects.yml        lead/contributing groups exist, kind is known, repos are listed once, extends resolve,
                       `reviewed` looks like "YYYY-MM-DD" or "YYYY-MM-DD by <who>", repos are collected
   wg_aliases.yml, forum_mapping.yml, collab_themes.yml   slugs exist, regexes compile
+  item_rules.yml      target and skip groups exist, regex compiles, named repos are collected
   data/meetings.json  every mapped group exists; names that map to no group are listed
 
 Usage: python3 scripts/validate_config.py [--strict] [--root DIR]
@@ -151,6 +152,22 @@ def check(root=ROOT):
         for o in t.get("owners") or []:
             if o not in known:
                 errors.append(("theme-owner", f"collab_themes.yml: {tid} owner {o} is not a working group or bucket"))
+
+    # ---- cross-tagging rules
+    for i, r in enumerate((_yaml(root, "item_rules.yml") or {}).get("rules") or []):
+        where = f"item_rules.yml: rule {i + 1} ({r.get('name') or r.get('to')})"
+        if r.get("to") not in known:
+            errors.append(("rule-slug", f"{where}: to {r.get('to')} is not a working group or bucket"))
+        for g in r.get("skip_wgs") or []:
+            if g not in known:
+                errors.append(("rule-slug", f"{where}: skip_wgs {g} is not a working group or bucket"))
+        if not r.get("match"):
+            errors.append(("rule-match", f"{where}: no match regex"))
+        else:
+            _rx(errors, where, r["match"])
+        for repo in r.get("repos") or []:
+            if repo not in collected:
+                warnings.append(("rule-repo", f"{where}: repo {repo} is not collected, so the rule never applies to it"))
 
     # ---- meetings
     mp = Path(root) / "data" / "meetings.json"

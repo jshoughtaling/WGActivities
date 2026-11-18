@@ -1,0 +1,23 @@
+# Cross-tagging rules: credit an item to one more working group because of what its title says.
+#
+# By default an item belongs to the group that owns its repository (config/working_groups.yml), so a geospatial pull
+# request in Achilles counts for Data Quality only. A rule adds the same item to another group. The item is then in both
+# groups' counts and pages, and is still counted once wherever groups are compared (digests, outputs, topics,
+# similar work). Rules run when the site data is built, on the collected events, so editing one needs no re-collection.
+#
+# Fields
+#   to         group slug that also gets the item
+#   match      regex on the item title (case-insensitive)
+#   repos      only items in these repositories (optional; default: any repository)
+#   sources    only these sources, e.g. [github] (optional; default: any)
+#   skip_wgs   do not apply to items already filed under these groups (optional)
+#
+# Keep matches specific: every hit adds activity to the target group. Check the effect with
+#   python3 scripts/item_rules.py     (lists what each rule tags)
+
+rules:
+  - name: Geospatial work in other groups' repositories
+    to: gis
+    match: '\b(geo|geospatial|geographic|GIS|PostGIS|LSOA)\b'
+    sources: [github]
+    skip_wgs: [gaia-genai]    # the GenAI group's "GAIA" is not the GIS Gaia toolchain; generic AI work is not GIS work

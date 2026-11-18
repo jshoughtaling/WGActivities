@@ -30,6 +30,7 @@ jobs:
           python3 scripts/collect/test_meetings.py
           python3 scripts/test_validate_config.py
           python3 scripts/test_build_health.py
+          python3 scripts/test_item_rules.py
 
       # Builds every data file from the committed events, so a change that breaks a builder fails here, not in the weekly run.
       - name: Build data

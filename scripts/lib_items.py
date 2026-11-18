@@ -16,6 +16,8 @@ from pathlib import Path
 
 import yaml
 
+from item_rules import apply_rules
+
 ROOT = Path(__file__).resolve().parent.parent
 EVENTS = ROOT / "data" / "events"
 CONFIG = ROOT / "config"
@@ -68,7 +70,7 @@ def load_events():
     out = []
     for p in sorted(EVENTS.glob("*.json")):
         out += json.loads(p.read_text())
-    return out
+    return apply_rules(out)          # config/item_rules.yml: an item can also count for a second group
 
 
 def projects():

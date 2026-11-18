@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import sys
 from bisect import bisect_left, bisect_right
 from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
@@ -9,6 +10,9 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from item_rules import apply_rules  # noqa: E402
+
 EVENTS = ROOT / "data" / "events"
 TEAMS = ROOT / "data" / "teams_counts.json"
 OUT = ROOT / "rmd" / "data" / "activity.json"
@@ -47,6 +51,7 @@ def load_events():
     events = []
     for path in sorted(EVENTS.glob("*.json")):
         events += json.loads(path.read_text())
+    events = apply_rules(events)           # config/item_rules.yml: an item can also count for a second group
     return events
 
 

@@ -51,6 +51,9 @@ def main():
     assert e == {"bad-regex", "theme-owner", "alias-slug", "forum-slug"}, e
     e, w = run(meetings={"meetings": [{"name": "Q WG", "wg": None}, {"name": "Z", "wg": "zz"}], "status": [{"name": "R WG", "wg": None}]})
     assert e == {"meeting-slug"} and w == {"meeting-unmapped", "meeting-status-unmapped"}, (e, w)
+    e, w = run(extra={"item_rules.yml": {"rules": [{"to": "zz", "match": "(", "skip_wgs": ["yy"], "repos": ["a1", "ghost"]}, {"to": "b"}]}})
+    assert e == {"rule-slug", "bad-regex", "rule-match"} and w == {"rule-repo"}, (e, w)
+    assert run(extra={"item_rules.yml": {"rules": [{"to": "b", "match": "geo", "repos": ["a1"]}]}}) == (set(), set())
     print("ok: validate_config")
 
 

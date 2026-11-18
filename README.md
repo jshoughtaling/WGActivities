@@ -9,7 +9,8 @@ See `PLAN.md` for the design.
 ## Layout
 
 ```
-config/            working_groups.yml (WG -> repos), projects.yml (repos -> projects), forum_mapping.yml, wg_aliases.yml,
+config/            working_groups.yml (WG -> repos), item_rules.yml (title rules that also credit an item to another WG),
+                   projects.yml (repos -> projects), forum_mapping.yml, wg_aliases.yml,
                    conferences.yml, collab_themes.yml (curated topics)
 scripts/collect/   one collector per source -> data/events/<source>.json
 scripts/build_activity.py   merges events (+ data/teams_counts.json) -> rmd/data/activity.json
@@ -17,6 +18,7 @@ scripts/build_collab.py     finds cross-WG collaboration candidates -> rmd/data/
 scripts/build_views.py      projects, topics, similar work, weekly digest, calendar
                             -> rmd/data/{projects,topics,similar,digest,calendar}.json, digest.xml (RSS), calendar.ics;
                             shared item model in scripts/lib_items.py
+scripts/item_rules.py       applies config/item_rules.yml when events are loaded (run it to list what each rule tags)
 scripts/validate_config.py  checks the hand-edited config (slugs, regexes, project repos, extends, reviewed dates, meeting names)
 scripts/build_health.py     data freshness, collector outcomes and config notices -> rmd/data/health.json (About > Data health)
 scripts/record_status.py    the workflow records each collector's outcome in data/collector_status.json
@@ -57,7 +59,7 @@ Check your changes before opening a pull request (the same commands run in `.git
 
 ```
 python3 scripts/validate_config.py     # errors fail; notices are printed (--strict fails on those too)
-python3 scripts/collect/test_meetings.py && python3 scripts/test_validate_config.py && python3 scripts/test_build_health.py
+python3 scripts/collect/test_meetings.py && python3 scripts/test_validate_config.py && python3 scripts/test_build_health.py && python3 scripts/test_item_rules.py
 ```
 
 Python 3.12 (the version CI uses) is needed for the builders.

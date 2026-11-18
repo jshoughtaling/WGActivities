@@ -125,4 +125,11 @@ repo and forum mappings with the WGs, and decide whether to extend to 24 months.
 - **Project confirmation**: `reviewed: YYYY-MM-DD by <who>` in `config/projects.yml` marks a grouping confirmed; everything
   else shows as "Draft grouping" with a link that opens a pre-filled issue. Nothing is marked confirmed automatically.
 - Not done: opening an issue automatically when health is not ok; per-group calendar and RSS feeds.
+- **Cross-tagging** (`config/item_rules.yml`, `scripts/item_rules.py`): GitHub items are assigned by repository, so GIS-related pull
+  requests in Achilles and Ares counted only for Data Quality and Evidence Network. A rule credits an item to a second group by
+  title; it runs at build time on collected events (no re-collection), copies are marked `via: rule`, and items stay one item
+  across groups. Cross-tagged items count as joint work in Connections (weighted like a forum item). First rule: geo / geospatial /
+  geographic / GIS / PostGIS / LSOA -> `gis`, skipping items filed under the GenAI group.
+- Ideas not done: a "shared project" connection signal (projects.yml `contributing_wgs` / `extends`); `also:` entries for GIS in
+  the config; showing "also counted for GIS" on cross-tagged items.
 

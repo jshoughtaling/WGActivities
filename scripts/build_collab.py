@@ -29,6 +29,8 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "collect"))
 from common import match_wgs  # noqa: E402
+sys.path.insert(0, str(ROOT / "scripts"))
+from item_rules import apply_rules  # noqa: E402
 
 EVENTS = ROOT / "data" / "events"
 OUT = ROOT / "rmd" / "data" / "collab.json"
@@ -76,7 +78,7 @@ def load_events(since):
     ev = []
     for p in sorted(EVENTS.glob("*.json")):
         ev += json.loads(p.read_text())
-    return [e for e in ev if e["date"] >= since]
+    return [e for e in apply_rules(ev) if e["date"] >= since]
 
 
 def repo_links(cfg):
@@ -120,12 +122,16 @@ def main():
         wgs = {w for w in match_wgs(e["title"]) if real(w)}
         if real(e["wg"]):
             wgs.add(e["wg"])
+        if e.get("via") == "rule" and real(e.get("from_wg")):
+            wgs.add(e["from_wg"])               # cross-tagged by config/item_rules.yml: filed under one group, about another
         if len(wgs) < 2:
             continue
         unit = ("github", e["repo"]) if e["source"] == "github" else (e.get("url") or e["title"])
         for a, b in combinations(sorted(wgs), 2):
             slot = co[(a, b)].setdefault(unit, {"s": e["source"], "t": e["type"], "title": e["title"], "url": e.get("url"),
                                                 "date": e["date"], "n": 0})
+            if e.get("via") == "rule":
+                slot["rule"] = True
             slot["n"] += 1
             if e["date"] > slot["date"]:
                 slot.update(title=e["title"], url=e.get("url"), date=e["date"], t=e["type"])
@@ -192,7 +198,8 @@ def main():
     pairs = []
     for pair in set(co) | set(shared) | set(pair_themes):
         units = sorted(co.get(pair, {}).values(), key=lambda i: i["date"], reverse=True)
-        non_gh = [u for u in units if u["s"] != "github"]
+        # A cross-tagged item (a GIS pull request in Achilles) is a specific piece of joint work, so it counts like a forum item.
+        non_gh = [u for u in units if u["s"] != "github" or u.get("rule")]
         n_recent = sum(1 for u in units if u["date"] >= recent_since)
         repos = sorted(shared.get(pair, []), key=lambda r: -r["events"])
         themes_ = sorted(pair_themes.get(pair, []), key=lambda t: -t[1])
