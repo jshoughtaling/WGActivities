@@ -230,4 +230,14 @@
   };
   WGA.sm = function (kids, cls) { return WGA.h("div", { class: "sm" + (cls ? " " + cls : "") }, Array.isArray(kids) ? kids : [kids]); };
   WGA.months = function (weeks) { return Math.round(weeks / 4.33) + " months"; };
+  /* One group's OKRs (objectives with their key results) as DOM nodes; used by the OKRs page and the group page. */
+  WGA.okrBody = function (g, needle) {
+    return g.objectives.map(function (o, i) {
+      var hit = needle && (o.objective.toLowerCase().indexOf(needle) >= 0 || o.krs.join(" ").toLowerCase().indexOf(needle) >= 0);
+      return WGA.h("div", { class: "okr-obj" + (hit ? " hit" : "") }, [
+        WGA.h("div", { class: "okr-o" }, [WGA.h("span", { class: "okr-n", text: "O" + (i + 1) }), WGA.h("span", { text: o.objective })]),
+        o.krs.length ? WGA.h("ul", { class: "okr-krs" }, o.krs.map(function (k) { return WGA.h("li", { text: k }); })) : null,
+      ]);
+    });
+  };
 })();
