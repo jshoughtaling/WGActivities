@@ -155,6 +155,10 @@
       }
       var g = gs.filter(function (x) { return x.slug === focus; })[0];
       panel.appendChild(h("a", { href: WGA.wgHref(focus), class: "ef-name", text: WGA.name(focus) }));
+      if (!g) {          // a group with no items in the last 12 months has no wedge (and no row in gs)
+        panel.appendChild(h("div", { class: "wga-note", text: "No items in the last 12 months." }));
+        return;
+      }
       var tot = shownTotal(g);
       panel.appendChild(h("div", { class: "wga-note", text: fmt(g.total) + " items in the last 12 months" + (tot !== g.total ? " (" + fmt(tot) + " in the sources shown)" : "") }));
       var t = h("div", { class: "ef-tbl" }, [h("span"), h("span", { class: "hd", text: "Source" }), h("span", { class: "hd r", text: "Items" }), h("span", { class: "hd r", text: "Share" })]);

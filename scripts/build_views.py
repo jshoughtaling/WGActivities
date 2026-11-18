@@ -439,9 +439,24 @@ def build_calendar(events, names):
             "events": out, "status": mt["status"], "names": names}
 
 
+def fold(line, limit=75):
+    """RFC 5545 line folding: at most 75 octets per line, continuation lines start with a space."""
+    out, cur, size = [], "", 0
+    for ch in line:
+        n = len(ch.encode())
+        if size + n > (limit if not out else limit - 1):
+            out.append(cur)
+            cur, size = "", 0
+        cur += ch
+        size += n
+    out.append(cur)
+    return [out[0]] + [" " + x for x in out[1:]]
+
+
 def ics(cal):
     import hashlib
-    now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    # Stable stamp (the meetings page's date) so an unchanged calendar produces an identical file on every weekly run.
+    now = (cal["source_updated"] or cal["fetched"][:10]).replace("-", "") + "T000000Z"
     lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//WGActivities//OHDSI working-group calendar//EN",
              "CALSCALE:GREGORIAN", "X-WR-CALNAME:OHDSI working groups", "X-WR-TIMEZONE:America/New_York"]
 
@@ -459,7 +474,7 @@ def ics(cal):
                   f"SUMMARY:{esc(('CANCELLED: ' if e.get('cancelled') else '') + e['title'])}", f"DESCRIPTION:{esc(desc)}",
                   f"URL:{e['url']}"] + (["STATUS:CANCELLED"] if e.get("cancelled") else []) + ["END:VEVENT"]
     lines.append("END:VCALENDAR")
-    return "\r\n".join(lines) + "\r\n"
+    return "\r\n".join(x for ln in lines for x in fold(ln)) + "\r\n"
 
 
 def main():
