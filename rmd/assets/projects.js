@@ -61,19 +61,22 @@
         name: function (a, b) { return a.name.localeCompare(b.name); } }[state.sort]);
       count.textContent = ps.length + " project" + (ps.length === 1 ? "" : "s");
       grid.textContent = "";
-      grid.appendChild(WGA.rows([["Project", "minmax(170px, 1.5fr)"], ["Repositories", "minmax(140px, 1.3fr)"], ["Last 6 months", "minmax(140px, 1.4fr)"], ["Last 8 weeks", "minmax(80px, 0.6fr)"], ["About", "minmax(180px, 1.8fr)"]],
+      grid.appendChild(WGA.rows([["Project", "minmax(150px, 1.3fr)"], ["Lead group", "minmax(120px, 1fr)"], ["Repositories", "minmax(140px, 1.3fr)"], ["Last 6 months", "minmax(130px, 1.3fr)"], ["Last 8 weeks", "minmax(80px, 0.65fr)"], ["About", "minmax(170px, 1.7fr)"]],
         ps.map(function (p) {
-          var tag = p.extends.length ? "extends " + p.extends.length + " project" + (p.extends.length > 1 ? "s" : "") : (WGA.KINDS[p.kind] || p.kind);
+          var ext = p.extends.map(function (x) { var q = d.projects.filter(function (z) { return z.id === x; })[0]; return q ? q.name : x; });
+          var extBy = p.extended_by.map(function (x) { var q = d.projects.filter(function (z) { return z.id === x; })[0]; return q ? q.name : x; });
           return [
-            [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]),
-              WGA.sm([tag + " · ", WGA.isBucket(p.lead_wg) ? WGA.name(p.lead_wg) : h("a", { href: WGA.wgHref(p.lead_wg), text: WGA.shortName(p.lead_wg) }),
-                p.contributing_wgs.length ? " with " + p.contributing_wgs.map(WGA.shortName).join(", ") : ""], p.extends.length ? "warm-ink" : "mu")],
+            [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(WGA.KINDS[p.kind] || p.kind, "mu")],
+            [h("div", { class: "sm", style: "margin-top:0.15em" }, [WGA.isBucket(p.lead_wg) ? h("span", { text: WGA.name(p.lead_wg) }) : h("a", { href: WGA.wgHref(p.lead_wg), text: WGA.shortName(p.lead_wg) })]),
+              p.contributing_wgs.length ? WGA.sm("with " + p.contributing_wgs.map(WGA.shortName).join(", "), "mu") : null],
             [h("ul", {}, p.repos.slice(0, 4).map(function (r) { return h("li", {}, [h("a", { href: r.url, target: "_blank", rel: "noopener", text: r.name })]); })
               .concat(p.repos.length > 4 ? [h("li", { class: "mu", text: "+" + (p.repos.length - 4) + " more" })] : []))],
             [p.counts ? WGA.strip(p.intensity.slice(from)) : WGA.sm("No GitHub activity in the last year" + (p.last ? " (last " + WGA.fmtDateY(p.last) + ")" : ""), "mu")],
             [h("div", { class: "num" }, [h("b", { text: WGA.fmt(p.recent) }), h("span", { class: "mu", text: " items" })]),
               p.releases.length ? WGA.sm(p.releases.length + " release" + (p.releases.length > 1 ? "s" : "") + " in 12 months", "mu") : null],
-            [WGA.sm(p.description || "–")],
+            [WGA.sm(p.description || "–"),
+              ext.length ? WGA.sm("Extends: " + ext.join(", "), "warm-ink") : null,
+              extBy.length ? WGA.sm("Extended by: " + extBy.join(", "), "warm-ink") : null],
           ];
         }), "No projects match."));
     }

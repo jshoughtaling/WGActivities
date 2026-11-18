@@ -72,9 +72,11 @@
       var rows = WGA.rows([["Project", "minmax(170px, 1.5fr)"], ["Repositories", "minmax(140px, 1.4fr)"], ["Last 6 months", "minmax(140px, 1.4fr)"], ["Last 12 months", "minmax(110px, 0.8fr)"]],
         ps.slice(0, 15).map(function (p) {
           var shared = p.lead_wg !== slug;
-          var tag = shared ? "with " + WGA.shortName(p.lead_wg) : (p.extends.length ? "extends another project" : WGA.KINDS[p.kind] || p.kind);
+          var ext = p.extends.map(function (id) { var q = x.proj.projects.filter(function (z) { return z.id === id; })[0]; return q ? q.name : id; });
           return [
-            [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(tag, p.extends.length ? "warm-ink" : "mu")],
+            [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(WGA.KINDS[p.kind] || p.kind, "mu"),
+              shared ? WGA.sm("led by " + WGA.shortName(p.lead_wg), "mu") : null,
+              ext.length ? WGA.sm("Extends: " + ext.join(", "), "warm-ink") : null],
             [h("ul", {}, p.repos.slice(0, 4).map(function (r) { return h("li", {}, [h("a", { href: r.url, target: "_blank", rel: "noopener", text: r.name })]); })
               .concat(p.repos.length > 4 ? [h("li", { class: "mu", text: "+" + (p.repos.length - 4) + " more" })] : []))],
             [p.counts ? WGA.strip(p.intensity.slice(from)) : WGA.sm("No GitHub activity in the last year.", "mu")],
