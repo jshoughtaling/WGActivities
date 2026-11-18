@@ -6,489 +6,529 @@ X-WR-CALNAME:OHDSI working groups
 X-WR-TIMEZONE:America/New_York
 BEGIN:VEVENT
 UID:d440e2013d767dc3@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261117T140000Z
 DURATION:PT1H
 SUMMARY:Data2Evidence WG
-DESCRIPTION:Meetings are traditionally scheduled for every other Tuesday at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
-UID:807e1bd90aebe8cf@wgactivities
-DTSTAMP:20261118T044557Z
+UID:00cb6c0541cf0ff2@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261117T160000Z
 DURATION:PT1H
-SUMMARY:OHDSI Community Call
-DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org/community-calls-2026/ · Duration not published\; shown as one hour.
+SUMMARY:OHDSI 2026 Rising Star Presentations (Markus\, Chen\, Solages)
+DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org
+ /community-calls-2026/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/community-calls-2026/
 END:VEVENT
 BEGIN:VEVENT
-UID:7815b08c7d2ddc75@wgactivities
-DTSTAMP:20261118T044557Z
+UID:5eb2aeee9c5e8f8e@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261117T170000Z
 DURATION:PT1H
-SUMMARY:CDM WG – Vocabulary Subgroup
-DESCRIPTION:Meetings are traditionally scheduled for the third Tuesday of the month at 12pm ET. Office hours are the first Thursday at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:Common Data Model WG- VOCABULARY Subgroup
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:f6246bd16f528900@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261117T210000Z
 DURATION:PT1H
 SUMMARY:Electronic Animal Health Records WG
-DESCRIPTION:Meetings are traditionally scheduled for the third Tuesday of the month at 4pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:420484b0a7aabcc0@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261119T090000Z
 DURATION:PT1H
 SUMMARY:Waveform WG
-DESCRIPTION:Meetings are traditionally scheduled for alternating Thursdays and Fridays. · 10am CET · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
-UID:6e7fa4aa50d79735@wgactivities
-DTSTAMP:20261118T044557Z
+UID:1d930758201285b8@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261119T140000Z
 DURATION:PT1H
-SUMMARY:CANCELLED: OMOP CDM Oncology – Vocabulary/Development Subgroup
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday at 1pm EST and the third Thursday at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:CANCELLED: OMOP CDM Oncology- Vocabulary /Development Subgroup
+DESCRIPTION:Meetings are traditionally scheduled for the 1st Thursday of th
+ e month at 1pm EST and the 3rd Thursday of the month at 9am ET MEETING IS 
+ CANCELLED · Join details: https://www.ohdsi.org/upcoming-working-group-ca
+ lls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 STATUS:CANCELLED
 END:VEVENT
 BEGIN:VEVENT
-UID:665ff69d65784d9b@wgactivities
-DTSTAMP:20261118T044557Z
+UID:f0871c8e159714f7@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261119T140000Z
 DURATION:PT1H
-SUMMARY:Africa Chapter
-DESCRIPTION:Meetings are traditionally scheduled for every other Thursday at 10am ET. This meeting takes place on Zoom. · 5pm EAT · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:Africa Chapter Meeting
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
-UID:c6f24e3f57ffe1d3@wgactivities
-DTSTAMP:20261118T044557Z
+UID:1021c4f3a41749fd@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261119T150000Z
 DURATION:PT1H
-SUMMARY:GIS WG
-DESCRIPTION:Meetings are traditionally scheduled for every Thursday at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:GIS-Geographic Information System WG Meeting
+DESCRIPTION:s are traditionally scheduled for every Thursday at 10am ET · 
+ Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Durat
+ ion not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:09cbaebd8c70d8fc@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261119T153000Z
 DURATION:PT1H
 SUMMARY:Evidence Network WG
-DESCRIPTION:Meetings are traditionally scheduled for the third Thursday of the month at 10:30am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for the third Thursday of 
+ each month at 10:30am ET · Join details: https://www.ohdsi.org/upcoming-w
+ orking-group-calls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:7d48bc310824573f@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261119T170000Z
 DURATION:PT1H
 SUMMARY:HADES WG
-DESCRIPTION:Meetings are traditionally scheduled for the third Thursday of the month at 12pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for the third Thursday of 
+ each month at 12pm ET · Join details: https://www.ohdsi.org/upcoming-work
+ ing-group-calls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:a657ec471208e21d@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261120T153000Z
 DURATION:PT1H
 SUMMARY:Education WG
-DESCRIPTION:Meetings are traditionally scheduled for the third Friday of the month at 10:30am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
-URL:https://www.ohdsi.org/upcoming-working-group-calls/
-END:VEVENT
-BEGIN:VEVENT
-UID:6f33aab56305e4a9@wgactivities
-DTSTAMP:20261118T044557Z
-DTSTART:20261124T140000Z
-DURATION:PT1H
-SUMMARY:OMOP CDM Oncology WG – Genomic Subgroup
-DESCRIPTION:Meetings are traditionally scheduled for the second and fourth Tuesdays at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:OMOP CDM Oncology WG: Genomic Subgroup Meeting: Tuesday\, Nov. 
+ 24 at 9am ET (Meeting Link ) Meetings are traditionally scheduled for the 
+ 2nd and 4th Tuesdays of each month at 9am ET · Join details: https://www.
+ ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown 
+ as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:d4ee37e3797e73f3@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261124T140000Z
 DURATION:PT1H
 SUMMARY:OpenEHR & OMOP Meeting
-DESCRIPTION:Meetings are traditionally scheduled for the last Tuesday of the month at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:b4c6e31905aa7342@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261124T150000Z
 DURATION:PT1H
 SUMMARY:CDM SURVEY WG
-DESCRIPTION:Meetings are traditionally scheduled for every other Tuesday at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for every other Tuesday at
+  10am ET · Join details: https://www.ohdsi.org/upcoming-working-group-cal
+ ls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:3c79933baff66b8e@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261124T160000Z
 DURATION:PT1H
 SUMMARY:OHDSI Community Call
-DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org/community-calls-2026/ · Duration not published\; shown as one hour.
+DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org
+ /community-calls-2026/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/community-calls-2026/
 END:VEVENT
 BEGIN:VEVENT
 UID:6deb6f265c6b52f2@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261125T150000Z
 DURATION:PT1H
 SUMMARY:Women of OHDSI (WoO) WG
-DESCRIPTION:Meetings are traditionally scheduled for the last Wednesday of the month at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:7d3e116cbaa02064@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261125T150000Z
 DURATION:PT1H
 SUMMARY:Common Data Model (CDM)
-DESCRIPTION:Meetings are traditionally scheduled for every other Wednesday at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:a146955becc98fc4@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261125T163000Z
 DURATION:PT1H
 SUMMARY:Surgery and Perioperative Medicine WG
-DESCRIPTION:Meetings are traditionally scheduled for the last Wednesday of the month at 11:30am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:0d243e946ec09cb7@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261125T170000Z
 DURATION:PT1H
 SUMMARY:Latin America Chapter
-DESCRIPTION:Meetings are traditionally scheduled for the last Wednesday of the month at 1pm Brasília. · 1pm Brasília · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:28b1124358030905@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261126T123000Z
 DURATION:PT1H
 SUMMARY:OHDSI India Community Call
-DESCRIPTION:Meetings are traditionally scheduled for the last Thursday of each month at 7:30am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:7568109d2ffe0432@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261126T130000Z
 DURATION:PT1H
 SUMMARY:Medical Devices WG
-DESCRIPTION:Meetings are traditionally scheduled for every 3 weeks\, alternating 8am and 12pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for every 3 weeks on a Thu
+ rsday alternating between 8am and 12pm ET · Join details: https://www.ohd
+ si.org/upcoming-working-group-calls/ · Duration not published\; shown as 
+ one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:33ae83a95ea18c9e@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261126T140000Z
 DURATION:PT1H
 SUMMARY:Phenotype Development and Evaluation WG
-DESCRIPTION:Meetings are traditionally scheduled for the last Thursday of the month at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:75a1060d3e575920@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261126T160000Z
 DURATION:PT1H
 SUMMARY:Perinatal & Reproductive Health WG
-DESCRIPTION:Meetings are traditionally scheduled for the last Thursday of the month at 11am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:13be57d83f6638f1@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261127T000000Z
 DURATION:PT1H
 SUMMARY:Dentistry WG
-DESCRIPTION:Meetings are traditionally scheduled for every other Thursday at 7pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:c3792ed8c65526a3@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261127T150000Z
 DURATION:PT1H
 SUMMARY:OHDSI Transplant WG
-DESCRIPTION:Meetings are traditionally scheduled for every other Friday at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:c6d87b04c9d4a5a6@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261127T150000Z
 DURATION:PT1H
 SUMMARY:Waveform WG
-DESCRIPTION:Meetings are traditionally scheduled for alternating Thursdays and Fridays. · 16 CET · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:a2d005c01817a614@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261127T160000Z
 DURATION:PT1H
 SUMMARY:Clinical Trials WG
-DESCRIPTION:Meetings are traditionally scheduled for the second and fourth Fridays at 11am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:099140d7e64ef81a@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261201T160000Z
 DURATION:PT1H
 SUMMARY:OHDSI Community Call
-DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org/community-calls-2026/ · Duration not published\; shown as one hour.
+DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org
+ /community-calls-2026/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/community-calls-2026/
 END:VEVENT
 BEGIN:VEVENT
 UID:ef95363261961d0d@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261202T120000Z
 DURATION:PT1H
 SUMMARY:Medical Imaging WG
-DESCRIPTION:Meetings are traditionally scheduled for every other Wednesday\, alternating 7am and 7pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for every other Wednesday 
+ alternating between 7am and 7pm · Join details: https://www.ohdsi.org/upc
+ oming-working-group-calls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:9b391de4c5505c22@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261202T140000Z
 DURATION:PT1H
 SUMMARY:Tidy R Programming with OMOP WG
-DESCRIPTION:Meetings are traditionally scheduled for the first Wednesday of the month at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:2ba275a2f3583ab8@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261203T090000Z
 DURATION:PT1H
 SUMMARY:Waveform WG
-DESCRIPTION:Meetings are traditionally scheduled for alternating Thursdays and Fridays. · 10am CET · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
-UID:96b37ad515f4112c@wgactivities
-DTSTAMP:20261118T044557Z
+UID:562355cbab0caac4@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261203T150000Z
 DURATION:PT1H
-SUMMARY:Atlas/WebAPI WG
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday of the month at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:Atlas/ WebAPI WG
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
-UID:17e4eb9bf90b5809@wgactivities
-DTSTAMP:20261118T044557Z
+UID:87e8f1f069bbfd66@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261203T160000Z
 DURATION:PT1H
-SUMMARY:Themis WG
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday of the month at 11am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:Themis WG Meeting
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
-UID:4417da61c96be15d@wgactivities
-DTSTAMP:20261118T044557Z
+UID:86d7271c5606ac85@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261203T160000Z
 DURATION:PT1H
-SUMMARY:Industry WG
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday of the month at 4pm UK time. · 4pm UK · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:Industry WG Meeting
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:329b29dbd9d86813@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261203T170000Z
 DURATION:PT1H
 SUMMARY:Methods Research (Western Hemisphere)
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday of the month at 12pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
-UID:2af2c491ba46cac9@wgactivities
-DTSTAMP:20261118T044557Z
+UID:96c3b1bbdb7f6016@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261203T180000Z
 DURATION:PT1H
-SUMMARY:OMOP CDM Oncology – Vocabulary/Development Subgroup
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday at 1pm EST and the third Thursday at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
-URL:https://www.ohdsi.org/upcoming-working-group-calls/
-END:VEVENT
-BEGIN:VEVENT
-UID:2e75708ee1bd32b4@wgactivities
-DTSTAMP:20261118T044557Z
-DTSTART:20261203T190000Z
-DURATION:PT1H
-SUMMARY:Early-Stage Researchers WG
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday of the month at 2pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:OMOP CDM Oncology- Vocabulary /Development Subgroup
+DESCRIPTION:Meetings are traditionally scheduled for the 1st Thursday of th
+ e month at 1pm EST and the 3rd Thursday of the month at 9am ET · Join det
+ ails: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not 
+ published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:23de4ff9f690d5f9@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261203T190000Z
 DURATION:PT1H
 SUMMARY:REVEAL WG
-DESCRIPTION:Meetings are traditionally scheduled for the first Thursday of the month at 2pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
-URL:https://www.ohdsi.org/upcoming-working-group-calls/
-END:VEVENT
-BEGIN:VEVENT
-UID:3d90c59d3779a8ed@wgactivities
-DTSTAMP:20261118T044557Z
-DTSTART:20261204T150000Z
-DURATION:PT1H
-SUMMARY:Respiratory Research WG
-DESCRIPTION:Meetings are traditionally scheduled for the first Friday of the month at 10am ET (4pm CET). · 4pm CET · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Respiratory Research WG : Fri day\, Dec. 4 at 10am ET (4pmCET) 
+ ( Meeting Link) Meetings are traditionally scheduled for the first Friday 
+ of the month at 10am ET (4pmCET) · Join details: https://www.ohdsi.org/up
+ coming-working-group-calls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:6f124ac9ca7715cc@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261207T150000Z
 DURATION:PT1H
 SUMMARY:Healthcare Systems Interest Group
-DESCRIPTION:Meetings are traditionally scheduled for the first Monday of the month at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
-URL:https://www.ohdsi.org/upcoming-working-group-calls/
-END:VEVENT
-BEGIN:VEVENT
-UID:b47807dc6c70e958@wgactivities
-DTSTAMP:20261118T044557Z
-DTSTART:20261208T140000Z
-DURATION:PT1H
-SUMMARY:OMOP CDM Oncology WG – Genomic Subgroup
-DESCRIPTION:Meetings are traditionally scheduled for the second and fourth Tuesdays at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:OMOP CDM Oncology WG: Genomic Subgroup Meeting: Tuesday\, Dec. 
+ 8 at 9am ET (Meeting Link ) Meetings are traditionally scheduled for the 2
+ nd and 4th Tuesdays of each month at 9am ET · Join details: https://www.o
+ hdsi.org/upcoming-working-group-calls/ · Duration not published\; shown a
+ s one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:897b865cb4f9f84a@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261208T160000Z
 DURATION:PT1H
 SUMMARY:OHDSI Community Call
-DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org/community-calls-2026/ · Duration not published\; shown as one hour.
+DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org
+ /community-calls-2026/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/community-calls-2026/
 END:VEVENT
 BEGIN:VEVENT
 UID:44a076979f7e8a0f@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261208T170000Z
 DURATION:PT1H
 SUMMARY:Generative AI and Analytics WG
-DESCRIPTION:Meetings are traditionally scheduled for the second Tuesday of the month at 12pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:6bc9915bf336c403@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261209T140000Z
 DURATION:PT1H
 SUMMARY:Patient-Level Prediction (PLP) WG
-DESCRIPTION:Meetings are traditionally scheduled for the second Wednesday of the month at 9am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:6ff604ceab74510d@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261209T190000Z
 DURATION:PT1H
 SUMMARY:Canada Chapter
-DESCRIPTION:Meetings are traditionally scheduled for the second Wednesday of the month at 2pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for the 2nd Wednesday of e
+ ach month at 2pm ET · Join details: https://www.ohdsi.org/upcoming-workin
+ g-group-calls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:f1277718175453cf@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261209T190000Z
 DURATION:PT1H
 SUMMARY:Natural Language Processing WG
-DESCRIPTION:Meetings are traditionally scheduled for the second Wednesday of the month at 2pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:aa4d346ab2678785@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261210T000000Z
 DURATION:PT1H
 SUMMARY:Medical Imaging WG
-DESCRIPTION:Meetings are traditionally scheduled for every other Wednesday\, alternating 7am and 7pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for every other Wednesday 
+ alternating between 7am and 7pm · Join details: https://www.ohdsi.org/upc
+ oming-working-group-calls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:12e399546695c257@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261210T000000Z
 DURATION:PT1H
 SUMMARY:Eyecare and Vision Research WG
-DESCRIPTION:Meetings are traditionally scheduled for the second Wednesday of the month at 7pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:dd87440add3d12c6@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261210T120000Z
 DURATION:PT1H
 SUMMARY:European Community Call
-DESCRIPTION:Meetings are traditionally scheduled for the second Thursday of the month at 7am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:35f3f29a0e03462e@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261210T150000Z
 DURATION:PT1H
 SUMMARY:Rare Diseases WG
-DESCRIPTION:Meetings are traditionally scheduled for the second Thursday of the month at 10am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for the second Thursday of
+  each month at 10am ET · Join details: https://www.ohdsi.org/upcoming-wor
+ king-group-calls/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:c0aa4f9a44081c30@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261211T160000Z
 DURATION:PT1H
 SUMMARY:Clinical Trials WG
-DESCRIPTION:Meetings are traditionally scheduled for the second and fourth Fridays at 11am ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Join details: https://www.ohdsi.org/upcoming-working-group-call
+ s/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:e54f309920b42391@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261212T040000Z
 DURATION:PT1H
 SUMMARY:China Chapter WG
-DESCRIPTION:Meetings are traditionally scheduled for the second Friday at 10pm ET (11pm in summer). · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+DESCRIPTION:Meetings are traditionally scheduled for the 2nd Fridays of the
+  month at 10pm or 11pm (summer) ET · This does NOT take place in Teams ·
+  Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Dura
+ tion not published\; shown as one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 BEGIN:VEVENT
 UID:1d22a76e45a60959@wgactivities
-DTSTAMP:20261118T044557Z
+DTSTAMP:20261115T000000Z
 DTSTART:20261215T160000Z
 DURATION:PT1H
 SUMMARY:OHDSI Community Call
-DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org/community-calls-2026/ · Duration not published\; shown as one hour.
+DESCRIPTION:Every Tuesday at 11am ET · Join details: https://www.ohdsi.org
+ /community-calls-2026/ · Duration not published\; shown as one hour.
 URL:https://www.ohdsi.org/community-calls-2026/
 END:VEVENT
 BEGIN:VEVENT
-UID:38c48f4479cfb403@wgactivities
-DTSTAMP:20261118T044557Z
+UID:f0a25064282fa2be@wgactivities
+DTSTAMP:20261115T000000Z
 DTSTART:20261217T170000Z
 DURATION:PT1H
-SUMMARY:Medical Devices WG
-DESCRIPTION:Meetings are traditionally scheduled for every 3 weeks\, alternating 8am and 12pm ET. · Join details: https://www.ohdsi.org/upcoming-working-group-calls/ · Duration not published\; shown as one hour.
+SUMMARY:M edical Devices WG
+DESCRIPTION:Meetings are traditionally scheduled for every 3 weeks on a Thu
+ rsday alternating between 8am and 12pm ET · Join details: https://www.ohd
+ si.org/upcoming-working-group-calls/ · Duration not published\; shown as 
+ one hour.
 URL:https://www.ohdsi.org/upcoming-working-group-calls/
 END:VEVENT
 END:VCALENDAR

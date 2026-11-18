@@ -3550,5 +3550,38 @@
   ],
   "slide_count": 9,
   "weight": 1
+ },
+ {
+  "date": "2026-11-10",
+  "week": "2026-W46",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "Best Community Contribution Honorees (Golozar, Wu, Payne, Flowers)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "Cs2ZPJ_mzb0",
+   "iRylSI73B10",
+   "r1wKpKISmTg"
+  ],
+  "slide_count": 6,
+  "weight": 1
+ },
+ {
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "community",
+  "source": "calls",
+  "type": "community_call",
+  "title": "OHDSI 2026 Rising Star Presentations (Markus, Chen, Solages)",
+  "url": "https://www.ohdsi.org/community-calls-2026/",
+  "video_ids": [
+   "HsoH1kSdciY",
+   "OhjQrpBeQCw",
+   "dJ_7rQFAS3k",
+   "ox4EeAaqLls"
+  ],
+  "slide_count": 5,
+  "weight": 1
  }
 ]
