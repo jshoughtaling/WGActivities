@@ -1,7 +1,7 @@
 {
  "source": "https://www.ohdsi.org/upcoming-working-group-calls/",
  "source_updated": "2026-11-15",
- "fetched": "2026-11-18T04:22:57+00:00",
+ "fetched": "2026-11-18T09:13:55+00:00",
  "meetings": [
   {
    "name": "Data2Evidence WG",
@@ -12,10 +12,10 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Tuesday at 9am ET."
+   "cadence": null
   },
   {
-   "name": "CDM WG – Vocabulary Subgroup",
+   "name": "Common Data Model WG- VOCABULARY Subgroup",
    "wg": "cdm-vocabulary",
    "date": "2026-11-17",
    "start": "2026-11-17T12:00:00-05:00",
@@ -23,7 +23,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the third Tuesday of the month at 12pm ET. Office hours are the first Thursday at 9am ET."
+   "cadence": null
   },
   {
    "name": "Electronic Animal Health Records WG",
@@ -34,7 +34,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the third Tuesday of the month at 4pm ET."
+   "cadence": null
   },
   {
    "name": "Waveform WG",
@@ -42,13 +42,13 @@
    "date": "2026-11-19",
    "start": "2026-11-19T04:00:00-05:00",
    "time_et": "4am",
-   "note": "10am CET",
+   "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for alternating Thursdays and Fridays."
+   "cadence": null
   },
   {
-   "name": "OMOP CDM Oncology – Vocabulary/Development Subgroup",
+   "name": "OMOP CDM Oncology- Vocabulary /Development Subgroup",
    "wg": "oncology",
    "date": "2026-11-19",
    "start": "2026-11-19T09:00:00-05:00",
@@ -56,29 +56,29 @@
    "note": null,
    "platform": "teams",
    "cancelled": true,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday at 1pm EST and the third Thursday at 9am ET."
+   "cadence": "Meetings are traditionally scheduled for the 1st Thursday of the month at 1pm EST and the 3rd Thursday of the month at 9am ET MEETING IS CANCELLED"
   },
   {
-   "name": "Africa Chapter",
+   "name": "Africa Chapter Meeting",
    "wg": "africa",
    "date": "2026-11-19",
    "start": "2026-11-19T09:00:00-05:00",
    "time_et": "9am",
-   "note": "5pm EAT",
+   "note": null,
    "platform": "zoom",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Thursday at 10am ET. This meeting takes place on Zoom."
+   "cadence": null
   },
   {
-   "name": "GIS WG",
+   "name": "GIS-Geographic Information System WG Meeting",
    "wg": "gis",
    "date": "2026-11-19",
    "start": "2026-11-19T10:00:00-05:00",
    "time_et": "10am",
-   "note": null,
+   "note": "s are traditionally scheduled for every Thursday at 10am ET",
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every Thursday at 10am ET."
+   "cadence": null
   },
   {
    "name": "Evidence Network WG",
@@ -89,7 +89,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the third Thursday of the month at 10:30am ET."
+   "cadence": "Meetings are traditionally scheduled for the third Thursday of each month at 10:30am ET"
   },
   {
    "name": "HADES WG",
@@ -100,7 +100,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the third Thursday of the month at 12pm ET."
+   "cadence": "Meetings are traditionally scheduled for the third Thursday of each month at 12pm ET"
   },
   {
    "name": "Education WG",
@@ -111,18 +111,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the third Friday of the month at 10:30am ET."
-  },
-  {
-   "name": "OMOP CDM Oncology WG – Genomic Subgroup",
-   "wg": "oncology",
-   "date": "2026-11-24",
-   "start": "2026-11-24T09:00:00-05:00",
-   "time_et": "9am",
-   "note": null,
-   "platform": "teams",
-   "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second and fourth Tuesdays at 9am ET."
+   "cadence": "OMOP CDM Oncology WG: Genomic Subgroup Meeting: Tuesday, Nov. 24 at 9am ET (Meeting Link ) Meetings are traditionally scheduled for the 2nd and 4th Tuesdays of each month at 9am ET"
   },
   {
    "name": "OpenEHR & OMOP Meeting",
@@ -133,7 +122,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the last Tuesday of the month at 9am ET."
+   "cadence": null
   },
   {
    "name": "CDM SURVEY WG",
@@ -144,7 +133,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Tuesday at 10am ET."
+   "cadence": "Meetings are traditionally scheduled for every other Tuesday at 10am ET"
   },
   {
    "name": "Women of OHDSI (WoO) WG",
@@ -155,7 +144,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the last Wednesday of the month at 10am ET."
+   "cadence": null
   },
   {
    "name": "Common Data Model (CDM)",
@@ -166,7 +155,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Wednesday at 10am ET."
+   "cadence": null
   },
   {
    "name": "Surgery and Perioperative Medicine WG",
@@ -177,7 +166,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the last Wednesday of the month at 11:30am ET."
+   "cadence": null
   },
   {
    "name": "Latin America Chapter",
@@ -185,10 +174,10 @@
    "date": "2026-11-25",
    "start": "2026-11-25T12:00:00-05:00",
    "time_et": "12pm",
-   "note": "1pm Brasília",
+   "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the last Wednesday of the month at 1pm Brasília."
+   "cadence": null
   },
   {
    "name": "OHDSI India Community Call",
@@ -199,7 +188,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the last Thursday of each month at 7:30am ET."
+   "cadence": null
   },
   {
    "name": "Medical Devices WG",
@@ -210,7 +199,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every 3 weeks, alternating 8am and 12pm ET."
+   "cadence": "Meetings are traditionally scheduled for every 3 weeks on a Thursday alternating between 8am and 12pm ET"
   },
   {
    "name": "Phenotype Development and Evaluation WG",
@@ -221,7 +210,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the last Thursday of the month at 9am ET."
+   "cadence": null
   },
   {
    "name": "Perinatal & Reproductive Health WG",
@@ -232,7 +221,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the last Thursday of the month at 11am ET."
+   "cadence": null
   },
   {
    "name": "Dentistry WG",
@@ -243,7 +232,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Thursday at 7pm ET."
+   "cadence": null
   },
   {
    "name": "OHDSI Transplant WG",
@@ -254,7 +243,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Friday at 10am ET."
+   "cadence": null
   },
   {
    "name": "Waveform WG",
@@ -262,10 +251,10 @@
    "date": "2026-11-27",
    "start": "2026-11-27T10:00:00-05:00",
    "time_et": "10am",
-   "note": "16 CET",
+   "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for alternating Thursdays and Fridays."
+   "cadence": null
   },
   {
    "name": "Clinical Trials WG",
@@ -276,7 +265,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second and fourth Fridays at 11am ET."
+   "cadence": null
   },
   {
    "name": "Medical Imaging WG",
@@ -287,7 +276,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Wednesday, alternating 7am and 7pm ET."
+   "cadence": "Meetings are traditionally scheduled for every other Wednesday alternating between 7am and 7pm"
   },
   {
    "name": "Tidy R Programming with OMOP WG",
@@ -298,7 +287,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Wednesday of the month at 9am ET."
+   "cadence": null
   },
   {
    "name": "Waveform WG",
@@ -306,13 +295,13 @@
    "date": "2026-12-03",
    "start": "2026-12-03T04:00:00-05:00",
    "time_et": "4am",
-   "note": "10am CET",
+   "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for alternating Thursdays and Fridays."
+   "cadence": null
   },
   {
-   "name": "Atlas/WebAPI WG",
+   "name": "Atlas/ WebAPI WG",
    "wg": "atlas-webapi",
    "date": "2026-12-03",
    "start": "2026-12-03T10:00:00-05:00",
@@ -320,10 +309,10 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday of the month at 10am ET."
+   "cadence": null
   },
   {
-   "name": "Themis WG",
+   "name": "Themis WG Meeting",
    "wg": "themis",
    "date": "2026-12-03",
    "start": "2026-12-03T11:00:00-05:00",
@@ -331,18 +320,18 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday of the month at 11am ET."
+   "cadence": null
   },
   {
-   "name": "Industry WG",
+   "name": "Industry WG Meeting",
    "wg": "industry",
    "date": "2026-12-03",
    "start": "2026-12-03T11:00:00-05:00",
    "time_et": "11am",
-   "note": "4pm UK",
+   "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday of the month at 4pm UK time."
+   "cadence": null
   },
   {
    "name": "Methods Research (Western Hemisphere)",
@@ -353,10 +342,10 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday of the month at 12pm ET."
+   "cadence": null
   },
   {
-   "name": "OMOP CDM Oncology – Vocabulary/Development Subgroup",
+   "name": "OMOP CDM Oncology- Vocabulary /Development Subgroup",
    "wg": "oncology",
    "date": "2026-12-03",
    "start": "2026-12-03T13:00:00-05:00",
@@ -364,18 +353,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday at 1pm EST and the third Thursday at 9am ET."
-  },
-  {
-   "name": "Early-Stage Researchers WG",
-   "wg": "early-stage-researchers",
-   "date": "2026-12-03",
-   "start": "2026-12-03T14:00:00-05:00",
-   "time_et": "2pm",
-   "note": null,
-   "platform": "teams",
-   "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday of the month at 2pm ET."
+   "cadence": "Meetings are traditionally scheduled for the 1st Thursday of the month at 1pm EST and the 3rd Thursday of the month at 9am ET"
   },
   {
    "name": "REVEAL WG",
@@ -386,18 +364,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Thursday of the month at 2pm ET."
-  },
-  {
-   "name": "Respiratory Research WG",
-   "wg": "respiratory",
-   "date": "2026-12-04",
-   "start": "2026-12-04T10:00:00-05:00",
-   "time_et": "10am",
-   "note": "4pm CET",
-   "platform": "teams",
-   "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Friday of the month at 10am ET (4pm CET)."
+   "cadence": "Respiratory Research WG : Fri day, Dec. 4 at 10am ET (4pmCET) ( Meeting Link) Meetings are traditionally scheduled for the first Friday of the month at 10am ET (4pmCET)"
   },
   {
    "name": "Healthcare Systems Interest Group",
@@ -408,18 +375,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the first Monday of the month at 10am ET."
-  },
-  {
-   "name": "OMOP CDM Oncology WG – Genomic Subgroup",
-   "wg": "oncology",
-   "date": "2026-12-08",
-   "start": "2026-12-08T09:00:00-05:00",
-   "time_et": "9am",
-   "note": null,
-   "platform": "teams",
-   "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second and fourth Tuesdays at 9am ET."
+   "cadence": "OMOP CDM Oncology WG: Genomic Subgroup Meeting: Tuesday, Dec. 8 at 9am ET (Meeting Link ) Meetings are traditionally scheduled for the 2nd and 4th Tuesdays of each month at 9am ET"
   },
   {
    "name": "Generative AI and Analytics WG",
@@ -430,7 +386,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Tuesday of the month at 12pm ET."
+   "cadence": null
   },
   {
    "name": "Patient-Level Prediction (PLP) WG",
@@ -441,7 +397,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Wednesday of the month at 9am ET."
+   "cadence": null
   },
   {
    "name": "Canada Chapter",
@@ -452,7 +408,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Wednesday of the month at 2pm ET."
+   "cadence": "Meetings are traditionally scheduled for the 2nd Wednesday of each month at 2pm ET"
   },
   {
    "name": "Natural Language Processing WG",
@@ -463,7 +419,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Wednesday of the month at 2pm ET."
+   "cadence": null
   },
   {
    "name": "Medical Imaging WG",
@@ -474,7 +430,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every other Wednesday, alternating 7am and 7pm ET."
+   "cadence": "Meetings are traditionally scheduled for every other Wednesday alternating between 7am and 7pm"
   },
   {
    "name": "Eyecare and Vision Research WG",
@@ -485,7 +441,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Wednesday of the month at 7pm ET."
+   "cadence": null
   },
   {
    "name": "European Community Call",
@@ -496,7 +452,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Thursday of the month at 7am ET."
+   "cadence": null
   },
   {
    "name": "Rare Diseases WG",
@@ -507,7 +463,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Thursday of the month at 10am ET."
+   "cadence": "Meetings are traditionally scheduled for the second Thursday of each month at 10am ET"
   },
   {
    "name": "Clinical Trials WG",
@@ -518,7 +474,7 @@
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second and fourth Fridays at 11am ET."
+   "cadence": null
   },
   {
    "name": "China Chapter WG",
@@ -526,34 +482,24 @@
    "date": "2026-12-11",
    "start": "2026-12-11T23:00:00-05:00",
    "time_et": "11pm",
-   "note": null,
+   "note": "This does NOT take place in Teams",
    "platform": "gotomeeting",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for the second Friday at 10pm ET (11pm in summer)."
+   "cadence": "Meetings are traditionally scheduled for the 2nd Fridays of the month at 10pm or 11pm (summer) ET"
   },
   {
-   "name": "Medical Devices WG",
-   "wg": "medical-devices",
+   "name": "M edical Devices WG",
+   "wg": null,
    "date": "2026-12-17",
    "start": "2026-12-17T12:00:00-05:00",
    "time_et": "12pm",
    "note": null,
    "platform": "teams",
    "cancelled": false,
-   "cadence": "Meetings are traditionally scheduled for every 3 weeks, alternating 8am and 12pm ET."
+   "cadence": "Meetings are traditionally scheduled for every 3 weeks on a Thursday alternating between 8am and 12pm ET"
   }
  ],
  "status": [
-  {
-   "name": "OMOP CDM Oncology WG – Outreach/Research Subgroup",
-   "wg": "oncology",
-   "state": "tbd"
-  },
-  {
-   "name": "Network Data Quality WG",
-   "wg": "data-quality",
-   "state": "tbd"
-  },
   {
    "name": "Rehabilitation WG",
    "wg": "rehabilitation",
@@ -565,7 +511,17 @@
    "state": "on hiatus"
   },
   {
-   "name": "Health Equity WG",
+   "name": "OMOP CDM Oncology WG- Outreach/Research Subgroup",
+   "wg": "oncology",
+   "state": "tbd"
+  },
+  {
+   "name": "Network Data Quality WG",
+   "wg": "data-quality",
+   "state": "tbd"
+  },
+  {
+   "name": "Health Equity Work Group",
    "wg": "health-equity",
    "state": "tbd"
   },
@@ -579,6 +535,5 @@
    "wg": null,
    "state": "no longer meeting"
   }
- ],
- "source_note": "Seeded 2026-11-17 from a fetched copy of the page (the build sandbox cannot reach ohdsi.org); the first run of scripts/collect/meetings.py replaces it."
+ ]
 }

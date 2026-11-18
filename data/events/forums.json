@@ -1,324 +1,5 @@
 [
  {
-  "id": "post:67042",
-  "date": "2025-10-11",
-  "week": "2025-W41",
-  "wg": "cdm-vocabulary",
-  "source": "forums",
-  "type": "reply",
-  "title": "Will ICDO3 codes be updated?",
-  "url": "https://forums.ohdsi.org/t/will-icdo3-codes-be-updated/24497/2",
-  "weight": 1
- },
- {
-  "id": "post:67049",
-  "date": "2025-10-12",
-  "week": "2025-W41",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Building a JuliaHealth-specific Genie.jl Dashboard",
-  "url": "https://forums.ohdsi.org/t/building-a-juliahealth-specific-genie-jl-dashboard/24512/1",
-  "weight": 1
- },
- {
-  "id": "post:67060",
-  "date": "2025-10-13",
-  "week": "2025-W42",
-  "wg": "cdm-vocabulary",
-  "source": "forums",
-  "type": "reply",
-  "title": "Will ICDO3 codes be updated?",
-  "url": "https://forums.ohdsi.org/t/will-icdo3-codes-be-updated/24497/3",
-  "weight": 1
- },
- {
-  "id": "post:67058",
-  "date": "2025-10-13",
-  "week": "2025-W42",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "OHDSI Weekly Digest - October 13, 2025",
-  "url": "https://forums.ohdsi.org/t/ohdsi-weekly-digest-october-13-2025/24520/1",
-  "weight": 1
- },
- {
-  "id": "post:67061",
-  "date": "2025-10-13",
-  "week": "2025-W42",
-  "wg": "vaccine-vocabulary",
-  "source": "forums",
-  "type": "reply",
-  "title": "NUVA SNOMED extension for vaccine mapping",
-  "url": "https://forums.ohdsi.org/t/nuva-snomed-extension-for-vaccine-mapping/24414/3",
-  "weight": 1
- },
- {
-  "id": "post:67088",
-  "date": "2025-10-15",
-  "week": "2025-W42",
-  "wg": "hades",
-  "source": "forums",
-  "type": "reply",
-  "title": "HADES development announcements",
-  "url": "https://forums.ohdsi.org/t/hades-development-announcements/12293/313",
-  "weight": 1
- },
- {
-  "id": "post:67087",
-  "date": "2025-10-15",
-  "week": "2025-W42",
-  "wg": "hades",
-  "source": "forums",
-  "type": "reply",
-  "title": "HADES development announcements",
-  "url": "https://forums.ohdsi.org/t/hades-development-announcements/12293/312",
-  "weight": 1
- },
- {
-  "id": "post:67083",
-  "date": "2025-10-15",
-  "week": "2025-W42",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Welcome to OHDSI! - Please introduce yourself",
-  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1044",
-  "weight": 1
- },
- {
-  "id": "post:67089",
-  "date": "2025-10-15",
-  "week": "2025-W42",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "What is the recommended collation for Microsoft SQL server?",
-  "url": "https://forums.ohdsi.org/t/what-is-the-recommended-collation-for-microsoft-sql-server/12860/2",
-  "weight": 1
- },
- {
-  "id": "post:67099",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "nlp",
-  "source": "forums",
-  "type": "reply",
-  "title": "Clarification on Ambiguity Between PROCEDURE_OCCURRENCE and MEASUREMENT Domains During ETL and NLP-based Entity Extraction",
-  "url": "https://forums.ohdsi.org/t/clarification-on-ambiguity-between-procedure-occurrence-and-measurement-domains-during-etl-and-nlp-based-entity-extraction/24532/3",
-  "weight": 1
- },
- {
-  "id": "post:67096",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "nlp",
-  "source": "forums",
-  "type": "reply",
-  "title": "Clarification on Ambiguity Between PROCEDURE_OCCURRENCE and MEASUREMENT Domains During ETL and NLP-based Entity Extraction",
-  "url": "https://forums.ohdsi.org/t/clarification-on-ambiguity-between-procedure-occurrence-and-measurement-domains-during-etl-and-nlp-based-entity-extraction/24532/2",
-  "weight": 1
- },
- {
-  "id": "post:67095",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "nlp",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Clarification on Ambiguity Between PROCEDURE_OCCURRENCE and MEASUREMENT Domains During ETL and NLP-based Entity Extraction",
-  "url": "https://forums.ohdsi.org/t/clarification-on-ambiguity-between-procedure-occurrence-and-measurement-domains-during-etl-and-nlp-based-entity-extraction/24532/1",
-  "weight": 1
- },
- {
-  "id": "post:67095",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "nlp",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Clarification on Ambiguity Between PROCEDURE_OCCURRENCE and MEASUREMENT Domains During ETL and NLP-based Entity Extraction",
-  "url": "https://forums.ohdsi.org/t/clarification-on-ambiguity-between-procedure-occurrence-and-measurement-domains-during-etl-and-nlp-based-entity-extraction/24532/1",
-  "weight": 1
- },
- {
-  "id": "post:67106",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "themis",
-  "source": "forums",
-  "type": "reply",
-  "title": "(THEMIS 2) How do you handle missing visit end dates?",
-  "url": "https://forums.ohdsi.org/t/themis-2-how-do-you-handle-missing-visit-end-dates/4308/57",
-  "weight": 1
- },
- {
-  "id": "post:67100",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "themis",
-  "source": "forums",
-  "type": "reply",
-  "title": "(THEMIS 2) How do you handle missing visit end dates?",
-  "url": "https://forums.ohdsi.org/t/themis-2-how-do-you-handle-missing-visit-end-dates/4308/56",
-  "weight": 1
- },
- {
-  "id": "post:67097",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "themis",
-  "source": "forums",
-  "type": "reply",
-  "title": "(THEMIS 2) How do you handle missing visit end dates?",
-  "url": "https://forums.ohdsi.org/t/themis-2-how-do-you-handle-missing-visit-end-dates/4308/55",
-  "weight": 1
- },
- {
-  "id": "post:67093",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "themis",
-  "source": "forums",
-  "type": "reply",
-  "title": "(THEMIS 2) How do you handle missing visit end dates?",
-  "url": "https://forums.ohdsi.org/t/themis-2-how-do-you-handle-missing-visit-end-dates/4308/54",
-  "weight": 1
- },
- {
-  "id": "post:67101",
-  "date": "2025-10-16",
-  "week": "2025-W42",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Welcome to OHDSI! - Please introduce yourself",
-  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1045",
-  "weight": 1
- },
- {
-  "id": "post:67114",
-  "date": "2025-10-17",
-  "week": "2025-W42",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Welcome to OHDSI",
-  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi/8/88",
-  "weight": 1
- },
- {
-  "id": "post:67108",
-  "date": "2025-10-17",
-  "week": "2025-W42",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Welcome to OHDSI! - Please introduce yourself",
-  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1046",
-  "weight": 1
- },
- {
-  "id": "post:67132",
-  "date": "2025-10-20",
-  "week": "2025-W43",
-  "wg": "atlas-webapi",
-  "source": "forums",
-  "type": "reply",
-  "title": "Any plan to upgrade WebAPI, ATLAS to use newer version of JDK and Tomcat",
-  "url": "https://forums.ohdsi.org/t/any-plan-to-upgrade-webapi-atlas-to-use-newer-version-of-jdk-and-tomcat/21377/5",
-  "weight": 1
- },
- {
-  "id": "post:67120",
-  "date": "2025-10-20",
-  "week": "2025-W43",
-  "wg": "atlas-webapi",
-  "source": "forums",
-  "type": "reply",
-  "title": "Any plan to upgrade WebAPI, ATLAS to use newer version of JDK and Tomcat",
-  "url": "https://forums.ohdsi.org/t/any-plan-to-upgrade-webapi-atlas-to-use-newer-version-of-jdk-and-tomcat/21377/4",
-  "weight": 1
- },
- {
-  "id": "post:67147",
-  "date": "2025-10-20",
-  "week": "2025-W43",
-  "wg": "atlas-webapi",
-  "source": "forums",
-  "type": "reply",
-  "title": "Atlas/WebAPI: Limit user access to Person Profile, avoid global *:person:*:get",
-  "url": "https://forums.ohdsi.org/t/atlas-webapi-limit-user-access-to-person-profile-avoid-global-get/24551/2",
-  "weight": 1
- },
- {
-  "id": "post:67127",
-  "date": "2025-10-20",
-  "week": "2025-W43",
-  "wg": "atlas-webapi",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Atlas/WebAPI: Limit user access to Person Profile, avoid global *:person:*:get",
-  "url": "https://forums.ohdsi.org/t/atlas-webapi-limit-user-access-to-person-profile-avoid-global-get/24551/1",
-  "weight": 1
- },
- {
-  "id": "post:67148",
-  "date": "2025-10-20",
-  "week": "2025-W43",
-  "wg": "community",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Weekly OHDSI Digest - October 20, 2025",
-  "url": "https://forums.ohdsi.org/t/weekly-ohdsi-digest-october-20-2025/24558/1",
-  "weight": 1
- },
- {
-  "id": "post:67146",
-  "date": "2025-10-20",
-  "week": "2025-W43",
-  "wg": "data-quality",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "TempDB full error when populating Achilles tables",
-  "url": "https://forums.ohdsi.org/t/tempdb-full-error-when-populating-achilles-tables/24557/1",
-  "weight": 1
- },
- {
-  "id": "post:67124",
-  "date": "2025-10-20",
-  "week": "2025-W43",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Welcome to OHDSI! - Please introduce yourself",
-  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1047",
-  "weight": 1
- },
- {
-  "id": "post:67152",
-  "date": "2025-10-21",
-  "week": "2025-W43",
-  "wg": "atlas-webapi",
-  "source": "forums",
-  "type": "reply",
-  "title": "Atlas/WebAPI: Limit user access to Person Profile, avoid global *:person:*:get",
-  "url": "https://forums.ohdsi.org/t/atlas-webapi-limit-user-access-to-person-profile-avoid-global-get/24551/3",
-  "weight": 1
- },
- {
-  "id": "post:67154",
-  "date": "2025-10-21",
-  "week": "2025-W43",
-  "wg": "cdm-vocabulary",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "LOINC to SNOMED mapping using new framework",
-  "url": "https://forums.ohdsi.org/t/loinc-to-snomed-mapping-using-new-framework/24563/1",
-  "weight": 1
- },
- {
   "id": "post:67159",
   "date": "2025-10-22",
   "week": "2025-W43",
@@ -503,6 +184,17 @@
   "type": "reply",
   "title": "HADES development announcements",
   "url": "https://forums.ohdsi.org/t/hades-development-announcements/12293/316",
+  "weight": 1
+ },
+ {
+  "id": "post:67187",
+  "date": "2025-10-29",
+  "week": "2025-W44",
+  "wg": "hades",
+  "source": "forums",
+  "type": "reply",
+  "title": "HADES development announcements",
+  "url": "https://forums.ohdsi.org/t/hades-development-announcements/12293/315",
   "weight": 1
  },
  {
@@ -734,17 +426,6 @@
   "type": "reply",
   "title": "Basis of cancer diagnosis (Observation or Condition)?",
   "url": "https://forums.ohdsi.org/t/basis-of-cancer-diagnosis-observation-or-condition/24584/8",
-  "weight": 1
- },
- {
-  "id": "post:67219",
-  "date": "2025-11-04",
-  "week": "2025-W45",
-  "wg": "oncology",
-  "source": "forums",
-  "type": "reply",
-  "title": "Basis of cancer diagnosis (Observation or Condition)?",
-  "url": "https://forums.ohdsi.org/t/basis-of-cancer-diagnosis-observation-or-condition/24584/7",
   "weight": 1
  },
  {
@@ -1056,6 +737,17 @@
   "weight": 1
  },
  {
+  "id": "post:67329",
+  "date": "2025-11-13",
+  "week": "2025-W46",
+  "wg": "openehr-omop",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Invitation to Join the new openEHR & OMOP Workgroup",
+  "url": "https://forums.ohdsi.org/t/invitation-to-join-the-new-openehr-omop-workgroup/24658/1",
+  "weight": 1
+ },
+ {
   "id": "post:67330",
   "date": "2025-11-13",
   "week": "2025-W46",
@@ -1196,17 +888,6 @@
   "type": "reply",
   "title": "CPT4 Jar",
   "url": "https://forums.ohdsi.org/t/cpt4-jar/24674/3",
-  "weight": 1
- },
- {
-  "id": "post:67363",
-  "date": "2025-11-18",
-  "week": "2025-W47",
-  "wg": "oncology",
-  "source": "forums",
-  "type": "reply",
-  "title": "Call for Collaboration: Pediatric Cancer and OMOP Research Workgroup",
-  "url": "https://forums.ohdsi.org/t/call-for-collaboration-pediatric-cancer-and-omop-research-workgroup/24681/2",
   "weight": 1
  },
  {
@@ -1639,6 +1320,17 @@
   "weight": 1
  },
  {
+  "id": "post:67433",
+  "date": "2025-12-04",
+  "week": "2025-W49",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "reply",
+  "title": "Issue in ICD10 to SNOMED mapping (C90)",
+  "url": "https://forums.ohdsi.org/t/issue-in-icd10-to-snomed-mapping-c90/24727/4",
+  "weight": 1
+ },
+ {
   "id": "post:67432",
   "date": "2025-12-04",
   "week": "2025-W49",
@@ -1735,17 +1427,6 @@
   "type": "reply",
   "title": "Modeling samples derived from specimens",
   "url": "https://forums.ohdsi.org/t/modeling-samples-derived-from-specimens/24739/2",
-  "weight": 1
- },
- {
-  "id": "post:67456",
-  "date": "2025-12-08",
-  "week": "2025-W50",
-  "wg": "cdm",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Modeling samples derived from specimens",
-  "url": "https://forums.ohdsi.org/t/modeling-samples-derived-from-specimens/24739/1",
   "weight": 1
  },
  {
@@ -2156,6 +1837,17 @@
   "weight": 1
  },
  {
+  "id": "post:67542",
+  "date": "2026-01-05",
+  "week": "2026-W02",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "OHDSI Context7",
+  "url": "https://forums.ohdsi.org/t/ohdsi-context7/24794/2",
+  "weight": 1
+ },
+ {
   "id": "post:67551",
   "date": "2026-01-06",
   "week": "2026-W02",
@@ -2307,17 +1999,6 @@
   "type": "reply",
   "title": "Episode Event",
   "url": "https://forums.ohdsi.org/t/episode-event/24824/2",
-  "weight": 1
- },
- {
-  "id": "post:67579",
-  "date": "2026-01-10",
-  "week": "2026-W02",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Using OMOP to capture EHR data for both AI and observational research",
-  "url": "https://forums.ohdsi.org/t/using-omop-to-capture-ehr-data-for-both-ai-and-observational-research/24825/2",
   "weight": 1
  },
  {
@@ -2706,6 +2387,17 @@
   "weight": 1
  },
  {
+  "id": "post:67679",
+  "date": "2026-01-28",
+  "week": "2026-W05",
+  "wg": "themis",
+  "source": "forums",
+  "type": "reply",
+  "title": "EHR data to OMOP CDM Work Group",
+  "url": "https://forums.ohdsi.org/t/ehr-data-to-omop-cdm-work-group/5222/268",
+  "weight": 1
+ },
+ {
   "id": "post:67680",
   "date": "2026-01-28",
   "week": "2026-W05",
@@ -2813,17 +2505,6 @@
   "type": "reply",
   "title": "MS Teams/Email issues",
   "url": "https://forums.ohdsi.org/t/ms-teams-email-issues/24851/2",
-  "weight": 1
- },
- {
-  "id": "post:67699",
-  "date": "2026-01-30",
-  "week": "2026-W05",
-  "wg": "community",
-  "source": "forums",
-  "type": "reply",
-  "title": "OHDSI emails and MS Teams tenant",
-  "url": "https://forums.ohdsi.org/t/ohdsi-emails-and-ms-teams-tenant/24895/3",
   "weight": 1
  },
  {
@@ -3212,6 +2893,17 @@
   "weight": 1
  },
  {
+  "id": "post:67758",
+  "date": "2026-02-06",
+  "week": "2026-W06",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "reply",
+  "title": "Help me understand OHDSI's approach to post coordination",
+  "url": "https://forums.ohdsi.org/t/help-me-understand-ohdsis-approach-to-post-coordination/24921/4",
+  "weight": 1
+ },
+ {
   "id": "post:67757",
   "date": "2026-02-06",
   "week": "2026-W06",
@@ -3407,17 +3099,6 @@
   "type": "reply",
   "title": "Resources on SQL Query Standards for OMOP Compliance",
   "url": "https://forums.ohdsi.org/t/resources-on-sql-query-standards-for-omop-compliance/24848/2",
-  "weight": 1
- },
- {
-  "id": "post:67795",
-  "date": "2026-02-12",
-  "week": "2026-W07",
-  "wg": "gaia-genai",
-  "source": "forums",
-  "type": "reply",
-  "title": "Seeking input on services that the OHDSI Study Agent will provide",
-  "url": "https://forums.ohdsi.org/t/seeking-input-on-services-that-the-ohdsi-study-agent-will-provide/24890/7",
   "weight": 1
  },
  {
@@ -3795,6 +3476,17 @@
   "weight": 1
  },
  {
+  "id": "post:67887",
+  "date": "2026-02-20",
+  "week": "2026-W08",
+  "wg": "cdm",
+  "source": "forums",
+  "type": "reply",
+  "title": "How to record multiple equally granular location values?",
+  "url": "https://forums.ohdsi.org/t/how-to-record-multiple-equally-granular-location-values/25000/2",
+  "weight": 1
+ },
+ {
   "id": "post:67883",
   "date": "2026-02-20",
   "week": "2026-W08",
@@ -3968,17 +3660,6 @@
   "type": "reply",
   "title": "How do I capture my derivation of a patient's age from their self reported start date of alcohol consumption?",
   "url": "https://forums.ohdsi.org/t/how-do-i-capture-my-derivation-of-a-patients-age-from-their-self-reported-start-date-of-alcohol-consumption/25032/2",
-  "weight": 1
- },
- {
-  "id": "post:67922",
-  "date": "2026-02-26",
-  "week": "2026-W09",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "How do I capture my derivation of a patient's age from their self reported start date of alcohol consumption?",
-  "url": "https://forums.ohdsi.org/t/how-do-i-capture-my-derivation-of-a-patients-age-from-their-self-reported-start-date-of-alcohol-consumption/25032/1",
   "weight": 1
  },
  {
@@ -4367,6 +4048,17 @@
   "weight": 1
  },
  {
+  "id": "post:67989",
+  "date": "2026-03-09",
+  "week": "2026-W11",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Mapping an ATC4 drug, when only the ATC4 code is present in the source data",
+  "url": "https://forums.ohdsi.org/t/mapping-an-atc4-drug-when-only-the-atc4-code-is-present-in-the-source-data/25078/1",
+  "weight": 1
+ },
+ {
   "id": "post:67992",
   "date": "2026-03-09",
   "week": "2026-W11",
@@ -4463,17 +4155,6 @@
   "type": "reply",
   "title": "HADES development announcements",
   "url": "https://forums.ohdsi.org/t/hades-development-announcements/12293/329",
-  "weight": 1
- },
- {
-  "id": "post:68017",
-  "date": "2026-03-12",
-  "week": "2026-W11",
-  "wg": "cdm",
-  "source": "forums",
-  "type": "reply",
-  "title": "Why varchar(1) for boolean data types in tables like RELATIONSHIP?",
-  "url": "https://forums.ohdsi.org/t/why-varchar-1-for-boolean-data-types-in-tables-like-relationship/25095/2",
   "weight": 1
  },
  {
@@ -4851,6 +4532,17 @@
   "weight": 1
  },
  {
+  "id": "post:68107",
+  "date": "2026-03-28",
+  "week": "2026-W13",
+  "wg": "gaia-genai",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "OHDSI StudyAgent dockerized",
+  "url": "https://forums.ohdsi.org/t/ohdsi-studyagent-dockerized/25160/1",
+  "weight": 1
+ },
+ {
   "id": "post:68105",
   "date": "2026-03-28",
   "week": "2026-W13",
@@ -5013,17 +4705,6 @@
   "type": "reply",
   "title": "Guidance on Mapping Source “Observation” Visits to visit_concept_id in OMOP CDM",
   "url": "https://forums.ohdsi.org/t/guidance-on-mapping-source-observation-visits-to-visit-concept-id-in-omop-cdm/25166/4",
-  "weight": 1
- },
- {
-  "id": "post:68133",
-  "date": "2026-03-31",
-  "week": "2026-W14",
-  "wg": "cdm-vocabulary",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Missing NDC code for COVID-19 Home Test Kits",
-  "url": "https://forums.ohdsi.org/t/missing-ndc-code-for-covid-19-home-test-kits/25174/1",
   "weight": 1
  },
  {
@@ -5533,6 +5214,17 @@
   "weight": 1
  },
  {
+  "id": "post:68217",
+  "date": "2026-04-16",
+  "week": "2026-W16",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "APAC-VALUE Study: A global characterization of VALproate Utilization and Exposure",
+  "url": "https://forums.ohdsi.org/t/apac-value-study-a-global-characterization-of-valproate-utilization-and-exposure/25236/1",
+  "weight": 1
+ },
+ {
   "id": "post:68219",
   "date": "2026-04-16",
   "week": "2026-W16",
@@ -5684,17 +5376,6 @@
   "type": "reply",
   "title": "Welcome to OHDSI! - Please introduce yourself",
   "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1061",
-  "weight": 1
- },
- {
-  "id": "post:68242",
-  "date": "2026-04-20",
-  "week": "2026-W17",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Welcome to OHDSI! - Please introduce yourself",
-  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1060",
   "weight": 1
  },
  {
@@ -5984,6 +5665,17 @@
   "weight": 1
  },
  {
+  "id": "post:68319",
+  "date": "2026-04-28",
+  "week": "2026-W18",
+  "wg": "education",
+  "source": "forums",
+  "type": "reply",
+  "title": "Looking for synthetic datasets that have been used for tool tutorials",
+  "url": "https://forums.ohdsi.org/t/looking-for-synthetic-datasets-that-have-been-used-for-tool-tutorials/25293/4",
+  "weight": 1
+ },
+ {
   "id": "post:68317",
   "date": "2026-04-28",
   "week": "2026-W18",
@@ -6157,17 +5849,6 @@
   "type": "topic_created",
   "title": "Job Opportunity: Senior Scientist, Translational Genetics & Real-World Evidence – Arrowhead Pharmaceuticals",
   "url": "https://forums.ohdsi.org/t/job-opportunity-senior-scientist-translational-genetics-real-world-evidence-arrowhead-pharmaceuticals/25328/1",
-  "weight": 1
- },
- {
-  "id": "post:68375",
-  "date": "2026-05-05",
-  "week": "2026-W19",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Realizing the dream of evidence at scale",
-  "url": "https://forums.ohdsi.org/t/realizing-the-dream-of-evidence-at-scale/25254/9",
   "weight": 1
  },
  {
@@ -6545,6 +6226,17 @@
   "weight": 1
  },
  {
+  "id": "post:68448",
+  "date": "2026-05-15",
+  "week": "2026-W20",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Professional opportunities available within the OHDSI community",
+  "url": "https://forums.ohdsi.org/t/professional-opportunities-available-within-the-ohdsi-community/650/63",
+  "weight": 1
+ },
+ {
   "id": "post:68446",
   "date": "2026-05-15",
   "week": "2026-W20",
@@ -6696,17 +6388,6 @@
   "type": "topic_created",
   "title": "Representing germline & somatic variants in OMOP — who's actively using the Genomic CDM extension?",
   "url": "https://forums.ohdsi.org/t/representing-germline-somatic-variants-in-omop-whos-actively-using-the-genomic-cdm-extension/25398/1",
-  "weight": 1
- },
- {
-  "id": "post:68485",
-  "date": "2026-05-25",
-  "week": "2026-W22",
-  "wg": "vaccine-vocabulary",
-  "source": "forums",
-  "type": "reply",
-  "title": "Possible minor glitch in CVX data?",
-  "url": "https://forums.ohdsi.org/t/possible-minor-glitch-in-cvx-data/25403/2",
   "weight": 1
  },
  {
@@ -7106,6 +6787,17 @@
   "weight": 1
  },
  {
+  "id": "post:68543",
+  "date": "2026-05-31",
+  "week": "2026-W22",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Introduction Erik Koning ",
+  "url": "https://forums.ohdsi.org/t/introduction-erik-koning/25432/1",
+  "weight": 1
+ },
+ {
   "id": "post:68549",
   "date": "2026-06-01",
   "week": "2026-W23",
@@ -7257,17 +6949,6 @@
   "type": "reply",
   "title": "Defining encounter-level visit grain from claims with inconsistent place-of-service and nested detail lines",
   "url": "https://forums.ohdsi.org/t/defining-encounter-level-visit-grain-from-claims-with-inconsistent-place-of-service-and-nested-detail-lines/25226/6",
-  "weight": 1
- },
- {
-  "id": "post:68575",
-  "date": "2026-06-05",
-  "week": "2026-W23",
-  "wg": "cdm",
-  "source": "forums",
-  "type": "reply",
-  "title": "Defining encounter-level visit grain from claims with inconsistent place-of-service and nested detail lines",
-  "url": "https://forums.ohdsi.org/t/defining-encounter-level-visit-grain-from-claims-with-inconsistent-place-of-service-and-nested-detail-lines/25226/5",
   "weight": 1
  },
  {
@@ -7700,6 +7381,17 @@
   "weight": 1
  },
  {
+  "id": "post:68698",
+  "date": "2026-06-22",
+  "week": "2026-W26",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Seeking guidance on OMOP CDM data access for LVAD cohort feasibility",
+  "url": "https://forums.ohdsi.org/t/seeking-guidance-on-omop-cdm-data-access-for-lvad-cohort-feasibility/25535/2",
+  "weight": 1
+ },
+ {
   "id": "post:68708",
   "date": "2026-06-23",
   "week": "2026-W26",
@@ -7829,17 +7521,6 @@
   "type": "reply",
   "title": "Flat OMOP, would love your opinions",
   "url": "https://forums.ohdsi.org/t/flat-omop-would-love-your-opinions/25562/2",
-  "weight": 1
- },
- {
-  "id": "post:68731",
-  "date": "2026-06-29",
-  "week": "2026-W27",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Flat OMOP, would love your opinions",
-  "url": "https://forums.ohdsi.org/t/flat-omop-would-love-your-opinions/25562/1",
   "weight": 1
  },
  {
@@ -8184,6 +7865,17 @@
   "weight": 1
  },
  {
+  "id": "post:68828",
+  "date": "2026-07-09",
+  "week": "2026-W28",
+  "wg": "hades",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "[New Publication in JAMIA Open] THESEUS: An AI Agent for Automating Executable Strategus R Scripts from Free-Text Study Designs",
+  "url": "https://forums.ohdsi.org/t/new-publication-in-jamia-open-theseus-an-ai-agent-for-automating-executable-strategus-r-scripts-from-free-text-study-designs/25637/1",
+  "weight": 1
+ },
+ {
   "id": "post:68823",
   "date": "2026-07-09",
   "week": "2026-W28",
@@ -8357,17 +8049,6 @@
   "type": "reply",
   "title": "Exploring Malloy + OMOP",
   "url": "https://forums.ohdsi.org/t/exploring-malloy-omop/25528/4",
-  "weight": 1
- },
- {
-  "id": "post:68888",
-  "date": "2026-07-20",
-  "week": "2026-W30",
-  "wg": "community",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Weekly OHDSI Digest - July 20, 2026",
-  "url": "https://forums.ohdsi.org/t/weekly-ohdsi-digest-july-20-2026/25682/1",
   "weight": 1
  },
  {
@@ -8778,6 +8459,17 @@
   "weight": 1
  },
  {
+  "id": "post:68969",
+  "date": "2026-07-31",
+  "week": "2026-W31",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Literature/examples on integrating and validating two independently-OMOP'd datasets?",
+  "url": "https://forums.ohdsi.org/t/literature-examples-on-integrating-and-validating-two-independently-omopd-datasets/25689/4",
+  "weight": 1
+ },
+ {
   "id": "post:68972",
   "date": "2026-08-01",
   "week": "2026-W31",
@@ -8896,17 +8588,6 @@
   "type": "topic_created",
   "title": "Measurements for missing precoordinated terms",
   "url": "https://forums.ohdsi.org/t/measurements-for-missing-precoordinated-terms/25754/1",
-  "weight": 1
- },
- {
-  "id": "post:68996",
-  "date": "2026-08-06",
-  "week": "2026-W32",
-  "wg": "community",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Less than 15 guestrooms left at the Hyatt in the OHDSI room block- Book now!",
-  "url": "https://forums.ohdsi.org/t/less-than-15-guestrooms-left-at-the-hyatt-in-the-ohdsi-room-block-book-now/25759/1",
   "weight": 1
  },
  {
@@ -9427,6 +9108,17 @@
   "weight": 1
  },
  {
+  "id": "post:69075",
+  "date": "2026-08-24",
+  "week": "2026-W35",
+  "wg": "regional",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Welcome to 2026 OHDSI APAC Symposium!",
+  "url": "https://forums.ohdsi.org/t/welcome-to-2026-ohdsi-apac-symposium/25822/1",
+  "weight": 1
+ },
+ {
   "id": "post:69077",
   "date": "2026-08-24",
   "week": "2026-W35",
@@ -9479,17 +9171,6 @@
   "type": "topic_created",
   "title": "Exhibit at the 2026 OHDSI Global Symposium! a few spots left!",
   "url": "https://forums.ohdsi.org/t/exhibit-at-the-2026-ohdsi-global-symposium-a-few-spots-left/25844/1",
-  "weight": 1
- },
- {
-  "id": "post:69104",
-  "date": "2026-08-25",
-  "week": "2026-W35",
-  "wg": "community",
-  "source": "forums",
-  "type": "topic_created",
-  "title": "Nominate a community member for a Titan Award!",
-  "url": "https://forums.ohdsi.org/t/nominate-a-community-member-for-a-titan-award/25842/1",
   "weight": 1
  },
  {
@@ -9856,6 +9537,17 @@
   "weight": 1
  },
  {
+  "id": "post:69210",
+  "date": "2026-09-01",
+  "week": "2026-W36",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "LOINC 2.83 changes and Athena/OMOP impacts",
+  "url": "https://forums.ohdsi.org/t/loinc-2-83-changes-and-athena-omop-impacts/25905/1",
+  "weight": 1
+ },
+ {
   "id": "post:69219",
   "date": "2026-09-02",
   "week": "2026-W36",
@@ -9985,17 +9677,6 @@
   "type": "topic_created",
   "title": "Introducing the Custom Vocabulary Browser: exploring OMOP-compatible concepts beyond Athena",
   "url": "https://forums.ohdsi.org/t/introducing-the-custom-vocabulary-browser-exploring-omop-compatible-concepts-beyond-athena/25942/1",
-  "weight": 1
- },
- {
-  "id": "post:69264",
-  "date": "2026-09-08",
-  "week": "2026-W37",
-  "wg": "cdm-vocabulary",
-  "source": "forums",
-  "type": "reply",
-  "title": "Introducing the Custom Vocabulary Browser: exploring OMOP-compatible concepts beyond Athena",
-  "url": "https://forums.ohdsi.org/t/introducing-the-custom-vocabulary-browser-exploring-omop-compatible-concepts-beyond-athena/25942/2",
   "weight": 1
  },
  {
@@ -10406,6 +10087,17 @@
   "weight": 1
  },
  {
+  "id": "post:69388",
+  "date": "2026-09-22",
+  "week": "2026-W39",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "reply",
+  "title": "Is Synthea procedures.csv mapping to multiple OMOP tables  expected under domain-driven ETL?",
+  "url": "https://forums.ohdsi.org/t/is-synthea-procedures-csv-mapping-to-multiple-omop-tables-expected-under-domain-driven-etl/26001/3",
+  "weight": 1
+ },
+ {
   "id": "post:69392",
   "date": "2026-09-23",
   "week": "2026-W39",
@@ -10557,17 +10249,6 @@
   "type": "topic_created",
   "title": "Register for the global symposium and tutorials- less than a month away",
   "url": "https://forums.ohdsi.org/t/register-for-the-global-symposium-and-tutorials-less-than-a-month-away/26057/1",
-  "weight": 1
- },
- {
-  "id": "post:69429",
-  "date": "2026-09-26",
-  "week": "2026-W39",
-  "wg": "regional",
-  "source": "forums",
-  "type": "reply",
-  "title": "OHDSI Boston Node",
-  "url": "https://forums.ohdsi.org/t/ohdsi-boston-node/25954/6",
   "weight": 1
  },
  {
@@ -10912,6 +10593,17 @@
   "weight": 1
  },
  {
+  "id": "post:69491",
+  "date": "2026-10-01",
+  "week": "2026-W40",
+  "wg": "themis",
+  "source": "forums",
+  "type": "reply",
+  "title": "EHR data to OMOP CDM Work Group",
+  "url": "https://forums.ohdsi.org/t/ehr-data-to-omop-cdm-work-group/5222/275",
+  "weight": 1
+ },
+ {
   "id": "post:69482",
   "date": "2026-10-01",
   "week": "2026-W40",
@@ -11162,17 +10854,6 @@
   "type": "reply",
   "title": "Welcome to OHDSI! - Please introduce yourself",
   "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1102",
-  "weight": 1
- },
- {
-  "id": "post:69541",
-  "date": "2026-10-07",
-  "week": "2026-W41",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Welcome to OHDSI! - Please introduce yourself",
-  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1101",
   "weight": 1
  },
  {
@@ -11451,6 +11132,17 @@
   "weight": 1
  },
  {
+  "id": "post:69643",
+  "date": "2026-10-11",
+  "week": "2026-W41",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Welcome to OHDSI! - Please introduce yourself",
+  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1129",
+  "weight": 1
+ },
+ {
   "id": "post:69640",
   "date": "2026-10-11",
   "week": "2026-W41",
@@ -11646,17 +11338,6 @@
   "type": "reply",
   "title": "Fact_relationship.relationship_concept_id (table fact_relationship revisited in 2026)",
   "url": "https://forums.ohdsi.org/t/fact-relationship-relationship-concept-id-table-fact-relationship-revisited-in-2026/26074/6",
-  "weight": 1
- },
- {
-  "id": "post:69671",
-  "date": "2026-10-13",
-  "week": "2026-W42",
-  "wg": "unassigned",
-  "source": "forums",
-  "type": "reply",
-  "title": "Guidance on how to map multiple alternative causes of death",
-  "url": "https://forums.ohdsi.org/t/guidance-on-how-to-map-multiple-alternative-causes-of-death/25237/4",
   "weight": 1
  },
  {
@@ -12056,6 +11737,17 @@
   "weight": 1
  },
  {
+  "id": "post:69838",
+  "date": "2026-11-02",
+  "week": "2026-W45",
+  "wg": "gis",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Adding LSOA to OMOP",
+  "url": "https://forums.ohdsi.org/t/adding-lsoa-to-omop/26351/1",
+  "weight": 1
+ },
+ {
   "id": "post:69840",
   "date": "2026-11-02",
   "week": "2026-W45",
@@ -12210,6 +11902,17 @@
   "weight": 1
  },
  {
+  "id": "post:69881",
+  "date": "2026-11-07",
+  "week": "2026-W45",
+  "wg": "data-quality",
+  "source": "forums",
+  "type": "reply",
+  "title": "Running ACHILLES with large postgres OMOP database",
+  "url": "https://forums.ohdsi.org/t/running-achilles-with-large-postgres-omop-database/26045/3",
+  "weight": 1
+ },
+ {
   "id": "post:69879",
   "date": "2026-11-07",
   "week": "2026-W45",
@@ -12218,6 +11921,369 @@
   "type": "reply",
   "title": "Overuse of health care",
   "url": "https://forums.ohdsi.org/t/overuse-of-health-care/22925/4",
+  "weight": 1
+ },
+ {
+  "id": "post:69888",
+  "date": "2026-11-08",
+  "week": "2026-W45",
+  "wg": "atlas-webapi",
+  "source": "forums",
+  "type": "reply",
+  "title": "Atlas/WebAPI 3.0.0 Released",
+  "url": "https://forums.ohdsi.org/t/atlas-webapi-3-0-0-released/26228/2",
+  "weight": 1
+ },
+ {
+  "id": "post:69892",
+  "date": "2026-11-08",
+  "week": "2026-W45",
+  "wg": "hades",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Introducing OHDSI Study Studio: sealed result packs for Strategus network studies — feedback and one pilot wanted",
+  "url": "https://forums.ohdsi.org/t/introducing-ohdsi-study-studio-sealed-result-packs-for-strategus-network-studies-feedback-and-one-pilot-wanted/26394/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69891",
+  "date": "2026-11-08",
+  "week": "2026-W45",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Welcome to OHDSI",
+  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi/8/91",
+  "weight": 1
+ },
+ {
+  "id": "post:69897",
+  "date": "2026-11-09",
+  "week": "2026-W46",
+  "wg": "atlas-webapi",
+  "source": "forums",
+  "type": "reply",
+  "title": "Atlas/WebAPI 3.0.0 Released",
+  "url": "https://forums.ohdsi.org/t/atlas-webapi-3-0-0-released/26228/3",
+  "weight": 1
+ },
+ {
+  "id": "post:69899",
+  "date": "2026-11-09",
+  "week": "2026-W46",
+  "wg": "clinical-trials",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "New Type Concept for SDTM table - Seeking community input",
+  "url": "https://forums.ohdsi.org/t/new-type-concept-for-sdtm-table-seeking-community-input/26399/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69896",
+  "date": "2026-11-09",
+  "week": "2026-W46",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "This Week in OHDSI - November 9, 2026",
+  "url": "https://forums.ohdsi.org/t/this-week-in-ohdsi-november-9-2026/26397/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69894",
+  "date": "2026-11-09",
+  "week": "2026-W46",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Welcome to OHDSI! - Please introduce yourself",
+  "url": "https://forums.ohdsi.org/t/welcome-to-ohdsi-please-introduce-yourself/704/1137",
+  "weight": 1
+ },
+ {
+  "id": "post:69895",
+  "date": "2026-11-09",
+  "week": "2026-W46",
+  "wg": "vaccine-vocabulary",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "How to map an investigational personalized RNA vaccine in OMOP",
+  "url": "https://forums.ohdsi.org/t/how-to-map-an-investigational-personalized-rna-vaccine-in-omop/26396/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69898",
+  "date": "2026-11-09",
+  "week": "2026-W46",
+  "wg": "vaccine-vocabulary",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "How to map and investigational personalized mRNA vaccine in OMOP",
+  "url": "https://forums.ohdsi.org/t/how-to-map-and-investigational-personalized-mrna-vaccine-in-omop/26398/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69904",
+  "date": "2026-11-11",
+  "week": "2026-W46",
+  "wg": "atlas-webapi",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "How to model age in months in cohorts",
+  "url": "https://forums.ohdsi.org/t/how-to-model-age-in-months-in-cohorts/26404/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69907",
+  "date": "2026-11-11",
+  "week": "2026-W46",
+  "wg": "gis",
+  "source": "forums",
+  "type": "reply",
+  "title": "Adding LSOA to OMOP",
+  "url": "https://forums.ohdsi.org/t/adding-lsoa-to-omop/26351/2",
+  "weight": 1
+ },
+ {
+  "id": "post:69910",
+  "date": "2026-11-11",
+  "week": "2026-W46",
+  "wg": "vaccine-vocabulary",
+  "source": "forums",
+  "type": "reply",
+  "title": "How to map and investigational personalized mRNA vaccine in OMOP",
+  "url": "https://forums.ohdsi.org/t/how-to-map-and-investigational-personalized-mrna-vaccine-in-omop/26398/3",
+  "weight": 1
+ },
+ {
+  "id": "post:69905",
+  "date": "2026-11-11",
+  "week": "2026-W46",
+  "wg": "vaccine-vocabulary",
+  "source": "forums",
+  "type": "reply",
+  "title": "How to map and investigational personalized mRNA vaccine in OMOP",
+  "url": "https://forums.ohdsi.org/t/how-to-map-and-investigational-personalized-mrna-vaccine-in-omop/26398/2",
+  "weight": 1
+ },
+ {
+  "id": "post:69921",
+  "date": "2026-11-12",
+  "week": "2026-W46",
+  "wg": "cdm",
+  "source": "forums",
+  "type": "reply",
+  "title": "ICU representation in VISIT_DETAIL: community input needed",
+  "url": "https://forums.ohdsi.org/t/icu-representation-in-visit-detail-community-input-needed/26369/3",
+  "weight": 1
+ },
+ {
+  "id": "post:69917",
+  "date": "2026-11-12",
+  "week": "2026-W46",
+  "wg": "cdm",
+  "source": "forums",
+  "type": "reply",
+  "title": "ICU representation in VISIT_DETAIL: community input needed",
+  "url": "https://forums.ohdsi.org/t/icu-representation-in-visit-detail-community-input-needed/26369/2",
+  "weight": 1
+ },
+ {
+  "id": "post:69919",
+  "date": "2026-11-12",
+  "week": "2026-W46",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Independent Researcher Exploring Anxiety, Autonomic Regulation, and OMOP",
+  "url": "https://forums.ohdsi.org/t/independent-researcher-exploring-anxiety-autonomic-regulation-and-omop/26415/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69923",
+  "date": "2026-11-13",
+  "week": "2026-W46",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "[EDI 어휘] ATHENA EDI(2026-01판)와 심평원 EDI-SNOMED CT 매핑 전 공개분(2021~2025) 대조 — 2022~2024 공개분 미반영",
+  "url": "https://forums.ohdsi.org/t/edi-athena-edi-2026-01-edi-snomed-ct-2021-2025-2022-2024/26418/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69931",
+  "date": "2026-11-15",
+  "week": "2026-W46",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Community Survey: Does data standardization still matter in the era of foundation models?",
+  "url": "https://forums.ohdsi.org/t/community-survey-does-data-standardization-still-matter-in-the-era-of-foundation-models/25542/2",
+  "weight": 1
+ },
+ {
+  "id": "post:69941",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "reply",
+  "title": "Methodology for Converting Source-To-Concept-Map to Concept/Concept_Relationship (2 billionaires)",
+  "url": "https://forums.ohdsi.org/t/methodology-for-converting-source-to-concept-map-to-concept-concept-relationship-2-billionaires/21190/12",
+  "weight": 1
+ },
+ {
+  "id": "post:69939",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "community",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Weekly OHDSI Digest - November 16, 2026",
+  "url": "https://forums.ohdsi.org/t/weekly-ohdsi-digest-november-16-2026/26429/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69940",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "data-quality",
+  "source": "forums",
+  "type": "reply",
+  "title": "Open-source extension to the OHDSI DQD for row-level data quality checking",
+  "url": "https://forums.ohdsi.org/t/open-source-extension-to-the-ohdsi-dqd-for-row-level-data-quality-checking/26246/12",
+  "weight": 1
+ },
+ {
+  "id": "post:69938",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Error in data.ohdsi.org, full disk",
+  "url": "https://forums.ohdsi.org/t/error-in-data-ohdsi-org-full-disk/26427/5",
+  "weight": 1
+ },
+ {
+  "id": "post:69937",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Error in data.ohdsi.org, full disk",
+  "url": "https://forums.ohdsi.org/t/error-in-data-ohdsi-org-full-disk/26427/4",
+  "weight": 1
+ },
+ {
+  "id": "post:69936",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Error in data.ohdsi.org, full disk",
+  "url": "https://forums.ohdsi.org/t/error-in-data-ohdsi-org-full-disk/26427/3",
+  "weight": 1
+ },
+ {
+  "id": "post:69935",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "reply",
+  "title": "Error in data.ohdsi.org, full disk",
+  "url": "https://forums.ohdsi.org/t/error-in-data-ohdsi-org-full-disk/26427/2",
+  "weight": 1
+ },
+ {
+  "id": "post:69933",
+  "date": "2026-11-16",
+  "week": "2026-W47",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Error in data.ohdsi.org, full disk",
+  "url": "https://forums.ohdsi.org/t/error-in-data-ohdsi-org-full-disk/26427/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69949",
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "atlas-webapi",
+  "source": "forums",
+  "type": "reply",
+  "title": "Atlas/WebAPI 3.0.0 Released",
+  "url": "https://forums.ohdsi.org/t/atlas-webapi-3-0-0-released/26228/5",
+  "weight": 1
+ },
+ {
+  "id": "post:69945",
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "atlas-webapi",
+  "source": "forums",
+  "type": "reply",
+  "title": "Atlas/WebAPI 3.0.0 Released",
+  "url": "https://forums.ohdsi.org/t/atlas-webapi-3-0-0-released/26228/4",
+  "weight": 1
+ },
+ {
+  "id": "post:69950",
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "cdm-vocabulary",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "EDI: Maps-to coverage vs. HIRA’s official EDI–SNOMED CT mapping tables (2021–2025)",
+  "url": "https://forums.ohdsi.org/t/edi-maps-to-coverage-vs-hira-s-official-edi-snomed-ct-mapping-tables-2021-2025/26435/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69942",
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "data-quality",
+  "source": "forums",
+  "type": "reply",
+  "title": "Open-source extension to the OHDSI DQD for row-level data quality checking",
+  "url": "https://forums.ohdsi.org/t/open-source-extension-to-the-ohdsi-dqd-for-row-level-data-quality-checking/26246/13",
+  "weight": 1
+ },
+ {
+  "id": "post:69943",
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "data-quality",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Request for Collaborators: Data Quality Tools Characterisation",
+  "url": "https://forums.ohdsi.org/t/request-for-collaborators-data-quality-tools-characterisation/26430/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69944",
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "data-quality",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Request for Collaborators: Study on Data Quality Tools",
+  "url": "https://forums.ohdsi.org/t/request-for-collaborators-study-on-data-quality-tools/26431/1",
+  "weight": 1
+ },
+ {
+  "id": "post:69946",
+  "date": "2026-11-17",
+  "week": "2026-W47",
+  "wg": "unassigned",
+  "source": "forums",
+  "type": "topic_created",
+  "title": "Extending OMOP for Physiological Time-Series Research and Inflammation-Related Mental Health",
+  "url": "https://forums.ohdsi.org/t/extending-omop-for-physiological-time-series-research-and-inflammation-related-mental-health/26432/1",
   "weight": 1
  }
 ]

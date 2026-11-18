@@ -14,7 +14,7 @@
 <title> OHDSI Working Group Activities</title>
 
 <script src="site_libs/header-attrs-2.32/header-attrs.js"></script>
-<script src="site_libs/jquery-3.7.1/jquery-3.7.1.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -35,6 +35,7 @@
 <link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+<link rel="alternate" type="application/rss+xml" title="OHDSI working groups: weekly digest" href="data/digest.xml">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -250,28 +251,49 @@ $(document).ready(function () {
   <a href="index.html">
     <span class="fa fa-th"></span>
      
-    Heatmap
+    Overview
   </a>
 </li>
 <li>
-  <a href="wg.html">
+  <a href="groups.html">
     <span class="fa fa-users"></span>
      
-    Working Group
+    Groups
   </a>
 </li>
 <li>
-  <a href="collab.html">
+  <a href="projects.html">
+    <span class="fa fa-cubes"></span>
+     
+    Projects
+  </a>
+</li>
+<li>
+  <a href="topics.html">
+    <span class="fa fa-tags"></span>
+     
+    Topics
+  </a>
+</li>
+<li>
+  <a href="connections.html">
     <span class="fa fa-handshake-o"></span>
      
-    Collaboration
+    Connections
+  </a>
+</li>
+<li>
+  <a href="activity.html">
+    <span class="fa fa-calendar"></span>
+     
+    Activity
   </a>
 </li>
 <li>
   <a href="about.html">
     <span class="fa fa-info-circle"></span>
      
-    About the data
+    About
   </a>
 </li>
       </ul>
@@ -297,27 +319,10 @@ Working Group Activities</h1>
 </div>
 
 
-<div id="cross-group-collaboration" class="section level1">
-<h1><strong>Cross-group collaboration</strong></h1>
-<p>Places where two or more working groups seem to be working on the
-same thing, and may benefit from talking to each other. These are leads
-for a conversation, not conclusions. Each one links to the items that
-triggered it, so you can judge for yourself.</p>
-<p id="wga-updated" class="wga-note">
-</p>
-<div id="wga-collab" class="wga">
-Loading collaboration data…
-</div>
-<noscript>
-This page needs JavaScript. The numbers are in
-<a href="data/collab.json">collab.json</a>.
-</noscript>
-<p><br></p>
-<p>See <a href="about.html#cross-group-collaboration">About the data</a>
-for how these are found and what they miss.</p>
-<script src="assets/wga-common.js"></script>
-<script src="assets/collab.js"></script>
-</div>
+<!-- The Collaboration page became Connections in v2; keep old links working. -->
+<meta http-equiv="refresh" content="0; url=connections.html">
+<script>location.replace("connections.html" + location.search + location.hash);</script>
+<p>This page moved to <a href="connections.html">Connections</a>.</p>
 
 
 

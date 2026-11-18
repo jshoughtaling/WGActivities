@@ -1,0 +1,93 @@
+{
+ "generated": "2026-11-18T09:13:58+00:00",
+ "today": "2026-11-18",
+ "data_generated": "2026-11-18T09:13:55+00:00",
+ "overall": "ok",
+ "problems": [],
+ "sources": [
+  {
+   "key": "github",
+   "label": "GitHub",
+   "manual": false,
+   "last_item": "2026-11-18",
+   "age_days": 0,
+   "outcome": "success",
+   "last_success": "2026-11-18T09:13:55+00:00",
+   "status": "ok",
+   "problems": []
+  },
+  {
+   "key": "forums",
+   "label": "Forums",
+   "manual": false,
+   "last_item": "2026-11-17",
+   "age_days": 1,
+   "outcome": "success",
+   "last_success": "2026-11-18T09:13:55+00:00",
+   "status": "ok",
+   "problems": []
+  },
+  {
+   "key": "calls",
+   "label": "Community calls",
+   "manual": false,
+   "last_item": "2026-11-17",
+   "age_days": 1,
+   "outcome": "success",
+   "last_success": "2026-11-18T09:13:55+00:00",
+   "status": "ok",
+   "problems": []
+  },
+  {
+   "key": "conference",
+   "label": "Conference materials",
+   "manual": false,
+   "last_item": "2026-11-13",
+   "age_days": 5,
+   "outcome": "success",
+   "last_success": "2026-11-18T09:13:55+00:00",
+   "status": "ok",
+   "problems": []
+  },
+  {
+   "key": "teams",
+   "label": "MS Teams counts",
+   "manual": true,
+   "last_item": "2026-11-02",
+   "age_days": 16,
+   "outcome": null,
+   "last_success": null,
+   "status": "ok",
+   "problems": []
+  }
+ ],
+ "meetings": {
+  "status": "ok",
+  "source_updated": "2026-11-15",
+  "age_days": 3,
+  "fetched": "2026-11-18T09:13:55+00:00",
+  "last_success": "2026-11-18T09:13:55+00:00",
+  "outcome": "success",
+  "meetings": 45,
+  "upcoming": 42,
+  "unmapped": [
+   "Data2Evidence WG",
+   "M edical Devices WG"
+  ],
+  "problems": []
+ },
+ "config": {
+  "errors": [],
+  "warnings": [
+   "projects.yml: broadsea: 8 of 11 repos are not collected, so their activity is missing (Broadsea is in non_wg.infrastructure (not collected); Broadsea-Hades is in non_wg.infrastructure (not collected); Broadsea-Shiny is in non_wg.infrastructure (not collected); +5 more)",
+   "projects.yml: arachne: no repo is collected, so it will always show no activity (Arachne is in an `also:` list (not collected); ArachneUI is in an `also:` list (not collected); ArachneCentralAPI is in an `also:` list (not collected); +4 more)",
+   "projects.yml: circe (lead atlas-webapi) includes CirceR, which working_groups.yml gives to hades; add hades to contributing_wgs or move the repo",
+   "meetings.json: no working group for Data2Evidence WG; M edical Devices WG (add a pattern to NAME_MAP in scripts/collect/meetings.py or a group to working_groups.yml)",
+   "meetings.json: listed without dates and mapped to no group: Registry WG"
+  ]
+ },
+ "projects": {
+  "multi_repo": 35,
+  "reviewed": 0
+ }
+}
