@@ -3,7 +3,7 @@
   var h = WGA.h;
   var root = document.getElementById("wga-groups");
   if (!root) return;
-  var state = { q: WGA.param("q") || "", sort: WGA.param("sort") || "recent", pick: WGA.param("g") || null, chart: true };
+  var state = { q: WGA.param("q") || "", sort: WGA.param("sort") || "recent", pick: WGA.param("g") || null, view: WGA.param("view") === "chart" ? "chart" : "list" };
   var SORTS = [["recent", "Most active, last 8 weeks"], ["year", "Most active, last 12 months"], ["change", "Biggest rise, last 8 weeks"], ["name", "Name"]];
 
   Promise.all([WGA.loadMany(["data/activity.json", "data/projects.json", "data/topics.json"]), WGA.cal ? WGA.cal.load() : null]).then(function (all) {
@@ -21,26 +21,47 @@
 
   function draw(act, projs, tops, next, noMeet) {
     root.textContent = "";
-    // Effort chart: picking a group here shows only that group's row below.
-    var ef = WGA.effort(act, { picked: state.pick, onPick: function (slug) { state.pick = slug; syncUrl(); fill(); } });
-    var toggle = h("button", { type: "button", class: "wga-linkbtn", text: "Hide chart" });
-    var efBody = h("div", {}, [h("p", { class: "wga-note", style: "margin:0.3em 0 0.8em", text: "One wedge per group. Each source is scored against the other groups on that source, so commit volume does not drown out forums, community calls, the symposium or Teams. Last 12 months. Click a wedge to show only that group's row below." }), ef.el]);
-    toggle.addEventListener("click", function () { state.chart = !state.chart; efBody.style.display = state.chart ? "" : "none"; toggle.textContent = state.chart ? "Hide chart" : "Show chart"; });
-    root.appendChild(h("section", { class: "wga-card" }, [h("div", { class: "wga-card-h" }, [h("h3", { text: "Where each group puts its effort" }), toggle]), efBody]));
-    function syncUrl() { try { history.replaceState(null, "", state.pick ? "?g=" + encodeURIComponent(state.pick) : location.pathname); } catch (e) { /* file:// */ } }
+    // Two views, same pattern as Overview's Grid | Table: the list (default) and the effort chart.
+    // Clicking a wedge switches to the list showing only that group's row.
+    var ef = WGA.effort(act, { picked: state.pick, onPick: function (slug, fromMenu) {
+      if (fromMenu) return;                        // the chart's own menu only highlights
+      state.pick = slug;
+      if (slug) setView("list");
+      syncUrl(); fill();
+    } });
+    var chartBox = h("section", { class: "wga-card" }, [h("p", { class: "wga-note", style: "margin:0 0 0.8em", text: "Where each group puts its effort: one wedge per working group, last 12 months, coloured by source. Click a wedge to see that group's row in the list." }), ef.el]);
+    function syncUrl() {
+      var qs = [state.view === "chart" ? "view=chart" : "", state.pick ? "g=" + encodeURIComponent(state.pick) : ""].filter(Boolean).join("&");
+      try { history.replaceState(null, "", qs ? "?" + qs : location.pathname); } catch (e) { /* file:// */ }
+    }
 
+    var viewSeg = h("div", { class: "wga-seg", role: "group", "aria-label": "View" });
+    [["list", "List"], ["chart", "Chart"]].forEach(function (o) {
+      var b = h("button", { type: "button", text: o[1], "data-v": o[0] });
+      b.addEventListener("click", function () { setView(o[0]); syncUrl(); });
+      viewSeg.appendChild(b);
+    });
     var q = h("input", { type: "search", class: "wga-input", id: "g-q", placeholder: "Filter by name", value: state.q });
     var sort = h("select", { id: "g-sort" }, SORTS.map(function (o) { return h("option", { value: o[0], text: o[1] }); }));
     sort.value = state.sort;
-    root.appendChild(h("div", { class: "wga-filters" }, [
-      h("div", { class: "wga-group" }, [h("label", { for: "g-q", class: "visually-hidden", text: "Filter by name" }), q]),
-      h("div", { class: "wga-group" }, [h("label", { for: "g-sort", text: "Sort" }), sort]),
-    ]));
+    var listCtl = [h("div", { class: "wga-group" }, [h("label", { for: "g-q", class: "visually-hidden", text: "Filter by name" }), q]),
+      h("div", { class: "wga-group" }, [h("label", { for: "g-sort", text: "Sort" }), sort])];
+    root.appendChild(h("div", { class: "wga-filters" }, [h("div", { class: "wga-group" }, [h("span", { class: "wga-label", text: "View" }), viewSeg])].concat(listCtl)));
+    var listBox = h("div");
+    root.appendChild(listBox);
+    root.appendChild(chartBox);
+    function setView(v) {
+      state.view = v;
+      Array.prototype.forEach.call(viewSeg.children, function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-v") === v)); });
+      var c = v === "chart";
+      listBox.style.display = c ? "none" : "";
+      listCtl.forEach(function (x) { x.style.display = c ? "none" : ""; });
+      chartBox.style.display = c ? "" : "none";
+    }
     var pickBar = h("div", { class: "wga-pick" });
-    root.appendChild(pickBar);
     var count = h("p", { class: "wga-note" });
     var list = h("div");
-    root.appendChild(count); root.appendChild(list);
+    listBox.appendChild(pickBar); listBox.appendChild(count); listBox.appendChild(list);
     q.addEventListener("input", function () { state.q = q.value.toLowerCase(); fill(); });
     sort.addEventListener("change", function () { state.sort = sort.value; fill(); });
     var from = act.weeks.length - 26;
@@ -86,7 +107,8 @@
           ];
         }), "No groups match."));
     }
+    setView(state.view);
     fill();
-    root.appendChild(h("p", { class: "wga-note", text: "Strip = activity per week over the last 6 months, all sources. Next meeting = from ohdsi.org's Upcoming Working Group Calls; \"Not listed\" means the group is not on that page. * = not on ohdsi.org's working group list." }));
+    listBox.appendChild(h("p", { class: "wga-note", text: "Strip = activity per week over the last 6 months, all sources. Next meeting = from ohdsi.org's Upcoming Working Group Calls; \"Not listed\" means the group is not on that page. * = not on ohdsi.org's working group list." }));
   }
 })();
