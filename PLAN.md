@@ -87,3 +87,20 @@ repo and forum mappings with the WGs, and decide whether to extend to 24 months.
 - Check on Graph consent status. If it is denied, the Claude-in-Chrome path above is the plan.
 - Confirm with the OHDSI admin that member-level scraping of Teams for counts is acceptable.
 - Pick the final Pages URL and repo settings (Pages source, Action write permissions).
+
+## v2: transparency and collaboration (2026-11-17)
+
+Design and rationale: the wgActivity workspace (`workstreams/expansion/log/2026-11-17-v2-design.md`); UI mockup reviewed first.
+
+- **Three entities, three lenses.** Entities: Group, Project, Topic (each a list and a page). Lenses: the Overview heatmap
+  (rows switch between groups, projects and topics; a group expands into its projects), Connections (network, pair evidence,
+  similar work) and Activity (one item feed; the weekly digest and outputs are presets of it).
+- **One item, counted once** across groups for anything that compares groups (`scripts/lib_items.py`). Per-group
+  counts in `activity.json` are unchanged.
+- **Projects** (`config/projects.yml`, draft): multi-repo projects with a lead group, contributing groups, kind and
+  `extends` (forks or adaptations, shown as opportunities). Other repos are one-repo projects.
+- **Similar work**: named things and two-word phrases found in at least two groups' own items in the last year;
+  pairs that no item names together are flagged "not yet connected".
+- **Outputs**: releases (nightly builds left out), symposium posters, talks, sessions and tutorials.
+- Not yet: compatibility matrices (platform, version pairs, CDM-extension support), curated group facts (leads,
+  meeting times, how to join), people-level views (bridges) — pending a decision on naming individuals.

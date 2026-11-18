@@ -1,5 +1,5 @@
 ---
-title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
+title: "About the data"
 output:
    html_document:
         toc: TRUE
@@ -10,7 +10,18 @@ output:
 
 # **About the data**
 
-This page is a first look at how active each OHDSI working group (WG) has been. It is compiled automatically from public sources, plus a small amount of hand-collected MS Teams counts, and it is refreshed by hand for now (the date on the heatmap page shows the last refresh). It measures visible activity, not the quality or importance of a group's work: a WG that meets weekly and works in Teams will look quiet here.
+This site has two aims: **transparency** (what each OHDSI working group (WG) is doing, and where to find it) and **collaboration** (where groups are working on the same thing and might want to talk). It is compiled automatically from public sources, plus a small amount of hand-collected MS Teams counts, and it is refreshed by hand for now (the Overview page shows the last refresh). It measures visible activity, not the quality or importance of a group's work: a WG that meets weekly and works in Teams will look quiet here.
+
+## **What is on each page**
+
+| Page | What it shows |
+|---|---|
+| [Overview](index.html) | The last complete week at a glance, and a heatmap whose rows can be groups (each expands into its projects), projects or topics. |
+| [Groups](groups.html) | Every working group, then a page per group: projects, outputs and recent activity, who it works with, and opportunities. |
+| [Projects](projects.html) | Software and specifications between a group and its repositories: repos, releases, activity, and which projects adapt which. |
+| [Topics](topics.html) | Subjects that cut across groups, over time and at each Global Symposium, plus shared terms not yet curated. |
+| [Connections](connections.html) | A network of groups with evidence of shared work, the evidence behind each pair, and similar work in different groups. |
+| [Activity](activity.html) | One feed of items: a week's digest, or outputs over the last year. Download as CSV, copy as a forum post, or follow the RSS feed. |
 
 ## **What each source counts**
 
@@ -29,13 +40,23 @@ This page is a first look at how active each OHDSI working group (WG) has been. 
 - **The last column** is the current week and is still in progress.
 - **Status** compares the last 8 weeks with the weeks before them: *new* (first activity in the last 8 weeks), *active*, *quiet* (activity earlier, none recently) or *dormant* (none in the range).
 
-## **Cross-group collaboration**
+## **Items, projects, topics and outputs**
 
-The [Collaboration](collab.html) page flags places where groups may want to talk. It uses three signals, all from item titles and links (never Teams content):
+- **One item, counted once.** Collectors file an item under every group it names, which is right for each group's own counts. Pages that compare across groups (digests, outputs, topics, similar work) merge those copies, so a poster that names three groups is one item there. A pull request that is opened and later merged stays two items.
+- **Projects** group repositories into the things people know by name (Gaia, Strategus, ATLAS / WebAPI). Multi-repo projects are listed in `config/projects.yml`, a first draft for maintainers to correct; every other repository is a project of its own, under the group it is assigned to. A project can record that it *extends* another (for example, copies of HADES packages that read the GIS extension tables): that is shown as an opportunity, because support upstream would help both. Projects are counted from GitHub only.
+- **Topics** are the curated keyword lists in `config/collab_themes.yml`. An item counts for a topic when its title matches; commits and comments are left out, and items tagged to more than four groups do not count toward any one group.
+- **Outputs** are releases (nightly builds and snapshots left out), symposium posters and talks, working-group sessions and tutorials.
+- **Compatibility** (which databases, CDM versions and CDM extensions a project supports) is not collected yet.
+
+## **Connections and similar work**
+
+The [Connections](connections.html) page flags places where groups may want to talk. Pairs of groups use three signals, all from item titles and links (never Teams content):
 
 - **Named together:** a forum topic, pull request, issue, call, showcase entry, tutorial or session whose title names a second group as well as the one it is filed under. "Workgroup Updates" roundup calls are skipped.
 - **Shared repository:** a repository that is one group's own and is also listed as shared with another group.
 - **Shared topic:** a topic (generative AI, FHIR, phenotypes and so on, listed in `config/collab_themes.yml`) that titles from two or more groups match. "Not yet linked" pairs are groups active on a topic with no item naming both.
+
+**Similar work** looks for the same subject in different groups' items over the last year: named things (FHIR, DuckDB, BigQuery, CDM v5.5) and two-word phrases ("episode table", "incidence rate") that appear in issue, pull request, forum, call and symposium titles. A subject is listed when at least two groups each have an item of their own about it, and pairs that no item names together are marked "not yet connected"; those are drawn as dashed orange lines in the network.
 
 Matching is by keyword, so some leads are false alarms (a word like "vocabulary" in an ATLAS pull request), and groups that collaborate without writing it in a title are missed. The topic list is a first draft for the groups to correct.
 
@@ -48,4 +69,4 @@ Matching is by keyword, so some leads are false alarms (a word like "vocabulary"
 
 ## **Source code and corrections**
 
-Collectors, matching rules and this site are in [jshoughtaling/WGActivities](https://github.com/jshoughtaling/WGActivities). Mapping rules live in `config/working_groups.yml` and `config/forum_mapping.yml`; if a repository or topic is assigned to the wrong group, open an issue or a pull request there.
+Collectors, matching rules and this site are in [jshoughtaling/WGActivities](https://github.com/jshoughtaling/WGActivities). Mapping rules live in `config/working_groups.yml`, `config/forum_mapping.yml`, `config/projects.yml` and `config/collab_themes.yml`; if a repository, project or topic is assigned to the wrong group, open an issue or a pull request there.

@@ -1,21 +1,29 @@
-/* Chart tokens. The host site (cosmo) is light-only, so the charts are too. */
+/* Tokens. The host site (cosmo) is light-only, so the charts are too. v2 palette: cool ink, one blue accent,
+   one warm accent reserved for collaboration opportunities. */
 :root, .wga {
-  --surface: #fcfcfb;
-  --page: #f9f9f7;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --ink-muted: #898781;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --zero: #f0efec;
-  --ring: rgba(11, 11, 11, 0.10);
+  --surface: #ffffff;
+  --page: #f6f7f9;
+  --ink: #14202e;
+  --ink-2: #3b4655;
+  --ink-muted: #5b6675;
+  --grid: #e3e6eb;
+  --axis: #cdd3db;
+  --zero: #eef1f5;
+  --ring: rgba(20, 32, 46, 0.10);
+  --accent: #1f5fbf;
+  --accent-ink: #163f80;
+  --accent-soft: #e8f0fb;
+  --warm: #c4561a;
+  --warm-ink: #8a3a0e;
+  --warm-soft: #fff6ef;
+  --warm-line: #f2d3bd;
   --s-github: #2a78d6;
   --s-forums: #eb6834;
   --s-calls: #1baf7a;
   --s-conference: #eda100;
   --s-teams: #e87ba4;
 }
-.wga { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.4; color: var(--ink); }
+.wga { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.4; color: var(--ink); }
 .wga * { box-sizing: border-box; }
 .wga a { color: inherit; }
 
@@ -27,21 +35,21 @@
 .wga-seg button { border: 0; background: transparent; padding: 0.3em 0.7em; font: inherit; font-size: 0.85em; color: var(--ink-2); cursor: pointer; border-left: 1px solid var(--grid); }
 .wga-seg button:first-child { border-left: 0; }
 .wga-seg button:hover { background: var(--zero); }
-.wga-seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.wga-seg button[aria-pressed="true"] { background: var(--accent-ink); color: #fff; }
 .wga-seg button:focus-visible, .wga select:focus-visible, .wga input:focus-visible { outline: 2px solid var(--s-github); outline-offset: 1px; }
 .wga select { font: inherit; font-size: 0.85em; padding: 0.3em 0.5em; border: 1px solid var(--axis); border-radius: 6px; background: var(--surface); color: var(--ink); }
 .wga-check { font-size: 0.85em; color: var(--ink-2); display: inline-flex; gap: 0.35em; align-items: center; font-weight: normal; margin: 0; }
 
 /* Stat tiles */
 .wga-tiles { display: flex; flex-wrap: wrap; gap: 0.75em; margin: 0 0 1.25em; }
-.wga-tile { flex: 1 1 11em; border: 1px solid var(--grid); border-radius: 8px; padding: 0.6em 0.9em; background: var(--surface); }
+.wga-tile { flex: 1 1 11em; border: 1px solid var(--grid); border-radius: 10px; padding: 0.6em 0.9em; background: var(--surface); }
 .wga-tile .l { font-size: 0.78em; color: var(--ink-2); }
 .wga-tile .v { font-size: 1.6em; font-weight: 600; line-height: 1.2; }
 .wga-tile .v.long { font-size: 1.05em; line-height: 1.5; padding: 0.2em 0; }
 .wga-tile .n { font-size: 0.78em; color: var(--ink-muted); }
 
 /* Heatmap */
-.wga-card { border: 1px solid var(--grid); border-radius: 8px; background: var(--surface); padding: 1em; margin: 0 0 1em; }
+.wga-card { border: 1px solid var(--grid); border-radius: 12px; background: var(--surface); padding: 1em; margin: 0 0 1em; }
 .hm-scroll { overflow-x: auto; }
 .hm { --label-w: 190px; --meta-w: 92px; min-width: 760px; }   /* px: rows have different font sizes */
 .hm-row { display: grid; grid-template-columns: var(--label-w) repeat(var(--cols), minmax(7px, 1fr)) var(--meta-w); column-gap: 2px; align-items: center; margin-bottom: 2px; }
@@ -120,3 +128,108 @@
 .wga-card details { margin-top: 0.4em; font-size: 0.9em; }
 .wga-card summary { cursor: pointer; color: var(--ink-2); margin-bottom: 0.3em; }
 .wga h3 { margin: 1.2em 0 0.3em; font-size: 1.2em; }
+
+/* ===================== v2: page chrome ===================== */
+body { background: var(--page); color: var(--ink); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+h1, h2, h3, h4, .wga h2, .wga h3 { font-family: "Space Grotesk", Inter, system-ui, sans-serif; letter-spacing: -0.01em; color: var(--ink); }
+h1.title { display: none; }
+body .main-container { max-width: 1240px; }
+.navbar-default { background: #fff; border-color: var(--grid); }
+.navbar-default .navbar-brand { color: var(--ink); font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+.navbar-default .navbar-brand .wga-brand { color: var(--accent); }
+.navbar-default .navbar-nav > li > a { color: var(--ink-2); font-weight: 500; border-radius: 6px; margin: 8px 2px; padding: 7px 12px; }
+.navbar-default .navbar-nav > li > a:hover { color: var(--accent-ink); background: var(--zero); }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus { background: var(--accent-soft); color: var(--accent-ink); }
+a { color: var(--accent); } a:hover { color: var(--accent-ink); }
+.wga-page-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 0.75em; margin: 0.4em 0 1em; }
+.wga-page-h h1 { margin: 0; font-size: 1.9em; font-weight: 600; }
+.wga-page-h .sub { margin: 0.25em 0 0; font-size: 0.92em; }
+.wga-crumb { font-size: 0.82em; color: var(--ink-muted); margin-bottom: 0.4em; }
+.wga-crumb a { color: var(--accent); }
+
+/* layout */
+.wga-cols { display: flex; flex-wrap: wrap; gap: 1.25em; align-items: flex-start; }
+.wga-cols > .main { flex: 999 1 620px; min-width: 0; }
+.wga-cols > .side { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 1em; }
+.wga-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.85em; }
+.wga-card.tight { padding: 0.9em 1em; }
+.wga-card h3 { margin: 0 0 0.6em; font-size: 1.1em; font-weight: 600; }
+.wga-card.warm { background: var(--warm-soft); border-color: var(--warm-line); }
+.wga-card.warm h3, .wga-card.warm .warm-ink { color: var(--warm-ink); }
+.wga-row-h { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75em; flex-wrap: wrap; }
+
+/* chips and badges */
+.wga-badge { display: inline-block; font-size: 0.72em; font-weight: 600; padding: 0.2em 0.65em; border-radius: 999px; background: var(--zero); color: var(--ink-2); white-space: nowrap; vertical-align: middle; }
+.wga-badge.blue { background: var(--accent-soft); color: var(--accent-ink); }
+.wga-badge.warm { background: #fff0e5; color: var(--warm-ink); }
+.wga-chip.warm { border-color: var(--warm-line); color: var(--warm-ink); background: #fff; }
+.wga-tile.warm { background: var(--warm-soft); border-color: var(--warm-line); }
+.wga-tile.warm .l, .wga-tile.warm .v, .wga-tile.warm .n, .wga-tile.warm a { color: var(--warm-ink); }
+
+/* link cards (project cards, group cards, similar-work cards) */
+a.wga-lcard, .wga-lcard { display: flex; flex-direction: column; gap: 0.4em; background: var(--surface); border: 1px solid var(--grid); border-radius: 10px; padding: 0.85em 1em; color: var(--ink); text-decoration: none; }
+a.wga-lcard:hover { border-color: var(--axis); box-shadow: 0 1px 4px var(--ring); text-decoration: none; color: var(--ink); }
+.wga-lcard .t { font-weight: 600; font-size: 0.98em; display: flex; justify-content: space-between; gap: 0.5em; align-items: baseline; }
+.wga-lcard .m { font-size: 0.8em; color: var(--ink-muted); }
+.wga-lcard .d { font-size: 0.82em; color: var(--ink-2); }
+.wga-mini { margin: 0; padding: 0; list-style: none; font-size: 0.82em; }
+.wga-mini li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 0.6em; padding: 0.25em 0; border-top: 1px solid var(--grid); }
+.wga-mini li:first-child { border-top: 0; }
+.wga-mini .g { font-weight: 600; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wga-mini a { color: var(--ink); }
+
+/* strip: a one-row mini heatmap */
+.wga-strip { display: grid; grid-template-columns: repeat(var(--n, 26), minmax(0, 1fr)); gap: 2px; }
+.wga-strip span { height: 12px; border-radius: 2px; background: var(--zero); }
+
+/* heatmap extras */
+.hm-name button.tg { border: 0; background: none; padding: 0 0.3em 0 0; color: var(--ink-muted); cursor: pointer; font: inherit; }
+.hm-row.sub .hm-name { padding-left: 1.4em; color: var(--ink-2); }
+.hm-row.sub .hm-cell { height: 14px; }
+.hm-name .tag { color: var(--ink-muted); font-size: 0.78em; }
+.hm-mark { box-shadow: inset 0 0 0 2px var(--warm); }
+
+/* lists */
+.wga-feed { list-style: none; margin: 0; padding: 0; }
+.wga-feed li { display: grid; grid-template-columns: 4.8em 8.5em 9em minmax(0, 1fr); gap: 0.75em; padding: 0.45em 0; border-top: 1px solid var(--grid); font-size: 0.88em; align-items: baseline; }
+.wga-feed li:first-child { border-top: 0; }
+.wga-feed .dt { color: var(--ink-muted); font-size: 0.92em; }
+.wga-feed .ty { font-size: 0.8em; font-weight: 600; color: var(--ink-2); }
+.wga-feed .ty.out { color: var(--accent-ink); }
+.wga-feed .who { font-size: 0.85em; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wga-feed a { color: var(--ink); }
+@media (max-width: 700px) { .wga-feed li { grid-template-columns: 4.5em minmax(0, 1fr); } .wga-feed .ty, .wga-feed .who { display: none; } }
+
+/* tables */
+.wga-table.left th, .wga-table.left td { text-align: left; }
+.wga-table td .sub { margin: 0; }
+
+/* matrix (symposium crosswalk, compatibility) */
+.wga-matrix { display: grid; gap: 3px; align-items: center; min-width: 760px; }
+.wga-matrix .h { font-size: 0.75em; font-weight: 600; color: var(--ink-muted); text-align: center; line-height: 1.2; }
+.wga-matrix .r { font-size: 0.85em; font-weight: 500; }
+.wga-matrix .c { font-size: 0.82em; font-weight: 600; text-align: center; padding: 0.45em 0; border-radius: 6px; background: var(--page); color: #a2a9b3; }
+.wga-matrix .flag { font-size: 0.75em; font-weight: 600; color: var(--warm-ink); text-align: right; }
+
+/* network */
+.wga-net { position: relative; width: 100%; }
+.wga-net svg { display: block; width: 100%; height: auto; }
+.wga-net .node { cursor: pointer; }
+.wga-net .node rect { fill: #fff; stroke: var(--axis); stroke-width: 1.5; }
+.wga-net .node.hub rect { stroke: var(--accent-ink); stroke-width: 2; }
+.wga-net .node.sel rect { fill: var(--accent-soft); stroke: var(--accent-ink); stroke-width: 2.5; }
+.wga-net .node.dim { opacity: 0.25; }
+.wga-net .node text { font: 600 12px Inter, system-ui, sans-serif; fill: var(--ink); }
+.wga-net .edge { stroke: #8db2e3; stroke-linecap: round; cursor: pointer; }
+.wga-net .edge.sim { stroke: var(--warm); stroke-dasharray: 6 5; }
+.wga-net .edge.dim { opacity: 0.12; }
+.wga-net .edge.sel { stroke: var(--accent-ink); }
+.wga-net .edge:hover { stroke: var(--accent-ink); }
+.wga-net .node:focus-visible rect { stroke: var(--accent); stroke-width: 3; }
+
+.wga-empty { color: var(--ink-muted); font-size: 0.88em; padding: 0.6em 0; }
+.wga-input { font: inherit; font-size: 0.88em; padding: 0.4em 0.6em; border: 1px solid var(--axis); border-radius: 8px; background: #fff; color: var(--ink); min-width: 14em; }
+.wga-btn { font: inherit; font-size: 0.85em; padding: 0.4em 0.8em; border: 1px solid var(--axis); border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer; }
+.wga-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+.wga-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

@@ -8,20 +8,22 @@ output:
       in_header: "favicon.html"
 exclude: ["extras"]
 navbar:
-  title: '<div><img src="ohdsi16x16.png"></img> OHDSI WG Activities </div>'
+  title: '<div><img src="ohdsi16x16.png"></img> OHDSI <span class="wga-brand">WG Activity</span></div>'
   right:
     - icon: fa-github
       href: https://github.com/jshoughtaling/WGActivities
   left:
-    - text: "Heatmap"
-      icon: fa-th
+    - text: "Overview"
       href: index.html
-    - text: "Working Group"
-      icon: fa-users
-      href: wg.html
-    - text: "Collaboration"
-      icon: fa-handshake-o
-      href: collab.html
-    - text: "About the data"
-      icon: fa-info-circle
+    - text: "Groups"
+      href: groups.html
+    - text: "Projects"
+      href: projects.html
+    - text: "Topics"
+      href: topics.html
+    - text: "Connections"
+      href: connections.html
+    - text: "Activity"
+      href: activity.html
+    - text: "About"
       href: about.html
