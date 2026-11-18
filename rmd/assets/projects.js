@@ -14,7 +14,7 @@
 
   /* ---------------- catalog ---------------- */
   function catalog(d) {
-    var state = { q: WGA.param("q") || "", kind: "", wg: WGA.param("wg") || "", scope: WGA.param("wg") ? "active" : "grouped", sort: WGA.param("sort") || "recent" };
+    var state = { q: WGA.param("q") || "", kind: "", wg: WGA.param("wg") || "", scope: WGA.param("scope") || "all", sort: WGA.param("sort") || "recent" };
     root.textContent = "";
     root.appendChild(h("div", { class: "wga-page-h" }, [h("div", {}, [h("h1", { text: "Projects" }),
       h("p", { class: "sub wga-note", text: "Software and specifications, between a working group and its repositories. Multi-repo projects are a draft grouping (config/projects.yml) for maintainers to confirm." })])]));
@@ -25,7 +25,7 @@
     var wg = h("select", { id: "p-wg" }, [h("option", { value: "", text: "All groups" })].concat(Object.keys(wgs).sort(function (a, b) { return WGA.name(a).localeCompare(WGA.name(b)); }).map(function (k) { return h("option", { value: k, text: WGA.shortName(k) }); })));
     wg.value = state.wg;
     var scope = h("div", { class: "wga-seg", role: "group", "aria-label": "Show" });
-    [["grouped", "Multi-repo projects"], ["active", "+ active single repos"], ["all", "Everything"]].forEach(function (o) {
+    [["all", "Everything"], ["active", "Multi-repo + active single repos"], ["grouped", "Multi-repo only"]].forEach(function (o) {
       var b = h("button", { type: "button", text: o[1], "aria-pressed": String(state.scope === o[0]) });
       b.addEventListener("click", function () { state.scope = o[0]; Array.prototype.forEach.call(scope.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); }); list(); });
       scope.appendChild(b);
