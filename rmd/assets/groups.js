@@ -1,10 +1,10 @@
-/* Groups: one row per working group. Filter by name; sort by name (default) or activity. */
+/* Groups: one row per working group. Filter by name; sort by activity (default) or name. */
 (function () {
   var h = WGA.h;
   var root = document.getElementById("wga-groups");
   if (!root) return;
-  var state = { q: WGA.param("q") || "", sort: WGA.param("sort") || "name" };
-  var SORTS = [["name", "Name"], ["recent", "Most active, last 8 weeks"], ["change", "Biggest rise, last 8 weeks"], ["year", "Most active, last 12 months"]];
+  var state = { q: WGA.param("q") || "", sort: WGA.param("sort") || "recent" };
+  var SORTS = [["recent", "Most active, last 8 weeks"], ["year", "Most active, last 12 months"], ["change", "Biggest rise, last 8 weeks"], ["name", "Name"]];
 
   Promise.all([WGA.loadMany(["data/activity.json", "data/projects.json", "data/topics.json"]), WGA.cal ? WGA.cal.load() : null]).then(function (all) {
     var r = all[0], act = r[0], proj = r[1], top = r[2], cal = all[1];

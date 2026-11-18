@@ -14,7 +14,7 @@
 
   /* ---------------- catalog ---------------- */
   function catalog(d) {
-    var state = { q: WGA.param("q") || "", kind: "", wg: WGA.param("wg") || "", scope: WGA.param("wg") ? "active" : "grouped", sort: WGA.param("sort") || "name" };
+    var state = { q: WGA.param("q") || "", kind: "", wg: WGA.param("wg") || "", scope: WGA.param("wg") ? "active" : "grouped", sort: WGA.param("sort") || "recent" };
     root.textContent = "";
     root.appendChild(h("div", { class: "wga-page-h" }, [h("div", {}, [h("h1", { text: "Projects" }),
       h("p", { class: "sub wga-note", text: "Software and specifications, between a working group and its repositories. Multi-repo projects are a draft grouping (config/projects.yml) for maintainers to confirm." })])]));
@@ -30,7 +30,7 @@
       b.addEventListener("click", function () { state.scope = o[0]; Array.prototype.forEach.call(scope.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); }); list(); });
       scope.appendChild(b);
     });
-    var sort = h("select", { id: "p-sort" }, [["name", "Name"], ["recent", "Most active, last 8 weeks"], ["total", "Most active, last 12 months"]].map(function (o) { return h("option", { value: o[0], text: o[1] }); }));
+    var sort = h("select", { id: "p-sort" }, [["recent", "Most active, last 8 weeks"], ["total", "Most active, last 12 months"], ["name", "Name"]].map(function (o) { return h("option", { value: o[0], text: o[1] }); }));
     sort.value = state.sort;
     root.appendChild(h("div", { class: "wga-filters" }, [
       h("div", { class: "wga-group" }, [h("label", { for: "p-q", class: "visually-hidden", text: "Filter" }), q]),
