@@ -21,7 +21,7 @@ This site has two aims: **transparency** (what each OHDSI working group (WG) is 
 | [Projects](projects.html) | Software and specifications between a group and its repositories: repos, releases, activity, and which projects adapt which. |
 | [Topics](topics.html) | Subjects that cut across groups, over time and at each Global Symposium, plus shared terms not yet curated. |
 | [Connections](connections.html) | A network of groups with evidence of shared work, the evidence behind each pair, and similar work in different groups. |
-| [Activity](activity.html) | One feed of items: a week's digest, or outputs over the last year. Download as CSV, copy as a forum post, or follow the RSS feed. |
+| [Activity](activity.html) | A week's digest, a calendar of upcoming meetings, or outputs over the last year. Download as CSV, copy as a forum post, follow the RSS feed, or subscribe to the calendar (.ics). |
 
 ## **What each source counts**
 
@@ -47,6 +47,10 @@ This site has two aims: **transparency** (what each OHDSI working group (WG) is 
 - **Topics** are the curated keyword lists in `config/collab_themes.yml`. An item counts for a topic when its title matches; commits and comments are left out, and items tagged to more than four groups do not count toward any one group.
 - **Outputs** are releases (nightly builds and snapshots left out), symposium posters and talks, working-group sessions and tutorials.
 - **Compatibility** (which databases, CDM versions and CDM extensions a project supports) is not collected yet.
+
+## **Calendar**
+
+Working-group meetings come from ohdsi.org's [Upcoming Working Group Calls](https://www.ohdsi.org/upcoming-working-group-calls/) page, which lists about four weeks ahead and each group's usual schedule; it is read at each refresh. Community calls are on Tuesdays at 11am ET: past ones show their title and recording, later ones are listed as expected until announced. Symposium dates come from the conference list. Join links are not copied: "Join details" opens the ohdsi.org page, which always has the current link. Meeting lengths are not published, so calendar apps show one hour.
 
 ## **Connections and similar work**
 

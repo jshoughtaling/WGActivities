@@ -3,7 +3,7 @@
 A weekly-refreshed site about what OHDSI working groups are doing, for transparency and to surface chances to
 collaborate. Built from GitHub, the OHDSI forums, community calls, symposium materials and (counts only) MS Teams.
 Pages: Overview (week at a glance + heatmap by group, project or topic), Groups, Projects, Topics, Connections
-(network, pair evidence, similar work across groups), Activity (weekly digest, outputs, CSV/markdown/RSS) and About.
+(network, pair evidence, similar work across groups), Activity (weekly digest, calendar of meetings with an .ics feed, outputs, CSV/markdown/RSS) and About.
 See `PLAN.md` for the design.
 
 ## Layout
@@ -14,8 +14,9 @@ config/            working_groups.yml (WG -> repos), projects.yml (repos -> proj
 scripts/collect/   one collector per source -> data/events/<source>.json
 scripts/build_activity.py   merges events (+ data/teams_counts.json) -> rmd/data/activity.json
 scripts/build_collab.py     finds cross-WG collaboration candidates -> rmd/data/collab.json (topics in config/collab_themes.yml)
-scripts/build_views.py      projects, topics, similar work, weekly digest -> rmd/data/{projects,topics,similar,digest}.json
-                            and rmd/data/digest.xml (RSS); shared item model in scripts/lib_items.py
+scripts/build_views.py      projects, topics, similar work, weekly digest, calendar
+                            -> rmd/data/{projects,topics,similar,digest,calendar}.json, digest.xml (RSS), calendar.ics;
+                            shared item model in scripts/lib_items.py
 rmd/               RMarkdown site (index, groups, wg, projects, topics, connections, activity, about) and assets/*.js
 docs/              rendered site (GitHub Pages serves this folder from main)
 prompts/           prompt for the local Claude-in-Chrome Teams count run
@@ -28,6 +29,7 @@ python3 scripts/collect/github.py      # first run is ~1,500 API requests; uses 
 python3 scripts/collect/forums.py
 python3 scripts/collect/calls.py
 python3 scripts/collect/conference.py   # needs: pip install -r requirements.txt (pypdf reads the agenda PDFs)
+python3 scripts/collect/meetings.py     # upcoming WG meetings from ohdsi.org -> data/meetings.json (no join links kept)
 python3 scripts/build_activity.py
 python3 scripts/build_collab.py
 python3 scripts/build_views.py         # needs collab.json first (to mark pairs already connected)

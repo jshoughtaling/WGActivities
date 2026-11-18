@@ -104,3 +104,12 @@ Design and rationale: the wgActivity workspace (`workstreams/expansion/log/2026-
 - **Outputs**: releases (nightly builds left out), symposium posters, talks, sessions and tutorials.
 - Not yet: compatibility matrices (platform, version pairs, CDM-extension support), curated group facts (leads,
   meeting times, how to join), people-level views (bridges) — pending a decision on naming individuals.
+
+### Calendar (2026-11-17)
+
+- Source: ohdsi.org "Upcoming Working Group Calls" (about four weeks ahead, plus each group's cadence), read by
+  `scripts/collect/meetings.py` into `data/meetings.json`; community calls (Tuesdays 11am ET) and symposium dates added
+  by `build_views.py` into `rmd/data/calendar.json` and `calendar.ics`.
+- Shown as the Calendar view of Activity (week / month), "Coming up" on Overview, and the next meeting on group pages.
+- Join links are not stored or republished; every meeting links to the ohdsi.org page. Direct links per group, AI
+  recaps of meetings and agendas are open questions for the OHDSI admins (with the Teams counts question above).

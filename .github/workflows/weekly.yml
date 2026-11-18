@@ -46,6 +46,10 @@ jobs:
         continue-on-error: true
         run: python3 scripts/collect/conference.py
 
+      - name: Collect upcoming working-group meetings
+        continue-on-error: true
+        run: python3 scripts/collect/meetings.py
+
       - name: Build activity.json
         run: |
           python3 scripts/build_activity.py
@@ -72,7 +76,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add docs/ rmd/data/ data/events data/github_state.json
+          git add docs/ rmd/data/ data/events data/github_state.json data/meetings.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0

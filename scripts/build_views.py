@@ -10,6 +10,9 @@ pairs that are already connected). Writes, next to activity.json:
   rmd/data/similar.json   shared-term clusters: the same subject showing up in items of several groups
   rmd/data/digest.json    last 12 weeks: per-week totals and items by group; outputs of the last 52 weeks
   rmd/data/digest.xml     RSS feed of the weekly digest
+  rmd/data/calendar.json  upcoming working-group meetings (data/meetings.json, from ohdsi.org), community calls and
+                          symposium dates, from four weeks before the meeting page's date to its last listed meeting
+  rmd/data/calendar.ics   the same, for calendar apps (upcoming events only)
 
 Usage: python3 scripts/build_views.py [--today YYYY-MM-DD] [--weeks 52]
 """
@@ -21,7 +24,7 @@ import re
 import sys
 from bisect import bisect_left, bisect_right
 from collections import Counter, defaultdict
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from itertools import combinations
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -383,6 +386,78 @@ def rss(digest, generated):
     return "\n".join(parts) + "\n"
 
 
+# ---------------------------------------------------------------- calendar
+COMMUNITY_CALL = (11, 0)    # Tuesdays 11:00 ET (all collected calls fall on a Tuesday)
+MEETINGS = ROOT / "data" / "meetings.json"
+
+
+def build_calendar(events, names):
+    from zoneinfo import ZoneInfo
+    et = ZoneInfo("America/New_York")
+    if not MEETINGS.exists():
+        return None
+    mt = json.loads(MEETINGS.read_text())
+    ref = date.fromisoformat(mt.get("source_updated") or mt["fetched"][:10])
+    last = max([date.fromisoformat(m["date"]) for m in mt["meetings"]] + [ref])
+    start = ref - timedelta(days=ref.weekday() + 28)
+    out = []
+    for m in mt["meetings"]:
+        out.append({"kind": "meeting", "start": m["start"], "date": m["date"], "time_et": m["time_et"], "title": m["name"],
+                    "wg": m["wg"], "cadence": m["cadence"], "note": m["note"], "platform": m["platform"],
+                    "cancelled": m["cancelled"], "url": mt["source"]})
+    calls = sorted({(e["date"], e["title"], tuple(e.get("video_ids") or []), e.get("url")) for e in events
+                    if e["source"] == "calls" and start.isoformat() <= e["date"] <= last.isoformat()})
+    seen_call_days = set()
+    for d, title, vids, url in calls:
+        if d in seen_call_days:
+            continue
+        seen_call_days.add(d)
+        dt = datetime.combine(date.fromisoformat(d), datetime.min.time()).replace(hour=COMMUNITY_CALL[0], tzinfo=et)
+        out.append({"kind": "community_call", "start": dt.isoformat(), "date": d, "time_et": "11am", "title": title,
+                    "wg": "community", "url": url, "recording": f"https://www.youtube.com/watch?v={vids[0]}" if vids else None,
+                    "cadence": "Every Tuesday at 11am ET"})
+    tue = max([date.fromisoformat(d) for d in seen_call_days] + [start])
+    tue += timedelta(days=(1 - tue.weekday()) % 7 or 7)
+    while tue <= last:
+        dt = datetime.combine(tue, datetime.min.time()).replace(hour=COMMUNITY_CALL[0], tzinfo=et)
+        out.append({"kind": "community_call", "start": dt.isoformat(), "date": tue.isoformat(), "time_et": "11am",
+                    "title": "OHDSI Community Call", "wg": "community", "url": f"https://www.ohdsi.org/community-calls-{tue.year}/",
+                    "cadence": "Every Tuesday at 11am ET", "expected": True})
+        tue += timedelta(days=7)
+    sym = sorted({(e["date"], e.get("event") or e["title"]) for e in events
+                  if e["source"] == "conference" and e.get("event") and start.isoformat() <= e["date"] <= last.isoformat()})
+    for d, ev in sym:
+        out.append({"kind": "symposium", "date": d, "all_day": True, "title": ev, "wg": None,
+                    "url": "https://www.ohdsi.org/"})
+    out.sort(key=lambda x: (x["date"], x.get("start") or ""))
+    return {"source": mt["source"], "source_updated": mt.get("source_updated"), "fetched": mt["fetched"],
+            "source_note": mt.get("source_note"), "window": [start.isoformat(), last.isoformat()],
+            "events": out, "status": mt["status"], "names": names}
+
+
+def ics(cal):
+    import hashlib
+    now = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//WGActivities//OHDSI working-group calendar//EN",
+             "CALSCALE:GREGORIAN", "X-WR-CALNAME:OHDSI working groups", "X-WR-TIMEZONE:America/New_York"]
+
+    def esc(t):
+        return (t or "").replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+    today = cal["source_updated"] or cal["fetched"][:10]
+    for e in cal["events"]:
+        if e["date"] < today or e["kind"] == "symposium":
+            continue
+        st = datetime.fromisoformat(e["start"]).astimezone(timezone.utc)
+        uid = hashlib.sha1((e["title"] + e["start"]).encode()).hexdigest()[:16] + "@wgactivities"
+        desc = " · ".join(x for x in [e.get("cadence"), e.get("note"), "Join details: " + e["url"],
+                                       "Duration not published; shown as one hour."] if x)
+        lines += ["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{now}", f"DTSTART:{st.strftime('%Y%m%dT%H%M%SZ')}", "DURATION:PT1H",
+                  f"SUMMARY:{esc(('CANCELLED: ' if e.get('cancelled') else '') + e['title'])}", f"DESCRIPTION:{esc(desc)}",
+                  f"URL:{e['url']}"] + (["STATUS:CANCELLED"] if e.get("cancelled") else []) + ["END:VEVENT"]
+    lines.append("END:VCALENDAR")
+    return "\r\n".join(lines) + "\r\n"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--today", type=date.fromisoformat, default=date.today())
@@ -416,9 +491,15 @@ def main():
     for fn, data in files.items():
         (OUT / fn).write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
     (OUT / "digest.xml").write_text(rss(dig, gen))
+    cal = build_calendar(load_events(), names)
+    if cal:
+        (OUT / "calendar.json").write_text(json.dumps(cal, ensure_ascii=False, separators=(",", ":")) + "\n")
+        (OUT / "calendar.ics").write_text(ics(cal), newline="")
+        files["calendar.json"] = cal
+        print(f"calendar: {len(cal['events'])} events {cal['window'][0]} to {cal['window'][1]} (meetings page updated {cal['source_updated']})")
     print(f"projects {len(proj)} ({sum(p['grouped'] for p in proj)} grouped) · topics {len(tops)} · "
           f"similar {len(sim)} · digest {len(dig['weeks'])} weeks, {len(dig['outputs'])} outputs")
-    for fn in list(files) + ["digest.xml"]:
+    for fn in list(files) + ["digest.xml"] + (["calendar.ics"] if cal else []):
         print(f"  {fn}: {(OUT / fn).stat().st_size // 1024} KB")
 
 
