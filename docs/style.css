@@ -315,11 +315,15 @@ body .main-container { max-width: 1500px; width: 94%; }
 
 /* Effort chart (assets/effort.js): one wedge per group, sources stacked and scored against other groups */
 .wga-effort .ef-body { display: flex; flex-wrap: wrap; gap: 1.5em; align-items: flex-start; }
-.wga-effort .ef-chart { flex: 0 1 660px; min-width: 0; }
+.wga-effort .ef-chart { flex: 1 1 640px; max-width: 860px; min-width: 0; }
 .wga-effort .ef-chart svg { display: block; width: 100%; height: auto; font-family: inherit; }
-.wga-effort .ef-side { flex: 1 1 280px; min-width: 250px; display: flex; flex-direction: column; gap: 0.9em; }
+.wga-effort .ef-side { flex: 0 1 380px; min-width: 250px; display: flex; flex-direction: column; gap: 0.9em; }
 .wga-effort .ef-legend { display: flex; flex-direction: column; gap: 0.35em; font-size: 0.88em; }
-.wga-effort .ef-legend > div { display: flex; align-items: center; gap: 0.5em; }
+.wga-effort .ef-src { display: flex; align-items: center; gap: 0.5em; width: 100%; font: inherit; text-align: left; background: var(--surface); border: 1px solid var(--grid); border-radius: 6px; padding: 0.3em 0.6em; cursor: pointer; }
+.wga-effort .ef-src:hover { border-color: var(--axis); }
+.wga-effort .ef-src[aria-pressed="false"] { background: transparent; color: var(--ink-muted); }
+.wga-effort .ef-src[aria-pressed="false"] .k { background: var(--axis) !important; }
+.wga-effort .ef-src[aria-pressed="false"] .nm { text-decoration: line-through; }
 .wga-effort .ef-legend .nm { flex: 1; }
 .wga-effort .k { width: 11px; height: 11px; border-radius: 2px; flex: none; display: inline-block; }
 .wga-effort .mu { color: var(--ink-muted); }

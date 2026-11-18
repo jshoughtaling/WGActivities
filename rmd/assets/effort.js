@@ -27,7 +27,7 @@
 
   WGA.effort = function (act, opts) {
     opts = opts || {};
-    var st = { picked: opts.picked || null, hover: null, order: "items" };
+    var st = { picked: opts.picked || null, hover: null, order: "items", off: {} };
     var gs = act.wgs.map(function (w) {
       var raw = SRC.map(function (k) { return w.sources[k] ? WGA.sum(w.sources[k].counts) : 0; });
       var commits = (w.github_types || {}).commit || 0;
@@ -37,7 +37,9 @@
     }).filter(function (g) { return g.total > 0; });
     var n = gs.length;
     var srcTot = SRC.map(function (_, i) { return WGA.sum(gs.map(function (g) { return g.v[i]; })); });
-    var maxT = Math.max.apply(null, gs.map(function (g) { return g.total; }));
+    // Totals over the sources switched on; recomputed on every draw.
+    var maxT = 1;
+    function shownTotal(g) { return WGA.sum(g.v.filter(function (_, i) { return !st.off[i]; })); }
     var fmt = function (x) { return WGA.fmt(Math.round(x)); };
 
     var el = h("div", { class: "wga-effort" });
@@ -53,10 +55,20 @@
     var body = h("div", { class: "ef-body" });
     var chart = h("div", { class: "ef-chart" });
     var side = h("div", { class: "ef-side" });
-    side.appendChild(h("div", { class: "ef-legend" }, SRC.map(function (k, i) {
-      return h("div", {}, [h("span", { class: "k", style: "background:" + COL[i] }), h("span", { class: "nm", text: WGA.SOURCES[k].label }),
-        h("span", { class: "mu", text: fmt(srcTot[i]) + " items" })]);
-    })));
+    var legend = h("div", { class: "ef-legend", role: "group", "aria-label": "Sources shown" });
+    SRC.forEach(function (k, i) {
+      var b = h("button", { type: "button", class: "ef-src", "aria-pressed": "true", title: "Show or hide " + WGA.SOURCES[k].label },
+        [h("span", { class: "k", style: "background:" + COL[i] }), h("span", { class: "nm", text: WGA.SOURCES[k].label }), h("span", { class: "mu", text: fmt(srcTot[i]) + " items" })]);
+      b.addEventListener("click", function () {
+        st.off[i] = !st.off[i];
+        if (SRC.every(function (_, j) { return st.off[j]; })) st.off[i] = false;   // keep at least one on
+        b.setAttribute("aria-pressed", String(!st.off[i]));
+        draw();
+      });
+      legend.appendChild(b);
+    });
+    side.appendChild(h("div", { class: "wga-note", style: "margin-bottom:-0.4em", text: "Sources shown (click to turn off; try GitHub):" }));
+    side.appendChild(legend);
     var panel = h("div", { class: "ef-panel", "aria-live": "polite" });
     side.appendChild(panel);
     side.appendChild(h("p", { class: "wga-note", text: "Wedge area is proportional to items in the last 12 months; the dashed rings mark 10, 100 and 1,000 items. GitHub commits count as 1/10 of an item (a pull request usually brings many commits); everything else is counted as is. Teams is hand-collected for most but not all groups." }));
@@ -75,9 +87,10 @@
 
     var paths = [], texts = [];
     function draw() {
+      maxT = Math.max.apply(null, gs.map(shownTotal).concat([1]));
       var idx = gs.map(function (_, k) { return k; });
       idx.sort(st.order === "name" ? function (a, b) { return WGA.name(gs[a].slug).localeCompare(WGA.name(gs[b].slug)); }
-        : function (a, b) { return gs[b].total - gs[a].total; });
+        : function (a, b) { return shownTotal(gs[b]) - shownTotal(gs[a]) || gs[b].total - gs[a].total; });
       var C = 360, R0 = 34, R1 = 250, TAU = Math.PI * 2;
       var rad = function (c) { return R0 + (R1 - R0) * Math.sqrt(c / maxT); };   // area-true stacking
       var pt = function (a, r) { return [C + r * Math.sin(a), C - r * Math.cos(a)]; };
@@ -97,7 +110,7 @@
         var g = gs[k], a0 = p * step + pad, a1 = (p + 1) * step - pad, cum = 0;
         var grp = s("g", { "data-slug": g.slug, style: "cursor:pointer" });
         SRC.forEach(function (_, i) {
-          if (!g.v[i]) return;
+          if (!g.v[i] || st.off[i]) return;
           var r0 = rad(cum); cum += g.v[i]; var r1 = rad(cum);
           if (r1 - r0 > 0.2) {
             var path = s("path", { d: arc(a0, a1, r0, r1), fill: COL[i], stroke: "#ffffff", "stroke-width": "0.8" });
@@ -137,18 +150,19 @@
       panel.textContent = "";
       var focus = st.hover || st.picked;
       if (!focus) {
-        panel.appendChild(h("p", { class: "wga-note", style: "margin:0", text: "One wedge per working group, busiest first. The colours show where its items come from. Hover a wedge for its numbers; click it to pick that group." }));
+        panel.appendChild(h("p", { class: "wga-note", style: "margin:0", text: "One wedge per working group, busiest first. The colours show where its items come from. GitHub is most of the volume, so turn it off to compare forums, calls, the conference and Teams. Hover a wedge for its numbers; click it to pick that group." }));
         return;
       }
       var g = gs.filter(function (x) { return x.slug === focus; })[0];
       panel.appendChild(h("a", { href: WGA.wgHref(focus), class: "ef-name", text: WGA.name(focus) }));
-      panel.appendChild(h("div", { class: "wga-note", text: fmt(g.total) + " items in the last 12 months" }));
+      var tot = shownTotal(g);
+      panel.appendChild(h("div", { class: "wga-note", text: fmt(g.total) + " items in the last 12 months" + (tot !== g.total ? " (" + fmt(tot) + " in the sources shown)" : "") }));
       var t = h("div", { class: "ef-tbl" }, [h("span"), h("span", { class: "hd", text: "Source" }), h("span", { class: "hd r", text: "Items" }), h("span", { class: "hd r", text: "Share" })]);
       SRC.forEach(function (key, i) {
         t.appendChild(h("span", { class: "k", style: "background:" + COL[i] }));
         t.appendChild(h("span", { text: WGA.SOURCES[key].label }));
         t.appendChild(h("span", { class: "r b", text: fmt(g.v[i]) }));
-        t.appendChild(h("span", { class: "r mu", text: g.total ? Math.round(100 * g.v[i] / g.total) + "%" : "–" }));
+        t.appendChild(h("span", { class: "r mu", text: st.off[i] ? "hidden" : tot ? Math.round(100 * g.v[i] / tot) + "%" : "–" }));
       });
       panel.appendChild(t);
       if (g.commits) panel.appendChild(h("div", { class: "wga-note", text: "GitHub: " + WGA.fmt(g.raw[0]) + " items, of which " + WGA.fmt(g.commits) + " commits counted at 1/10." }));
