@@ -1,0 +1,13 @@
+---
+title: "Topics"
+output:
+   html_document:
+        toc: FALSE
+---
+
+<div class="wga" id="wga-topics">Loading…</div>
+
+<noscript>This page needs JavaScript. The numbers are in <a href="data/topics.json">topics.json</a>.</noscript>
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/topics.js"></script>
