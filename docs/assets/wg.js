@@ -1,94 +1,189 @@
-/* One working group: weekly activity by source (small multiples), recent items, yearly totals. */
+/* One working group: status, projects, outputs and activity, who it works with, opportunities, weekly charts. */
 (function () {
   var h = WGA.h;
   var root = document.getElementById("wga-wg");
   if (!root) return;
   var slug = new URLSearchParams(location.search).get("wg");
 
-  WGA.load().then(function (d) { slug ? show(d, slug) : index(d); }).catch(function (e) { WGA.fail(root, e); });
+  WGA.loadMany(["data/activity.json", "data/projects.json", "data/collab.json", "data/similar.json", "data/digest.json", "data/topics.json"])
+    .then(function (r) { if (!slug) { location.replace("groups.html"); return; } show(r[0], slug, { proj: r[1], collab: r[2], sim: r[3], dig: r[4], top: r[5] }); })
+    .catch(function (e) { WGA.fail(root, e); });
 
-  function index(d) {
-    root.textContent = "";
-    root.appendChild(h("p", { class: "wga-note", text: "Choose a working group, or select one from the heatmap." }));
-    var ul = h("ul", { class: "wga-list" });
-    d.wgs.concat(d.buckets).forEach(function (w) {
-      var st = WGA.STATUS[w.status];
-      ul.appendChild(h("li", {}, [
-        h("span", { class: "ty", text: st.glyph + " " + st.label }),
-        h("a", { href: "wg.html?wg=" + encodeURIComponent(w.slug), text: w.name }),
-      ]));
-    });
-    root.appendChild(ul);
+  function card(title, kids, cls) {
+    return h("section", { class: "wga-card" + (cls ? " " + cls : "") }, [h("h3", { text: title })].concat(kids));
   }
 
-  function show(d, slug) {
-    var w = d.wgs.concat(d.buckets).filter(function (x) { return x.slug === slug; })[0];
+  function show(d, slug, x) {
+    WGA.setNames(x.proj.names);
+    var w = d.wgs.concat(d.buckets).filter(function (g) { return g.slug === slug; })[0];
     root.textContent = "";
     if (!w) { root.appendChild(h("div", { class: "rmdimportant", text: "No working group named \"" + slug + "\"." })); return; }
-    document.title = w.name + " · OHDSI WG Activities";
-    var st = WGA.STATUS[w.status];
-    root.appendChild(h("h2", { text: w.name }));
-    root.appendChild(h("p", { class: "wga-note" }, [
-      st.glyph + " " + st.label + " (" + st.hint + ")." + (w.on_ohdsi_org === false ? " Not on ohdsi.org's working group list. " : " "),
-      h("a", { href: "index.html", text: "← All working groups" }),
-    ]));
+    document.title = w.name + " · OHDSI WG Activity";
+
+    root.appendChild(h("div", { class: "wga-crumb" }, [h("a", { href: "groups.html", text: "Groups" }), " / " + WGA.shortName(slug)]));
+    var head = h("section", { class: "wga-card" }, [
+      h("div", { class: "wga-row-h" }, [
+        h("h2", { text: w.name, style: "margin:0;font-size:1.7em;font-weight:600" }),
+        h("span", {}, [WGA.statusBadge(w.status, w.recent, w.prior)]),
+      ]),
+      h("p", { class: "wga-note", style: "margin:0.5em 0 0" }, [
+        (WGA.STATUS[w.status] || {}).hint ? "Status: " + WGA.STATUS[w.status].hint + ". " : "",
+        w.on_ohdsi_org === false ? "Not on ohdsi.org's working group list. " : "",
+        "Leads and how to join: ",
+        h("a", { href: "https://www.ohdsi.org/workgroups/", target: "_blank", rel: "noopener", text: "ohdsi.org/workgroups" }),
+        " (not collected here yet).",
+      ]),
+    ]);
+    var meet = h("p", { class: "wga-note", style: "margin:0.4em 0 0" });
+    head.appendChild(meet);
+    WGA.cal.load().then(function (cal) {
+      if (!cal) return;
+      var nx = WGA.cal.upcoming(cal, { wg: slug }).filter(function (e) { return e.kind === "meeting"; });
+      var st = (cal.status || []).filter(function (x) { return x.wg === slug; })[0];
+      if (nx.length) {
+        var e = nx[0];
+        meet.appendChild(h("strong", { text: "Next meeting: " }));
+        meet.appendChild(document.createTextNode(WGA.cal.when(e) + (e.cancelled ? " (cancelled)" : "") + (e.note ? " (" + e.note + ")" : "") + ". "));
+        if (e.cadence) meet.appendChild(document.createTextNode(e.cadence + " "));
+        meet.appendChild(h("a", { href: e.url, target: "_blank", rel: "noopener", text: "Join details" }));
+        meet.appendChild(document.createTextNode(" · "));
+        meet.appendChild(h("a", { href: "activity.html?view=calendar&q=" + encodeURIComponent(slug), text: "calendar" }));
+      } else if (st) meet.textContent = "Meetings: " + (st.state === "tbd" ? "next meeting to be decided" : st.state) + " (ohdsi.org).";
+    });
+    var exp = h("button", { type: "button", class: "wga-btn", text: "Download items (CSV)", style: "margin-top:0.6em" });
+    exp.addEventListener("click", function () { exportCsv(d, w); });
+    head.appendChild(exp);
+    root.appendChild(head);
 
     var tiles = h("div", { class: "wga-tiles" });
-    function tile(l, v, n) { tiles.appendChild(h("div", { class: "wga-tile" }, [h("div", { class: "l", text: l }), h("div", { class: "v", text: v }), n ? h("div", { class: "n", text: n }) : null])); }
-    tile("Last 8 weeks", WGA.fmt(w.recent), "items, all sources");
-    tile("Prior 8 weeks", WGA.fmt(w.prior), "items, all sources");
-    tile("Last " + d.weeks.length + " weeks", WGA.fmt(WGA.sum(w.total)), "items, all sources");
+    var dlt = w.recent - w.prior;
+    WGA.tile(tiles, "Last 8 weeks", WGA.fmt(w.recent), "vs " + WGA.fmt(w.prior) + " the 8 before" + (w.prior ? " (" + (dlt >= 0 ? "+" : "−") + Math.round(Math.abs(dlt) / w.prior * 100) + "%)" : ""));
+    if (w.sources.github) WGA.tile(tiles, "GitHub, " + d.weeks.length + " wk", WGA.fmt(WGA.sum(w.sources.github.counts)), "commits, PRs, issues, releases");
+    if (w.sources.teams) WGA.tile(tiles, "Teams, " + d.weeks.length + " wk", WGA.fmt(WGA.sum(w.sources.teams.counts)), "posts, replies (counts only)");
+    var conf = (w.yearly && w.yearly.conference) || {}, ys = Object.keys(conf).sort().reverse();
+    if (ys.length) WGA.tile(tiles, "Symposium items", conf[ys[0]] + " in " + ys[0], ys.slice(1, 3).map(function (y) { return conf[y] + " in " + y; }).join(" · "));
     root.appendChild(tiles);
 
-    var srcs = Object.keys(w.sources);
-    if (!srcs.length) { root.appendChild(h("p", { class: "wga-note", text: "No activity found in the last " + d.weeks.length + " weeks." })); }
-    else {
-      var card = h("div", { class: "wga-card" }, [h("h4", { text: "Weekly activity by source" })]);
-      srcs.forEach(function (s, i) { card.appendChild(chart(d, w, s, i === srcs.length - 1)); });
-      card.appendChild(h("p", { class: "wga-note", text: "Each chart has its own scale; the number at its left is the busiest week." }));
-      root.appendChild(card);
+    // Projects
+    var from = d.weeks.length - 26;
+    var ps = x.proj.projects.filter(function (p) { return p.lead_wg === slug || p.contributing_wgs.indexOf(slug) >= 0; })
+      .sort(function (a, b) { return (b.grouped - a.grouped) || b.recent - a.recent || b.total52 - a.total52; });
+    if (ps.length) {
+      var grid = h("div", { class: "wga-grid" });
+      ps.slice(0, 12).forEach(function (p) {
+        var shared = p.lead_wg !== slug;
+        grid.appendChild(h("a", { class: "wga-lcard", href: WGA.projHref(p.id) }, [
+          h("div", { class: "t" }, [h("span", { text: p.name }), WGA.badge(shared ? "with " + WGA.shortName(p.lead_wg) : (p.extends.length ? "extends" : WGA.KINDS[p.kind] || p.kind), p.extends.length ? "warm" : "blue")]),
+          h("div", { class: "m", text: p.repos.map(function (r) { return r.name; }).join(" · ") }),
+          p.counts ? WGA.strip(p.intensity.slice(from)) : h("div", { class: "m", text: "No GitHub activity in the last year." }),
+          h("div", { class: "d", text: WGA.fmt(p.total52) + " items in 52 weeks" + (p.releases.length ? " · " + p.releases.length + " release" + (p.releases.length > 1 ? "s" : "") : "") }),
+        ]));
+      });
+      var pc = card("Projects", [grid]);
+      if (ps.length > 12) pc.appendChild(h("p", { class: "wga-note", text: (ps.length - 12) + " more on the Projects page." }));
+      root.appendChild(pc);
     }
 
-    // Recent items, newest week first
+    var cols = h("div", { class: "wga-cols" });
+    var main = h("div", { class: "main" }), side = h("div", { class: "side" });
+    cols.appendChild(main); cols.appendChild(side);
+    root.appendChild(cols);
+
+    // Recent: outputs or all activity
+    var outs = x.dig.outputs.filter(function (o) { return (o.wgs || []).indexOf(slug) >= 0 && o.wgs.length <= 4; });   // roundups tagged to many groups are not this group's output
     var weeks = d.weeks.filter(function (k) { return w.items[k]; }).reverse();
-    if (weeks.length) {
-      var box = h("div", { class: "wga-card" }, [h("h4", { text: "Recent items" })]);
-      var shown = 0, LIMIT = 8;
-      var more = h("button", { type: "button", class: "btn btn-default btn-sm", text: "Show older weeks" });
-      weeks.forEach(function (k, i) {
-        var sec = h("div", { style: i >= LIMIT ? "display:none" : "", "data-old": i >= LIMIT ? "1" : null }, [
-          h("div", { class: "sub", text: WGA.weekLabel(d.week_starts[d.weeks.indexOf(k)]) + (k === d.partial_week ? " (in progress)" : "") }),
-          WGA.itemList(w.items[k]),
-        ]);
-        sec.style.margin = "0 0 0.8rem";
-        box.appendChild(sec);
-      });
-      if (weeks.length > LIMIT) {
-        more.addEventListener("click", function () {
-          Array.prototype.forEach.call(box.querySelectorAll("[data-old]"), function (x) { x.style.display = ""; });
-          more.remove();
-        });
-        box.appendChild(more);
+    var recentBox = h("div");
+    var mode = outs.length ? "outputs" : "all";
+    var seg = h("div", { class: "wga-seg", role: "group", "aria-label": "Show" });
+    [["outputs", "Outputs (" + outs.length + ")"], ["all", "All activity"]].forEach(function (o) {
+      var b = h("button", { type: "button", text: o[1], "aria-pressed": String(mode === o[0]) });
+      b.addEventListener("click", function () { mode = o[0]; Array.prototype.forEach.call(seg.children, function (z) { z.setAttribute("aria-pressed", String(z === b)); }); drawRecent(); });
+      seg.appendChild(b);
+    });
+    function drawRecent() {
+      recentBox.textContent = "";
+      if (mode === "outputs") {
+        if (!outs.length) recentBox.appendChild(h("p", { class: "wga-empty", text: "No releases or symposium items in the last year." }));
+        else recentBox.appendChild(WGA.feed(outs.slice(0, 25), { who: "project", projName: function (id) { var p = x.proj.projects.filter(function (q) { return q.id === id; })[0]; return p ? p.name : id; } }));
+        recentBox.appendChild(h("p", { class: "wga-note", text: "Outputs are releases (nightly builds left out), symposium posters, talks, sessions and tutorials." }));
+        return;
       }
-      box.appendChild(h("p", { class: "wga-note", text: "Up to 20 items per week are listed, most substantive first (releases, merged PRs, sessions, calls), with at most 5 comments, replies or commits. Teams content is never published." }));
-      root.appendChild(box);
+      var LIMIT = 6;
+      weeks.slice(0, LIMIT).forEach(function (k) {
+        recentBox.appendChild(h("div", { class: "sub", text: WGA.weekLabel(d.week_starts[d.weeks.indexOf(k)]) + (k === d.partial_week ? " (in progress)" : "") }));
+        recentBox.appendChild(WGA.itemList(w.items[k]));
+      });
+      if (!weeks.length) recentBox.appendChild(h("p", { class: "wga-empty", text: "No linked items in the last year." }));
+      recentBox.appendChild(h("p", { class: "wga-note", text: "Up to 20 items per week, most substantive first. Teams content is never published." }));
     }
+    main.appendChild(h("section", { class: "wga-card" }, [h("div", { class: "wga-row-h", style: "margin-bottom:0.6em" }, [h("h3", { text: "Recent", style: "margin:0" }), seg]), recentBox]));
+    drawRecent();
+
+    // Weekly charts
+    var srcs = Object.keys(w.sources);
+    if (srcs.length) {
+      var chartCard = card("Weekly activity by source", []);
+      srcs.forEach(function (s, i) { chartCard.appendChild(chart(d, w, s, i === srcs.length - 1)); });
+      chartCard.appendChild(h("p", { class: "wga-note", text: "Each chart has its own scale; the number at its left is the busiest week." }));
+      main.appendChild(chartCard);
+    }
+
+    // Works with
+    var pairs = x.collab.pairs.filter(function (p) { return p.a === slug || p.b === slug; }).slice(0, 6);
+    if (pairs.length) {
+      var lst = h("div");
+      pairs.forEach(function (p) {
+        var other = p.a === slug ? p.b : p.a;
+        var why = p.evidence.length ? p.evidence[0].title : p.repos.length ? "Shared repo " + p.repos[0].repo : p.themes.length ? "Both active on " + p.themes.slice(0, 2).join(", ") : "";
+        lst.appendChild(h("a", { class: "wga-lcard", href: "connections.html?wg=" + encodeURIComponent(slug) + "&with=" + encodeURIComponent(other), style: "border:0;border-top:1px solid var(--grid);border-radius:0;padding:0.55em 0" }, [
+          h("div", { class: "t" }, [h("span", { text: WGA.shortName(other) }), h("span", { class: "m", text: p.signals.join(" · ") })]),
+          h("div", { class: "d", text: why }),
+        ]));
+      });
+      side.appendChild(card("Works with", [lst]));
+    }
+
+    // Opportunities
+    var opp = [];
+    ps.filter(function (p) { return p.lead_wg === slug && p.extends.length; }).forEach(function (p) {
+      opp.push(h("p", { class: "warm-ink", style: "margin:0 0 0.5em;font-size:0.88em" }, [h("a", { href: WGA.projHref(p.id), text: p.name, style: "color:inherit;font-weight:600" }),
+        " builds on " + p.extends.map(function (id) { var q = x.proj.projects.filter(function (z) { return z.id === id; })[0]; return q ? q.name + " (" + WGA.shortName(q.lead_wg) + ")" : id; }).join(", ") +
+        " to support more data. Worth coordinating with those maintainers: support upstream means less to keep in step."]));
+    });
+    x.proj.projects.filter(function (p) { return p.lead_wg === slug && p.extended_by.length; }).forEach(function (p) {
+      opp.push(h("p", { class: "warm-ink", style: "margin:0 0 0.5em;font-size:0.88em" }, [h("a", { href: WGA.projHref(p.id), text: p.name, style: "color:inherit;font-weight:600" }),
+        " is adapted by " + p.extended_by.length + " other project" + (p.extended_by.length > 1 ? "s" : "") + " to support more data. Worth a conversation about supporting it directly."]));
+    });
+    x.sim.clusters.filter(function (c) { return c.wgs.indexOf(slug) >= 0 && c.new_ties.some(function (t) { return t.indexOf(slug) >= 0; }); }).slice(0, 4).forEach(function (c) {
+      var others = c.wgs.filter(function (g) { return g !== slug; });
+      opp.push(h("p", { class: "warm-ink", style: "margin:0 0 0.5em;font-size:0.88em" }, [h("a", { href: "connections.html?term=" + encodeURIComponent(c.term) + "#similar", text: "“" + c.term + "”", style: "color:inherit;font-weight:600" }),
+        " also comes up in " + others.map(WGA.shortName).join(", ") + "."]));
+    });
+    var ts = x.top.topics.filter(function (t) { return t.wgs_recent.some(function (z) { return z[0] === slug; }); });
+    if (ts.length) opp.push(h("p", { class: "warm-ink", style: "margin:0;font-size:0.88em" }, ["Topics shared with other groups: ",
+      h("span", {}, ts.slice(0, 5).map(function (t, i) { return h("span", {}, [i ? ", " : "", h("a", { href: WGA.topicHref(t.id), text: t.name, style: "color:inherit" })]); }))]));
+    if (opp.length) side.appendChild(card("Opportunities", opp, "warm"));
 
     // Yearly totals
     var years = {};
     Object.keys(w.yearly).forEach(function (s) { Object.keys(w.yearly[s]).forEach(function (y) { years[y] = 1; }); });
-    var ys = Object.keys(years).sort();
-    if (ys.length) {
+    var yl = Object.keys(years).sort();
+    if (yl.length) {
       var t = h("table", { class: "wga-table" });
-      t.appendChild(h("thead", {}, [h("tr", {}, [h("th", { scope: "col", text: "Source" })].concat(ys.map(function (y) { return h("th", { scope: "col", text: y }); })))]));
+      t.appendChild(h("thead", {}, [h("tr", {}, [h("th", { scope: "col", text: "Source" })].concat(yl.map(function (y) { return h("th", { scope: "col", text: y }); })))]));
       var tb = h("tbody");
       Object.keys(w.yearly).forEach(function (s) {
-        tb.appendChild(h("tr", {}, [h("td", { text: (WGA.SOURCES[s] || { label: s }).label })].concat(ys.map(function (y) { return h("td", { text: w.yearly[s][y] ? WGA.fmt(w.yearly[s][y]) : "–" }); }))));
+        tb.appendChild(h("tr", {}, [h("td", { text: (WGA.SOURCES[s] || { label: s }).label })].concat(yl.map(function (y) { return h("td", { text: w.yearly[s][y] ? WGA.fmt(w.yearly[s][y]) : "–" }); }))));
       });
       t.appendChild(tb);
-      var det = h("details", { class: "wga-card" }, [h("summary", { text: "Totals by year (each source starts when its collection started; see About the data)" }), h("div", { class: "hm-scroll" }, [t])]);
-      root.appendChild(det);
+      main.appendChild(h("details", { class: "wga-card" }, [h("summary", { text: "Totals by year (each source starts when its collection started; see About the data)" }), h("div", { class: "hm-scroll" }, [t])]));
     }
+  }
+
+  function exportCsv(d, w) {
+    var rows = [["week", "source", "type", "title", "url"]];
+    d.weeks.forEach(function (k) { (w.items[k] || []).forEach(function (it) { rows.push([k, it.s, it.t, it.title, it.url]); }); });
+    WGA.download(w.slug + "-items.csv", WGA.csv(rows), "text/csv");
   }
 
   /* Weekly bar chart for one source. Marks: thin columns, 4px rounded data end, square baseline. */
