@@ -1,6 +1,6 @@
 /*!
  * Bootstrap v3.4.1+dfsg (http://getbootstrap.com)
- * Copyright 2011-2026 Twitter, Inc.
+ * Copyright 2011-2025 Twitter, Inc.
  * Licensed under the MIT license
  */
 
@@ -1393,7 +1393,6 @@ if (typeof jQuery === 'undefined') {
   }
 
   function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
-    let doc = null
     if (unsafeHtml.length === 0) {
       return unsafeHtml
     }
@@ -1402,21 +1401,16 @@ if (typeof jQuery === 'undefined') {
       return sanitizeFn(unsafeHtml)
     }
 
-    try {
-        doc = new DOMParser().parseFromString(unsafeHtml, 'text/html');
-    } catch (_) {}
-    if (!doc || !doc.documentElement) {
-      // IE 8 and below don't support createHTMLDocument
-      if (!document.implementation || !(document.implementation instanceof DOMImplementation) || document.implementation.createHTMLDocument === undefined) {
-        throw new Error('Could not sanitize CVE-2025-1647');
-      }
-      doc = document.implementation.createHTMLDocument('sanitization')
-      doc.body.innerHTML = unsafeHtml
+    // IE 8 and below don't support createHTMLDocument
+    if (!document.implementation || !document.implementation.createHTMLDocument) {
+      return unsafeHtml
     }
-    const body = doc.body || doc.documentElement;
+
+    var createdDocument = document.implementation.createHTMLDocument('sanitization')
+    createdDocument.body.innerHTML = unsafeHtml
 
     var whitelistKeys = $.map(whiteList, function (el, i) { return i })
-    var elements = $(body).find('*')
+    var elements = $(createdDocument.body).find('*')
 
     for (var i = 0, len = elements.length; i < len; i++) {
       var el = elements[i]
@@ -1438,7 +1432,7 @@ if (typeof jQuery === 'undefined') {
       }
     }
 
-    return body.innerHTML
+    return createdDocument.body.innerHTML
   }
 
   // TOOLTIP PUBLIC CLASS DEFINITION

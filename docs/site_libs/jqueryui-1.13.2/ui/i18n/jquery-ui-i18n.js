@@ -148,7 +148,7 @@ return $.datepicker.regional["be"];
 
 } );
 /* Bulgarian initialisation for the jQuery UI date picker plugin. */
-/* Written by Stoyan Kyosev. */
+/* Written by Stoyan Kyosev (http://svest.org). */
 
 "use strict";
 
@@ -390,7 +390,7 @@ return $.datepicker.regional["de"];
 
 } );
 /* Greek (el) initialisation for the jQuery UI date picker plugin. */
-/* Written by Alex Cicovic (https://alexcicovic.com) */
+/* Written by Alex Cicovic (http://www.alexcicovic.com) */
 
 "use strict";
 
@@ -1601,7 +1601,7 @@ return $.datepicker.regional[ "nl-BE" ];
 
 } );
 /* Dutch (UTF-8) initialisation for the jQuery UI date picker plugin. */
-/* Written by Mathias Bynens <https://mathiasbynens.be/> */
+/* Written by Mathias Bynens <http://mathiasbynens.be/> */
 
 "use strict";
 

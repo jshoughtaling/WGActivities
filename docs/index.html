@@ -11,10 +11,10 @@
 
 
 
-<title> OHDSI Working Group Activities</title>
+<title>Overview</title>
 
-<script src="site_libs/header-attrs-2.32/header-attrs.js"></script>
-<script src="site_libs/jquery-3.7.1/jquery-3.7.1.min.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -32,9 +32,13 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="OHDSI working groups: weekly digest" href="data/digest.xml">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -242,42 +246,35 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html"><div><img src="ohdsi16x16.png"></img> OHDSI WG Activities </div></a>
+      <a class="navbar-brand" href="index.html"><div><img src="ohdsi16x16.png"></img> OHDSI <span class="wga-brand">WG Activity</span></div></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
-    <span class="fa fa-th"></span>
-     
-    Heatmap
-  </a>
+  <a href="index.html">Overview</a>
 </li>
 <li>
-  <a href="wg.html">
-    <span class="fa fa-users"></span>
-     
-    Working Group
-  </a>
+  <a href="groups.html">Groups</a>
 </li>
 <li>
-  <a href="collab.html">
-    <span class="fa fa-handshake-o"></span>
-     
-    Collaboration
-  </a>
+  <a href="projects.html">Projects</a>
 </li>
 <li>
-  <a href="about.html">
-    <span class="fa fa-info-circle"></span>
-     
-    About the data
-  </a>
+  <a href="topics.html">Topics</a>
+</li>
+<li>
+  <a href="connections.html">Connections</a>
+</li>
+<li>
+  <a href="activity.html">Activity</a>
+</li>
+<li>
+  <a href="about.html">About</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jshoughtaling/WGActivities">
+  <a href="https://github.com/rtmill/WGActivities">
     <span class="fa fa-github"></span>
      
   </a>
@@ -291,43 +288,37 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><img src="ohdsi40x40.png"></img> OHDSI
-Working Group Activities</h1>
+<h1 class="title toc-ignore">Overview</h1>
 
 </div>
 
 
-<div id="working-group-activity" class="section level1">
-<h1><strong>Working group activity</strong></h1>
-<p>Where OHDSI working groups have been active, week by week. Each row
-is a working group and each column is a week; darker cells mean more
-activity. Activity comes from GitHub, the OHDSI forums, the weekly
-community calls, Global Symposium showcases and, for some groups, MS
-Teams. The date below shows when the data was last refreshed.</p>
-<p id="wga-updated" class="wga-note">
-</p>
-<div id="wga-heatmap" class="wga">
+<div id="wga-week" class="wga">
+Loading…
+</div>
+<div class="wga wga-cols">
+<div class="main">
+<div id="wga-heatmap">
 Loading activity data…
 </div>
+</div>
+<aside class="side" id="wga-side">
+</aside>
+</div>
+<p id="wga-updated" class="wga-note">
+</p>
 <noscript>
 This page needs JavaScript to draw the heatmap. The numbers are in
 <a href="data/activity.json">activity.json</a>.
 </noscript>
-<p><br></p>
-<p>See <a href="about.html">About the data</a> for what each source
-counts, how groups are matched to repositories and forum topics, and
-what the heatmap can and cannot tell you.</p>
+<p>Activity comes from GitHub, the OHDSI forums, the weekly community
+calls, symposium materials and, for some groups, MS Teams (counts only).
+See <a href="about.html">About the data</a> for what each source counts
+and what the heatmap can and cannot tell you.</p>
 <script src="assets/wga-common.js"></script>
+<script src="assets/calendar.js"></script>
+<script src="assets/overview.js"></script>
 <script src="assets/heatmap.js"></script>
-<script>
-WGA.load().then(function (d) {
-  var t = new Date(d.generated);
-  document.getElementById("wga-updated").textContent =
-    "Updated " + t.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) +
-    ". Data from " + d.week_starts[0] + " to now (the latest week is still in progress).";
-});
-</script>
-</div>
 
 
 
