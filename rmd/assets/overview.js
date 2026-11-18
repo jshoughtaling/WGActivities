@@ -4,12 +4,28 @@
   var top = document.getElementById("wga-week"), side = document.getElementById("wga-side");
   if (!top) return;
 
-  WGA.loadMany(["data/digest.json", "data/similar.json", "data/activity.json"]).then(function (r) {
-    var dig = r[0], sim = r[1], act = r[2];
+  Promise.all([WGA.loadMany(["data/digest.json", "data/similar.json", "data/activity.json"]), WGA.cal.load()]).then(function (all) {
+    var r = all[0], dig = r[0], sim = r[1], act = r[2];
     WGA.setNames(dig.names);
     drawWeek(dig, sim);
-    if (side) drawSide(sim, act);
+    if (side) { drawSide(sim, act); if (all[1]) drawComing(all[1]); }
   }).catch(function (e) { WGA.fail(top, e); });
+
+  function drawComing(cal) {
+    var up = WGA.cal.upcoming(cal, { skipExpected: true }).slice(0, 6);
+    var card = h("section", { class: "wga-card tight", "aria-labelledby": "ov-cal" }, [h("h3", { id: "ov-cal", text: "Coming up" })]);
+    if (up.length) {
+      var ul = h("ul", { class: "cal-list" });
+      var lastDay = null;
+      up.forEach(function (e) {
+        if (e.date !== lastDay) { ul.appendChild(h("li", { class: "cal-dh", text: WGA.cal.when({ date: e.date }) })); lastDay = e.date; }
+        ul.appendChild(WGA.cal.row(e, true));
+      });
+      card.appendChild(ul);
+    } else card.appendChild(h("p", { class: "wga-empty", text: "No upcoming meetings listed" + (cal.source_updated ? " (ohdsi.org's list was last updated " + WGA.fmtDateY(cal.source_updated) + ")." : ".") }));
+    card.appendChild(h("a", { href: "activity.html?view=calendar", text: "Full calendar →", style: "font-size:0.85em" }));
+    side.insertBefore(card, side.firstChild);
+  }
 
   function lastComplete(dig) {
     var w = dig.weeks;

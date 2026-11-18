@@ -10,11 +10,13 @@
     ["pr_opened", "Opened PRs", ["pr_opened"]], ["forum", "Forum topics", ["topic_created"]], ["call", "Community calls", ["community_call", "spotlight"]],
     ["symposium", "Symposium items", ["showcase_entry", "tutorial", "wg_session", "regional_session", "regional_event"]],
   ];
-  var state = { view: WGA.param("view") === "outputs" ? "outputs" : "week", week: WGA.param("week"), q: WGA.param("q") || "", kinds: {} };
+  var v0 = WGA.param("view");
+  var state = { view: v0 === "outputs" || v0 === "calendar" ? v0 : "week", week: WGA.param("week"), q: WGA.param("q") || "", kinds: {} };
   KINDS.forEach(function (k) { state.kinds[k[0]] = true; });
-  var dig, sim, el = {};
+  var dig, sim, cal, calState = { mode: WGA.param("mode") === "month" ? "month" : "week" }, el = {};
 
-  WGA.loadMany(["data/digest.json", "data/similar.json"]).then(function (r) {
+  Promise.all([WGA.loadMany(["data/digest.json", "data/similar.json"]), WGA.cal.load()]).then(function (all) {
+    var r = all[0]; cal = all[1];
     dig = r[0]; sim = r[1]; WGA.setNames(dig.names);
     var weeks = dig.weeks.map(function (w) { return w.week; });
     if (weeks.indexOf(state.week) < 0) {
@@ -41,9 +43,9 @@
     root.appendChild(cols);
 
     var seg = h("div", { class: "wga-seg", role: "group", "aria-label": "View" });
-    [["week", "A week"], ["outputs", "Outputs, 52 weeks"]].forEach(function (o) {
+    [["week", "Week"], ["calendar", "Calendar"], ["outputs", "Outputs"]].forEach(function (o) {
       var b = h("button", { type: "button", text: o[1], "aria-pressed": String(state.view === o[0]) });
-      b.addEventListener("click", function () { state.view = o[0]; Array.prototype.forEach.call(seg.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); }); el.weekBox.style.display = state.view === "week" ? "" : "none"; draw(); });
+      b.addEventListener("click", function () { state.view = o[0]; Array.prototype.forEach.call(seg.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); }); syncSide(); draw(); });
       seg.appendChild(b);
     });
     side.appendChild(h("div", { style: "margin-bottom:1em" }, [seg]));
@@ -56,7 +58,7 @@
     el.weekBox = h("div", { style: "margin-bottom:1em" + (state.view === "week" ? "" : ";display:none") }, [h("label", { for: "a-week", class: "wga-label", text: "Week", style: "display:block;font-size:0.8em;color:var(--ink-2)" }), wsel]);
     side.appendChild(el.weekBox);
 
-    var fs = h("fieldset", { style: "border:0;margin:0 0 1em;padding:0" }, [h("legend", { text: "Show", style: "font-size:0.8em;color:var(--ink-2);border:0;margin:0 0 0.3em;font-weight:normal" })]);
+    var fs = el.kindsBox = h("fieldset", { style: "border:0;margin:0 0 1em;padding:0" }, [h("legend", { text: "Show", style: "font-size:0.8em;color:var(--ink-2);border:0;margin:0 0 0.3em;font-weight:normal" })]);
     el.counts = {};
     KINDS.forEach(function (k) {
       var i = h("input", { type: "checkbox" }); i.checked = true;
@@ -74,10 +76,24 @@
       return [it.d, it.s, it.t, (it.wgs || []).map(WGA.name).join("; "), it.title, it.url]; }).reduce(function (a, r) { a.push(r); return a; }, [["date", "source", "type", "groups", "title", "url"]])), "text/csv"); });
     var md = h("button", { type: "button", class: "wga-btn", text: "Copy as forum post" });
     md.addEventListener("click", function () { WGA.copy(markdown(), md); });
-    side.appendChild(h("div", { style: "display:flex;flex-direction:column;gap:0.4em;border-top:1px solid var(--grid);padding-top:0.8em" }, [
+    el.getDigest = h("div", { style: "display:flex;flex-direction:column;gap:0.4em;border-top:1px solid var(--grid);padding-top:0.8em" }, [
       h("div", { text: "Get this", style: "font-size:0.8em;color:var(--ink-2)" }), md, csv,
       h("a", { href: "data/digest.xml", text: "RSS feed of weekly digests", style: "font-size:0.88em" }),
-    ]));
+    ]);
+    el.getCal = h("div", { style: "display:flex;flex-direction:column;gap:0.4em;border-top:1px solid var(--grid);padding-top:0.8em" }, [
+      h("div", { text: "Get this", style: "font-size:0.8em;color:var(--ink-2)" }),
+      h("a", { class: "wga-btn", href: "data/calendar.ics", text: "Subscribe or download (.ics)", style: "text-align:center" }),
+      h("p", { class: "wga-note", style: "margin:0", text: "To subscribe, copy the link and add it as a calendar from URL in Outlook or Google Calendar; it follows the weekly refresh." }),
+    ]);
+    side.appendChild(el.getDigest); side.appendChild(el.getCal);
+    syncSide();
+  }
+  function syncSide() {
+    var c = state.view === "calendar";
+    el.weekBox.style.display = state.view === "week" ? "" : "none";
+    el.kindsBox.style.display = c ? "none" : "";
+    el.getDigest.style.display = c ? "none" : "";
+    el.getCal.style.display = c ? "" : "none";
   }
 
   function weekObj() { return dig.weeks.filter(function (w) { return w.week === state.week; })[0]; }
@@ -90,6 +106,12 @@
 
   function draw() {
     var m = el.main; m.textContent = "";
+    if (state.view === "calendar") {
+      var q = state.q.toLowerCase();
+      return WGA.cal.view(m, cal, calState, function (e) {
+        return !q || e.title.toLowerCase().indexOf(q) >= 0 || (e.wg && (e.wg.indexOf(q) >= 0 || WGA.name(e.wg).toLowerCase().indexOf(q) >= 0));
+      });
+    }
     var base = state.view === "outputs" ? dig.outputs : [].concat.apply([], weekObj().by_group.map(function (g) { return g.items; }));
     var seenC = {};
     KINDS.forEach(function (k) { el.counts[k[0]].textContent = "0"; seenC[k[0]] = {}; });

@@ -29,11 +29,27 @@
       h("p", { class: "wga-note", style: "margin:0.5em 0 0" }, [
         (WGA.STATUS[w.status] || {}).hint ? "Status: " + WGA.STATUS[w.status].hint + ". " : "",
         w.on_ohdsi_org === false ? "Not on ohdsi.org's working group list. " : "",
-        "Leads, meeting times and how to join: ",
+        "Leads and how to join: ",
         h("a", { href: "https://www.ohdsi.org/workgroups/", target: "_blank", rel: "noopener", text: "ohdsi.org/workgroups" }),
         " (not collected here yet).",
       ]),
     ]);
+    var meet = h("p", { class: "wga-note", style: "margin:0.4em 0 0" });
+    head.appendChild(meet);
+    WGA.cal.load().then(function (cal) {
+      if (!cal) return;
+      var nx = WGA.cal.upcoming(cal, { wg: slug }).filter(function (e) { return e.kind === "meeting"; });
+      var st = (cal.status || []).filter(function (x) { return x.wg === slug; })[0];
+      if (nx.length) {
+        var e = nx[0];
+        meet.appendChild(h("strong", { text: "Next meeting: " }));
+        meet.appendChild(document.createTextNode(WGA.cal.when(e) + (e.cancelled ? " (cancelled)" : "") + (e.note ? " (" + e.note + ")" : "") + ". "));
+        if (e.cadence) meet.appendChild(document.createTextNode(e.cadence + " "));
+        meet.appendChild(h("a", { href: e.url, target: "_blank", rel: "noopener", text: "Join details" }));
+        meet.appendChild(document.createTextNode(" · "));
+        meet.appendChild(h("a", { href: "activity.html?view=calendar&q=" + encodeURIComponent(slug), text: "calendar" }));
+      } else if (st) meet.textContent = "Meetings: " + (st.state === "tbd" ? "next meeting to be decided" : st.state) + " (ohdsi.org).";
+    });
     var exp = h("button", { type: "button", class: "wga-btn", text: "Download items (CSV)", style: "margin-top:0.6em" });
     exp.addEventListener("click", function () { exportCsv(d, w); });
     head.appendChild(exp);

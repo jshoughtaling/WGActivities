@@ -21,5 +21,6 @@ output:
 Activity comes from GitHub, the OHDSI forums, the weekly community calls, symposium materials and, for some groups, MS Teams (counts only). See [About the data](about.html) for what each source counts and what the heatmap can and cannot tell you.
 
 <script src="assets/wga-common.js"></script>
+<script src="assets/calendar.js"></script>
 <script src="assets/overview.js"></script>
 <script src="assets/heatmap.js"></script>
