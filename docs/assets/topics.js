@@ -37,7 +37,7 @@
   function radar(d) {
     var from = d.weeks.length - 26;
     var t = h("table", { class: "wga-table left" });
-    t.appendChild(h("thead", {}, [h("tr", {}, ["Topic", "Groups, last 6 months", "Items, last 12 months", "Week by week, last 6 months", "Most active groups"].map(function (x) { return h("th", { scope: "col", text: x }); }))]));
+    t.appendChild(h("thead", {}, [h("tr", {}, ["Topic", "Groups, last 6 months", "Items, last 12 months", "Week by week, last 6 months", "Most active groups, last 6 months (items)"].map(function (x) { return h("th", { scope: "col", text: x }); }))]));
     var tb = h("tbody");
     d.topics.forEach(function (x) {
       tb.appendChild(h("tr", {}, [
@@ -45,12 +45,25 @@
         h("td", { text: String(x.wgs_recent.length) }),
         h("td", { text: WGA.fmt(x.total52) }),
         h("td", { style: "min-width:200px" }, [WGA.strip(x.intensity.slice(from))]),
-        h("td", { style: "font-size:0.9em;color:var(--ink-2)", text: x.wgs_recent.slice(0, 4).map(function (g) { return WGA.shortName(g[0]); }).join(" · ") }),
+        h("td", {}, [weighted(x.wgs_recent.slice(0, 6))]),
       ]));
     });
     t.appendChild(tb);
     return h("section", { class: "wga-card" }, [h("div", { class: "hm-scroll" }, [t]),
       h("p", { class: "wga-note", text: "An item counts for a topic when its title matches the topic's keywords; commits and comments are left out, and items tagged to more than four groups do not count toward a group. Strip colour is relative across topics." })]);
+  }
+
+  /* One group per line, linked, with a bar sized by its items on the topic: more involved groups take more space. */
+  function weighted(list) {
+    if (!list.length) return h("span", { class: "wga-note", text: "–" });
+    var max = list[0][1] || 1;
+    return h("ul", { class: "wga-wlist" }, list.map(function (g) {
+      return h("li", {}, [
+        WGA.isBucket(g[0]) ? h("span", { text: WGA.name(g[0]) }) : h("a", { href: WGA.wgHref(g[0]), text: WGA.shortName(g[0]), title: WGA.name(g[0]) }),
+        h("span", { "aria-hidden": "true" }, [h("span", { class: "bar", style: "display:block;width:" + Math.max(6, Math.round(100 * g[1] / max)) + "%" })]),
+        h("span", { class: "n", text: String(g[1]), title: g[1] + " items in the last 6 months" }),
+      ]);
+    }));
   }
 
   function crosswalk(d, state) {
