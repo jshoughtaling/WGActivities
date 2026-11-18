@@ -18,6 +18,7 @@ This site has two aims: **transparency** (what each OHDSI working group (WG) is 
 |---|---|
 | [Overview](index.html) | The last complete week at a glance, and a heatmap whose rows can be groups (each expands into its projects), projects or topics. |
 | [Groups](groups.html) | Every working group, then a page per group: projects, outputs and recent activity, who it works with, and opportunities. |
+| [OKRs](okrs.html) | The 2026 objectives and key results each working group presented on the Feb 17 and Feb 24 community calls, with links to the recording and slides. Written down by hand from the slides and recordings (`config/okrs.yml`), not reviewed by the groups; groups that did not present are listed so leads can send theirs. |
 | [Projects](projects.html) | Software and specifications between a group and its repositories: repos, releases, activity, and which projects adapt which. |
 | [Topics](topics.html) | Subjects that cut across groups, over time and at each Global Symposium, plus shared terms not yet curated. |
 | [Connections](connections.html) | A network of groups with evidence of shared work, the evidence behind each pair, and similar work in different groups. |
@@ -72,6 +73,8 @@ The [Connections](connections.html) page flags places where groups may want to t
 - **Named together:** a cross-tagged item (a GIS pull request in another group's repository), or a forum topic, pull request, issue, call, showcase entry, tutorial or session whose title names a second group as well as the one it is filed under. "Workgroup Updates" roundup calls are skipped.
 - **Shared repository:** a repository that is one group's own and is also listed as shared with another group.
 - **Shared topic:** a topic (generative AI, FHIR, phenotypes and so on, listed in `config/collab_themes.yml`) that titles from two or more groups match. "Not yet linked" pairs are groups active on a topic with no item naming both.
+
+**Planned collaborations** come from the OKRs (`with:` in `config/okrs.yml`): when one group's 2026 OKRs say it plans to work with another, the pair is listed under Connections, and drawn as a dotted blue line when you tick "Show collaborations planned in the 2026 OKRs". They are hand-read, never part of a score, and a pair that already has evidence just gets a "planned in OKRs" tag.
 
 **Similar work** looks for the same subject in different groups' items over the last year: named things (FHIR, DuckDB, BigQuery, CDM v5.5) and two-word phrases ("episode table", "incidence rate") that appear in issue, pull request, forum, call and symposium titles. A subject is listed when at least two groups each have an item of their own about it, and pairs that no item names together are marked "not yet connected"; those are drawn as dashed orange lines in the network.
 

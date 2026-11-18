@@ -2,7 +2,7 @@
 
 A weekly-refreshed site about what OHDSI working groups are doing, for transparency and to surface chances to
 collaborate. Built from GitHub, the OHDSI forums, community calls, symposium materials and (counts only) MS Teams.
-Pages: Overview (week at a glance + heatmap by group, project or topic), Groups, Projects, Topics, Connections
+Pages: Overview (week at a glance + heatmap by group, project or topic), Groups, OKRs, Projects, Topics, Connections
 (network, pair evidence, similar work across groups), Activity (weekly digest, calendar of meetings with an .ics feed, outputs, CSV/markdown/RSS) and About.
 See `PLAN.md` for the design.
 
@@ -10,7 +10,7 @@ See `PLAN.md` for the design.
 
 ```
 config/            working_groups.yml (WG -> repos), item_rules.yml (title rules that also credit an item to another WG),
-                   projects.yml (repos -> projects), forum_mapping.yml, wg_aliases.yml,
+                   projects.yml (repos -> projects), project_primer.md (insider rules for grouping), okrs.yml (2026 OKRs from the community calls), forum_mapping.yml, wg_aliases.yml,
                    conferences.yml, collab_themes.yml (curated topics)
 scripts/collect/   one collector per source -> data/events/<source>.json
 scripts/build_activity.py   merges events (+ data/teams_counts.json) -> rmd/data/activity.json
@@ -18,11 +18,12 @@ scripts/build_collab.py     finds cross-WG collaboration candidates -> rmd/data/
 scripts/build_views.py      projects, topics, similar work, weekly digest, calendar
                             -> rmd/data/{projects,topics,similar,digest,calendar}.json, digest.xml (RSS), calendar.ics;
                             shared item model in scripts/lib_items.py
+scripts/build_okrs.py       config/okrs.yml -> rmd/data/okrs.json (the OKRs page and each group's OKR card)
 scripts/item_rules.py       applies config/item_rules.yml when events are loaded (run it to list what each rule tags)
 scripts/validate_config.py  checks the hand-edited config (slugs, regexes, project repos, extends, reviewed dates, meeting names)
 scripts/build_health.py     data freshness, collector outcomes and config notices -> rmd/data/health.json (About > Data health)
 scripts/record_status.py    the workflow records each collector's outcome in data/collector_status.json
-rmd/               RMarkdown site (index, groups, wg, projects, topics, connections, activity, about) and assets/*.js
+rmd/               RMarkdown site (index, groups, wg, okrs, projects, topics, connections, activity, about) and assets/*.js
 docs/              rendered site (GitHub Pages serves this folder from main)
 prompts/           prompt for the local Claude-in-Chrome Teams count run
 ```
@@ -63,6 +64,8 @@ python3 scripts/collect/test_meetings.py && python3 scripts/test_validate_config
 ```
 
 Python 3.12 (the version CI uses) is needed for the builders.
+
+Project groupings are proposed with `config/project_primer.md` first: insider rules (e.g. everything geospatial goes to Gaia/GIS, GIS Gaia is not GenAI GAIA) that override name-based guesses. Add to it when a grouping is corrected.
 
 To confirm a multi-repo project grouping, add `reviewed: YYYY-MM-DD by <name>` to it in `config/projects.yml`. Until then the Projects page marks it as a draft.
 

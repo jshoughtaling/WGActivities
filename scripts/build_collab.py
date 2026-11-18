@@ -10,6 +10,10 @@ Three signals, kept separate so each pair shows why it was flagged:
   shared terms the same distinctive term (e.g. "fhir", "llm") shows up in the item titles of several WGs.
                Each term becomes a theme; WG pairs also get the terms they share.
 
+A fourth, separate list, `planned`, is not a signal and never changes a score: pairs of groups where one group's
+2026 OKRs (config/okrs.yml, `with:`) say it plans to work with the other. Each is marked connected (the pair already has
+evidence above) or not yet.
+
 Only titles and links are used (same data as the heatmap). Nothing from Teams is read.
 
 Output: rmd/data/collab.json. Usage: python3 scripts/build_collab.py [--weeks 104] [--today YYYY-MM-DD]
@@ -97,6 +101,21 @@ def repo_links(cfg):
 
 def pair_key(a, b):
     return tuple(sorted((a, b)))
+
+
+def okr_plans(known):
+    """{(a, b): [slugs that named the other]} from config/okrs.yml `with:`, a < b. Empty when the file is missing."""
+    f = ROOT / "config" / "okrs.yml"
+    if not f.exists():
+        return {}
+    plans = defaultdict(list)
+    for e in (yaml.safe_load(f.read_text()) or {}).get("okrs") or []:
+        for t in e.get("with") or []:
+            if e.get("slug") in known and t in known and t != e["slug"]:
+                pair = tuple(sorted((e["slug"], t)))
+                if e["slug"] not in plans[pair]:
+                    plans[pair].append(e["slug"])
+    return dict(plans)
 
 
 def main():
@@ -218,12 +237,23 @@ def main():
         })
     pairs.sort(key=lambda p: (-p["score"], -p["co_recent"]))
 
+    # ---- planned collaborations from the OKRs: display only, not part of any score --------------------------
+    by_pair = {(p["a"], p["b"]): p for p in pairs}
+    planned = []
+    for (a, b), who in sorted(okr_plans(set(names)).items()):
+        hit = by_pair.get((a, b))
+        if hit:
+            hit["planned_by"] = who
+            hit["signals"] = hit["signals"] + ["planned in OKRs"]
+        planned.append({"a": a, "b": b, "by": who, "connected": bool(hit), "score": hit["score"] if hit else None})
+
     used = {p["a"] for p in pairs} | {p["b"] for p in pairs} | {w for t in theme_rows for w in t["wgs"]}
     out = {
         "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "window_weeks": args.weeks, "recent_weeks": RECENT_WEEKS,
-        "names": {s: n for s, n in names.items() if s in used},
+        "names": {s: n for s, n in names.items() if s in used | {x for p in planned for x in (p["a"], p["b"])}},
         "pairs": pairs[:60],
+        "planned": planned,
         "themes": theme_rows,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)

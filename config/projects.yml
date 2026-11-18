@@ -1,6 +1,7 @@
 # Projects: software that spans several repos, between a working group and its repos.
 #
 # DRAFT (2026-11-17), proposed from repo names and the WG -> repo map; needs review by each project's maintainers.
+# Before proposing or changing groupings, read config/project_primer.md (insider rules that override name-based guesses).
 # Only multi-repo projects are listed. Every other repo in working_groups.yml becomes a one-repo project of its own
 # (id = repo name, lowercase), owned by the repo's primary WG.
 #

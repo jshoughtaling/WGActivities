@@ -38,6 +38,7 @@ jobs:
           python3 scripts/build_activity.py
           python3 scripts/build_collab.py
           python3 scripts/build_views.py
+          python3 scripts/build_okrs.py
           python3 scripts/build_health.py
 
       - name: Site scripts parse

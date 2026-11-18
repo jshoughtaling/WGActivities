@@ -19,6 +19,9 @@ navbar:
     - text: "Groups"
       icon: fa-users
       href: groups.html
+    - text: "OKRs"
+      icon: fa-bullseye
+      href: okrs.html
     - text: "Projects"
       icon: fa-cubes
       href: projects.html

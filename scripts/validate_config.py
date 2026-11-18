@@ -11,6 +11,7 @@ Checks
   projects.yml        lead/contributing groups exist, kind is known, repos are listed once, extends resolve,
                       `reviewed` looks like "YYYY-MM-DD" or "YYYY-MM-DD by <who>", repos are collected
   wg_aliases.yml, forum_mapping.yml, collab_themes.yml   slugs exist, regexes compile
+  okrs.yml            slugs and `with` groups exist, session is defined in meta, objectives have text
   item_rules.yml      target and skip groups exist, regex compiles, named repos are collected
   data/meetings.json  every mapped group exists; names that map to no group are listed
 
@@ -168,6 +169,25 @@ def check(root=ROOT):
         for repo in r.get("repos") or []:
             if repo not in collected:
                 warnings.append(("rule-repo", f"{where}: repo {repo} is not collected, so the rule never applies to it"))
+
+    # ---- OKRs
+    okr = _yaml(root, "okrs.yml")
+    if okr:
+        sess = (okr.get("meta") or {}).get("sessions") or {}
+        for i, e in enumerate(okr.get("okrs") or []):
+            where = f"okrs.yml: {e.get('name') or i + 1}"
+            if not e.get("name"):
+                errors.append(("okr-field", f"{where}: missing name"))
+            if e.get("slug") and e["slug"] not in slugs:
+                errors.append(("okr-slug", f"{where}: slug {e['slug']} is not a working group"))
+            if e.get("session") not in sess:
+                errors.append(("okr-session", f"{where}: session {e.get('session')!r} is not one of {', '.join(sess) or 'meta.sessions'}"))
+            for g in e.get("with") or []:
+                if g not in slugs:
+                    errors.append(("okr-with", f"{where}: with {g} is not a working group"))
+            objs = e.get("objectives") or []
+            if not objs or any(not o.get("objective") for o in objs):
+                errors.append(("okr-objective", f"{where}: needs objectives, each with text"))
 
     # ---- meetings
     mp = Path(root) / "data" / "meetings.json"
