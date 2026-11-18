@@ -7,7 +7,7 @@
   var NS = "http://www.w3.org/2000/svg";
   function s(tag, attrs, text) { var e = document.createElementNS(NS, tag); Object.keys(attrs || {}).forEach(function (k) { e.setAttribute(k, attrs[k]); }); if (text != null) e.textContent = text; return e; }
 
-  var state = { wg: WGA.param("wg") || "", pair: null, term: WGA.param("term") || "", simOnly: false };
+  var state = { wg: WGA.param("wg") || "", pair: null, term: WGA.param("term") || "", simOnly: false, plans: WGA.param("plans") === "1" };
   var col, sim, el = {};
 
   WGA.loadMany(["data/collab.json", "data/similar.json"]).then(function (r) {
@@ -31,9 +31,13 @@
     filt.addEventListener("change", function () { state.wg = filt.value; state.pair = null; drawAll(); });
     var simChk = h("input", { type: "checkbox" });
     simChk.addEventListener("change", function () { state.simOnly = simChk.checked; drawNet(); });
+    var planChk = h("input", { type: "checkbox", id: "c-plan" });
+    planChk.checked = state.plans;
+    planChk.addEventListener("change", function () { state.plans = planChk.checked; drawNet(); });
     root.appendChild(h("div", { class: "wga-filters" }, [
       h("div", { class: "wga-group" }, [h("label", { for: "c-wg", text: "Focus on" }), filt]),
       h("label", { class: "wga-check" }, [simChk, "Show only similar-work links not yet connected"]),
+      h("label", { class: "wga-check" }, [planChk, "Show collaborations planned in the 2026 OKRs"]),
     ]));
     var cols = h("div", { class: "wga-cols" });
     el.net = h("section", { class: "wga-card main", "aria-label": "Network of working groups" });
@@ -58,8 +62,13 @@
     Object.keys(simCount).sort(function (a, b) { return simCount[b].length - simCount[a].length; }).slice(0, 18).forEach(function (k) {
       var ab = k.split("|"); edges.push({ a: ab[0], b: ab[1], w: simCount[k].length, terms: simCount[k], kind: "sim" });
     });
+    // Planned in OKRs but no evidence yet: a third kind of line. Not a score, so it never counts toward node strength.
+    (col.planned || []).forEach(function (pl) {
+      var k = key(pl.a, pl.b);
+      if (!pl.connected && !have[k] && !simCount[k]) edges.push({ a: pl.a, b: pl.b, w: 1, kind: "plan", plan: pl });
+    });
     var nodes = {};
-    edges.forEach(function (e) { [e.a, e.b].forEach(function (n) { nodes[n] = nodes[n] || { id: n, deg: 0, str: 0 }; nodes[n].deg++; nodes[n].str += e.kind === "pair" ? e.w : 0; }); });
+    edges.forEach(function (e) { [e.a, e.b].forEach(function (n) { nodes[n] = nodes[n] || { id: n, deg: 0, str: 0, planOnly: true }; nodes[n].deg++; nodes[n].str += e.kind === "pair" ? e.w : 0; if (e.kind !== "plan") nodes[n].planOnly = false; }); });
     return { nodes: Object.keys(nodes).map(function (k) { return nodes[k]; }), edges: edges };
   }
   function computeLayout(g, W, H) {
@@ -76,7 +85,7 @@
       }
       g.edges.forEach(function (e) {
         var a = idx[e.a], b = idx[e.b], dx = a.x - b.x, dy = a.y - b.y, d = Math.max(Math.sqrt(dx * dx + dy * dy), 0.01);
-        var f = d * d / k * (e.kind === "pair" ? 0.25 + Math.min(e.w, 20) / 40 : 0.08);
+        var f = d * d / k * (e.kind === "pair" ? 0.25 + Math.min(e.w, 20) / 40 : e.kind === "plan" ? 0.04 : 0.08);
         a.dx -= dx / d * f; a.dy -= dy / d * f; b.dx += dx / d * f; b.dy += dy / d * f;
       });
       ns.forEach(function (v) {
@@ -112,22 +121,24 @@
     var focus = state.wg, pk = state.pair ? key(state.pair.a, state.pair.b) : null;
     var nb = {};
     if (focus) g.edges.forEach(function (e) { if (e.a === focus) nb[e.b] = 1; if (e.b === focus) nb[e.a] = 1; });
-    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Network of working groups. Lines join groups with evidence of shared work; dashed orange lines join groups whose work overlaps but that are not yet connected." });
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Network of working groups. Lines join groups with evidence of shared work; dashed orange lines join groups whose work overlaps but that are not yet connected; dotted blue lines join groups that say in their 2026 OKRs they plan to work together." });
     var maxW = Math.max.apply(null, g.edges.filter(function (e) { return e.kind === "pair"; }).map(function (e) { return e.w; }).concat([1]));
     g.edges.forEach(function (e) {
       if (state.simOnly && e.kind !== "sim") return;
+      if (e.kind === "plan" && !state.plans) return;
       var a = layout[e.a], b = layout[e.b];
       var on = !focus || e.a === focus || e.b === focus;
-      var line = s("line", { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: "edge" + (e.kind === "sim" ? " sim" : "") + (on ? "" : " dim") + (pk === key(e.a, e.b) ? " sel" : ""),
-        "stroke-width": e.kind === "sim" ? 2 : (1.5 + 8 * Math.sqrt(e.w / maxW)) });
-      line.appendChild(s("title", {}, WGA.shortName(e.a) + " × " + WGA.shortName(e.b) + (e.kind === "sim" ? ": similar work (" + e.terms.slice(0, 3).join(", ") + "), not yet connected" : ": score " + e.w)));
+      var line = s("line", { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: "edge" + (e.kind === "sim" ? " sim" : e.kind === "plan" ? " plan" : "") + (on ? "" : " dim") + (pk === key(e.a, e.b) ? " sel" : ""),
+        "stroke-width": e.kind === "sim" || e.kind === "plan" ? 2 : (1.5 + 8 * Math.sqrt(e.w / maxW)) });
+      line.appendChild(s("title", {}, WGA.shortName(e.a) + " × " + WGA.shortName(e.b) + (e.kind === "sim" ? ": similar work (" + e.terms.slice(0, 3).join(", ") + "), not yet connected" : e.kind === "plan" ? ": planned in the 2026 OKRs, no shared activity yet" : ": score " + e.w)));
       line.addEventListener("click", function () {
-        if (e.kind === "pair") { state.pair = e.p; } else { state.pair = { a: e.a, b: e.b, sim: true, terms: e.terms }; }
+        if (e.kind === "pair") { state.pair = e.p; } else if (e.kind === "plan") { state.pair = { a: e.a, b: e.b, plan: e.plan }; } else { state.pair = { a: e.a, b: e.b, sim: true, terms: e.terms }; }
         drawNet(); drawPair();
       });
       svg.appendChild(line);
     });
     g.nodes.forEach(function (v) {
+      if (v.planOnly && !state.plans) return;
       var p = layout[v.id], label = WGA.shortName(v.id), w = Math.min(190, 16 + label.length * 7);
       var on = !focus || v.id === focus || nb[v.id];
       var gnode = s("g", { class: "node" + (v.str > 15 ? " hub" : "") + (v.id === focus ? " sel" : "") + (on ? "" : " dim"), tabindex: "0", role: "button", "aria-label": label + ", " + v.deg + " connections" });
@@ -142,6 +153,7 @@
     el.net.appendChild(h("div", { class: "wga-legend" }, [
       h("span", { class: "item", text: "Line weight = strength of evidence (the 40 strongest pairs)" }),
       h("span", { class: "item", style: "color:var(--warm-ink)", text: "Dashed orange = similar work, not yet connected" }),
+      state.plans ? h("span", { class: "item", style: "color:var(--accent-ink)", text: "Dotted blue = planned in OKRs, no shared activity yet (not scored)" }) : null,
       h("span", { class: "item", text: "Select a group to focus, a line for details" }),
     ]));
   }
@@ -166,7 +178,9 @@
     }
     el.pair.appendChild(h("div", { class: "sub", text: "Selected pair" }));
     el.pair.appendChild(h("h3", {}, [h("a", { href: WGA.wgHref(p.a), text: WGA.shortName(p.a) }), " × ", h("a", { href: WGA.wgHref(p.b), text: WGA.shortName(p.b) })]));
-    if (p.sim) {
+    if (p.plan) {
+      el.pair.appendChild(planNote(p.plan, "No item, repo or shared topic links these groups yet, but "));
+    } else if (p.sim) {
       el.pair.appendChild(h("p", { class: "warm-ink", style: "color:var(--warm-ink);font-size:0.9em", text: "No item names both groups yet, but their work overlaps on: " + p.terms.join(", ") + "." }));
     } else {
       el.pair.appendChild(h("div", { class: "wga-chips" }, [WGA.badge("score " + p.score, "blue")].concat(p.signals.map(function (x) { return WGA.badge(x); }))));
@@ -176,6 +190,7 @@
       if (p.themes.length) meta.push("Both active on " + p.themes.slice(0, 3).join(", "));
       el.pair.appendChild(h("ul", { class: "wga-plain" }, meta.map(function (m) { return h("li", { text: m }); })));
       if (p.evidence.length) el.pair.appendChild(WGA.itemList(p.evidence));
+      if (p.planned_by) el.pair.appendChild(planNote(p, "Also: "));
     }
     var shared = sim.clusters.filter(function (c) { return c.wgs.indexOf(p.a) >= 0 && c.wgs.indexOf(p.b) >= 0; });
     if (shared.length) el.pair.appendChild(h("p", { class: "wga-note", style: "margin-top:0.6em" }, ["Similar work: ", h("span", {}, shared.slice(0, 5).map(function (c, i) {
@@ -184,6 +199,13 @@
     var back = h("button", { type: "button", class: "wga-btn", text: "← All pairs", style: "margin-top:0.6em" });
     back.addEventListener("click", function () { state.pair = null; drawNet(); drawPair(); });
     el.pair.appendChild(back);
+  }
+
+  /* One line saying who named whom in their 2026 OKRs. */
+  function planNote(p, lead) {
+    var who = p.by || p.planned_by || [], other = function (x) { return x === p.a ? p.b : p.a; };
+    return h("p", { class: "wga-note", style: "margin-top:0.6em" }, [lead + who.map(function (x) { return WGA.shortName(x) + " names " + WGA.shortName(other(x)); }).join(" and ") + " in their 2026 OKRs. ",
+      h("a", { href: "okrs.html?g=" + encodeURIComponent(who[0]), text: "See the OKRs" }), "."]);
   }
 
   /* ---------------- pairs list ---------------- */
@@ -204,6 +226,16 @@
           [h("div", { class: "num" }, [h("b", { text: String(q.score) }), h("span", { class: "mu", text: " score" })]), WGA.sm(q.signals.join(" · "), "mu")],
           [ev ? WGA.sm([h("a", { href: WGA.safeUrl(ev.url), target: "_blank", rel: "noopener", text: ev.title })]) : WGA.sm(q.themes.length ? "Both active on " + q.themes.slice(0, 3).join(", ") : "–", "mu")]];
       }), "No pairs for this group."));
+    var pl = (col.planned || []).filter(function (q) { return !q.connected && (!state.wg || q.a === state.wg || q.b === state.wg); });
+    if (pl.length) {
+      el.pairs.appendChild(h("h3", { text: "Planned in 2026 OKRs, not yet connected (" + pl.length + ")", style: "margin-top:1.2em" }));
+      el.pairs.appendChild(h("p", { class: "wga-note", text: "One group's OKRs say it plans to work with the other, and nothing in the collected activity links them yet (or the link is below the threshold for the list above). Hand-read from the OKRs, not scored." }));
+      el.pairs.appendChild(WGA.rows([["Pair", "minmax(220px, 1.4fr)"], ["Named in OKRs of", "minmax(220px, 2fr)"]], pl.map(function (q) {
+        var b = h("button", { type: "button", class: "wga-linkbtn nm", text: WGA.shortName(q.a) + " × " + WGA.shortName(q.b) });
+        b.addEventListener("click", function () { state.pair = { a: q.a, b: q.b, plan: q }; state.plans = true; document.getElementById("c-plan").checked = true; drawNet(); drawPair(); el.net.scrollIntoView({ behavior: "smooth" }); });
+        return [[b], [WGA.chipLinks(q.by)]];
+      })));
+    }
     var allP = col.pairs.filter(function (q) { return !state.wg || q.a === state.wg || q.b === state.wg; });
     if (!state.allPairs && allP.length > 15) {
       var more = h("button", { type: "button", class: "wga-btn", text: "Show all " + allP.length + " pairs", style: "margin-top:0.6em" });
