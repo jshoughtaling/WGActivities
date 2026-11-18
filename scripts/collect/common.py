@@ -13,7 +13,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent.parent
 CACHE = ROOT / "data" / "cache"
 EVENTS = ROOT / "data" / "events"
-UA = "wg-activities-collector (https://github.com/jshoughtaling/WGActivities)"
+UA = "wg-activities-collector (https://github.com/{})".format(
+    (yaml.safe_load((ROOT / "config" / "site.yml").read_text()) or {}).get("repo", "jshoughtaling/WGActivities")
+    if (ROOT / "config" / "site.yml").exists() else "jshoughtaling/WGActivities")
 
 
 def fetch(url, max_age_days=1, delay=0.5):

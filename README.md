@@ -50,5 +50,5 @@ python3 -m http.server -d docs         # open http://localhost:8000 (the page fe
 ```
 
 `.github/workflows/weekly.yml` does the same when you run it by hand (Actions tab > Run workflow; it has no schedule or push trigger) and commits `docs/`, `data/events/` and
-`rmd/data/`. In the repository settings, set Pages to deploy from the `main` branch, `/docs` folder.
+`rmd/data/`. In the repository settings, set Pages to deploy from the `main` branch, `/docs` folder. In a fork, also enable Actions (Actions tab) and allow workflows to write (Settings → Actions → General → Workflow permissions), and change `config/site.yml` plus the two links it lists.
 Teams data is not collected in CI: run `prompts/collect_teams.md` locally and commit `data/teams_counts.json`.

@@ -1,18 +1,18 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, camelcase */
 /*!
- * jQuery UI Datepicker 1.14.2
- * https://jqueryui.com
+ * jQuery UI Datepicker 1.13.2
+ * http://jqueryui.com
  *
- * Copyright OpenJS Foundation and other contributors
+ * Copyright jQuery Foundation and other contributors
  * Released under the MIT license.
- * https://jquery.org/license
+ * http://jquery.org/license
  */
 
 //>>label: Datepicker
 //>>group: Widgets
 //>>description: Displays a calendar from an input or inline for selecting dates.
-//>>docs: https://api.jqueryui.com/datepicker/
-//>>demos: https://jqueryui.com/datepicker/
+//>>docs: http://api.jqueryui.com/datepicker/
+//>>demos: http://jqueryui.com/datepicker/
 //>>css.structure: ../../themes/base/core.css
 //>>css.structure: ../../themes/base/datepicker.css
 //>>css.theme: ../../themes/base/theme.css
@@ -36,7 +36,7 @@
 } )( function( $ ) {
 "use strict";
 
-$.extend( $.ui, { datepicker: { version: "1.14.2" } } );
+$.extend( $.ui, { datepicker: { version: "1.13.2" } } );
 
 var datepicker_instActive;
 
@@ -353,7 +353,7 @@ $.extend( Datepicker.prototype, {
 		}
 
 		// Set display:block in place of inst.dpDiv.show() which won't work on disconnected elements
-		// https://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
+		// http://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
 		inst.dpDiv.css( "display", "block" );
 	},
 
@@ -435,7 +435,6 @@ $.extend( Datepicker.prototype, {
 			$target.removeClass( this.markerClassName ).empty();
 		}
 
-		$.datepicker._hideDatepicker();
 		if ( datepicker_instActive === inst ) {
 			datepicker_instActive = null;
 			this._curInst = null;
@@ -535,7 +534,7 @@ $.extend( Datepicker.prototype, {
 	_getInst: function( target ) {
 		try {
 			return $.data( target, "datepicker" );
-		} catch ( _err ) {
+		} catch ( err ) {
 			throw "Missing instance data for this datepicker";
 		}
 	},
@@ -768,7 +767,7 @@ $.extend( Datepicker.prototype, {
 					$.datepicker._updateAlternate( inst );
 					$.datepicker._updateDatepicker( inst );
 				}
-			} catch ( _err ) {
+			} catch ( err ) {
 			}
 		}
 		return true;
@@ -911,8 +910,11 @@ $.extend( Datepicker.prototype, {
 		}
 	},
 
+	// #6694 - don't focus the input if it's already focused
+	// this breaks the change event in IE
+	// Support: IE and jQuery <1.9
 	_shouldFocusInput: function( inst ) {
-		return inst.input && inst.input.is( ":visible" ) && !inst.input.is( ":disabled" );
+		return inst.input && inst.input.is( ":visible" ) && !inst.input.is( ":disabled" ) && !inst.input.is( ":focus" );
 	},
 
 	/* Check positioning to remain on screen. */
@@ -969,7 +971,8 @@ $.extend( Datepicker.prototype, {
 				$.datepicker._tidyDialog( inst );
 			};
 
-			if ( $.effects && ( $.effects.effect[ showAnim ] ) ) {
+			// DEPRECATED: after BC for 1.8.x $.effects[ showAnim ] is not needed
+			if ( $.effects && ( $.effects.effect[ showAnim ] || $.effects[ showAnim ] ) ) {
 				inst.dpDiv.hide( showAnim, $.datepicker._get( inst, "showOptions" ), duration, postProcess );
 			} else {
 				inst.dpDiv[ ( showAnim === "slideDown" ? "slideUp" :
@@ -1540,7 +1543,7 @@ $.extend( Datepicker.prototype, {
 
 		try {
 			date = this.parseDate( dateFormat, dates, settings ) || defaultDate;
-		} catch ( _err ) {
+		} catch ( event ) {
 			dates = ( noDefault ? "" : dates );
 		}
 		inst.selectedDay = date.getDate();
@@ -1569,7 +1572,7 @@ $.extend( Datepicker.prototype, {
 				try {
 					return $.datepicker.parseDate( $.datepicker._get( inst, "dateFormat" ),
 						offset, $.datepicker._getFormatConfig( inst ) );
-				} catch ( _e ) {
+				} catch ( e ) {
 
 					// Ignore
 				}
@@ -2230,7 +2233,7 @@ $.fn.datepicker = function( options ) {
 $.datepicker = new Datepicker(); // singleton instance
 $.datepicker.initialized = false;
 $.datepicker.uuid = new Date().getTime();
-$.datepicker.version = "1.14.2";
+$.datepicker.version = "1.13.2";
 
 return $.datepicker;
 

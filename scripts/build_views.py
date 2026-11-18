@@ -29,6 +29,8 @@ from itertools import combinations
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+import yaml
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib_items import (BUCKETS, ROOT, TEXT_TYPES, canonical_items, load_events, projects, rank,  # noqa: E402
                        short, topics, week_start, window_weeks, wg_config)
@@ -37,7 +39,9 @@ OUT = ROOT / "rmd" / "data"
 RECENT = 8                 # weeks for status and trend, same as activity.json
 DIGEST_WEEKS = 12
 MAX_CELL_ITEMS = 8         # drill-down items kept per row-week
-SITE_URL = "https://jshoughtaling.github.io/WGActivities/"   # used in the RSS feed only
+SITE = ROOT / "config" / "site.yml"
+SITE_URL = (yaml.safe_load(SITE.read_text()) or {}).get("site_url") if SITE.exists() else None
+SITE_URL = SITE_URL or "https://jshoughtaling.github.io/WGActivities/"   # used in the RSS feed only
 
 
 def pct_fn(values):
@@ -375,7 +379,7 @@ def rss(digest, generated):
              "<description>What OHDSI working groups did each week, from public sources.</description>",
              f"<lastBuildDate>{generated.strftime('%a, %d %b %Y %H:%M:%S +0000')}</lastBuildDate>"]
     for w in reversed(digest["weeks"]):
-        top = ", ".join(f"{g['name']} ({g['n']})" for g in w["by_group"] if not g["bucket"])[:400]
+        top = ", ".join(f"{g['name']} ({g['n']})" for g in [g for g in w["by_group"] if not g["bucket"]][:8])
         rel = "; ".join(r["title"] for r in w["releases"][:8])
         desc = f"{w['items']} public items from {w['groups']} groups. Most active: {top}." + (f" Releases: {rel}." if rel else "")
         d = datetime.fromisoformat(w["start"]).replace(tzinfo=timezone.utc)
