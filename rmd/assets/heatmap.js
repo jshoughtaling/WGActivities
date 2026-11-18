@@ -5,7 +5,7 @@
   var root = document.getElementById("wga-heatmap");
   if (!root) return;
 
-  var state = { lens: WGA.param("lens") || "groups", source: "all", range: 26, sort: "recent", showEmpty: false, showExtra: true, sel: null, open: {} };
+  var state = { view: WGA.param("view") === "table" ? "table" : "grid", lens: WGA.param("lens") || "groups", source: "all", range: 26, sort: "recent", showEmpty: false, showExtra: true, sel: null, open: {} };
   var data, proj, topics, rows, cols, projByWg = {};
 
   var RANGES = [[13, "3 months"], [26, "6 months"], [52, "12 months"]];
@@ -120,7 +120,7 @@
     el.filters = h("div", { class: "wga-filters" });
     el.card = h("div", { class: "wga-card" });
     el.detail = h("div", { class: "wga-card wga-detail", "aria-live": "polite" });
-    el.table = h("details", { class: "wga-card" });
+    el.table = h("div", { class: "wga-card" });
     root.appendChild(el.filters); root.appendChild(el.card);
     root.appendChild(el.detail); root.appendChild(el.table);
     buildFilters();
@@ -135,7 +135,7 @@
       b.addEventListener("click", function () {
         state[key] = o[0]; state.sel = null;
         Array.prototype.forEach.call(box.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-        if (key === "lens") syncLens();
+        if (key === "lens" || key === "view") syncLens();
         render(); resetDetail();
       });
       box.appendChild(b);
@@ -146,6 +146,7 @@
 
   function buildFilters() {
     var f = el.filters;
+    f.appendChild(seg("View", [["grid", "Grid"], ["table", "Table"]], "view"));
     f.appendChild(seg("Rows", LENSES, "lens"));
     f.appendChild(seg("Range", RANGES, "range"));
     var srcs = [["all", "All sources"]].concat(data.sources.map(function (s) { return [s, WGA.SOURCES[s] ? WGA.SOURCES[s].label : s]; }));
@@ -164,7 +165,12 @@
     el.srcSeg.style.display = g ? "" : "none";
     el.extra.style.display = g ? "" : "none";
     if (!g) state.source = "all";
-    try { history.replaceState(null, "", g ? location.pathname : "?lens=" + state.lens); } catch (e) { /* file:// */ }
+    var t = state.view === "table";
+    el.card.style.display = t ? "none" : "";
+    el.detail.style.display = t ? "none" : "";
+    el.table.style.display = t ? "" : "none";
+    var qs = [g ? "" : "lens=" + state.lens, t ? "view=table" : ""].filter(Boolean).join("&");
+    try { history.replaceState(null, "", qs ? "?" + qs : location.pathname); } catch (e) { /* file:// */ }
   }
   function check(label, key) {
     var i = h("input", { type: "checkbox" });
@@ -352,7 +358,7 @@
   /* ---------- table twin ---------- */
   function renderTable() {
     el.table.textContent = "";
-    el.table.appendChild(h("summary", { text: "Table view of the same numbers" }));
+    el.table.appendChild(h("p", { class: "wga-note", style: "margin-top:0", text: "The grid's numbers as a table. The filters and sort above apply to both views." }));
     var srcs = state.lens === "groups" ? data.sources.filter(function (s) { return state.source === "all" || state.source === s; }) : [];
     var t = h("table", { class: "wga-table" });
     var head = [NOUN[state.lens].charAt(0).toUpperCase() + NOUN[state.lens].slice(1), "Status", "Last 8 wks", "Prior 8 wks", "In range"]

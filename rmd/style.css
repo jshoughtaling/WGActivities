@@ -271,6 +271,7 @@ a.cal-chip.x { text-decoration: line-through; opacity: 0.6; }
 .wga-rows .nm a:hover { text-decoration: underline; }
 .wga-rows .sm { font-size: 0.82em; color: var(--ink-2); line-height: 1.45; margin-top: 0.2em; }
 .wga-rows .mu { color: var(--ink-muted); }
+.wga-rows .sm a, .wga-rows ul a { color: var(--accent); }
 .wga-rows .num { font-variant-numeric: tabular-nums; font-size: 0.9em; }
 .wga-rows .num b { font-size: 1.1em; }
 .wga-rows .wga-strip { margin-top: 0.25em; }
@@ -291,6 +292,17 @@ body .main-container { max-width: 1500px; width: 94%; }
 /* weighted group list (Topics: most active groups) */
 .wga-wlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; min-width: 240px; }
 .wga-wlist li { display: grid; grid-template-columns: minmax(110px, 0.9fr) minmax(60px, 1fr) 2.5em; gap: 0.5em; align-items: center; font-size: 0.85em; }
-.wga-wlist a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wga-wlist.plain li { display: block; }
+.wga-wlist a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--accent); }
+.wga-wlist a:hover { text-decoration: underline; }
 .wga-wlist .bar { height: 10px; border-radius: 2px; background: var(--s-github); }
+.wga-rows ul.wga-wlist { font-size: 1em; min-width: 0; }
+.wga-rows ul.wga-wlist li { padding: 0; grid-template-columns: minmax(0, 1fr) 52px 2.9em; }
+.wga-movers { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 0.25em 0.9em; align-items: baseline; font-size: 0.9em; }
+.wga-movers .hd { font-size: 0.78em; font-weight: 600; color: var(--ink-muted); text-align: right; }
+.wga-movers a { color: var(--accent); line-height: 1.3; }
+.wga-movers .v { font-weight: 600; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.wga-movers .v.up { color: var(--accent); }
+.wga-movers .v.down { color: var(--warm-ink); }
+.wga-movers .p { color: var(--ink-muted); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .wga-wlist .n { color: var(--ink-muted); font-variant-numeric: tabular-nums; text-align: right; }

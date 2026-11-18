@@ -212,6 +212,22 @@
     if (!rows.length) box.appendChild(WGA.h("div", { class: "empty", text: empty || "Nothing matches." }));
     return box;
   };
+  /* One linked entry per line, with a bar and count when the entries have one: busier entries take more space.
+     entries: [{ text, href, title, n, ext }], already sorted. unit: tooltip text after the count. */
+  WGA.wlist = function (entries, unit) {
+    if (!entries.length) return WGA.sm("–", "mu");
+    var hasN = entries.some(function (e) { return typeof e.n === "number"; });
+    var max = Math.max.apply(null, entries.map(function (e) { return e.n || 0; })) || 1;
+    return WGA.h("ul", { class: "wga-wlist" + (hasN ? "" : " plain") }, entries.map(function (e) {
+      var a = e.href ? WGA.h("a", { href: e.href, text: e.text, title: e.title || e.text, target: e.ext ? "_blank" : null, rel: e.ext ? "noopener" : null })
+        : WGA.h("span", { text: e.text, title: e.title || e.text });
+      if (!hasN) return WGA.h("li", {}, [a]);
+      var n = e.n || 0;
+      return WGA.h("li", {}, [a,
+        WGA.h("span", { "aria-hidden": "true" }, [WGA.h("span", { class: "bar", style: "display:block;width:" + (n ? Math.max(6, Math.round(100 * n / max)) : 0) + "%" })]),
+        WGA.h("span", { class: "n", text: WGA.fmt(n), title: WGA.fmt(n) + " " + (unit || "items") })]);
+    }));
+  };
   WGA.sm = function (kids, cls) { return WGA.h("div", { class: "sm" + (cls ? " " + cls : "") }, Array.isArray(kids) ? kids : [kids]); };
   WGA.months = function (weeks) { return Math.round(weeks / 4.33) + " months"; };
 })();

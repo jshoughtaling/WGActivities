@@ -61,7 +61,7 @@
         name: function (a, b) { return a.name.localeCompare(b.name); } }[state.sort]);
       count.textContent = ps.length + " project" + (ps.length === 1 ? "" : "s");
       grid.textContent = "";
-      grid.appendChild(WGA.rows([["Project", "minmax(150px, 1.3fr)"], ["Lead group", "minmax(120px, 1fr)"], ["Repositories", "minmax(140px, 1.3fr)"], ["Last 6 months", "minmax(130px, 1.3fr)"], ["Last 8 weeks", "minmax(80px, 0.65fr)"], ["About", "minmax(170px, 1.7fr)"]],
+      grid.appendChild(WGA.rows([["Project", "minmax(150px, 1.3fr)"], ["Lead group", "minmax(120px, 1fr)"], ["Repositories", "minmax(190px, 1.5fr)"], ["Last 6 months", "minmax(130px, 1.3fr)"], ["Last 8 weeks", "minmax(80px, 0.65fr)"], ["About", "minmax(170px, 1.7fr)"]],
         ps.map(function (p) {
           var ext = p.extends.map(function (x) { var q = d.projects.filter(function (z) { return z.id === x; })[0]; return q ? q.name : x; });
           var extBy = p.extended_by.map(function (x) { var q = d.projects.filter(function (z) { return z.id === x; })[0]; return q ? q.name : x; });
@@ -69,7 +69,8 @@
             [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(WGA.KINDS[p.kind] || p.kind, "mu")],
             [h("div", { class: "sm", style: "margin-top:0.15em" }, [WGA.isBucket(p.lead_wg) ? h("span", { text: WGA.name(p.lead_wg) }) : h("a", { href: WGA.wgHref(p.lead_wg), text: WGA.shortName(p.lead_wg) })]),
               p.contributing_wgs.length ? WGA.sm("with " + p.contributing_wgs.map(WGA.shortName).join(", "), "mu") : null],
-            [h("ul", {}, p.repos.map(function (r) { return h("li", {}, [h("a", { href: r.url, target: "_blank", rel: "noopener", text: r.name })]); }))],
+            [WGA.wlist(p.repos.slice().sort(function (a, b) { return b.items - a.items || a.name.localeCompare(b.name); })
+              .map(function (r) { return { text: r.name, href: r.url, ext: true, n: r.items, title: r.name + " on GitHub" }; }), "items in the last 12 months")],
             [p.counts ? WGA.strip(p.intensity.slice(from)) : WGA.sm("No GitHub activity in the last year" + (p.last ? " (last " + WGA.fmtDateY(p.last) + ")" : ""), "mu")],
             [h("div", { class: "num" }, [h("b", { text: WGA.fmt(p.recent) }), h("span", { class: "mu", text: " items" })]),
               p.releases.length ? WGA.sm(p.releases.length + " release" + (p.releases.length > 1 ? "s" : "") + " in 12 months", "mu") : null],

@@ -74,13 +74,15 @@
     var ws = act.wgs.filter(function (w) { return w.recent + w.prior >= 20; });
     var up = ws.slice().sort(function (a, b) { return (b.recent - b.prior) - (a.recent - a.prior); }).slice(0, 3);
     var down = ws.slice().sort(function (a, b) { return (a.recent - a.prior) - (b.recent - b.prior); }).slice(0, 2);
+    mv.appendChild(h("p", { class: "wga-note", style: "margin:0 0 0.4em", text: "Items in the last 8 weeks compared with the 8 weeks before (groups with 20+ items)." }));
+    var mg = h("div", { class: "wga-movers" }, [h("span", { class: "hd", text: "" }), h("span", { class: "hd", text: "Last 8 wks" }), h("span", { class: "hd", text: "8 before" })]);
     up.concat(down).forEach(function (w) {
       var d = w.recent - w.prior;
-      mv.appendChild(h("div", { style: "display:flex;justify-content:space-between;gap:0.5em;font-size:0.9em;padding:0.2em 0" }, [
-        h("a", { href: WGA.wgHref(w.slug), text: WGA.shortName(w.slug) }),
-        h("span", { style: "font-weight:600;color:" + (d >= 0 ? "var(--accent)" : "var(--warm-ink)"), text: w.recent + " vs " + w.prior }),
-      ]));
+      mg.appendChild(h("a", { href: WGA.wgHref(w.slug), text: WGA.shortName(w.slug), title: WGA.name(w.slug) }));
+      mg.appendChild(h("span", { class: "v " + (d >= 0 ? "up" : "down"), text: (d >= 0 ? "▲ " : "▼ ") + WGA.fmt(w.recent) }));
+      mg.appendChild(h("span", { class: "p", text: WGA.fmt(w.prior) }));
     });
+    mv.appendChild(mg);
     var quiet = act.wgs.filter(function (w) { return w.status === "quiet"; }).map(function (w) { return w.name; });
     var dorm = act.wgs.filter(function (w) { return w.status === "dormant"; }).map(function (w) { return w.name; });
     if (quiet.length || dorm.length) mv.appendChild(h("div", { class: "wga-note", style: "border-top:1px solid var(--grid);padding-top:0.5em;margin-top:0.4em",

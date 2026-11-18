@@ -226,12 +226,14 @@
       var q = state.term.toLowerCase();
       var all = sim.clusters.filter(function (c) { return (!state.wg || c.wgs.indexOf(state.wg) >= 0) && (!q || c.term.indexOf(q) >= 0); });
       var cs = state.allSim || q ? all : all.slice(0, 15);
-      grid.appendChild(WGA.rows([["Subject", "minmax(140px, 1fr)"], ["Groups", "minmax(160px, 1.3fr)"], ["Items", "minmax(260px, 2.6fr)"]],
+      grid.appendChild(WGA.rows([["Subject", "minmax(140px, 1fr)"], ["Groups", "minmax(200px, 1.4fr)"], ["Items", "minmax(260px, 2.6fr)"]],
         cs.map(function (c) {
           return [
             [h("div", { class: "nm", text: c.term, style: c.term === state.term ? "color:var(--warm-ink)" : "" }),
               WGA.sm(c.n + " items" + (c.new_ties.length ? " · " + c.new_ties.length + " pair" + (c.new_ties.length > 1 ? "s" : "") + " not yet connected" : " · groups already connected"), c.new_ties.length ? "warm-ink" : "mu")],
-            [h("ul", {}, c.wgs.map(function (g) { return h("li", {}, [h("a", { href: WGA.wgHref(g), text: WGA.shortName(g) })]); }))],
+            [WGA.wlist(c.wgs.map(function (g) {
+              return { text: WGA.shortName(g), title: WGA.name(g), href: WGA.isBucket(g) ? null : WGA.wgHref(g), n: c.items.filter(function (i) { return i.g === g || (i.wgs || []).indexOf(g) >= 0; }).length };
+            }).sort(function (a, b) { return b.n - a.n || a.text.localeCompare(b.text); }), "items on this subject")],
             [h("ul", {}, c.items.slice(0, 4).map(function (i) {
               return h("li", {}, [h("span", { class: "mu", text: WGA.shortName(i.g) + ": " }),
                 WGA.safeUrl(i.url) ? h("a", { href: i.url, target: "_blank", rel: "noopener", text: i.title }) : i.title]);

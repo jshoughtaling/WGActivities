@@ -11,7 +11,7 @@
     WGA.setNames(proj.names);
     var projs = {}, tops = {}, next = {}, noMeet = {};
     proj.projects.forEach(function (p) { if (p.grouped || p.recent) (projs[p.lead_wg] = projs[p.lead_wg] || []).push(p); });
-    top.topics.forEach(function (t) { t.wgs_recent.forEach(function (x) { if (x[1] >= 2) (tops[x[0]] = tops[x[0]] || []).push(t); }); });
+    top.topics.forEach(function (t) { t.wgs_recent.forEach(function (x) { if (x[1] >= 2) (tops[x[0]] = tops[x[0]] || []).push({ id: t.id, name: t.name, n: x[1] }); }); });
     if (cal) {
       WGA.cal.upcoming(cal).forEach(function (e) { if (e.kind === "meeting" && e.wg && !next[e.wg]) next[e.wg] = e; });
       (cal.status || []).forEach(function (x) { if (x.wg) noMeet[x.wg] = x.state; });
@@ -46,10 +46,12 @@
       }[state.sort]);
       count.textContent = ws.length + " working group" + (ws.length === 1 ? "" : "s");
       list.textContent = "";
-      list.appendChild(WGA.rows([["Working group", "minmax(160px, 1.5fr)"], ["Next meeting", "minmax(110px, 0.9fr)"], ["Last 6 months", "minmax(130px, 1.3fr)"], ["Last 8 weeks", "minmax(85px, 0.7fr)"], ["Projects", "minmax(140px, 1.4fr)"], ["Topics", "minmax(140px, 1.4fr)"]],
+      list.appendChild(WGA.rows([["Working group", "minmax(160px, 1.5fr)"], ["Next meeting", "minmax(110px, 0.9fr)"], ["Last 6 months", "minmax(130px, 1.1fr)"], ["Last 8 weeks", "minmax(85px, 0.7fr)"], ["Projects", "minmax(200px, 1.9fr)"], ["Topics", "minmax(200px, 1.9fr)"]],
         ws.map(function (w) {
-          var ps = (projs[w.slug] || []).slice().sort(function (a, b) { return b.recent - a.recent || a.name.localeCompare(b.name); });
-          var ts = tops[w.slug] || [];
+          var ps = (projs[w.slug] || []).map(function (p) { return { text: p.name, href: WGA.projHref(p.id), n: p.counts ? WGA.sum(p.counts.slice(-26)) : 0 }; })
+            .sort(function (a, b) { return b.n - a.n || a.text.localeCompare(b.text); });
+          var ts = (tops[w.slug] || []).map(function (t) { return { text: t.name, href: WGA.topicHref(t.id), n: t.n }; })
+            .sort(function (a, b) { return b.n - a.n || a.text.localeCompare(b.text); });
           var d = w.recent - w.prior, nx = next[w.slug];
           var st = WGA.STATUS[w.status] || { label: w.status };
           return [
@@ -61,8 +63,8 @@
             [WGA.strip(w.intensity.slice(from))],
             [h("div", { class: "num" }, [h("b", { text: WGA.fmt(w.recent) }), h("span", { class: "mu", text: " items" })]),
               WGA.sm((d >= 0 ? "+" : "−") + WGA.fmt(Math.abs(d)) + " vs the 8 before", "mu")],
-            ps.length ? h("ul", {}, ps.map(function (p) { return h("li", {}, [h("a", { href: WGA.projHref(p.id), text: p.name })]); })) : WGA.sm("–", "mu"),
-            ts.length ? h("ul", {}, ts.map(function (t) { return h("li", {}, [h("a", { href: WGA.topicHref(t.id), text: t.name })]); })) : WGA.sm("–", "mu"),
+            WGA.wlist(ps, "items in the last 6 months"),
+            WGA.wlist(ts, "items on this topic in the last 6 months"),
           ];
         }), "No groups match."));
     }

@@ -69,7 +69,7 @@
     var ps = x.proj.projects.filter(function (p) { return p.lead_wg === slug || p.contributing_wgs.indexOf(slug) >= 0; })
       .sort(function (a, b) { return (b.grouped - a.grouped) || b.recent - a.recent || b.total52 - a.total52; });
     if (ps.length) {
-      var rows = WGA.rows([["Project", "minmax(170px, 1.5fr)"], ["Repositories", "minmax(140px, 1.4fr)"], ["Last 6 months", "minmax(140px, 1.4fr)"], ["Last 12 months", "minmax(110px, 0.8fr)"]],
+      var rows = WGA.rows([["Project", "minmax(170px, 1.5fr)"], ["Repositories", "minmax(190px, 1.5fr)"], ["Last 6 months", "minmax(140px, 1.4fr)"], ["Last 12 months", "minmax(110px, 0.8fr)"]],
         ps.map(function (p) {
           var shared = p.lead_wg !== slug;
           var ext = p.extends.map(function (id) { var q = x.proj.projects.filter(function (z) { return z.id === id; })[0]; return q ? q.name : id; });
@@ -77,7 +77,8 @@
             [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(WGA.KINDS[p.kind] || p.kind, "mu"),
               shared ? WGA.sm("led by " + WGA.shortName(p.lead_wg), "mu") : null,
               ext.length ? WGA.sm("Extends: " + ext.join(", "), "warm-ink") : null],
-            [h("ul", {}, p.repos.map(function (r) { return h("li", {}, [h("a", { href: r.url, target: "_blank", rel: "noopener", text: r.name })]); }))],
+            [WGA.wlist(p.repos.slice().sort(function (a, b) { return b.items - a.items || a.name.localeCompare(b.name); })
+              .map(function (r) { return { text: r.name, href: r.url, ext: true, n: r.items, title: r.name + " on GitHub" }; }), "items in the last 12 months")],
             [p.counts ? WGA.strip(p.intensity.slice(from)) : WGA.sm("No GitHub activity in the last year.", "mu")],
             [h("div", { class: "num" }, [h("b", { text: WGA.fmt(p.total52) }), h("span", { class: "mu", text: " items" })]),
               p.releases.length ? WGA.sm(p.releases.length + " release" + (p.releases.length > 1 ? "s" : ""), "mu") : null],
