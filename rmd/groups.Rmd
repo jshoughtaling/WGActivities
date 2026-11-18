@@ -1,14 +1,15 @@
 ---
-title: "Groups"
+title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
 output:
    html_document:
         toc: FALSE
 ---
 
 <div class="wga">
-<div class="wga-page-h"><div><h1>Working groups</h1><p class="sub wga-note">Every OHDSI working group, with its activity over the last 26 weeks, its projects and the topics it works on.</p></div></div>
+<div class="wga-page-h"><div><h1>Working groups</h1><p class="sub wga-note">Every OHDSI working group: activity over the last 6 months, its projects, the topics it works on and its next meeting.</p></div></div>
 <div id="wga-groups">Loading…</div>
 </div>
 
 <script src="assets/wga-common.js"></script>
+<script src="assets/calendar.js"></script>
 <script src="assets/groups.js"></script>

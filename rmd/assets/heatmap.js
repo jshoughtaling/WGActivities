@@ -8,7 +8,7 @@
   var state = { lens: WGA.param("lens") || "groups", source: "all", range: 26, sort: "recent", showEmpty: false, showExtra: true, sel: null, open: {} };
   var data, proj, topics, rows, cols, projByWg = {};
 
-  var RANGES = [[12, "12 weeks"], [26, "26 weeks"], [52, "52 weeks"]];
+  var RANGES = [[13, "3 months"], [26, "6 months"], [52, "12 months"]];
   var SORTS = [["recent", "Most active, last 8 weeks"], ["change", "Biggest rise, last 8 weeks"], ["total", "Most active, whole range"], ["name", "Name"]];
   var LENSES = [["groups", "Groups"], ["projects", "Projects"], ["topics", "Topics"]];
   var NOUN = { groups: "working group", projects: "project", topics: "topic" };

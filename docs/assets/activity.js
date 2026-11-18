@@ -11,7 +11,7 @@
     ["symposium", "Symposium items", ["showcase_entry", "tutorial", "wg_session", "regional_session", "regional_event"]],
   ];
   var v0 = WGA.param("view");
-  var state = { view: v0 === "outputs" || v0 === "calendar" ? v0 : "week", week: WGA.param("week"), q: WGA.param("q") || "", kinds: {} };
+  var state = { view: v0 === "outputs" || v0 === "week" ? v0 : (WGA.param("week") ? "week" : "calendar"), week: WGA.param("week"), q: WGA.param("q") || "", kinds: {} };
   KINDS.forEach(function (k) { state.kinds[k[0]] = true; });
   var dig, sim, cal, calState = { mode: WGA.param("mode") === "month" ? "month" : "week" }, el = {};
 
@@ -43,7 +43,7 @@
     root.appendChild(cols);
 
     var seg = h("div", { class: "wga-seg", role: "group", "aria-label": "View" });
-    [["week", "Week"], ["calendar", "Calendar"], ["outputs", "Outputs"]].forEach(function (o) {
+    [["calendar", "Calendar"], ["outputs", "Outputs"], ["week", "Week"]].forEach(function (o) {
       var b = h("button", { type: "button", text: o[1], "aria-pressed": String(state.view === o[0]) });
       b.addEventListener("click", function () { state.view = o[0]; Array.prototype.forEach.call(seg.children, function (x) { x.setAttribute("aria-pressed", String(x === b)); }); syncSide(); draw(); });
       seg.appendChild(b);
@@ -149,7 +149,7 @@
 
   function drawOutputs(m) {
     var its = current();
-    m.appendChild(h("div", { class: "wga-page-h" }, [h("div", {}, [h("h1", { text: "Outputs, last 52 weeks" }),
+    m.appendChild(h("div", { class: "wga-page-h" }, [h("div", {}, [h("h1", { text: "Outputs, last 12 months" }),
       h("p", { class: "sub wga-note", text: its.length + " shown · releases (nightly builds left out), symposium posters, talks, sessions and tutorials" })])]));
     m.appendChild(h("section", { class: "wga-card" }, [its.length ? WGA.feed(its.slice(0, 400)) : h("p", { class: "wga-empty", text: "Nothing matches these filters." }),
       its.length > 400 ? h("p", { class: "wga-note", text: "Showing the newest 400; download the CSV for all." }) : null]));
@@ -158,7 +158,7 @@
   function markdown() {
     var lines = [];
     if (state.view === "outputs") {
-      lines.push("## OHDSI working-group outputs, last 52 weeks", "");
+      lines.push("## OHDSI working-group outputs, last 12 months", "");
       current().slice(0, 200).forEach(function (it) { lines.push("- " + it.d + " · " + (it.wgs || []).map(WGA.shortName).join(", ") + " · [" + it.title + "](" + it.url + ")"); });
     } else {
       var w = weekObj();

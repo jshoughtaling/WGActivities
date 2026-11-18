@@ -58,8 +58,8 @@
     var tiles = h("div", { class: "wga-tiles" });
     var dlt = w.recent - w.prior;
     WGA.tile(tiles, "Last 8 weeks", WGA.fmt(w.recent), "vs " + WGA.fmt(w.prior) + " the 8 before" + (w.prior ? " (" + (dlt >= 0 ? "+" : "−") + Math.round(Math.abs(dlt) / w.prior * 100) + "%)" : ""));
-    if (w.sources.github) WGA.tile(tiles, "GitHub, " + d.weeks.length + " wk", WGA.fmt(WGA.sum(w.sources.github.counts)), "commits, PRs, issues, releases");
-    if (w.sources.teams) WGA.tile(tiles, "Teams, " + d.weeks.length + " wk", WGA.fmt(WGA.sum(w.sources.teams.counts)), "posts, replies (counts only)");
+    if (w.sources.github) WGA.tile(tiles, "GitHub, last 12 months", WGA.fmt(WGA.sum(w.sources.github.counts)), "commits, PRs, issues, releases");
+    if (w.sources.teams) WGA.tile(tiles, "Teams, last 12 months", WGA.fmt(WGA.sum(w.sources.teams.counts)), "posts, replies (counts only)");
     var conf = (w.yearly && w.yearly.conference) || {}, ys = Object.keys(conf).sort().reverse();
     if (ys.length) WGA.tile(tiles, "Symposium items", conf[ys[0]] + " in " + ys[0], ys.slice(1, 3).map(function (y) { return conf[y] + " in " + y; }).join(" · "));
     root.appendChild(tiles);
@@ -69,18 +69,21 @@
     var ps = x.proj.projects.filter(function (p) { return p.lead_wg === slug || p.contributing_wgs.indexOf(slug) >= 0; })
       .sort(function (a, b) { return (b.grouped - a.grouped) || b.recent - a.recent || b.total52 - a.total52; });
     if (ps.length) {
-      var grid = h("div", { class: "wga-grid" });
-      ps.slice(0, 12).forEach(function (p) {
-        var shared = p.lead_wg !== slug;
-        grid.appendChild(h("a", { class: "wga-lcard", href: WGA.projHref(p.id) }, [
-          h("div", { class: "t" }, [h("span", { text: p.name }), WGA.badge(shared ? "with " + WGA.shortName(p.lead_wg) : (p.extends.length ? "extends" : WGA.KINDS[p.kind] || p.kind), p.extends.length ? "warm" : "blue")]),
-          h("div", { class: "m", text: p.repos.map(function (r) { return r.name; }).join(" · ") }),
-          p.counts ? WGA.strip(p.intensity.slice(from)) : h("div", { class: "m", text: "No GitHub activity in the last year." }),
-          h("div", { class: "d", text: WGA.fmt(p.total52) + " items in 52 weeks" + (p.releases.length ? " · " + p.releases.length + " release" + (p.releases.length > 1 ? "s" : "") : "") }),
-        ]));
-      });
-      var pc = card("Projects", [grid]);
-      if (ps.length > 12) pc.appendChild(h("p", { class: "wga-note", text: (ps.length - 12) + " more on the Projects page." }));
+      var rows = WGA.rows([["Project", "minmax(170px, 1.5fr)"], ["Repositories", "minmax(140px, 1.4fr)"], ["Last 6 months", "minmax(140px, 1.4fr)"], ["Last 12 months", "minmax(110px, 0.8fr)"]],
+        ps.slice(0, 15).map(function (p) {
+          var shared = p.lead_wg !== slug;
+          var tag = shared ? "with " + WGA.shortName(p.lead_wg) : (p.extends.length ? "extends another project" : WGA.KINDS[p.kind] || p.kind);
+          return [
+            [h("div", { class: "nm" }, [h("a", { href: WGA.projHref(p.id), text: p.name })]), WGA.sm(tag, p.extends.length ? "warm-ink" : "mu")],
+            [h("ul", {}, p.repos.slice(0, 4).map(function (r) { return h("li", {}, [h("a", { href: r.url, target: "_blank", rel: "noopener", text: r.name })]); })
+              .concat(p.repos.length > 4 ? [h("li", { class: "mu", text: "+" + (p.repos.length - 4) + " more" })] : []))],
+            [p.counts ? WGA.strip(p.intensity.slice(from)) : WGA.sm("No GitHub activity in the last year.", "mu")],
+            [h("div", { class: "num" }, [h("b", { text: WGA.fmt(p.total52) }), h("span", { class: "mu", text: " items" })]),
+              p.releases.length ? WGA.sm(p.releases.length + " release" + (p.releases.length > 1 ? "s" : ""), "mu") : null],
+          ];
+        }));
+      var pc = card("Projects", [rows]);
+      if (ps.length > 15) pc.appendChild(h("p", { class: "wga-note" }, [(ps.length - 15) + " more on the ", h("a", { href: "projects.html?wg=" + encodeURIComponent(slug) + "&sort=recent", text: "Projects page" }), "."]));
       root.appendChild(pc);
     }
 
