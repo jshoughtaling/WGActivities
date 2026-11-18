@@ -13,15 +13,24 @@ navbar:
     - icon: fa-github
       href: https://github.com/jshoughtaling/WGActivities
   left:
-    - text: "Heatmap"
+    - text: "Overview"
       icon: fa-th
       href: index.html
-    - text: "Working Group"
+    - text: "Groups"
       icon: fa-users
-      href: wg.html
-    - text: "Collaboration"
+      href: groups.html
+    - text: "Projects"
+      icon: fa-cubes
+      href: projects.html
+    - text: "Topics"
+      icon: fa-tags
+      href: topics.html
+    - text: "Connections"
       icon: fa-handshake-o
-      href: collab.html
-    - text: "About the data"
+      href: connections.html
+    - text: "Activity"
+      icon: fa-calendar
+      href: activity.html
+    - text: "About"
       icon: fa-info-circle
       href: about.html

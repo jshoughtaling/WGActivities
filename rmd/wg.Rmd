@@ -8,4 +8,6 @@ output:
 <div class="wga" id="wga-wg">Loading…</div>
 
 <script src="assets/wga-common.js"></script>
+<script src="assets/effort.js"></script>
+<script src="assets/calendar.js"></script>
 <script src="assets/wg.js"></script>

@@ -1,0 +1,14 @@
+---
+title: '<div><img src="ohdsi40x40.png"></img> OHDSI Working Group Activities </div>'
+output:
+   html_document:
+        toc: FALSE
+---
+
+<div class="wga" id="wga-activity">Loading…</div>
+
+<noscript>This page needs JavaScript. The items are in <a href="data/digest.json">digest.json</a>; there is also an <a href="data/digest.xml">RSS feed</a>.</noscript>
+
+<script src="assets/wga-common.js"></script>
+<script src="assets/calendar.js"></script>
+<script src="assets/activity.js"></script>
